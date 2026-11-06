@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ирина Васильева — анализ и предложение по лендингу</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Роли цветов постоянные, значения — под клиента: акцент из логотипа или обложки группы */
+:root{
+  --sage:#B4552F; --sage-dark:#22313F; --sage-ink:#8C3F1F; --gold:#C79A5B; --mint:#F4D6C4;
+  --bg:#FBF9F6; --paper:#fff; --ink:#23241F; --muted:#666A63; --line:#E3DFD3; --tint:#F6ECE4; --warn:#FBF3E2;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.65 Manrope,system-ui,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:1.15;margin:0}
+h1{font-size:46px;margin-bottom:16px}
+h2{font-size:32px;margin:0 0 6px}
+h3{font-size:22px;margin:0 0 6px}
+p{margin:11px 0}
+h1,h2,h3{text-wrap:balance}
+p,li{text-wrap:pretty}
+.sub{color:var(--muted);font-size:14.5px}
+p.sub{max-width:72ch}
+header{background:var(--sage-dark);color:#fff;padding:56px 0 48px}
+header .eyebrow{letter-spacing:3.4px;text-transform:uppercase;font-size:12px;color:var(--mint);margin-bottom:18px}
+header h1{color:#fff;max-width:24ch}
+header p{color:#E2E7EE;max-width:64ch}
+header .sub{color:#AEBACB;margin-top:20px}
+header a{color:#E4E9E1}
+section{padding:46px 0 6px}
+.sec-num{display:block;width:max-content;font-size:12px;letter-spacing:2.6px;text-transform:uppercase;color:var(--sage);border-bottom:2px solid var(--sage);padding-bottom:5px;margin-bottom:16px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:22px 24px;margin:14px 0}
+.card .n{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--sage);line-height:1;margin-bottom:6px}
+.grid.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.grid.two{grid-template-columns:1fr} h1{font-size:36px}}
+.adv{list-style:none;padding:0;margin:14px 0}
+.adv li{padding:11px 0 11px 26px;border-bottom:1px solid var(--line);position:relative}
+.adv li:before{content:"";position:absolute;left:4px;top:21px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.adv li:last-child{border:0}
+.why{background:var(--tint);border-left:3px solid var(--sage);border-radius:0 9px 9px 0;padding:11px 16px;margin-top:12px;font-size:15.5px}
+.seg{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:18px 22px;margin:12px 0}
+.tag{display:inline-block;background:var(--tint);color:var(--sage-ink);font-size:12.5px;letter-spacing:.4px;padding:3px 11px;border-radius:999px;margin-bottom:8px}
+.src{color:var(--muted);font-size:14px;margin-top:2px}
+.note{background:var(--warn);border-radius:12px;padding:16px 20px;margin:18px 0;font-size:15.5px}
+.note strong{color:#7A5A22}
+ol.tasks{padding-left:22px}
+ol.tasks li{margin:12px 0}
+.cta{background:var(--sage-dark);color:#fff;border-radius:16px;padding:34px;text-align:center;margin:22px 0}
+.cta h3{color:#fff;font-size:28px}
+.cta a.btn{display:inline-block;background:var(--mint);color:var(--sage-dark);padding:14px 30px;border-radius:999px;text-decoration:none;font-weight:700;margin-top:14px}
+.cta .url{display:block;margin-top:13px;color:#D8DFE8;font-size:15px;word-break:break-all}
+.cta p{color:#D8DFE8;max-width:56ch;margin:0 auto}
+.offer{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:22px 24px;margin:14px 0}
+.offer-main{border:2px solid var(--sage);background:#FFFAF6}
+.badge{display:inline-block;background:var(--sage);color:#fff;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;padding:3px 11px;border-radius:6px;margin-bottom:9px}
+blockquote{margin:14px 0;padding:14px 20px;background:var(--paper);border-left:3px solid var(--gold);border-radius:0 9px 9px 0;font-style:italic;color:#353B36}
+footer{margin-top:56px;padding:30px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer p{max-width:70ch}
+footer a{color:var(--sage-dark)}
+@media print{
+  body{background:#fff;font-size:11.5pt}
+  .wrap{max-width:100%;padding:0 14mm}
+  header{padding:16mm 0 11mm;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  section{padding:7mm 0 0}
+  h2{margin-top:2mm}
+  .adv li{padding:7px 0 7px 24px}
+  p{margin:8px 0}
+  .card,.seg,.offer,.cta,.note,.why,blockquote{page-break-inside:avoid;break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h2,h3,.sec-num{page-break-after:avoid;break-after:avoid}
+  .card,.seg,.offer{padding:16px 20px;margin:10px 0}
+  .why{margin-top:9px;padding:9px 14px}
+  .cta{padding:24px;margin:16px 0}
+  footer{margin-top:28px;padding:18px 0 20px}
+  h1{font-size:28pt}h2{font-size:20pt}h3{font-size:14pt}
+  a{color:inherit;text-decoration:none}
+  @page{margin:0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Анализ и&nbsp;предложение · Татьяна</div>
+    <h1>Ирина Васильева: разбор сайтов риэлторов и&nbsp;предложение по&nbsp;лендингу</h1>
+    <p>Ирина, перед&nbsp;тем&nbsp;как&nbsp;что-то предлагать, я&nbsp;разобрала сайты частных риэлторов и&nbsp;агентств&nbsp;— из&nbsp;Новосибирска, Москвы и&nbsp;Петербурга: как&nbsp;они&nbsp;подают себя на&nbsp;первом экране, какие цифры показывают, есть&nbsp;ли цены, как&nbsp;принимают заявки и&nbsp;работают&nbsp;ли с&nbsp;другими городами. Отдельно посмотрела, на&nbsp;чём держится доверие у&nbsp;крупного новосибирского агентства. Ниже&nbsp;— что&nbsp;я&nbsp;увидела и&nbsp;что&nbsp;предлагаю сделать.</p>
+    <p class="sub">Источники: good-realtor.com, 1kvartiravmoskve.ru, kalashnikovspb.su, агент-дом.рф, centralnoe.ru, mmir.pro, rgr74.ru, habrealty.ru. Данные собраны 6 ноября 2026 года.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <span class="sec-num">01 · Главные выводы</span>
+  <h2>Пять вещей, которые я&nbsp;увидела</h2>
+  <div class="card">
+    <div class="n">1</div>
+    <h3>«По&nbsp;всей России» почти никто из&nbsp;частных риэлторов не&nbsp;продаёт</h3>
+    <p>Из&nbsp;четырёх личных сайтов, которые я&nbsp;разобрала, удалённую сделку подробно описывает только один&nbsp;— Дмитрий Ефремов из&nbsp;Петербурга, с&nbsp;кейсом покупателя из&nbsp;Казани за&nbsp;31 день. Алексей Барсуков работает в&nbsp;Москве и&nbsp;области, Алексей Калашников&nbsp;— в&nbsp;Петербурге и&nbsp;Ленобласти, Ирина Шарипова&nbsp;— в&nbsp;Новосибирске. Сделки из&nbsp;другого города&nbsp;— ваша свободная ниша, и&nbsp;на&nbsp;ней можно строить весь&nbsp;лендинг.</p>
+  </div>
+  <div class="card">
+    <div class="n">2</div>
+    <h3>Цифры на&nbsp;первом экране решают&nbsp;— и&nbsp;их&nbsp;часто путают</h3>
+    <p>Калашников сразу пишет «10 лет», «350+» сделок, «200+» клиентов. У&nbsp;Ефремова на&nbsp;одной странице и&nbsp;110, и&nbsp;300 сделок, рядом шаблонные «0 объектов продано» и&nbsp;телефон-заглушка. Человек, который выбирает, кому доверить квартиру, такое замечает. Ваши «более 5 лет и&nbsp;ни&nbsp;одной сорванной сделки» сильнее, если&nbsp;рядом стоит точное число сделок.</p>
+  </div>
+  <div class="card">
+    <div class="n">3</div>
+    <h3>Открытые цены есть только у&nbsp;двоих из&nbsp;четырёх</h3>
+    <p>Барсуков пишет прайс прямо на&nbsp;главной: «2% (от&nbsp;200&nbsp;000) ₽» за&nbsp;продажу, обмен «2% (от&nbsp;280&nbsp;000) ₽». Ефремов даёт таблицу: «Консультация&nbsp;— Бесплатно», покупка «от&nbsp;0&nbsp;— 4%». У&nbsp;Шариповой цены только в&nbsp;PDF, у&nbsp;Калашникова прайса нет.&nbsp;Вопрос «сколько стоит» задают все,&nbsp;и&nbsp;тот,&nbsp;кто отвечает на&nbsp;сайте, получает звонок от&nbsp;уже&nbsp;готового клиента.</p>
+  </div>
+  <div class="card">
+    <div class="n">4</div>
+    <h3>Ни&nbsp;у&nbsp;кого нет&nbsp;пользы до&nbsp;звонка</h3>
+    <p>Заявка на&nbsp;всех сайтах&nbsp;— «перезвоните мне» или&nbsp;ссылка на&nbsp;мессенджер. Ни&nbsp;один не&nbsp;предлагает разобрать ситуацию самому: ответить на&nbsp;пару вопросов и&nbsp;увидеть, как&nbsp;пройдёт сделка. Для&nbsp;человека, который только присматривается, это&nbsp;повод остаться на&nbsp;сайте, а&nbsp;не&nbsp;уйти к&nbsp;агрегатору.</p>
+  </div>
+  <div class="card">
+    <div class="n">5</div>
+    <h3>Гарантию в&nbsp;Новосибирске продаёт агентство, а&nbsp;не&nbsp;частный риэлтор</h3>
+    <p>Центральное агентство недвижимости обещает: «Вернём деньги за&nbsp;квартиру полностью, если&nbsp;права на&nbsp;неё оспорят», рядом «26 лет работы» и&nbsp;«12 офисов». Частному риэлтору с&nbsp;масштабом спорить незачем&nbsp;— спорить нужно личной ответственностью и&nbsp;чистой историей. У&nbsp;вас она&nbsp;есть: все&nbsp;сделки закрыты успешно.</p>
+  </div>
+</section>
+
+<section>
+  <span class="sec-num">02 · Ваши преимущества</span>
+  <h2>Что&nbsp;у&nbsp;вас уже&nbsp;сильного</h2>
+  <p class="sub">Это&nbsp;то,&nbsp;что&nbsp;я&nbsp;знаю о&nbsp;вас из&nbsp;нашего разговора. Точные цифры уточним вместе&nbsp;— на&nbsp;сайте будет только то,&nbsp;что&nbsp;вы&nbsp;подтвердите.</p>
+  <ul class="adv">
+    <li><b>Больше пяти лет на&nbsp;рынке.</b> Достаточно, чтобы&nbsp;пройти и&nbsp;спокойный рынок, и&nbsp;ипотечные качели последних лет.</li>
+    <li><b>Все&nbsp;сделки закрыты успешно.</b> Ни&nbsp;одной сорванной&nbsp;— это&nbsp;главное, что&nbsp;хочет услышать человек, который продаёт или&nbsp;покупает единственное жильё.</li>
+    <li><b>Много сделок.</b> Точное число станет самой сильной цифрой первого экрана.</li>
+    <li><b>Работаете по&nbsp;всей России.</b> Среди разобранных частных риэлторов этим всерьёз занимается один, и&nbsp;тот&nbsp;в&nbsp;Петербурге.</li>
+    <li><b>Переезды&nbsp;— постоянный повод для&nbsp;сделки.</b> Продать в&nbsp;одном городе и&nbsp;купить в&nbsp;другом&nbsp;— задача, с&nbsp;которой человек ищет именно риэлтора по&nbsp;всей России, а&nbsp;не&nbsp;агентство своего района.</li>
+    <li><b>Личная работа.</b> Вы&nbsp;ведёте сделку сами, без&nbsp;смены агентов по&nbsp;ходу&nbsp;— то,&nbsp;чего не&nbsp;может пообещать агентство на&nbsp;500 риэлторов.</li>
+  </ul>
+</section>
+
+<section>
+  <span class="sec-num">03 · Сейчас</span>
+  <h2>Что&nbsp;работает и&nbsp;что&nbsp;провисает</h2>
+  <div class="grid two">
+    <div class="card">
+      <h3>Работает</h3>
+      <ul class="adv">
+        <li>Опыт больше пяти лет и&nbsp;чистая история сделок</li>
+        <li>Много сделок&nbsp;— и&nbsp;всё это&nbsp;без&nbsp;сайта</li>
+        <li>Готовность вести сделки в&nbsp;любом городе</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Провисает</h3>
+      <ul class="adv">
+        <li>Нет&nbsp;сайта&nbsp;— некуда отправить человека, которому вас посоветовали, и&nbsp;нечем убедить того, кто нашёл вас сам</li>
+        <li>Клиент из&nbsp;другого города не&nbsp;может проверить вас до&nbsp;звонка: ни&nbsp;отзывов в&nbsp;одном месте, ни&nbsp;цифр, ни&nbsp;цен</li>
+        <li>Сильные стороны&nbsp;— опыт и&nbsp;сделки без&nbsp;срывов&nbsp;— пока звучат только в&nbsp;разговоре</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="sec-num">04 · Конкуренты</span>
+  <h2>Как&nbsp;подают себя другие риэлторы</h2>
+  <p>Я&nbsp;разобрала четыре личных сайта риэлторов, два новосибирских агентства и&nbsp;два источника о&nbsp;дистанционных сделках. Смотрела, что&nbsp;видно на&nbsp;первом экране, какие цифры и&nbsp;цены названы, как&nbsp;принимают заявку и&nbsp;работают&nbsp;ли с&nbsp;другими городами. Ещё&nbsp;несколько сайтов, в&nbsp;том числе «Жилфонд», 6 ноября не&nbsp;открылись&nbsp;— их&nbsp;я&nbsp;не&nbsp;учитывала.</p>
+
+  <div class="card">
+    <span class="tag">Новосибирск</span>
+    <h3>Ирина Шарипова, «Хороший риэлтор»</h3>
+    <p class="src">good-realtor.com · агентство из&nbsp;трёх человек</p>
+    <p>Заголовок&nbsp;— «с&nbsp;гарантией безопасной сделки», кнопка «Получить бесплатную консультацию», отдельный ипотечный специалист, чек-лист при&nbsp;просмотре квартиры. Цены&nbsp;— только в&nbsp;PDF, отзывы&nbsp;— одна ссылка на&nbsp;Flamp. Удалённые сделки не&nbsp;упомянуты.</p>
+    <div class="why">Бесплатная консультация и&nbsp;чек-лист работают&nbsp;— берём. А&nbsp;отзывы со&nbsp;ссылкой на&nbsp;площадку и&nbsp;цены на&nbsp;странице дадут вам то,&nbsp;чего у&nbsp;неё не&nbsp;видно.</div>
+  </div>
+
+  <div class="card">
+    <span class="tag">Москва</span>
+    <h3>Алексей Барсуков</h3>
+    <p class="src">1kvartiravmoskve.ru · «вот&nbsp;уже&nbsp;более 15 лет работаю риэлтором»</p>
+    <p>Полный прайс на&nbsp;главной: «2% (от&nbsp;200&nbsp;000) ₽» за&nbsp;продажу и&nbsp;покупку вторички, обмен «2% (от&nbsp;280&nbsp;000) ₽», сопровождение «от&nbsp;150&nbsp;000&nbsp;₽». Пять этапов работы, вопрос «Чем&nbsp;частный риэлтор отличается от&nbsp;агентства?». Числа сделок и&nbsp;внешних отзывов нет,&nbsp;только Москва и&nbsp;область.</p>
+    <div class="why">Открытый прайс с&nbsp;минимальной суммой&nbsp;— лучшее, что&nbsp;есть на&nbsp;этом сайте. На&nbsp;вашем сайте цены будут стоять так&nbsp;же&nbsp;— по&nbsp;каждой услуге.</div>
+  </div>
+
+  <div class="card">
+    <span class="tag">Санкт-Петербург</span>
+    <h3>Алексей Калашников</h3>
+    <p class="src">kalashnikovspb.su · «10 лет», «350+» сделок</p>
+    <p>Таблица «обычный риэлтор«обычный риэлтор / я»nbsp;/ я» с&nbsp;цифрами одной сделки. «За&nbsp;поговорить (первую консультацию) деньги не&nbsp;беру!». Около&nbsp;30% клиентов, по&nbsp;его&nbsp;словам, возвращаются. Отзывов и&nbsp;описания гарантий на&nbsp;сайте нет&nbsp;— истории клиентов уходят в&nbsp;Telegram.</p>
+    <div class="why">Сравнение «сами / агентство / со&nbsp;мной» хорошо снимает вопрос «зачем мне риэлтор»&nbsp;— оно есть в&nbsp;прототипе. Отзывы при&nbsp;этом оставляем на&nbsp;сайте, а&nbsp;не&nbsp;в&nbsp;стороннем канале.</div>
+  </div>
+
+  <div class="card">
+    <span class="tag">Санкт-Петербург</span>
+    <h3>Дмитрий Ефремов</h3>
+    <p class="src">агент-дом.рф · «Работаю без&nbsp;посредников и&nbsp;скрытых комиссий»</p>
+    <p>Самый продуманный из&nbsp;личных сайтов: кейсы «тип&nbsp;— задача&nbsp;— срок» («7 дней от&nbsp;звонка до&nbsp;ключей»), шесть шагов сделки, таблица цен, дистанционная покупка из&nbsp;Казани с&nbsp;3D-туром и&nbsp;электронной подписью. Но&nbsp;на&nbsp;той&nbsp;же странице шаблонные нули, тестовый телефон и&nbsp;разное число сделок.</p>
+    <div class="why">Кейсы со&nbsp;сроком и&nbsp;блок удалённой сделки&nbsp;— берём оба. И&nbsp;делаем то,&nbsp;что&nbsp;у&nbsp;него провисает: одна проверенная цифра везде одинаковая.</div>
+  </div>
+
+  <div class="card">
+    <span class="tag">Новосибирск</span>
+    <h3>Центральное агентство&nbsp;недвижимости</h3>
+    <p class="src">centralnoe.ru · «26 лет работы», «12 офисов в&nbsp;Новосибирске»</p>
+    <p>Письменная «Абсолютная гарантия» возврата денег, если&nbsp;права на&nbsp;квартиру оспорят, срочная продажа «за&nbsp;5 дней или&nbsp;выкупим её&nbsp;сами». Сайт&nbsp;— поиск по&nbsp;объектам, человек за&nbsp;ним не&nbsp;виден, кроме блока «Написать директору».</p>
+    <div class="why">Агентство продаёт масштаб и&nbsp;гарантию, вы&nbsp;— личное участие и&nbsp;историю без&nbsp;срывов. Это&nbsp;разные покупатели, и&nbsp;сайт должен говорить со&nbsp;своим.</div>
+  </div>
+
+  <div class="card">
+    <span class="tag">Вся&nbsp;Россия</span>
+    <h3>Как&nbsp;оформляют удалённые сделки</h3>
+    <p class="src">rgr74.ru (гильдия риэлторов «Южный Урал») · habrealty.ru</p>
+    <p>Гильдия описывает формат «онлайн-риэлтор»: консультации и&nbsp;сопровождение сделки «из&nbsp;любой точки России», видеопоказы, электронные документы. Habrealty разбирает схемы удалённой покупки: нотариус, банк с&nbsp;электронной регистрацией, подача документов в&nbsp;другом регионе.</p>
+    <div class="why">Люди ищут, как&nbsp;купить квартиру в&nbsp;другом городе, а&nbsp;частные риэлторы эту тему почти не&nbsp;раскрывают. Блок про&nbsp;удалённую сделку на&nbsp;вашем сайте отвечает на&nbsp;этот&nbsp;вопрос по&nbsp;шагам.</div>
+  </div>
+
+  <div class="note"><strong>Кто на&nbsp;самом деле забирает поиск.</strong> По&nbsp;запросу «риэлтор Новосибирск» первыми идут не&nbsp;личные сайты, а&nbsp;площадки: на&nbsp;Профи.ру&nbsp;— 2941 специалист, на&nbsp;Яндекс Услугах&nbsp;— 179 риэлторов со&nbsp;средней оценкой 4,8. Там&nbsp;человек сравнивает карточки по&nbsp;цене. Личный сайт выигрывает, когда&nbsp;на&nbsp;него приходят уже&nbsp;за&nbsp;вами: по&nbsp;рекомендации, из&nbsp;соцсетей, из&nbsp;карточки на&nbsp;площадке&nbsp;— и&nbsp;видят цифры, отзывы и&nbsp;цены в&nbsp;одном месте.</div>
+</section>
+
+<section>
+  <span class="sec-num">05 · Клиенты</span>
+  <h2>Кто к&nbsp;вам приходит</h2>
+  <div class="seg"><span class="tag">главный поток</span>
+    <h3>1. Покупают квартиру в&nbsp;ипотеку</h3>
+    <p>«Одобрят&nbsp;ли эту квартиру и&nbsp;не&nbsp;потеряю&nbsp;ли я&nbsp;задаток?»&nbsp;— сайт показывает проверку и&nbsp;работу с&nbsp;банками.</p></div>
+  <div class="seg"><span class="tag">продавцы</span>
+    <h3>2. Продают квартиру</h3>
+    <p>«За&nbsp;сколько реально продать и&nbsp;сколько вы&nbsp;возьмёте?»&nbsp;— сайт отвечает открытыми ценами и&nbsp;шагами продажи.</p></div>
+  <div class="seg"><span class="tag">высокий чек</span>
+    <h3>3. Меняют или&nbsp;улучшают жильё</h3>
+    <p>«Как&nbsp;продать свою и&nbsp;купить новую, не&nbsp;оказавшись на&nbsp;съёмной?»&nbsp;— сайт показывает обмен одной цепочкой.</p></div>
+  <div class="seg"><span class="tag">ваша ниша</span>
+    <h3>4. Переезжают или&nbsp;покупают в&nbsp;другом городе</h3>
+    <p>«Можно&nbsp;ли всё сделать, не&nbsp;приезжая, и&nbsp;кто будет смотреть квартиру вместо меня?»&nbsp;— для&nbsp;них отдельный блок про&nbsp;удалённую сделку.</p></div>
+  <div class="seg"><span class="tag">сложные сделки</span>
+    <h3>5. Продают наследство издалека</h3>
+    <p>«Как&nbsp;продать квартиру в&nbsp;Новосибирске, если&nbsp;мы&nbsp;все&nbsp;живём в&nbsp;других городах?»&nbsp;— доверенность, защищённый расчёт, кейс.</p></div>
+  <div class="seg"><span class="tag">вход в&nbsp;работу</span>
+    <h3>6. Нашли квартиру сами</h3>
+    <p>«Посмотрите документы, пока я&nbsp;не&nbsp;отдал задаток»&nbsp;— небольшая услуга проверки, после&nbsp;которой часто просят вести всю сделку.</p></div>
+</section>
+
+<section>
+  <span class="sec-num">06 · Логика сайта</span>
+  <h2>Что&nbsp;должен решать сайт</h2>
+  <ol class="tasks">
+    <li><b>Убеждать за&nbsp;10 секунд.</b> На&nbsp;первом экране&nbsp;— кто вы,&nbsp;где&nbsp;работаете и&nbsp;три цифры: стаж, число сделок, ни&nbsp;одной сорванной.</li>
+    <li><b>Отвечать на&nbsp;вопрос цены.</b> Открытый прайс по&nbsp;каждой услуге и&nbsp;бесплатная первая консультация&nbsp;— до&nbsp;звонка.</li>
+    <li><b>Продавать удалённую сделку.</b> Отдельный блок «по&nbsp;всей России»: видеопоказ, проверка онлайн, подписание и&nbsp;расчёт без&nbsp;приезда.</li>
+    <li><b>Давать пользу до&nbsp;разговора.</b> Подбор плана сделки за&nbsp;четыре вопроса и&nbsp;чек-лист проверок квартиры&nbsp;— человек получает план и&nbsp;оставляет контакт.</li>
+    <li><b>Показывать, что&nbsp;вам можно доверять.</b> Кейсы «задача&nbsp;— срок&nbsp;— результат», отзывы со&nbsp;ссылкой на&nbsp;площадку, шаги сделки.</li>
+    <li><b>Быть ссылкой для&nbsp;пересылки.</b> Когда&nbsp;вас советуют знакомым, им отправляют одну ссылку&nbsp;— и&nbsp;в&nbsp;ней есть всё, а&nbsp;написать можно сразу в&nbsp;мессенджер.</li>
+  </ol>
+</section>
+
+<section>
+  <span class="sec-num">07 · Прототип</span>
+  <h2>Чтобы&nbsp;не&nbsp;объяснять словами</h2>
+  <p>Я&nbsp;собрала прототип лендинга и&nbsp;сложила в&nbsp;него лучшее, что&nbsp;нашла на&nbsp;сайтах других риэлторов: цифры на&nbsp;первом экране, сравнение «сами / агентство / со&nbsp;мной», шесть шагов сделки, кейсы со&nbsp;сроками и&nbsp;открытые цены. И&nbsp;добавила то,&nbsp;чего нет&nbsp;ни&nbsp;у&nbsp;кого: блок про&nbsp;удалённые сделки по&nbsp;всей России и&nbsp;подбор плана сделки за&nbsp;четыре вопроса.</p>
+  <p>Дальше проще один раз открыть и&nbsp;посмотреть самой.</p>
+  <div class="cta">
+    <h3>Прототип лендинга Ирины Васильевой</h3>
+    <p>Открывается с&nbsp;компьютера и&nbsp;телефона, регистрация не&nbsp;нужна.</p>
+    <a class="btn" href="https://paharukova.github.io/prototipy/irina-vasilyeva/">Открыть прототип</a>
+    <span class="url">paharukova.github.io/prototipy/irina-vasilyeva</span>
+  </div>
+  <p class="sub">Честно: вместо фотографий пока заглушки, кейсы показаны для&nbsp;примера, а&nbsp;места для&nbsp;ваших цифр, цен и&nbsp;отзывов отмечены жёлтыми плашками. Кнопки ничего не&nbsp;отправляют&nbsp;— это&nbsp;демонстрация, а&nbsp;не&nbsp;готовый сайт.</p>
+</section>
+
+<section>
+  <span class="sec-num">08 · Чем&nbsp;зацепить клиента</span>
+  <h2>Варианты, из&nbsp;которых можно выбрать</h2>
+  <div class="offer offer-main">
+    <span class="badge">заложено в&nbsp;прототип</span>
+    <h3>А.&nbsp;Бесплатная консультация и&nbsp;план сделки</h3>
+    <p>Человек отвечает на&nbsp;четыре вопроса&nbsp;— что&nbsp;нужно, где&nbsp;квартира, как&nbsp;платит, когда&nbsp;хочет выйти на&nbsp;сделку&nbsp;— и&nbsp;сразу видит свой план по&nbsp;шагам. Дальше оставляет контакт, чтобы&nbsp;получить его&nbsp;с&nbsp;примерной стоимостью. Так&nbsp;консультация становится не&nbsp;«перезвоните мне», а&nbsp;продолжением уже&nbsp;начатого разговора.</p>
+  </div>
+  <div class="offer">
+    <span class="badge">тоже в&nbsp;прототипе</span>
+    <h3>Б. Чек-лист «12 проверок квартиры перед&nbsp;задатком»</h3>
+    <p>Для&nbsp;тех, кто пока ищет сам. Чек-лист приходит в&nbsp;мессенджер, а&nbsp;у&nbsp;вас остаётся контакт человека, который скоро будет выходить на&nbsp;сделку. Такие чек-листы есть у&nbsp;Шариповой и&nbsp;Ефремова&nbsp;— значит, их&nbsp;берут.</p>
+  </div>
+  <div class="offer">
+    <h3>В.&nbsp;Удалённая сделка как&nbsp;отдельная услуга</h3>
+    <p>Своя цена и&nbsp;своя страница для&nbsp;тех, кто переезжает или&nbsp;продаёт наследство издалека. Это&nbsp;ваше главное отличие от&nbsp;риэлторов, которых я&nbsp;разобрала, и&nbsp;его&nbsp;стоит продавать отдельно, а&nbsp;не&nbsp;строчкой в&nbsp;списке.</p>
+  </div>
+  <div class="offer">
+    <h3>Г. Застрахованная ответственность&nbsp;— и&nbsp;написать об&nbsp;этом</h3>
+    <p>Ответ частного риэлтора на&nbsp;«гарантию» агентства. Например, в&nbsp;«Макромире» полис ответственности риэлтора на&nbsp;5 млн рублей стоит 15&nbsp;000 рублей. Строка «моя ответственность застрахована на&nbsp;5 млн» рядом с&nbsp;«ни&nbsp;одной сорванной сделки» закрывает главный страх.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="padding:0">
+    <p>Данные собраны 6 ноября 2026 года: good-realtor.com, 1kvartiravmoskve.ru, kalashnikovspb.su, агент-дом.рф, centralnoe.ru, mmir.pro, rgr74.ru, habrealty.ru, profi.ru, uslugi.yandex.ru.</p>
+    <p><b>Татьяна</b> — разработка сайтов для&nbsp;малого бизнеса. Прототип: paharukova.github.io/prototipy/irina-vasilyeva · <a href="KP-Ирина-Васильева.pdf">PDF-версия этого документа</a></p>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
