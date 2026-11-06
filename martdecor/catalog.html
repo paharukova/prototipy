@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Каталог — МАРТдекор</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="catalog">
+<div id="site-head"></div>
+<main class="wrap">
+  <div class="page-head">
+    <div class="crumbs"><a href="index.html">Главная</a> / Каталог</div>
+    <h1>Каталог</h1>
+    <p class="muted">Стеновые панели, обои, гипсовый декор. Цены&nbsp;— из&nbsp;каталога ВКонтакте на&nbsp;06.11.2026.</p>
+  </div>
+  <div class="cat-layout">
+    <aside class="filters">
+      <div><h5>Где&nbsp;применить</h5><div id="f-place"><label><input type="checkbox" value="Стены"> Стены</label><label><input type="checkbox" value="Потолок"> Потолок</label><label><input type="checkbox" value="Мебель"> Мебель и&nbsp;фасады</label></div></div>
+      <div><h5>Материал</h5><div id="f-mat"></div></div>
+      <div><h5>Цена за&nbsp;единицу</h5><input type="range" id="f-max" min="500" max="11000" step="100" value="11000"><div id="f-max-v" class="muted" style="font-size:14px">до&nbsp;11&nbsp;000&nbsp;₽</div></div>
+      <div class="need"><i class="ti ti-help"></i><span>Не&nbsp;знаете, что&nbsp;выбрать? <a href="index.html#lead">Менеджер подберёт</a> по&nbsp;фото стены.</span></div>
+    </aside>
+    <div>
+      <div class="search"><i class="ti ti-search"></i><input id="q" placeholder="Поиск: акустическая, HILL, дуб, гипс…"></div>
+      <div class="tabs" id="tabs"></div>
+      <div class="count" id="count"></div>
+      <div class="grid" id="catalog-grid"></div>
+      <p class="demo" style="margin-top:16px">В&nbsp;прототипе&nbsp;— выборка по&nbsp;2–3 позиции на&nbsp;раздел. Наличие показано для&nbsp;примера.</p>
+    </div>
+  </div>
+</main>
+<footer id="site-foot"></footer>
+<script src="js/typo.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
