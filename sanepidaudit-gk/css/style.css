@@ -1,0 +1,276 @@
+:root {
+  --navy: #15263A;
+  --navy-2: #22374F;
+  --amber: #C46A1E;
+  --amber-light: #E9A45B;
+  --amber-text: #9A5115;
+  --amber-btn: #A3561A;
+  --muted: #56606C;
+  --bg: #F4F5F7;
+  --card: #FFFFFF;
+  --line: #DDE1E6;
+  --med: #1F6FD1;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(21,38,58,.06), 0 8px 24px rgba(21,38,58,.06);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--navy);
+  background: var(--bg);
+}
+a { color: inherit; }
+h1, h2, h3 { text-wrap: balance; }
+p, li, td { text-wrap: pretty; }
+img, svg { display: block; max-width: 100%; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+/* ── Плашка прототипа ───────────────────────── */
+.proto-bar {
+  background: var(--navy); color: #fff; font-size: 14px; text-align: center; padding: 8px 16px;
+}
+.proto-bar b { color: var(--amber-light); }
+
+/* ── Шапка ──────────────────────────────────── */
+header.top {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(255,255,255,.96); backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+header.top .wrap { display: flex; align-items: center; gap: 28px; height: 74px; }
+header.top .logo img { height: 40px; width: auto; }
+header.top nav { display: flex; gap: 22px; margin-left: auto; font-size: 15px; font-weight: 600; }
+header.top nav a { text-decoration: none; color: var(--muted); }
+header.top nav a:hover { color: var(--navy); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 22px; border-radius: 10px; border: 0; cursor: pointer;
+  font: 700 16px/1.2 "Manrope", sans-serif; text-decoration: none;
+  transition: transform .15s, box-shadow .15s, background .15s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-amber { background: var(--amber-btn); color: #fff; }
+.btn-amber:hover { background: #8C4A16; }
+.btn-ghost { background: transparent; color: var(--navy); box-shadow: inset 0 0 0 2px var(--navy); }
+.btn-light { background: #fff; color: var(--navy); }
+.btn-sm { padding: 10px 16px; font-size: 15px; }
+
+/* ── Первый экран ───────────────────────────── */
+.hero { padding: 56px 0 64px; }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: start; }
+.eyebrow { font-size: 14px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--amber-text); margin: 0 0 14px; }
+h1 { font-size: 46px; line-height: 1.12; margin: 0 0 20px; letter-spacing: -.01em; }
+.lead { font-size: 19px; color: var(--muted); margin: 0 0 28px; max-width: 34em; }
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+.hero-facts { display: flex; gap: 28px; flex-wrap: wrap; padding-top: 24px; border-top: 1px solid var(--line); }
+.hero-facts div { font-size: 14px; color: var(--muted); max-width: 13em; }
+.hero-facts b { display: block; font-size: 26px; color: var(--navy); }
+
+.hero-panel { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; }
+.hero-panel h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 0 0 12px; }
+.hero-panel a.row {
+  display: flex; align-items: center; gap: 14px; padding: 12px 12px; border-radius: 10px; text-decoration: none;
+  transition: background .15s;
+}
+.hero-panel a.row:hover { background: var(--bg); }
+.hero-panel .row b { display: block; font-size: 16px; }
+.hero-panel .row span { font-size: 14px; color: var(--muted); }
+.hero-panel .row .go { margin-left: auto; color: var(--muted); font-size: 20px; }
+
+/* Значок-ступени */
+.steps { flex: none; }
+
+/* ── Секции ─────────────────────────────────── */
+section { padding: 72px 0; }
+section.white { background: #fff; }
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 32px; }
+h2.sec { font-size: 34px; line-height: 1.2; margin: 0; }
+.sec-head p { margin: 8px 0 0; color: var(--muted); max-width: 40em; }
+
+/* ── Направления ────────────────────────────── */
+.dir-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+.dir {
+  grid-column: span 2; position: relative; display: flex; flex-direction: column;
+  background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 24px; border-top: 5px solid var(--c);
+  transition: transform .2s, box-shadow .2s;
+}
+.dir:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(21,38,58,.12); }
+.dir.big { grid-column: span 3; }
+.dir .group { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--c); }
+.dir h3 { font-size: 23px; line-height: 1.25; margin: 6px 0 8px; }
+.dir.big h3 { font-size: 27px; }
+.dir .company { font-size: 14px; color: var(--muted); margin: 0 0 12px; }
+.dir p.short { margin: 0 0 14px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; padding: 0; list-style: none; }
+.tags li { font-size: 14px; font-weight: 600; padding: 5px 10px; border-radius: 99px; background: var(--bg); }
+.dir .facts { font-size: 14px; color: var(--muted); margin: 0 0 18px; padding: 0; list-style: none; }
+.dir .facts li::before { content: "✓ "; color: var(--c); font-weight: 700; }
+.dir .actions { margin-top: auto; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.dir .site { font-size: 14px; color: var(--muted); }
+.btn-c { background: var(--c); color: #fff; }
+.dir .top-row { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+.badge-variant {
+  display: inline-block; font-size: 14px; font-weight: 700; padding: 4px 8px; border-radius: 6px;
+  background: #FFF3E6; color: var(--amber-text); margin-top: 8px;
+}
+
+/* «Нужно от вас» */
+.need {
+  border: 2px dashed var(--amber-light); background: #FFF8F0; color: #7A4612;
+  border-radius: 10px; padding: 10px 14px; font-size: 14px; font-weight: 600;
+}
+.need::before { content: "Нужно от вас: "; font-weight: 800; }
+.need.inline { display: inline-block; padding: 4px 10px; font-size: 14px; }
+
+/* ── По задаче ──────────────────────────────── */
+.tasks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.task {
+  display: flex; align-items: center; gap: 14px; padding: 18px 20px; border-radius: 12px;
+  background: var(--bg); text-decoration: none; font-weight: 600; transition: background .15s;
+}
+.task:hover { background: #E9ECF0; }
+.task .arrow { margin-left: auto; color: var(--muted); }
+.task small { display: block; font-weight: 500; color: var(--muted); font-size: 14px; }
+
+/* ── Участникам закупок ─────────────────────── */
+.tender { background: var(--navy); color: #fff; }
+.tender .sec-head p { color: #B8C2CE; }
+.tender-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.tcard { background: var(--navy-2); border-radius: var(--radius); padding: 24px; }
+.tcard h3 { margin: 0 0 10px; font-size: 20px; }
+.tcard p, .tcard li { color: #C9D1DA; font-size: 15px; }
+.tcard ul { padding-left: 18px; margin: 0 0 14px; }
+.tcard .lic { font-size: 14px; color: #fff; margin: 0 0 10px; }
+.tcard .lic span { display: block; color: #AEBBC9; font-size: 14px; }
+.tender .need { background: transparent; color: var(--amber-light); border-color: rgba(233,164,91,.6); }
+
+/* ── Доверие ────────────────────────────────── */
+.trust { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; }
+.clients { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.clients div {
+  background: #fff; border-radius: 10px; padding: 14px; font-size: 14px; font-weight: 700; text-align: center;
+  min-height: 64px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line);
+}
+.letters { list-style: none; padding: 0; margin: 0 0 16px; }
+.letters li { display: flex; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.letters .scan {
+  flex: none; width: 46px; height: 60px; border-radius: 4px; background: repeating-linear-gradient(45deg,#E6E9ED,#E6E9ED 6px,#F1F3F5 6px,#F1F3F5 12px);
+  border: 1px solid var(--line);
+}
+.src { font-size: 14px; color: var(--muted); }
+
+/* ── История-ступени ────────────────────────── */
+.ladder { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; align-items: end; }
+.ladder a { text-decoration: none; }
+.ladder .stair {
+  border-radius: 10px 10px 0 0; background: var(--navy); color: #fff; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end;
+  transition: background .2s;
+}
+.ladder a:last-child .stair { background: var(--amber); }
+.ladder a:hover .stair { background: var(--navy-2); }
+.ladder a:last-child:hover .stair { background: #ad5c17; }
+.ladder .year { font-size: 28px; font-weight: 800; }
+.ladder .d { font-weight: 700; }
+.ladder .t { font-size: 14px; color: #C9D1DA; }
+.ladder a:last-child .t { color: #FFE7CF; }
+
+/* ── Юрлица ─────────────────────────────────── */
+.tbl-wrap { overflow-x: auto; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); background: #FAFBFC; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* ── Форма ──────────────────────────────────── */
+.form-box { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 40px; }
+.form-box h2 { margin-top: 0; }
+form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+label { display: block; font-size: 14px; font-weight: 600; margin: 0 0 12px; }
+input, select, textarea {
+  display: block; width: 100%; margin-top: 6px; padding: 12px 14px; border-radius: 10px;
+  border: 1px solid var(--line); font: 500 16px "Manrope", sans-serif; background: #fff; color: var(--navy);
+}
+textarea { min-height: 96px; resize: vertical; }
+.route { font-size: 14px; color: var(--muted); margin: -4px 0 14px; min-height: 20px; }
+.route b { color: var(--navy); }
+.done { display: none; padding: 16px; border-radius: 10px; background: #EAF5EC; color: #1E5E27; font-weight: 600; margin-top: 12px; }
+
+/* ── Контакты ───────────────────────────────── */
+.contacts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.ccard { background: #fff; border-radius: 12px; padding: 18px; border-left: 4px solid var(--c); font-size: 15px; }
+.ccard b { display: block; margin-bottom: 4px; }
+.ccard a { font-weight: 700; text-decoration: none; }
+
+/* ── Подвал ─────────────────────────────────── */
+footer { background: var(--navy); color: #C9D1DA; padding: 48px 0 32px; font-size: 14px; }
+footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 32px; }
+footer img { height: 36px; width: auto; margin-bottom: 14px; }
+footer h4 { color: #fff; margin: 0 0 10px; font-size: 15px; }
+footer ul { list-style: none; padding: 0; margin: 0; }
+footer li { margin-bottom: 6px; }
+footer a { color: #fff; }
+footer .fine { grid-column: 1 / -1; border-top: 1px solid rgba(255,255,255,.12); padding-top: 18px; font-size: 14px; color: #AEBBC9; }
+
+/* ── Страница направления ───────────────────── */
+.crumbs { font-size: 14px; color: var(--muted); padding-top: 22px; }
+.dhero .tags li { background: #fff; }
+.crumbs a { color: var(--muted); }
+.dhero { padding: 28px 0 48px; }
+.dhero .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; }
+.dhero h1 { font-size: 42px; }
+.dside { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; border-top: 5px solid var(--c); }
+.dside dl { margin: 0; }
+.dside dt { font-size: 14px; color: var(--muted); margin-top: 12px; }
+.dside dd { margin: 2px 0 0; font-weight: 600; }
+.svc { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.svc li { background: #fff; border-radius: 12px; padding: 18px 20px; font-weight: 600; border-left: 4px solid var(--c); }
+.photo {
+  border-radius: var(--radius); background: repeating-linear-gradient(135deg,#E6E9ED,#E6E9ED 10px,#EEF0F3 10px,#EEF0F3 20px);
+  display: flex; align-items: center; justify-content: center; text-align: center; color: var(--muted); font-size: 14px; font-weight: 600; padding: 20px;
+}
+
+/* Появление при прокрутке */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .5s, transform .5s; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ── Телефон ────────────────────────────────── */
+@media (max-width: 980px) {
+  header.top nav { display: none; }
+  .hero .wrap, .trust, .form-box, .dhero .wrap { grid-template-columns: 1fr; }
+  .dir-grid { grid-template-columns: 1fr 1fr; }
+  .dir, .dir.big { grid-column: span 1; }
+  .tasks, .tender-grid, .contacts { grid-template-columns: 1fr 1fr; }
+  .ladder { grid-template-columns: repeat(5, minmax(0,1fr)); gap: 6px; }
+  footer .wrap { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 16px; }
+  header.top .wrap { height: 62px; gap: 12px; }
+  header.top .logo img { height: 30px; }
+  header.top .btn { padding: 9px 12px; font-size: 14px; }
+  h1, .dhero h1 { font-size: 31px; }
+  h2.sec { font-size: 26px; }
+  .lead { font-size: 17px; }
+  section { padding: 52px 0; }
+  .sec-head { display: block; }
+  .dir-grid, .tasks, .tender-grid, .contacts, .clients, .svc { grid-template-columns: 1fr; }
+  .ladder { grid-template-columns: 1fr; }
+  .ladder .stair { height: auto !important; border-radius: 10px; }
+  .form-box { padding: 22px; }
+  table, thead, tbody, tr, td { display: block; }
+  thead { display: none; }
+  tr { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+  td { border: 0; padding: 2px 0; }
+  td[data-l]::before { content: attr(data-l) ": "; color: var(--muted); font-weight: 600; }
+  form .row2 { grid-template-columns: 1fr; }
+  footer .wrap { grid-template-columns: 1fr; }
+  .hero-facts { gap: 18px; }
+}
