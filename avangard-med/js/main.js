@@ -17,12 +17,13 @@
   }
 
   /* шапка и подвал — одни на все страницы */
+  var MARK = function (w, light) { return '<svg class="gk-mark" width="' + w + '" height="' + Math.round(w * 96 / 102.86) + '" viewBox="0 0 102.86 96" aria-hidden="true">' + '<rect x="0.00" y="80.00" width="14.60" height="16.00" rx="2.1" fill="#15263A"/><rect x="17.65" y="64.00" width="14.60" height="32.00" rx="2.1" fill="#15263A"/><rect x="35.30" y="48.00" width="14.60" height="48.00" rx="2.1" fill="#15263A"/><rect x="52.96" y="32.00" width="14.60" height="64.00" rx="2.1" fill="#15263A"/><rect x="70.61" y="16.00" width="14.60" height="80.00" rx="2.1" fill="#15263A"/><rect x="88.26" y="0.00" width="14.60" height="96.00" rx="2.1" fill="#1F6FD1"/>'.replace(/#15263A/g, light ? "#FFFFFF" : "#15263A") + "</svg>"; };
   var nav = [["catalog.html", "Справки и осмотры"], ["article.html?id=prava-za-utro", "Как пройти за утро"], ["index.html#org", "Организациям"], ["index.html#where", "Как добраться"]];
   var st = status();
   var head = $("#top");
   if (head) head.innerHTML =
     '<div class="wrap">' +
-    '<a class="logo-box" href="index.html"><span class="logo"><span class="a">Авангард</span>-<span class="m">Мед</span></span><small>Медосмотры и справки в Кемерово</small></a>' +
+    '<a class="logo-box" href="index.html">' + MARK(36) + '<span class="logo-txt"><span class="logo"><span class="a">Авангард</span>-<span class="m">Мед</span></span><small>Медосмотры и справки в Кемерово</small></span></a>' +
     '<nav class="nav">' + nav.map(function (n) { return '<a href="' + n[0] + '"' + (location.pathname.indexOf(n[0].split("?")[0].split("#")[0]) >= 0 && n[0].indexOf("#") < 0 ? ' class="on"' : "") + ">" + t(n[1]) + "</a>"; }).join("") + "</nav>" +
     '<div class="top-right"><span class="open-now"><i class="dot' + (st.on ? " on" : "") + '"></i>' + t(st.on ? "Открыто" : "Закрыто") + "</span>" +
     '<a class="tel" href="' + S.phoneHref + '">' + S.phone.replace(/ /g, " ") + "</a>" +
@@ -31,11 +32,11 @@
   var foot = $("#foot");
   if (foot) foot.innerHTML =
     '<div class="wrap"><div class="foot">' +
-    "<div><b>ООО МПЦ «Авангард-Мед»</b><br>" + t("ОГРН 1154205017010, ИНН 4205318095") + "<br>" + t("Лицензия Л041-01161-42/00324463") + "<br>" + t("Не работаем по программе госгарантий (ОМС)") + "</div>" +
+    "<div><b>ООО МПЦ «Авангард-Мед»</b><br>" + t("ОГРН 1154205017010, ИНН 4205318095") + "<br>" + t("Лицензия Л041-01161-42/00324463, Минздрав Кузбасса") + "<br>" + t("Не работаем по программе госгарантий (ОМС)") + '<br><a class="gk-link" href="https://paharukova.github.io/prototipy/sanepidaudit-gk/" target="_blank" rel="noopener">' + MARK(22, true) + 'ГК «Санэпидаудит-Кузбасс»</a></div>' +
     "<div><b>" + t(S.address) + "</b><br>" + t(S.addressNote) + "<br>" + t("Регистратура: пн–пт 8:00–17:00") + "<br>" + t("Врачи: пн–пт 8:00–12:00") + "</div>" +
-    '<div><a href="' + S.phoneHref + '">' + esc(S.phone) + "</a>, " + esc(S.phoneExt) + "<br>" + '<a href="mailto:' + S.email + '">' + S.email + "</a><br>" + t("Права пациента и документы — на отдельной странице") + "</div>" +
+    '<div><a href="' + S.phoneHref + '">' + esc(S.phone) + "</a>, " + esc(S.phoneExt) + "<br>" + '<a href="mailto:' + S.email + '">' + S.email + "</a><br>" + '<a href="svedeniya.html">' + t("Сведения о медицинской организации") + "</a><br>" + t("Политика обработки персональных данных") + "</div>" +
     "</div>" +
-    '<div class="proto">' + t("Прототип сайта для обсуждения. Цены — с сайта amed42.ru, отзывы — из 2ГИС, маршруты собраны по отзывам пациентов и требуют проверки. Фото — заглушки. Подготовила Татьяна, ноябрь 2026.") + "</div></div>";
+    '<div class="proto">' + t("Прототип сайта, версия 2: единый стиль с сайтом группы, ответы из брифа, сведения о медорганизации по закону. Цены — с сайта amed42.ru и из брифа, отзывы — из 2ГИС, маршруты собраны по отзывам пациентов и требуют проверки. Фото — заглушки. Подготовила Татьяна, ноябрь 2026.") + "</div></div>";
 
   /* карточки услуг */
   function svcCard(s, hot) {

@@ -6,9 +6,9 @@
 <title>Авангард-Мед — медосмотры и справки в Кемерово</title>
 <meta name="description" content="Справка на права, медосмотр на работу, санкнижка в Кемерово. Маршрут по кабинетам заранее, чтобы пройти всех врачей за одно утро.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Unbounded:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body data-page="home">
 <header class="top" id="top"></header>
@@ -26,7 +26,7 @@
       <div class="facts">
         <div class="fact"><b>Врачи 8:00–12:00</b><span>Приходите к&nbsp;открытию, чтобы&nbsp;успеть за&nbsp;утро</span></div>
         <div class="fact"><b>Вход со&nbsp;двора</b><span>Во&nbsp;дворе поликлиники, остановка «Хлебозавод»</span></div>
-        <div class="fact"><b>Живая очередь</b><span>Регистратура пн–пт 8:00–17:00</span></div>
+        <div class="fact"><b>Справка в&nbsp;день обращения</b><span>Живая очередь, регистратура пн–пт 8:00–17:00</span></div>
       </div>
     </div>
     <div class="runner rv" id="runner"></div>
@@ -56,7 +56,7 @@
       <div class="tl rv"><div class="t">По&nbsp;бегунку</div><p>Отмечайте кабинеты на&nbsp;телефоне прямо на&nbsp;этом сайте, чтобы&nbsp;видеть, сколько осталось.</p></div>
       <div class="tl warn rv"><div class="t">До&nbsp;12:00</div><p>Врачи принимают до&nbsp;полудня. Не&nbsp;успели&nbsp;— можно прийти в&nbsp;другой день.</p></div>
     </div>
-    <p style="margin-top:16px"><span class="need">Можно&nbsp;ли занять очередь онлайн или&nbsp;записаться на&nbsp;время. Если&nbsp;да,&nbsp;это&nbsp;главный аргумент первого экрана</span></p>
+    <p style="margin-top:16px;font-weight:700">Справку выдаём в&nbsp;день обращения. Все&nbsp;врачи принимают на&nbsp;месте&nbsp;— никуда ехать не&nbsp;нужно.</p>
   </div>
 </section>
 
@@ -65,7 +65,7 @@
     <div class="why">
       <div class="why-card rv"><div class="num">«за&nbsp;час»</div><p>Так&nbsp;пациенты в&nbsp;2ГИС пишут о&nbsp;медосмотре, который прошли с&nbsp;утра: «получилось пройти всех специалистов и&nbsp;сдать анализы за&nbsp;час».</p></div>
       <div class="why-card rv"><div class="num">8 врачей</div><p>С&nbsp;действующей аккредитацией: терапевты, профпатолог, гинеколог, дерматовенеролог, фтизиатр, инфекционист, рентгенолог, УЗ-диагностика.</p></div>
-      <div class="why-card rv"><div class="num">от&nbsp;500&nbsp;₽</div><p>Справка в&nbsp;бассейн и&nbsp;на&nbsp;соревнования. Медосмотр при&nbsp;приёме на&nbsp;работу&nbsp;— от&nbsp;2000&nbsp;₽.</p></div>
+      <div class="why-card rv"><div class="num">от&nbsp;500&nbsp;₽</div><p>Справки&nbsp;— для&nbsp;водителей, в&nbsp;бассейн, на&nbsp;соревнования, на&nbsp;госслужбу. Медосмотр при&nbsp;приёме на&nbsp;работу&nbsp;— от&nbsp;2000&nbsp;₽.</p></div>
     </div>
   </div>
 </section>
@@ -76,12 +76,13 @@
       <div>
         <div class="eyebrow">Работодателям</div>
         <h2>Медосмотры сотрудников по&nbsp;договору</h2>
-        <p>Предварительные и&nbsp;периодические медосмотры для&nbsp;организаций.</p>
+        <p>Предварительные и&nbsp;периодические медосмотры: в&nbsp;нашем центре на&nbsp;Кузнецком или&nbsp;с&nbsp;выездом врачей к&nbsp;вам на&nbsp;предприятие.</p>
         <ul>
-          <li><i class="ti ti-check"></i>Своя лицензия, врачи с&nbsp;аккредитацией</li>
-          <li><i class="ti ti-check"></i>Профпатолог в&nbsp;штате</li>
+          <li><i class="ti ti-check"></i>Договор, безналичная оплата, закрывающие документы</li>
+          <li><i class="ti ti-check"></i>Выездной медосмотр на&nbsp;предприятии: несколько дней, зависит от&nbsp;числа сотрудников</li>
+          <li><i class="ti ti-check"></i>Своя лицензия, врачи с&nbsp;аккредитацией, профпатолог в&nbsp;штате</li>
         </ul>
-        <span class="need">Условия для&nbsp;организаций: как&nbsp;заключить договор, сколько человек за&nbsp;день, закрывающие документы</span>
+        <span class="need">Сколько сотрудников в&nbsp;день принимаете в&nbsp;центре и&nbsp;на&nbsp;выезде</span>
       </div>
       <form class="form org-form">
         <h3>Расчёт для&nbsp;компании</h3>
@@ -169,9 +170,10 @@
   </div>
 </section>
 
+<div class="warn-line">Имеются противопоказания. Необходима консультация специалиста</div>
 <footer id="foot"></footer>
 <script src="js/typo.js"></script>
-<script src="js/data.js?v=2"></script>
-<script src="js/main.js?v=2"></script>
+<script src="js/data.js?v=3"></script>
+<script src="js/main.js?v=3"></script>
 </body>
 </html>
