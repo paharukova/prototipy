@@ -41,6 +41,7 @@
         '<span class="need" style="margin-bottom:14px">Цена приёма — нужно от вас</span><a class="btn btn-main" href="#book">Записаться</a></div>';
       var nm = d.name.split(" "); $("h3", c).innerHTML = nm[0] + "<br>" + nm.slice(1).join(" ");
       $(".spec", c).textContent = d.spec;
+      if (d.need) $(".need", c).textContent = T(d.need + " — нужно от вас");
       d.facts.forEach(function (f) { var li = el("li"); li.textContent = T(f); $("ul", c).appendChild(li); });
       $(".btn", c).addEventListener("click", function () { var s = $("#doc-select"); if (s) s.value = String(i); });
       docs.appendChild(c);
