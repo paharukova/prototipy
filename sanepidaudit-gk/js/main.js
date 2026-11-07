@@ -5,68 +5,74 @@
   function $(s) { return document.querySelector(s); }
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
   function t(s) { return esc(T(s)); }
+  function tel(p) { return '<a href="tel:' + p.replace(/[^+\d]/g, "") + '">' + p + "</a>"; }
+  function need(s) { return '<span class="need inline">' + t(s) + "</span>"; }
+  function orgUrl(o) { return window.PROTO + o.url; }
+  function link(d) { return d.page; }
 
-  /* Значок «ступени» — как в логотипе: цветная ступень = направление.
-     Для лаборатории — шестая ступень (предложение). */
+  /* Знак из шести ступеней: окрашена ступень направления, у медицины — самая высокая */
   function steps(d, size) {
-    var n = d.step === 5 ? 6 : 5, w = 17.83, gap = 3.43, H = 96, out = "";
-    var hs = n === 6 ? [16, 32, 48, 64, 80, 96] : window.STEP_H;
-    for (var i = 0; i < n; i++) {
-      var h = hs[i];
-      out += '<rect x="' + (i * (w + gap)).toFixed(2) + '" y="' + (H - h).toFixed(2) + '" width="' + w + '" height="' + h.toFixed(2) + '" rx="2.57" fill="' + (i === d.step ? d.color : "#15263A") + '"/>';
+    var W = 102.86, H = 96, g = W * 0.0297, w = (W - 5 * g) / 6, out = "";
+    for (var i = 0; i < 6; i++) {
+      var h = H * (i + 1) / 6;
+      out += '<rect x="' + (i * (w + g)).toFixed(2) + '" y="' + (H - h).toFixed(2) + '" width="' + w.toFixed(2) + '" height="' + h.toFixed(2) + '" rx="2.1" fill="' + (i === d.step ? d.color : "#15263A") + '"/>';
     }
-    var W = n * w + (n - 1) * gap;
-    return '<svg class="steps" width="' + size + '" height="' + size + '" viewBox="0 0 ' + W.toFixed(2) + ' 96" aria-hidden="true">' + out + "</svg>";
+    return '<svg class="steps" width="' + size + '" height="' + Math.round(size * H / W) + '" viewBox="0 0 ' + W + " " + H + '" aria-hidden="true">' + out + "</svg>";
   }
-  window.stepsIcon = steps;
 
-  function link(d) { return "napravlenie.html?id=" + d.id; }
+  /* Первый экран: лестница направлений (на телефоне скрыта) */
+  var hs = $("#hero-stairs");
+  if (hs) {
+    var order = D.slice().sort(function (a, b) { return a.step - b.step; });
+    hs.innerHTML = order.map(function (d) {
+      var href = d.page ? link(d) : "#dir-med";
+      return '<a class="hstep" href="' + href + '" style="--c:' + d.color + ";--h:" + (34 + d.step * 13) + '%"><span class="hbar"></span><span class="hlabel">' + t(d.title) + "</span></a>";
+    }).join("");
+  }
 
-  /* Первый экран: список направлений */
-  var hp = $("#hero-dirs");
-  if (hp) hp.innerHTML = D.map(function (d) {
-    return '<a class="row" href="#dir-' + d.id + '">' + steps(d, 34) +
-      "<div><b>" + t(d.title) + "</b><span>" + t(d.company) + "</span></div><span class=\"go\">→</span></a>";
-  }).join("");
+  /* Медицина — широкая карточка с двумя центрами */
+  var med = byId("med");
+  var mb = $("#dir-med");
+  if (mb) {
+    mb.style.setProperty("--c", med.color);
+    mb.innerHTML =
+      '<div class="med-head">' + steps(med, 64) + '<div><div class="group">Самое крупное направление группы</div><h3>Медицина</h3><p>' + t(med.short) + "</p></div></div>" +
+      '<div class="orgs">' + med.orgs.map(function (o) {
+        return '<a class="org" href="' + orgUrl(o) + '" target="_blank" rel="noopener"><div class="org-top"><b>' + t(o.name) + '</b><span class="go">Перейти на&nbsp;сайт ↗</span></div>' +
+          "<p>" + t(o.what) + '</p><small>' + t(o.full) + " · " + t(o.address) + "</small></a>";
+      }).join("") + "</div>";
+  }
 
-  /* Карточки направлений */
+  /* Остальные направления */
   var g = $("#dir-grid");
-  if (g) g.innerHTML = D.map(function (d) {
+  if (g) g.innerHTML = D.filter(function (d) { return d.page; }).map(function (d) {
     var tags = d.tags.map(function (x) { return "<li>" + t(x) + "</li>"; }).join("");
-    var facts = d.facts.map(function (x) { return "<li>" + t(x) + "</li>"; }).join("");
-    var act = d.site
-      ? '<a class="btn btn-c btn-sm" href="' + d.site + '" target="_blank" rel="noopener">Перейти на сайт ↗</a><span class="site">' + d.siteName + "</span>"
-      : '<a class="btn btn-c btn-sm" href="' + link(d) + '">Подробнее о направлении</a>';
-    return '<article id="dir-' + d.id + '" class="dir reveal' + (d.big ? " big" : "") + '" style="--c:' + d.color + '">' +
-      '<div class="top-row"><div><div class="group">' + t(d.group) + "</div><h3>" + t(d.title) + '</h3><p class="company">' + t(d.company) + "</p></div>" + steps(d, d.big ? 56 : 44) + "</div>" +
-      (d.variant ? '<div><span class="badge-variant">Вариант для обсуждения: лаборатория — отдельным направлением</span></div>' : "") +
+    return '<a id="dir-' + d.id + '" class="dir reveal" href="' + link(d) + '" style="--c:' + d.color + '">' +
+      '<div class="top-row">' + steps(d, 44) + '<div class="dtext"><h3>' + t(d.title) + '</h3><p class="company">' + t(d.company) + "</p></div><span class=\"arrow\">→</span></div>" +
       '<p class="short">' + t(d.short) + "</p>" +
       '<ul class="tags">' + tags + "</ul>" +
-      (d.needTags ? '<p class="need" style="margin:0 0 14px">' + t("полный перечень услуг и цены «от»") + "</p>" : "") +
-      '<ul class="facts">' + facts + "</ul>" +
-      '<div class="actions">' + act + "</div></article>";
-  }).join("");
+      '<span class="more">Подробнее о&nbsp;направлении →</span></a>';
+  }).join("") + '<a class="dir dir-help reveal" href="#zayavka"><h3>Не&nbsp;знаете, какое направление нужно?</h3><p class="short">Опишите задачу или&nbsp;приложите предписание&nbsp;— подскажем, какая компания группы её&nbsp;решит.</p><span class="more">Оставить заявку →</span></a>';
 
   /* По задаче */
   var tk = $("#tasks");
   if (tk) tk.innerHTML = window.TASKS.map(function (x) {
-    var d = byId(x.to);
-    return '<a class="task reveal" href="' + (d.site ? d.site : link(d)) + '"' + (d.site ? ' target="_blank" rel="noopener"' : "") + ">" + steps(d, 30) +
-      "<span>" + t(x.q) + "<small>" + t(d.title) + " · " + t(d.company) + "</small></span><span class=\"arrow\">→</span></a>";
+    var d = byId(x.to), href, ext = "", sub;
+    if (x.org != null) { var o = d.orgs[x.org]; href = orgUrl(o); ext = ' target="_blank" rel="noopener"'; sub = d.title + " · " + o.name; }
+    else { href = link(d); sub = d.title + " · " + d.company; }
+    return '<a class="task reveal" href="' + href + '"' + ext + ">" + steps(d, 30) + "<span>" + t(x.q) + "<small>" + t(sub) + '</small></span><span class="arrow">→</span></a>';
   }).join("");
 
-  /* Лестница истории */
-  var ld = $("#ladder");
-  if (ld) ld.innerHTML = window.HISTORY.map(function (h, i) {
-    return '<a href="' + link(byId(h.id)) + '"><div class="stair" style="height:' + (200 + i * 40) + 'px">' +
-      '<div class="year">' + h.year + '</div><div class="d">' + t(h.dir) + '</div><div class="t">' + t(h.text) + "</div></div></a>";
+  /* «О группе»: расшифровка ступеней знака */
+  var lg = $("#legend");
+  if (lg) lg.innerHTML = D.slice().sort(function (a, b) { return b.step - a.step; }).map(function (d) {
+    return '<li style="--c:' + d.color + '"><span class="n">' + (d.step + 1) + '</span><a href="' + (d.page || "#dir-med") + '">' + t(d.title) + "</a></li>";
   }).join("");
 
   /* Юрлица */
   var tb = $("#companies");
   if (tb) tb.innerHTML = window.COMPANIES.map(function (c) {
-    var miss = '<span class="need inline">уточнить</span>';
-    return "<tr><td><b>" + t(c.name) + '</b></td><td data-l="Направление">' + t(c.dir) + '</td><td class="num" data-l="ИНН">' + (c.inn || miss) + '</td><td class="num" data-l="ОГРН">' + (c.ogrn || miss) + '</td><td data-l="Адрес">' + t(c.addr) + "</td></tr>";
+    return "<tr><td><b>" + t(c.name) + '</b></td><td data-l="Направление">' + t(c.dir) + '</td><td class="num" data-l="ИНН">' + c.inn + '</td><td class="num" data-l="ОГРН">' + c.ogrn + '</td><td data-l="Адрес">' + t(c.addr) + "</td></tr>";
   }).join("");
 
   /* Клиенты и письма */
@@ -75,23 +81,31 @@
   var lt = $("#letters");
   if (lt) lt.innerHTML = window.LETTERS.map(function (c) { return '<li><span class="scan"></span><span>' + t(c) + "</span></li>"; }).join("");
 
-  /* Контакты по направлениям */
+  /* Контакты */
   var ct = $("#contacts");
-  if (ct) ct.innerHTML = D.map(function (d) {
-    return '<div class="ccard" style="--c:' + d.color + '"><b>' + t(d.title) + "</b>" + t(d.company) + "<br>" + t(d.address) + "<br>" +
-      (d.phone ? '<a href="tel:' + d.phone.replace(/[^+\d]/g, "") + '">' + d.phone + "</a>" : '<span class="need inline">телефон и почта для заявок</span>') + "</div>";
-  }).join("");
+  if (ct) {
+    var rows = [];
+    med.orgs.forEach(function (o) { rows.push({ c: med.color, title: "Медицина · " + o.name, company: o.full, addr: o.address, phone: o.phone }); });
+    D.filter(function (d) { return d.page; }).forEach(function (d) { rows.push({ c: d.color, title: d.title, company: d.company, addr: d.address, phone: d.phone, href: d.page }); });
+    ct.innerHTML = rows.map(function (r) {
+      return '<div class="ccard" style="--c:' + r.c + '"><b>' + t(r.title) + "</b>" + t(r.company) + "<br>" + t(r.addr) + "<br>" +
+        (r.phone ? tel(r.phone) : need("телефон для заявок")) + "</div>";
+    }).join("");
+  }
 
-  /* Форма: выбор направления и куда уйдёт заявка */
+  /* Форма */
   function setupForm(form, preset) {
     if (!form) return;
     var sel = form.querySelector("select"), route = form.querySelector(".route"), done = form.querySelector(".done");
-    sel.innerHTML = '<option value="">Не знаю — помогите выбрать</option>' + D.map(function (d) {
-      return '<option value="' + d.id + '">' + esc(d.title) + "</option>";
+    var opts = [];
+    med.orgs.forEach(function (o, i) { opts.push({ v: "med" + i, l: "Медицина — " + o.name, to: o.full }); });
+    D.filter(function (d) { return d.page; }).forEach(function (d) { opts.push({ v: d.id, l: d.title, to: d.company }); });
+    sel.innerHTML = '<option value="">Не знаю — помогите выбрать</option>' + opts.map(function (o) {
+      return '<option value="' + o.v + '">' + esc(o.l) + "</option>";
     }).join("");
     function upd() {
-      var d = byId(sel.value);
-      route.innerHTML = d ? "Заявка уйдёт сразу в <b>" + t(d.company) + "</b>" : "Заявку получит ответственный за подбор направления <span class=\"need inline\">кто это</span>";
+      var o = null; opts.forEach(function (x) { if (x.v === sel.value) o = x; });
+      route.innerHTML = o ? "Заявка уйдёт сразу в <b>" + t(o.to) + "</b>" : "Заявку получит сотрудник, который подскажет направление " + need("кто это и куда присылать");
     }
     sel.addEventListener("change", upd);
     if (preset) sel.value = preset;
@@ -102,41 +116,64 @@
       done.textContent = T("Это прототип — заявка никуда не отправлена. На готовом сайте она придёт в выбранную компанию.");
     });
   }
-  if (!$("#dir-page")) setupForm($("#lead-form"), null);
 
   /* Страница направления */
-  var page = $("#dir-page");
+  var page = document.body.getAttribute("data-dir");
   if (page) {
-    var id = new URLSearchParams(location.search).get("id") || "lab";
-    var d = byId(id) || byId("lab");
+    var d = byId(page);
     document.title = d.title + " — ГК «Санэпидаудит-Кузбасс»";
     document.documentElement.style.setProperty("--c", d.color);
     $("#d-crumb").textContent = d.title;
-    $("#d-group").textContent = d.group;
-    $("#d-title").textContent = T(d.title);
-    $("#d-company").textContent = T(d.company);
-    $("#d-about").textContent = T(d.about);
-    $("#d-icon").innerHTML = steps(d, 72);
-    $("#d-variant").style.display = d.variant ? "block" : "none";
+    $("#d-logo").innerHTML = '<img src="' + d.logo + '" alt="' + esc(d.title) + ' — ГК «Санэпидаудит-Кузбасс»">';
+    $("#d-title").textContent = T(d.h1 || d.title);
+    $("#d-company").innerHTML = t(d.company) + (d.companyShort.charAt(0) === "«" ? "" : "<span>" + t(d.companyShort) + "</span>");
+    $("#d-lead").textContent = T(d.lead);
     $("#d-tags").innerHTML = d.tags.map(function (x) { return "<li>" + t(x) + "</li>"; }).join("");
-    $("#d-svc").innerHTML = d.services
-      ? d.services.map(function (x) { return "<li>" + t(x) + "</li>"; }).join("")
-      : '<li class="need" style="grid-column:1/-1;border-left:2px dashed var(--amber-light)">перечень услуг этого направления, сроки и что клиент получает на руки</li>';
+    $("#d-facts").innerHTML = d.facts ? d.facts.map(function (f) { return "<div><b>" + t(f[0]) + "</b>" + t(f[1]) + "</div>"; }).join("") : "";
+    if (!d.facts) $("#d-facts").style.display = "none";
+
     $("#d-side").innerHTML =
       "<dl><dt>Компания</dt><dd>" + t(d.company) + "</dd>" +
       "<dt>Адрес</dt><dd>" + t(d.address) + "</dd>" +
-      "<dt>Телефон</dt><dd>" + (d.phone ? '<a href="tel:' + d.phone.replace(/[^+\d]/g, "") + '">' + d.phone + "</a>" : '<span class="need inline">телефон для заявок</span>') + "</dd>" +
-      "<dt>Лицензия, аккредитация</dt><dd>" + (d.license ? t(d.license) : '<span class="need inline">номер и скан</span>') + "</dd></dl>" +
-      (d.site ? '<p style="margin:18px 0 0"><a class="btn btn-c" href="' + d.site + '" target="_blank" rel="noopener">Полный сайт: ' + d.siteName + " ↗</a></p>"
-        : '<p class="src" style="margin:18px 0 0">' + T("Своего сайта у компании пока нет — эта страница его заменяет. Когда сайт появится, здесь будет ссылка.") + "</p>");
+      "<dt>Телефон</dt><dd>" + (d.phone ? tel(d.phone) : need("телефон для заявок")) + "</dd>" +
+      "<dt>Режим работы</dt><dd>" + (d.hours ? t(d.hours) : need("часы работы")) + "</dd>" +
+      (d.license ? "<dt>Лицензия</dt><dd>" + t(d.license) + "</dd>" : "") +
+      "</dl>" + '<a class="btn btn-c" href="#zayavka" style="width:100%;margin-top:18px">Оставить заявку</a>';
+
+    $("#d-groups").innerHTML = d.groups.map(function (gr) {
+      return '<div class="sgroup reveal"><h3>' + t(gr.t) + "</h3>" + (gr.d ? '<p class="muted">' + t(gr.d) + "</p>" : "") +
+        "<ul>" + gr.items.map(function (x) { return "<li>" + t(x) + "</li>"; }).join("") + "</ul>" +
+        (gr.need ? '<p class="need" style="margin:12px 0 0">' + t(gr.need) + "</p>" : "") + "</div>";
+    }).join("");
+    $("#d-price").innerHTML = d.price ? t(d.price) : "";
+
+    $("#d-process").innerHTML = d.process.map(function (x, i) {
+      return '<li class="reveal"><span class="n">' + (i + 1) + "</span>" + t(x) + "</li>";
+    }).join("");
+
+    var docsBox = $("#d-docs-sec");
+    if (d.docs) {
+      $("#d-docs").innerHTML = d.docs.map(function (x) {
+        return '<div class="doc reveal"><span class="scan"></span><div><b>' + t(x.t) + "</b><span>" + t(x.d) + "</span>" + (x.need ? '<br><span class="need inline">скан и номер</span>' : "") + "</div></div>";
+      }).join("") + (d.docsNeed ? '<p class="need" style="grid-column:1/-1">' + t(d.docsNeed) + "</p>" : "");
+    } else if (docsBox) docsBox.style.display = "none";
+
+    var extra = $("#d-extra"), html = "";
+    if (d.geo) html += '<div class="note-box"><b>География</b><p>' + t(d.geo) + "</p></div>";
+    if (d.cases) html += '<div class="note-box"><b>Примеры работ группы «ЦЭИ»</b><ul>' + d.cases.map(function (c) { return "<li>" + t(c) + "</li>"; }).join("") + '</ul><p class="need" style="margin:10px 0 0">2–3 объекта в Кузбассе</p></div>';
+    if (d.needList) html += '<div class="note-box"><b>Что ещё покажем на странице</b><ul>' + d.needList.map(function (c) { return "<li>" + t(c) + "</li>"; }).join("") + '</ul><p class="need" style="margin:10px 0 0">эти данные</p></div>';
+    if (d.faq) html += '<div class="note-box faq"><b>Частые вопросы</b>' + d.faq.map(function (f) { return "<details><summary>" + t(f[0]) + "</summary><p>" + t(f[1]) + "</p></details>"; }).join("") + "</div>";
+    if (extra) { extra.innerHTML = html; if (!html) extra.style.display = "none"; }
+
     $("#d-src").textContent = "Источник данных: " + d.src;
     $("#d-others").innerHTML = D.filter(function (x) { return x.id !== d.id; }).map(function (x) {
-      return '<a class="task" href="' + (x.site ? x.site : link(x)) + '"' + (x.site ? ' target="_blank" rel="noopener"' : "") + ">" + steps(x, 30) + "<span>" + t(x.title) + "<small>" + t(x.company) + "</small></span><span class=\"arrow\">→</span></a>";
+      var href = x.page ? x.page : "index.html#dir-med";
+      return '<a class="task" href="' + href + '">' + steps(x, 30) + "<span>" + t(x.title) + "<small>" + t(x.page ? x.company : "АМР-Мед и Авангард-Мед") + '</small></span><span class="arrow">→</span></a>';
     }).join("");
     setupForm($("#lead-form"), d.id);
-  }
+  } else setupForm($("#lead-form"), null);
 
-  /* Год в подвале — автоматически */
+  /* Год в подвале */
   var y = document.querySelectorAll(".year-now");
   for (var i = 0; i < y.length; i++) y[i].textContent = new Date().getFullYear();
 
@@ -145,7 +182,7 @@
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.05 });
     els.forEach(function (e) { io.observe(e); });
   } else els.forEach(function (e) { e.classList.add("in"); });
 })();
