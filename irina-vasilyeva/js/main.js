@@ -13,6 +13,18 @@
     });
   }
 
+  /* Плавающая кнопка «Написать Ирине» — только после первого экрана и не над формой связи */
+  var floatBtn = document.querySelector('.float-msg'), hero = document.querySelector('.hero'), contact = document.getElementById('contact');
+  if (floatBtn && hero) {
+    var onScroll = function () {
+      var past = hero.getBoundingClientRect().bottom < 0;
+      var atContact = contact && contact.getBoundingClientRect().top < window.innerHeight;
+      floatBtn.classList.toggle('show', past && !atContact);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
   /* Появление блоков при прокрутке */
   var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
