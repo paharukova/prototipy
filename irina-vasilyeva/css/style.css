@@ -37,7 +37,6 @@ h3{font-size:20px;line-height:1.3;margin:0 0 10px}
 .lead{font-size:18px;line-height:1.65;color:#514b43}
 .muted{color:var(--muted)}
 .section{padding:108px 0}
-.section-tight{padding:0 0 108px}
 .soft{background:var(--soft)}
 .section-head{max-width:720px;margin-bottom:44px}
 .section-head p{margin-bottom:0}
@@ -232,17 +231,7 @@ h3{font-size:20px;line-height:1.3;margin:0 0 10px}
 .review-links{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 22px;margin-top:30px;font-size:14px;color:var(--muted)}
 .review-links a{color:var(--brown);font-weight:700;border-bottom:1px solid var(--stone)}
 
-/* Чек-лист */
-.download{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:56px;padding:48px;background:var(--olive-soft);border-radius:var(--r)}
-.download h2{font-size:clamp(30px,3vw,38px)}
-.download p{color:#595d4a}
-.check-list{margin:0;padding:0;list-style:none;counter-reset:c;display:grid;gap:10px}
-.check-list li{counter-increment:c;display:grid;grid-template-columns:30px 1fr;gap:8px;font-size:15px;color:#3f4433}
-.check-list li:before{content:counter(c,decimal-leading-zero);font:500 16px 'Playfair Display',Georgia,serif;color:var(--olive)}
-.check-form{background:var(--paper);border-radius:16px;padding:28px;display:grid;gap:14px}
-.check-form h3{font:500 24px/1.25 'Playfair Display',Georgia,serif;margin-bottom:2px}
-.check-form label,.form label{display:grid;gap:6px;font-size:13px;font-weight:600;color:#4a443c}
-.check-form small{font-size:12px;color:var(--muted)}
+.form label{display:grid;gap:6px;font-size:13px;font-weight:600;color:#4a443c}
 input,select{width:100%;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px;color:var(--ink);outline:0;transition:border-color .2s}
 input:focus,select:focus{border-color:var(--coffee)}
 
@@ -314,7 +303,6 @@ input:focus,select:focus{border-color:var(--coffee)}
   .remote-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
   .about-photo{max-width:560px;height:600px}
   .quiz-panel{grid-template-columns:1fr;gap:30px;padding:44px}
-  .download{grid-template-columns:1fr;gap:32px}
   .route{flex-wrap:wrap;gap:14px}
   .route-line{flex-basis:100%;order:3}
   .strip .wrap{flex-wrap:wrap;justify-content:center;gap:8px 22px}
@@ -326,7 +314,6 @@ input:focus,select:focus{border-color:var(--coffee)}
   .wrap{width:calc(100% - 36px)}
   html{scroll-padding-top:76px}
   .section{padding:72px 0}
-  .section-tight{padding:0 0 72px}
   .section-head,.section-head.center{margin-bottom:30px}
   .topnote{font-size:11px;padding:7px 12px}
   .topnote .dot{margin:0 8px}
@@ -393,8 +380,6 @@ input:focus,select:focus{border-color:var(--coffee)}
   .quote-photo{width:84px;height:112px}
   .quote{padding-left:14px}
   .quote p{font-size:16px}
-  .download{padding:28px 20px}
-  .check-form{padding:22px 18px}
   .faq-list summary{font-size:16px}
   .form{grid-template-columns:1fr;padding:20px}
   .footer-grid{grid-template-columns:1fr;gap:20px}
