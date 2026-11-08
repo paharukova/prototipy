@@ -412,3 +412,15 @@ footer .fine { grid-column: 1 / -1; border-top: 1px solid rgba(255,255,255,.12);
 }
 .trust > *, .who-grid > *, .reviews > * { min-width: 0; }
 .clients div { overflow-wrap: anywhere; hyphens: auto; }
+
+/* Лестница на первом экране (версия 3): все ступени одной ширины, шаг по высоте одинаковый, как в знаке.
+   Подписи — в общей нижней строке, поэтому высоту ступеней ничто не сжимает. */
+.hero-stairs { grid-template-columns: repeat(6, minmax(0, 1fr)); grid-template-rows: 1fr auto; column-gap: 10px; row-gap: 0; align-items: stretch; }
+.hstep { grid-row: 1 / span 2; display: grid; grid-template-rows: subgrid; grid-template-columns: minmax(0, 1fr); min-width: 0; height: auto; }
+.hstep .harea { display: flex; align-items: flex-end; min-height: 0; }
+.hstep .hbar { width: 100%; height: var(--h); flex: none; }
+.hstep .hlabel { min-height: 0; font-size: 12.5px; overflow-wrap: normal; -webkit-hyphens: manual; hyphens: manual; }
+.hstep:focus-visible { outline: none; }
+.hstep:focus-visible .hbar { background: var(--c); transform: translateY(-4px); }
+.hstep:focus-visible .hlabel { color: var(--c); }
+@media (prefers-reduced-motion: reduce) { .hstep .hbar { transition: background .2s; } .hstep:hover .hbar, .hstep:focus-visible .hbar { transform: none; } }

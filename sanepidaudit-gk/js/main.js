@@ -26,7 +26,11 @@
     var order = D.slice().sort(function (a, b) { return a.step - b.step; });
     hs.innerHTML = order.map(function (d) {
       var href = d.page ? link(d) : "#dir-med";
-      return '<a class="hstep" href="' + href + '" style="--c:' + d.color + ";--h:" + (34 + d.step * 13) + '%"><span class="hbar"></span><span class="hlabel">' + t(d.title) + "</span></a>";
+      /* Как в знаке: ступень i высотой (i+1)/6 — одинаковый шаг, одинаковая ширина */
+      var h = ((d.step + 1) / 6 * 100).toFixed(3);
+      /* Узкие колонки: мягкие переносы по слогам, чтобы слова не рвались где попало */
+      var SHY = { "Санитарная обработка": "Сани­тарная обра­ботка", "Проектирование и экспертизы": "Проек­тиро­вание и экс­пер­тизы", "Лаборатория": "Лабо­ра­тория", "Консалтинг и аудит": "Кон­сал­тинг и аудит", "Утилизация": "Утили­зация" };
+      return '<a class="hstep" href="' + href + '" style="--c:' + d.color + ";--h:" + h + '%" aria-label="' + esc(d.title) + '"><span class="harea"><span class="hbar"></span></span><span class="hlabel" aria-hidden="true">' + esc(SHY[d.title] || d.title) + "</span></a>";
     }).join("");
   }
 
