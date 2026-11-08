@@ -18,7 +18,7 @@
   --r:20px;
   --btn-r:8px;
   --max:1200px;
-  --sans:Manrope,Arial,sans-serif; /* основной шрифт; в версии novyj-shrift — Golos Text */
+  --sans:Manrope,Arial,sans-serif; /* основной шрифт */
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:96px}
