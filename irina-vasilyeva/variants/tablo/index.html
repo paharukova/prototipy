@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#121316">
+<title>Ирина Васильева — риэлтор · вариант «Табло»</title>
+<meta name="description" content="Покупка, продажа и обмен квартир в Новосибирске и ещё 7 городах России. Опыт более 5 лет, 350+ сделок.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --board:#121316; --panel:#1a1c20; --tile:#25282d; --tile-lo:#1f2125; --line:#2d3036;
+  --ink:#f2efe7; --dim:#a3a6ae; --amber:#ffb21a; --amber-deep:#e89a00; --amber-ink:#1b1400;
+  --max:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;background:var(--board)}
+body{margin:0;background:var(--board);color:var(--ink);font:17px/1.6 "Golos Text",Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--amber);color:var(--amber-ink)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+button,input,select{font:inherit;color:inherit}
+.wrap{width:min(var(--max),calc(100% - 64px));margin:0 auto}
+.icon{width:1em;height:1em;flex:none}
+.narrow{font-family:"PT Sans Narrow","Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.04em}
+
+/* Шапка */
+.top{position:sticky;top:0;z-index:30;background:rgba(18,19,22,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:72px}
+.brand{text-decoration:none;line-height:1.1;margin-right:auto}
+.brand b{display:block;font:700 22px/1.1 "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.06em}
+.brand span{font-size:13px;color:var(--dim)}
+.nav{display:flex;gap:24px;font-size:15px}
+.nav a{text-decoration:none;color:var(--dim);transition:color .2s}
+.nav a:hover{color:var(--amber)}
+.clock{display:flex;align-items:center;gap:10px;font:700 15px "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);white-space:nowrap}
+.clock b{display:inline-flex;gap:2px}
+.clock b i{font-style:normal;background:var(--tile);color:var(--amber);padding:2px 5px;border-radius:3px;font-size:18px;position:relative}
+.clock b i:after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--board)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 28px;border-radius:8px;border:2px solid transparent;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.btn .icon{width:18px;height:18px}
+.btn-main{background:var(--amber);color:var(--amber-ink)}
+.btn-main:hover{background:#ffc54d;transform:translateY(-2px)}
+.btn-line{border-color:var(--line);color:var(--ink)}
+.btn-line:hover{border-color:var(--amber);color:var(--amber)}
+.menu-btn{display:none;width:46px;height:46px;border:0;background:none;padding:12px 10px;cursor:pointer}
+.menu-btn i{display:block;height:2px;background:var(--ink);margin:6px 0;transition:transform .2s,opacity .2s}
+.menu-btn[aria-expanded="true"] i:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] i:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] i:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* Первый экран */
+.hero{padding:64px 0 0}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:end}
+h1{font-weight:800;font-size:clamp(42px,5.4vw,82px);line-height:1;letter-spacing:-.035em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--amber)}
+.lead{font-size:20px;color:var(--dim);max-width:36ch;margin-top:28px}
+.lead b{color:var(--ink);font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.facts{display:flex;gap:40px;margin-top:44px;padding-top:24px;border-top:1px solid var(--line)}
+.facts div{display:grid;gap:2px}
+.facts b{font:700 34px/1 "PT Sans Narrow",sans-serif;letter-spacing:.02em}
+.facts span{font-size:14px;color:var(--dim)}
+.portrait{position:relative;margin:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
+.portrait img{width:100%;height:520px;object-fit:cover;object-position:50% 35%;border-radius:6px}
+.portrait figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 4px 2px;font:700 17px "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.06em}
+.portrait figcaption span{color:var(--amber)}
+
+/* Табло городов */
+.board{margin:64px 0 0;background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.board-head{display:grid;grid-template-columns:72px 1fr 260px;gap:20px;align-items:center;padding:16px 28px;border-bottom:1px solid var(--line);font:700 15px "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--dim)}
+.board-head h2{font:inherit;color:var(--ink)}
+.row{display:grid;grid-template-columns:72px 1fr 260px;gap:20px;align-items:center;padding:12px 28px;border-bottom:1px solid var(--line)}
+.row:last-child{border-bottom:0}
+.row .no{font:700 22px "PT Sans Narrow",sans-serif;color:var(--dim)}
+.row .status{font:700 17px "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.06em;color:var(--dim);display:flex;align-items:center;gap:10px}
+.row .status:before{content:"";width:10px;height:10px;border-radius:50%;background:#58c07a}
+.flap{display:flex;flex-wrap:nowrap;gap:3px}
+.flap i{position:relative;display:inline-grid;place-items:center;min-width:.74em;height:1.24em;padding:0 .04em;background:var(--tile);border-radius:4px;font:700 34px/1 "PT Sans Narrow",sans-serif;font-style:normal;text-transform:uppercase;color:var(--ink);overflow:hidden}
+.flap i:before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:var(--board);opacity:.9}
+.flap i:after{content:"";position:absolute;inset:0 0 50%;background:linear-gradient(rgba(255,255,255,.05),transparent)}
+.flap i.sp{background:transparent}
+.flap i.sp:before,.flap i.sp:after{display:none}
+.row.hot{background:#211b0c}
+.row.hot .flap i{color:var(--amber);font-size:46px}
+.row.hot .no{color:var(--amber)}
+.row.hot .status{color:var(--amber)}
+.row.hot .status:before{background:var(--amber);box-shadow:0 0 0 4px rgba(255,178,26,.2)}
+.board-foot{padding:14px 28px;font-size:14px;color:var(--dim);border-top:1px solid var(--line)}
+
+/* Разделы */
+.section{padding:120px 0}
+.sec-head{display:grid;grid-template-columns:1fr minmax(0,440px);gap:20px 60px;align-items:end;margin-bottom:52px}
+h2{font-weight:800;font-size:clamp(34px,4.2vw,60px);line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+.sec-head p{color:var(--dim);font-size:18px}
+.panel{background:var(--panel)}
+
+/* Услуги — строки табло */
+.svc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.svc a{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.3fr) 56px;gap:24px;align-items:center;padding:26px 20px;border-bottom:1px solid var(--line);text-decoration:none;transition:background .25s,color .25s}
+.svc h3{font:700 clamp(26px,2.6vw,36px)/1.05 "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.03em}
+.svc p{color:var(--dim);font-size:16px}
+.svc .go{width:52px;height:52px;border-radius:8px;background:var(--tile);display:grid;place-items:center;transition:background .25s,color .25s}
+.svc .go svg{width:20px;height:20px}
+.svc a:hover,.svc a:focus-visible{background:var(--amber);color:var(--amber-ink);outline:0}
+.svc a:hover p,.svc a:focus-visible p{color:var(--amber-ink)}
+.svc a:hover .go,.svc a:focus-visible .go{background:var(--amber-ink);color:var(--amber)}
+
+/* Сравнение */
+.cmp{width:100%;border-collapse:collapse;font-size:16px}
+.cmp th,.cmp td{text-align:left;vertical-align:top;padding:22px 20px;border-bottom:1px solid var(--line)}
+.cmp thead th{font:700 16px "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--dim)}
+.cmp tbody th{font-weight:700;width:20%}
+.cmp td{color:var(--dim);width:26%}
+.cmp .me{color:var(--amber);font-weight:600;background:#1f1a0d}
+.cmp thead .me{color:var(--amber-ink);background:var(--amber)}
+
+/* Удалённая сделка */
+.remote{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:stretch}
+.remote-photo{margin:0;border-radius:14px;overflow:hidden;min-height:520px;position:relative}
+.remote-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.remote-photo figcaption{position:absolute;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;gap:12px;background:rgba(18,19,22,.88);border-radius:8px;padding:14px 18px;font:700 16px "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.06em}
+.remote-photo figcaption span{color:var(--amber)}
+.legs{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:l}
+.legs li{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:12px;counter-increment:l}
+.legs li:before{content:counter(l,decimal-leading-zero);display:grid;place-items:center;height:58px;background:var(--tile);border-radius:6px;font:700 30px "PT Sans Narrow",sans-serif;color:var(--amber)}
+.legs b{display:block;font-size:20px;font-weight:700;margin-bottom:4px}
+.legs span{color:var(--dim);font-size:15px}
+.remote .btn{margin-top:20px}
+
+/* Шесть шагов */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;counter-reset:s}
+.steps li{background:var(--board);padding:30px;counter-increment:s;min-height:230px}
+.steps li:before{content:counter(s,decimal-leading-zero);display:inline-grid;place-items:center;width:64px;height:76px;background:var(--tile);border-radius:6px;font:700 46px "PT Sans Narrow",sans-serif;color:var(--ink);margin-bottom:22px;background-image:linear-gradient(transparent calc(50% - 1px),var(--board) calc(50% - 1px),var(--board) calc(50% + 1px),transparent calc(50% + 1px))}
+.steps li:last-child:before{color:var(--amber)}
+.steps b{display:block;font-size:21px;font-weight:700;margin-bottom:8px}
+.steps span{color:var(--dim);font-size:15px}
+
+/* Квиз */
+.quiz{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;padding:52px;background:var(--panel);border:1px solid var(--line);border-radius:18px}
+.quiz>div:first-child>p{color:var(--dim);margin-top:18px;font-size:18px}
+.q-count{display:flex;gap:4px;margin-top:34px}
+.q-count i{font-style:normal;width:52px;height:64px;display:grid;place-items:center;background:var(--tile);border-radius:6px;font:700 34px "PT Sans Narrow",sans-serif;color:var(--dim);position:relative;transition:color .3s}
+.q-count i:after{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:var(--panel)}
+.q-count i.done{color:var(--amber)}
+.q-count i.now{color:var(--ink)}
+.q-label{font:700 15px "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--amber)}
+.q-title{font-size:28px;font-weight:800;line-height:1.2;letter-spacing:-.02em;margin:10px 0 22px}
+.q-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.q-opt{padding:18px 20px;text-align:left;border:1px solid var(--line);background:var(--tile-lo);border-radius:10px;cursor:pointer;font-size:16px;line-height:1.35;transition:background .2s,color .2s,border-color .2s}
+.q-opt:hover,.q-opt:focus-visible{background:var(--amber);color:var(--amber-ink);border-color:var(--amber);outline:0}
+.q-back{margin-top:18px;background:none;border:0;color:var(--dim);cursor:pointer;padding:6px 0;font-size:15px;text-decoration:underline;text-underline-offset:4px}
+.q-term{color:var(--dim);margin-bottom:14px}
+.q-plan{margin:0 0 18px;padding-left:22px;display:grid;gap:8px;font-size:15px}
+.q-plan li::marker{color:var(--amber);font-weight:700}
+.q-form{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end}
+.q-form label{display:grid;gap:6px;font-size:13px;color:var(--dim)}
+.q-form input{border:1px solid var(--line);border-radius:8px;padding:15px;background:var(--board)}
+.q-form .btn{min-height:54px}
+.need{color:var(--amber);border-bottom:2px dotted var(--amber)}
+
+/* Кейсы */
+.tickets{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ticket{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px;position:relative}
+.ticket:before,.ticket:after{content:"";position:absolute;top:96px;width:22px;height:22px;border-radius:50%;background:var(--board);border:1px solid var(--line)}
+.ticket:before{left:-12px}.ticket:after{right:-12px}
+.ticket .route{display:flex;justify-content:space-between;font:700 15px "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--amber);padding-bottom:30px;border-bottom:1px dashed var(--line);margin-bottom:24px}
+.ticket h3{font-size:21px;font-weight:700;line-height:1.3}
+.ticket dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:20px 0 0;font-size:15px}
+.ticket dt{color:var(--dim)}
+.ticket dd{margin:0}
+.demo{color:var(--dim);font-size:15px}
+
+/* Цены */
+.price{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.price>div{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:34px;display:grid;gap:10px;align-content:start}
+.price small{font:700 16px "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--dim)}
+.price .flap i{font-size:clamp(48px,6vw,80px)}
+.price .hot .flap i{color:var(--amber)}
+.price p{color:var(--dim)}
+
+/* Обо мне */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.about-photo{margin:0;border-radius:14px;overflow:hidden;height:660px}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:55% 80%;transform:scale(1.9);transform-origin:56% 74%}
+.about-copy .lead2{font-size:22px;line-height:1.5}
+.about-copy p{color:var(--dim);margin-top:18px;font-size:18px}
+blockquote{margin:36px 0;padding:30px;border-radius:14px;background:var(--amber);color:var(--amber-ink);font-size:22px;font-weight:700;line-height:1.4;letter-spacing:-.01em}
+blockquote cite{display:block;font-style:normal;font:700 15px "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.1em;margin-top:14px}
+
+/* Отзывы */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.review{border:1px dashed #44474e;border-radius:14px;padding:28px;min-height:210px;display:flex;flex-direction:column;justify-content:space-between}
+.review b{font-size:21px;font-weight:700}
+.review p{color:var(--dim);font-size:15px;margin-top:8px}
+.review span{font:700 14px "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--amber)}
+.platforms{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.platforms a{padding:10px 18px;border-radius:8px;background:var(--tile);text-decoration:none;font-weight:600}
+.platforms a:hover{background:var(--amber);color:var(--amber-ink)}
+
+/* FAQ */
+.faq{max-width:920px}
+.faq details{border-top:1px solid var(--line);padding:24px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;font-size:20px;font-weight:700;line-height:1.35}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:34px;height:34px;border-radius:6px;background:var(--tile);position:relative}
+.faq summary i:before,.faq summary i:after{content:"";position:absolute;left:10px;right:10px;top:16px;height:2px;background:var(--amber)}
+.faq summary i:after{transform:rotate(90deg);transition:transform .2s}
+.faq details[open] summary i:after{transform:none}
+.faq p{color:var(--dim);margin-top:14px;max-width:70ch}
+
+/* Связь */
+.contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
+.msgs{display:grid;gap:10px;margin-top:30px}
+.msg{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-radius:10px;background:var(--tile);text-decoration:none;font:700 24px "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.06em;transition:background .2s,color .2s}
+.msg svg{width:22px;height:22px}
+.msg:hover{background:var(--amber);color:var(--amber-ink)}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:32px}
+.form label{display:grid;gap:6px;font-size:14px;color:var(--dim)}
+.form input,.form select{width:100%;border:1px solid var(--line);border-radius:8px;padding:15px;background:var(--board);outline:0;transition:border-color .2s}
+.form input:focus,.form select:focus{border-color:var(--amber)}
+.form .wide{grid-column:1/-1}
+.consent{display:flex!important;gap:12px!important;align-items:flex-start;font-size:14px}
+.consent input{width:22px;height:22px;flex:none;margin:1px 0 0;accent-color:var(--amber)}
+.consent a{color:var(--ink)}
+.form .btn{width:100%}
+.form-ok{grid-column:1/-1;font-size:17px;font-weight:600;line-height:1.5;padding:10px 0}
+
+.foot{border-top:1px solid var(--line);padding:30px 0 44px;color:var(--dim);font-size:14px}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+.foot b{color:var(--ink)}
+.float-msg{display:none}
+
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.js .reveal.on{opacity:1;transform:none}
+.flap i.spin{animation:flip .09s linear}
+@keyframes flip{0%{transform:scaleY(1)}50%{transform:scaleY(.2)}100%{transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}.flap i.spin{animation:none}}
+
+@media (max-width:1100px){
+  .nav{gap:16px;font-size:14px}
+  .clock{display:none}
+  .row.hot .flap i{font-size:38px}
+  .flap i{font-size:28px}
+}
+@media (max-width:960px){
+  .nav{display:none}
+  .menu-btn{display:block}
+  .nav.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:16px;padding:22px 32px 28px;background:var(--board);border-bottom:1px solid var(--line);font-size:18px}
+  .hero-grid,.about,.contact-grid,.quiz,.remote{grid-template-columns:1fr}
+  .sec-head{grid-template-columns:1fr}
+  .board-head,.row{grid-template-columns:44px 1fr}
+  .board-head span:last-child,.row .status{grid-column:2}
+  .steps{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .top .wrap{height:64px}
+  .brand b{font-size:19px}
+  .brand span{font-size:12px}
+  .hero{padding-top:32px}
+  .lead{font-size:18px}
+  .actions{display:grid}
+  .facts{gap:22px;flex-wrap:wrap}
+  .facts b{font-size:28px}
+  .portrait img{height:min(110vw,460px)}
+  .board{margin-top:44px;border-radius:12px}
+  .board-head,.row{padding:12px 14px;gap:4px 12px}
+  .row{padding:14px}
+  .flap{gap:2px;flex-wrap:wrap}
+  .flap i{font-size:21px;border-radius:3px}
+  .row.hot .flap i{font-size:27px}
+  .row .status{font-size:14px}
+  .section{padding:80px 0}
+  .svc a{grid-template-columns:1fr 48px;gap:8px 16px;padding:22px 6px}
+  .svc p{grid-column:1}
+  .svc .go{grid-row:1/3;grid-column:2;width:48px;height:48px}
+  .cmp,.cmp tbody,.cmp tr,.cmp th,.cmp td{display:block;width:auto!important}
+  .cmp thead{display:none}
+  .cmp tr{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:12px}
+  .cmp tbody th{background:var(--tile);padding:14px 16px}
+  .cmp td{padding:12px 16px}
+  .cmp td:before{display:block;font:700 13px "PT Sans Narrow",sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--dim);margin-bottom:4px}
+  .cmp td:nth-of-type(1):before{content:"Сами"}
+  .cmp td:nth-of-type(2):before{content:"Агентство"}
+  .cmp td.me:before{content:"Со мной";color:var(--amber)}
+  .cmp td:last-child{border-bottom:0}
+  .remote-photo{min-height:min(110vw,460px)}
+  .steps,.tickets,.reviews,.price{grid-template-columns:1fr}
+  .steps li{min-height:0;padding:24px}
+  .quiz{padding:26px 18px;gap:26px}
+  .q-opts,.q-form{grid-template-columns:1fr}
+  .about-photo{height:min(120vw,520px)}
+  blockquote{font-size:19px;padding:24px}
+  .form{grid-template-columns:1fr;padding:20px}
+  .faq summary{font-size:18px}
+  .float-msg{display:flex;align-items:center;gap:8px;position:fixed;right:14px;bottom:14px;z-index:40;background:var(--amber);color:var(--amber-ink);font-weight:700;padding:14px 20px;border-radius:8px;text-decoration:none;box-shadow:0 10px 26px rgba(0,0,0,.45);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s,transform .25s,visibility .25s}
+  .float-msg.show{opacity:1;visibility:visible;transform:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>Ирина Васильева</b><span>частный риэлтор · Новосибирск и&nbsp;вся&nbsp;Россия</span></a>
+    <nav class="nav" id="nav" aria-label="Разделы">
+      <a href="#services">Услуги</a>
+      <a href="#remote">Из&nbsp;другого города</a>
+      <a href="#steps">Как&nbsp;проходит сделка</a>
+      <a href="#prices">Цены</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="clock" aria-label="Время в Новосибирске">Новосибирск <b id="clock"><i>0</i><i>0</i>:<i>0</i><i>0</i></b></div>
+    <button class="menu-btn" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>Куплю, продам или&nbsp;обменяю вашу квартиру <em>без&nbsp;риска</em></h1>
+        <p class="lead">В&nbsp;Новосибирске и&nbsp;ещё&nbsp;7 городах России. <b>Каждую сделку веду лично вместе с&nbsp;сильным юристом</b> по&nbsp;недвижимости&nbsp;— от&nbsp;первой встречи до&nbsp;ключей.</p>
+        <div class="actions">
+          <a class="btn btn-main" href="#contact">Записаться на&nbsp;консультацию <svg class="icon"><use href="#arr"/></svg></a>
+          <a class="btn btn-line" href="#quiz">План сделки за&nbsp;1 минуту</a>
+        </div>
+        <div class="facts">
+          <div><b>350+</b><span>сделок</span></div>
+          <div><b>5+ лет</b><span>в&nbsp;недвижимости</span></div>
+          <div><b>30 мин</b><span>консультация бесплатно</span></div>
+        </div>
+      </div>
+      <figure class="portrait">
+        <img src="../../img/irina-portrait.jpg" alt="Ирина Васильева, частный риэлтор" width="1280" height="1280">
+        <figcaption>Ирина Васильева <span>лично + юрист</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="board reveal" id="board">
+      <div class="board-head"><span>№</span><h2>Города, где&nbsp;уже&nbsp;прошли сделки</h2><span>Статус</span></div>
+      <div class="row hot"><span class="no">01</span><span class="flap" data-flap="Новосибирск"></span><span class="status">Мой&nbsp;город</span></div>
+      <div class="row hot"><span class="no">02</span><span class="flap" data-flap="Санкт-Петербург"></span><span class="status">Сделки проведены</span></div>
+      <div class="row"><span class="no">03</span><span class="flap" data-flap="Екатеринбург"></span><span class="status">Сделки проведены</span></div>
+      <div class="row"><span class="no">04</span><span class="flap" data-flap="Кемерово"></span><span class="status">Сделки проведены</span></div>
+      <div class="row"><span class="no">05</span><span class="flap" data-flap="Красноярск"></span><span class="status">Сделки проведены</span></div>
+      <div class="row"><span class="no">06</span><span class="flap" data-flap="Тюмень"></span><span class="status">Сделки проведены</span></div>
+      <div class="row"><span class="no">07</span><span class="flap" data-flap="Барнаул"></span><span class="status">Сделки проведены</span></div>
+      <div class="row"><span class="no">08</span><span class="flap" data-flap="Калининград"></span><span class="status">Сделки проведены</span></div>
+      <div class="board-foot">Сделка в&nbsp;другом городе&nbsp;— без&nbsp;перелётов: показ по&nbsp;видео, проверка онлайн, подписание без&nbsp;приезда.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Куда&nbsp;едем?</h2><p>Выберите задачу&nbsp;— подскажу план. Не&nbsp;нашли свою&nbsp;— напишите, разберём на&nbsp;консультации.</p></div>
+    <ul class="svc reveal">
+      <li><a href="#quiz" data-goal="buy"><h3>Купить квартиру</h3><p>Подбор, проверка юрчистоты, торг, ипотека, сделка и&nbsp;приёмка.</p><span class="go"><svg><use href="#arr"/></svg></span></a></li>
+      <li><a href="#quiz" data-goal="sell"><h3>Продать квартиру</h3><p>Оценка, подготовка, объявления, показы, безопасный расчёт.</p><span class="go"><svg><use href="#arr"/></svg></span></a></li>
+      <li><a href="#quiz" data-goal="swap"><h3>Обменять или&nbsp;улучшить</h3><p>Продажа и&nbsp;покупка в&nbsp;одну цепочку, чтобы&nbsp;не&nbsp;остаться без&nbsp;жилья.</p><span class="go"><svg><use href="#arr"/></svg></span></a></li>
+      <li><a href="#remote"><h3>Сделка в&nbsp;другом городе</h3><p>Купить или&nbsp;продать, не&nbsp;приезжая: 8 городов от&nbsp;Калининграда до&nbsp;Красноярска.</p><span class="go"><svg><use href="#arr"/></svg></span></a></li>
+      <li><a href="#quiz" data-goal="mortgage"><h3>Ипотека и&nbsp;маткапитал</h3><p>Подача в&nbsp;несколько банков, сертификаты, субсидии, доли детей.</p><span class="go"><svg><use href="#arr"/></svg></span></a></li>
+      <li><a href="#quiz" data-goal="check"><h3>Проверить квартиру</h3><p>Нашли вариант сами? Проверю документы и&nbsp;продавца до&nbsp;задатка.</p><span class="go"><svg><use href="#arr"/></svg></span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section panel">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Сами, через&nbsp;агентство или&nbsp;со&nbsp;мной</h2><p>Честное сравнение: где&nbsp;именно люди теряют деньги и&nbsp;время.</p></div>
+    <table class="cmp reveal">
+      <thead><tr><th scope="col">Что&nbsp;важно</th><th scope="col">Сами</th><th scope="col">Агентство</th><th scope="col" class="me">Со&nbsp;мной</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Кто ведёт сделку</th><td>Вы&nbsp;сами: с&nbsp;наличными или&nbsp;с&nbsp;платной услугой банка, который очень поверхностно и&nbsp;без&nbsp;ответственности проверяет документы</td><td>Может привлечь к&nbsp;вашей сделке стажёра для&nbsp;наработки практики</td><td class="me">Я&nbsp;лично и&nbsp;юрист по&nbsp;недвижимости&nbsp;— от&nbsp;консультации до&nbsp;ключей</td></tr>
+        <tr><th scope="row">Проверка квартиры и&nbsp;продавца</th><td>Придётся кому-то поверить на&nbsp;слово</td><td>Может работать на&nbsp;стороне продавца и&nbsp;скрыть важные, сложные условия сделки</td><td class="me">Юрист и&nbsp;я&nbsp;проверяем историю собственников, наследников, доли детей, долги, дееспособность</td></tr>
+        <tr><th scope="row">Торг</th><td>Можете спровоцировать конфликт с&nbsp;другой стороной сделки</td><td>Проведёт переговоры намного лучше, но&nbsp;вы&nbsp;не&nbsp;знаете точно, чью сторону оно поддерживает больше</td><td class="me">Торгуюсь по&nbsp;фактам&nbsp;— на&nbsp;вашей стороне</td></tr>
+        <tr><th scope="row">Сделка в&nbsp;другом городе</th><td>Перелёты и&nbsp;риск на&nbsp;месте</td><td>Только где&nbsp;есть офис</td><td class="me">8 городов от&nbsp;Калининграда до&nbsp;Красноярска&nbsp;— без&nbsp;поездок</td></tr>
+        <tr><th scope="row">Связь</th><td>Будете всех торопить сами</td><td>По&nbsp;регламенту</td><td class="me">Мессенджер, напрямую мне</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="remote">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Сделка в&nbsp;другом городе&nbsp;— без&nbsp;перелётов</h2><p>Переезжаете в&nbsp;Новосибирск или&nbsp;из&nbsp;него, купили квартиру детям в&nbsp;другом регионе, продаёте наследство&nbsp;— всё это&nbsp;можно сделать дистанционно и&nbsp;безопасно.</p></div>
+    <div class="remote">
+      <figure class="remote-photo reveal"><img src="../../img/irina-hero.jpg" alt="Ирина Васильева в городе" width="720" height="1280" loading="lazy"><figcaption>Вы&nbsp;— дома <span>Сделка&nbsp;— под&nbsp;контролем</span></figcaption></figure>
+      <div class="reveal">
+        <ol class="legs">
+          <li><div><b>Показ по&nbsp;видео</b><span>Хожу по&nbsp;квартире вместо вас: подъезд, соседи, стояки, окна&nbsp;— в&nbsp;прямом эфире.</span></div></li>
+          <li><div><b>Проверка документов онлайн</b><span>Свежая выписка ЕГРН, история собственников, обременения&nbsp;— присылаю отчёт.</span></div></li>
+          <li><div><b>Подписание без&nbsp;приезда</b><span>Электронная подпись или&nbsp;доверенность&nbsp;— под&nbsp;вашу ситуацию.</span></div></li>
+          <li><div><b>Регистрация и&nbsp;расчёт</b><span>Деньги на&nbsp;защищённом счёте банка, продавец получает их&nbsp;после&nbsp;перехода права.</span></div></li>
+        </ol>
+        <a class="btn btn-main" href="#quiz" data-goal="remote">Рассчитать удалённую сделку <svg class="icon"><use href="#arr"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section panel" id="steps">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Шесть шагов от&nbsp;звонка до&nbsp;ключей</h2><p>Вы&nbsp;всегда знаете, что&nbsp;уже&nbsp;сделано и&nbsp;что&nbsp;будет дальше.</p></div>
+    <ol class="steps reveal">
+      <li><b>Консультация</b><span>30 минут по&nbsp;телефону или&nbsp;видео. Разбираю ситуацию, называю риски и&nbsp;сроки. Бесплатно.</span></li>
+      <li><b>План и&nbsp;договор</b><span>Фиксируем задачу, бюджет и&nbsp;стоимость работы. Без&nbsp;доплат потом.</span></li>
+      <li><b>Подбор или&nbsp;продажа</b><span>Ищу варианты или&nbsp;готовлю квартиру: оценка, фото, объявления, показы.</span></li>
+      <li><b>Проверка</b><span>Документы, история квартиры, продавец. Если&nbsp;есть риск&nbsp;— говорю прямо.</span></li>
+      <li><b>Торг и&nbsp;задаток</b><span>Договариваюсь о&nbsp;цене и&nbsp;условиях, готовлю соглашение о&nbsp;задатке.</span></li>
+      <li><b>Сделка и&nbsp;ключи</b><span>Банк, регистрация, безопасный расчёт, акт. Остаюсь на&nbsp;связи и&nbsp;после.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="quiz">
+  <div class="wrap">
+    <div class="quiz reveal">
+      <div>
+        <h2>План сделки за&nbsp;1 минуту</h2>
+        <p>Ответьте на&nbsp;4 вопроса&nbsp;— пришлю пошаговый план и&nbsp;примерную стоимость. Без&nbsp;обязательств.</p>
+        <div class="q-count" aria-hidden="true"><i data-qstep="0">1</i><i data-qstep="1">2</i><i data-qstep="2">3</i><i data-qstep="3">4</i></div>
+      </div>
+      <div id="qBody" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section panel" id="cases">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Задача, срок, результат</h2><p class="demo">Три сделки ниже&nbsp;— для&nbsp;примера. Заменим на&nbsp;реальные истории Ирины.</p></div>
+    <div class="tickets">
+      <article class="ticket reveal"><div class="route"><span>Другой регион</span><span>Новосибирск</span></div><h3>Семья купила двушку в&nbsp;Новосибирске, не&nbsp;приезжая</h3><dl><dt>Задача</dt><dd>Переезд по&nbsp;работе, квартира рядом со&nbsp;школой</dd><dt>Срок</dt><dd><span class="need">__ дней</span></dd><dt>Итог</dt><dd>Видеопоказы, электронная регистрация</dd></dl></article>
+      <article class="ticket reveal"><div class="route"><span>1-комнатная</span><span>3-комнатная</span></div><h3>Обмен в&nbsp;одну цепочку с&nbsp;ипотекой</h3><dl><dt>Задача</dt><dd>Продать свою и&nbsp;купить новую, не&nbsp;живя на&nbsp;съёмной</dd><dt>Срок</dt><dd><span class="need">__ недель</span></dd><dt>Итог</dt><dd>Обе сделки одной цепочкой</dd></dl></article>
+      <article class="ticket reveal"><div class="route"><span>Наследники</span><span>Покупатель</span></div><h3>Продажа квартиры для&nbsp;наследников из&nbsp;другого города</h3><dl><dt>Задача</dt><dd>Наследники живут далеко, приезжать некогда</dd><dt>Срок</dt><dd><span class="need">__ дней</span></dd><dt>Итог</dt><dd>Продано по&nbsp;доверенности, деньги через&nbsp;защищённый счёт</dd></dl></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="prices">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Стоимость понятна заранее</h2><p>Итог зависит от&nbsp;сложности сделки. Точную сумму фиксируем в&nbsp;договоре до&nbsp;начала работы&nbsp;— без&nbsp;доплат потом.</p></div>
+    <div class="price reveal">
+      <div><small>Первая консультация · 30 минут</small><span class="flap" data-flap="0 ₽"></span><p>Разберу ситуацию, назову риски, сроки и&nbsp;стоимость.</p></div>
+      <div class="hot"><small>Сопровождение сделки</small><span class="flap" data-flap="от 2%"></span><p>от&nbsp;стоимости недвижимости. Лично я&nbsp;и&nbsp;юрист&nbsp;— от&nbsp;первой встречи до&nbsp;ключей.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section panel" id="about">
+  <div class="wrap">
+    <div class="about">
+      <figure class="about-photo reveal"><img src="../../img/irina-hall.jpg" alt="Ирина Васильева в концертном зале" width="960" height="1280" loading="lazy"></figure>
+      <div class="about-copy reveal">
+        <h2>Ирина Васильева</h2>
+        <p class="lead2">Больше пяти лет помогаю людям покупать, продавать и&nbsp;обменивать квартиры. Работаю в&nbsp;Новосибирске, а&nbsp;сделки веду по&nbsp;всей России.</p>
+        <p>За&nbsp;это&nbsp;время провела более 350 сделок. Моя задача&nbsp;— чтобы&nbsp;вы&nbsp;получили не&nbsp;«варианты», а&nbsp;квартиру, за&nbsp;которую спокойно. Работаю по&nbsp;договору, стоимость фиксирую заранее, на&nbsp;связи в&nbsp;мессенджерах напрямую&nbsp;— без&nbsp;колл-центра.</p>
+        <blockquote>«Каждую сделку я&nbsp;провожу лично и&nbsp;с&nbsp;мощным юристом по&nbsp;недвижимости. Мы&nbsp;— сплочённая команда профессионалов».<cite>Ирина Васильева</cite></blockquote>
+        <a class="btn btn-main" href="#contact">Обсудить задачу <svg class="icon"><use href="#arr"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Что&nbsp;говорят клиенты</h2><p>Только настоящие отзывы&nbsp;— со&nbsp;ссылкой на&nbsp;площадку, где&nbsp;их&nbsp;можно проверить.</p></div>
+    <div class="reviews">
+      <div class="review reveal"><div><b>Отзыв с&nbsp;Циан или&nbsp;Авито</b><p>Дословно, с&nbsp;именем клиента и&nbsp;датой, ссылка на&nbsp;оригинал</p></div><span>нужно от&nbsp;Ирины</span></div>
+      <div class="review reveal"><div><b>Скриншот из&nbsp;мессенджера</b><p>С&nbsp;разрешения клиента, имя можно скрыть</p></div><span>нужно от&nbsp;Ирины</span></div>
+      <div class="review reveal"><div><b>Видеоотзыв на&nbsp;ключах</b><p>30 секунд на&nbsp;телефон&nbsp;— сильнее любого текста</p></div><span>нужно от&nbsp;Ирины</span></div>
+    </div>
+    <div class="platforms"><a href="#reviews">Циан</a><a href="#reviews">Авито</a><a href="#reviews">Яндекс</a><a href="#reviews">2ГИС</a></div>
+  </div>
+</section>
+
+<section class="section panel" id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Отвечаю заранее</h2></div>
+    <div class="faq">
+      <details open><summary>Не&nbsp;потеряю&nbsp;ли я&nbsp;деньги на&nbsp;сделке?<i></i></summary><p>Нет.&nbsp;Деньги не&nbsp;передаются из&nbsp;рук в&nbsp;руки: они&nbsp;лежат на&nbsp;защищённом счёте банка, и&nbsp;продавец получает их&nbsp;только после&nbsp;регистрации права на&nbsp;вас. А&nbsp;до&nbsp;задатка мы&nbsp;с&nbsp;юристом проверяем квартиру и&nbsp;продавца.</p></details>
+      <details><summary>Чем&nbsp;частный риэлтор лучше агентства?<i></i></summary><p>Вы&nbsp;знаете, кто ведёт вашу сделку, и&nbsp;этот&nbsp;человек не&nbsp;меняется: я&nbsp;лично, а&nbsp;юридическую часть&nbsp;— юрист по&nbsp;недвижимости. Я&nbsp;сама отвечаю за&nbsp;результат и&nbsp;за&nbsp;свою репутацию&nbsp;— за&nbsp;пять с&nbsp;лишним лет более 350 сделок.</p></details>
+      <details><summary>Как&nbsp;купить квартиру в&nbsp;другом городе и&nbsp;не&nbsp;приезжать?<i></i></summary><p>Показ по&nbsp;видео, проверка документов онлайн, подписание электронной подписью или&nbsp;по&nbsp;доверенности, электронная регистрация и&nbsp;расчёт через&nbsp;защищённый счёт банка. Какой вариант подойдёт вам&nbsp;— скажу на&nbsp;консультации.</p></details>
+      <details><summary>Сколько стоят ваши услуги и&nbsp;когда&nbsp;платить?<i></i></summary><p>От&nbsp;2% от&nbsp;стоимости недвижимости. Точную сумму фиксируем в&nbsp;договоре до&nbsp;начала работы. Первая консультация бесплатна.</p></details>
+      <details><summary>Работаете с&nbsp;ипотекой, маткапиталом, сертификатами?<i></i></summary><p>Да.&nbsp;Подаю заявку в&nbsp;несколько банков, помогаю с&nbsp;одобрением объекта, долями детей и&nbsp;документами по&nbsp;сертификату.</p></details>
+      <details><summary>Что,&nbsp;если&nbsp;квартиру потом попытаются оспорить?<i></i></summary><p>Поэтому проверка&nbsp;— самый долгий этап. Смотрю историю собственников, наследников, доли детей, дееспособность продавца. Если&nbsp;риск есть&nbsp;— говорю об&nbsp;этом до&nbsp;задатка.</p></details>
+      <details><summary>Можно просто проверить квартиру, которую я&nbsp;нашёл сам?<i></i></summary><p>Да,&nbsp;это&nbsp;отдельная услуга. Пришлите адрес и&nbsp;документы, которые есть,&nbsp;— скажу, что&nbsp;ещё&nbsp;запросить у&nbsp;продавца.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <h2>Расскажите о&nbsp;своей задаче</h2>
+      <p class="lead">За&nbsp;30 минут бесплатно скажу, какие есть риски, сколько займёт сделка и&nbsp;сколько будет стоить. Ни&nbsp;к&nbsp;чему не&nbsp;обязывает.</p>
+      <div class="msgs">
+        <a class="msg" href="#contact">Telegram <svg><use href="#arr"/></svg></a>
+        <a class="msg" href="#contact">WhatsApp <svg><use href="#arr"/></svg></a>
+        <a class="msg" href="#contact">MAX <svg><use href="#arr"/></svg></a>
+      </div>
+    </div>
+    <form class="form reveal" data-demo>
+      <label>Как&nbsp;вас зовут<input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
+      <label>Телефон<input type="tel" name="phone" placeholder="+7 ___ ___-__-__" autocomplete="tel"></label>
+      <label>Что&nbsp;нужно<select name="task"><option>Купить</option><option>Продать</option><option>Обменять</option><option>Сделка в&nbsp;другом городе</option><option>Проверить квартиру</option></select></label>
+      <label>Когда&nbsp;удобно позвонить<select name="time"><option>В&nbsp;любое время</option><option>Утром</option><option>Днём</option><option>Вечером</option></select></label>
+      <label class="consent wide"><input type="checkbox" name="consent" required><span>Даю <a href="#contact">согласие на&nbsp;обработку персональных данных</a> и&nbsp;знаком(а) с <a href="#contact">политикой</a></span></label>
+      <button class="btn btn-main wide" type="submit">Записаться на&nbsp;консультацию <svg class="icon"><use href="#arr"/></svg></button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><span><b>Ирина Васильева</b> · частный риэлтор, самозанятая · Новосибирск и&nbsp;вся&nbsp;Россия</span><span>Вариант дизайна «Табло». Формы ничего не&nbsp;отправляют.</span></div>
+</footer>
+
+<a href="#contact" class="float-msg">Написать Ирине <svg class="icon"><use href="#arr"/></svg></a>
+
+<script src="../../js/typo.js"></script>
+<script src="../common.js"></script>
+<script>
+(function(){
+  /* Перекидные буквы */
+  var ABC='АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЭЮЯ';
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var flaps=[].slice.call(document.querySelectorAll('[data-flap]'));
+  flaps.forEach(function(el){
+    var t=el.getAttribute('data-flap');el.setAttribute('aria-label',t);el.setAttribute('role','text');
+    el.innerHTML=t.split('').map(function(c){return '<i aria-hidden="true"'+(c===' '?' class="sp"':'')+'>'+(c===' '?'&nbsp;':c)+'</i>';}).join('');
+  });
+  function spin(el,delay){
+    if(reduce)return;
+    [].slice.call(el.children).forEach(function(i,k){
+      var fin=i.textContent;if(i.classList.contains('sp')||!/[А-ЯЁа-яё]/.test(fin))return;
+      var n=6+Math.floor(Math.random()*6)+k;
+      i.textContent=ABC[Math.floor(Math.random()*ABC.length)];
+      (function step(left){
+        setTimeout(function(){
+          i.classList.remove('spin');void i.offsetWidth;i.classList.add('spin');
+          i.textContent=left>0?ABC[Math.floor(Math.random()*ABC.length)]:fin;
+          if(left>0)step(left-1);
+        },left===n?delay:55);
+      })(n);
+    });
+  }
+  var seen=new WeakSet();
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!seen.has(e.target)){seen.add(e.target);spin(e.target,[].indexOf.call(flaps,e.target)%8*90);}})},{threshold:.4}):null;
+  flaps.forEach(function(f){io&&io.observe(f);});
+
+  /* Часы: время в Новосибирске */
+  var c=document.getElementById('clock');
+  function tick(){
+    try{
+      var s=new Intl.DateTimeFormat('ru-RU',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Novosibirsk'}).format(new Date()).replace(/\D/g,'');
+      c.innerHTML='<i>'+s[0]+'</i><i>'+s[1]+'</i>:<i>'+s[2]+'</i><i>'+s[3]+'</i>';
+    }catch(e){c.parentNode.style.display='none';}
+  }
+  tick();setInterval(tick,15000);
+})();
+</script>
+</body>
+</html>

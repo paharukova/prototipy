@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#edf0f3">
+<title>Ирина Васильева — риэлтор · вариант «Чертёж»</title>
+<meta name="description" content="Покупка, продажа и обмен квартир в Новосибирске и ещё 7 городах России. Опыт более 5 лет, 350+ сделок.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Jura:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --film:#edf0f3; --sheet:#f7f9fb; --ink:#13203a; --blue:#2140a8; --blue-2:#5b6f9f; --muted:#4a5770;
+  --rule:#c3cbdb; --grid:rgba(33,64,168,.07); --red:#cf3426; --red-soft:#f8e3df; --max:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;color:var(--ink);font:17px/1.6 Commissioner,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-color:var(--film);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px}
+::selection{background:var(--blue);color:#fff}
+:focus-visible{outline:2px dashed var(--red);outline-offset:4px}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+button,input,select{font:inherit;color:inherit}
+.wrap{width:min(var(--max),calc(100% - 64px));margin:0 auto}
+.icon{width:1em;height:1em;flex:none}
+.tech{font-family:Jura,"Arial Narrow",sans-serif}
+
+/* Шапка */
+.top{position:sticky;top:0;z-index:30;background:rgba(237,240,243,.94);backdrop-filter:blur(8px);border-bottom:2px solid var(--ink)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:70px}
+.brand{text-decoration:none;margin-right:auto;line-height:1.15}
+.brand b{display:block;font:700 21px Jura,sans-serif;letter-spacing:.02em}
+.brand span{font-size:13px;color:var(--muted)}
+.nav{display:flex;gap:24px;font:600 15px Jura,sans-serif;letter-spacing:.02em}
+.nav a{text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
+.nav a:hover{border-color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border:2px solid var(--ink);border-radius:0;font:700 16px Jura,sans-serif;letter-spacing:.02em;text-decoration:none;cursor:pointer;background:transparent;transition:background .2s,color .2s,box-shadow .2s}
+.btn .icon{width:18px;height:18px}
+.btn-main{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn-main:hover{background:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-small{min-height:42px;padding:0 16px;font-size:15px}
+.menu-btn{display:none;width:46px;height:46px;border:0;background:none;padding:12px 10px;cursor:pointer}
+.menu-btn i{display:block;height:2px;background:var(--ink);margin:6px 0;transition:transform .2s,opacity .2s}
+.menu-btn[aria-expanded="true"] i:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] i:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] i:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* Лист */
+.sheet{background:var(--sheet);border:2px solid var(--ink);position:relative}
+.sheet:before{content:"";position:absolute;inset:8px;border:1px solid var(--rule);pointer-events:none}
+
+/* Первый экран */
+.hero{padding:44px 0 0}
+.hero-sheet{display:grid;grid-template-columns:1fr 1.15fr;min-height:600px}
+.hero-copy{padding:56px 48px 40px;display:flex;flex-direction:column;border-right:1px solid var(--rule)}
+h1{font:700 clamp(34px,3.9vw,58px)/1.06 Jura,sans-serif;letter-spacing:-.02em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--red)}
+.lead{font-size:19px;color:var(--muted);margin-top:26px;max-width:36ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.plan-box{position:relative;padding:36px 28px 28px;display:flex;align-items:center}
+.plan{width:100%;height:auto;display:block}
+.plan .wall{fill:none;stroke:var(--ink);stroke-width:9;stroke-linecap:square}
+.plan .iwall{fill:none;stroke:var(--ink);stroke-width:5}
+.plan .win{stroke:var(--sheet);stroke-width:5}
+.plan .winl{stroke:var(--ink);stroke-width:1.5}
+.plan .door{fill:none;stroke:var(--blue-2);stroke-width:1.5}
+.plan .dim{stroke:var(--blue);stroke-width:1.4;fill:none}
+.plan .dimt{font:700 17px Jura,sans-serif;fill:var(--blue);letter-spacing:.02em}
+.plan .room rect{fill:transparent;transition:fill .25s}
+.plan .room text{font:700 20px Jura,sans-serif;fill:var(--ink);letter-spacing:.02em}
+.plan .room .no{font-size:13px;fill:var(--blue-2)}
+.plan .room:hover rect,.plan .room:focus rect{fill:var(--red-soft)}
+.plan .room:hover text.t,.plan .room:focus text.t{fill:var(--red)}
+.plan .bal{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-dasharray:8 6}
+.plan .lead-line{stroke:var(--red);stroke-width:1.6;fill:none}
+.callout{position:absolute;right:5%;bottom:5%;width:clamp(120px,15vw,190px);aspect-ratio:1;border-radius:50%;overflow:hidden;border:3px solid var(--red);background:var(--sheet);box-shadow:0 0 0 6px var(--sheet)}
+.callout img{width:118%;height:118%;max-width:none;margin:-9%;object-fit:cover}
+.callout-tag{position:absolute;right:calc(5% + clamp(120px,15vw,190px) - 22px);bottom:calc(5% + clamp(120px,15vw,190px) - 30px);width:44px;height:44px;border-radius:50%;background:var(--sheet);border:2px solid var(--red);display:grid;place-items:center;font:700 20px Jura,sans-serif;color:var(--red)}
+
+/* Штамп */
+.stamp{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;border-top:2px solid var(--ink)}
+.stamp>div{padding:14px 18px;border-right:1px solid var(--ink);display:grid;align-content:start;gap:2px}
+.stamp>div:last-child{border-right:0}
+.stamp small{font:600 12px Jura,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stamp b{font:700 18px/1.3 Jura,sans-serif}
+.stamp .cta{padding:0;display:block}
+.stamp .cta a{height:100%;min-height:76px;width:100%;border:0;font-size:17px}
+.hero-copy .stamp-note{margin-top:auto;padding-top:30px;font:600 14px Jura,sans-serif;color:var(--muted);letter-spacing:.02em}
+
+/* Ведомость городов */
+.cities{margin-top:28px}
+.cities-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:18px 28px;border-bottom:2px solid var(--ink)}
+.cities-head h2{font:700 22px Jura,sans-serif;letter-spacing:.02em}
+.cities-head span{font:600 14px Jura,sans-serif;color:var(--muted)}
+.city-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.city-list li{position:relative;padding:22px 28px 26px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);font:700 clamp(22px,2.2vw,30px)/1.1 Jura,sans-serif}
+.city-list li:nth-child(4n){border-right:0}
+.city-list li:nth-last-child(-n+4){border-bottom:0}
+.city-list small{display:block;font:600 13px Jura,sans-serif;color:var(--blue-2);margin-bottom:8px;letter-spacing:.06em}
+.city-list .main{grid-column:span 2;font-size:clamp(34px,4.2vw,58px);color:var(--ink);padding-right:170px}
+.city-list .main:nth-child(2){border-right:0}
+.seal{position:absolute;right:26px;top:50%;width:118px;height:118px;margin-top:-59px;border-radius:50%;border:3px solid var(--red);color:var(--red);display:grid;place-items:center;text-align:center;font:700 14px/1.2 Jura,sans-serif;letter-spacing:.06em;text-transform:uppercase;transform:rotate(-12deg);box-shadow:inset 0 0 0 5px var(--sheet),inset 0 0 0 6px var(--red)}
+
+/* Разделы */
+.section{padding:110px 0}
+.sec-head{display:grid;grid-template-columns:auto 1fr minmax(0,420px);gap:20px 40px;align-items:end;margin-bottom:44px}
+.sec-head .mark{width:60px;height:60px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font:700 22px Jura,sans-serif;align-self:center}
+h2{font:700 clamp(32px,3.8vw,56px)/1.05 Jura,sans-serif;letter-spacing:-.015em;text-wrap:balance}
+.sec-head p{color:var(--muted);font-size:18px}
+
+/* Экспликация */
+.expl{width:100%;border-collapse:collapse}
+.expl th{font:600 13px Jura,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;padding:14px 22px;border-bottom:2px solid var(--ink)}
+.expl td{padding:0;border-bottom:1px solid var(--rule)}
+.expl tr:last-child td{border-bottom:0}
+.expl a{display:grid;grid-template-columns:70px minmax(0,1fr) minmax(0,1.3fr) 60px;gap:20px;align-items:center;padding:22px;text-decoration:none;transition:background .2s}
+.expl .n{font:700 20px Jura,sans-serif;color:var(--blue)}
+.expl h3{font:700 24px/1.2 Jura,sans-serif}
+.expl p{color:var(--muted);font-size:16px}
+.expl .go{width:46px;height:46px;border:2px solid var(--ink);display:grid;place-items:center;transition:background .2s,color .2s,border-color .2s}
+.expl .go svg{width:18px;height:18px}
+.expl a:hover,.expl a:focus-visible{background:var(--red-soft)}
+.expl a:hover .go,.expl a:focus-visible .go{background:var(--red);border-color:var(--red);color:#fff}
+
+/* Спецификация */
+.spec{width:100%;border-collapse:collapse;font-size:16px}
+.spec th,.spec td{text-align:left;vertical-align:top;padding:20px 22px;border-bottom:1px solid var(--rule);border-right:1px solid var(--rule)}
+.spec th:last-child,.spec td:last-child{border-right:0}
+.spec thead th{font:600 13px Jura,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--ink)}
+.spec tbody th{font:700 18px/1.3 Jura,sans-serif;width:20%}
+.spec td{color:var(--muted);width:26%}
+.spec .me{color:var(--ink);font-weight:600;background:#eef1fb}
+.spec thead .me{color:#fff;background:var(--blue);border-bottom-color:var(--blue)}
+.spec tbody tr:last-child th,.spec tbody tr:last-child td{border-bottom:0}
+
+/* Узел А — удалённая сделка */
+.node{display:grid;grid-template-columns:340px 1fr;gap:0}
+.node-pic{padding:40px;border-right:1px solid var(--rule);display:grid;place-items:center;gap:18px}
+.node-pic .ring{width:240px;height:240px;border-radius:50%;overflow:hidden;border:3px solid var(--red);box-shadow:0 0 0 8px var(--sheet),0 0 0 9px var(--rule)}
+.node-pic .ring img{width:118%;height:118%;max-width:none;margin:-9%;object-fit:cover}
+.node-pic b{font:700 18px Jura,sans-serif;color:var(--red);letter-spacing:.04em}
+.chain{list-style:none;margin:0;padding:40px 40px 20px;display:grid;grid-template-columns:repeat(4,1fr);position:relative;counter-reset:c}
+.chain:before{content:"";position:absolute;left:40px;right:40px;top:52px;height:2px;background:var(--blue)}
+.chain li{position:relative;padding:44px 18px 0 0;counter-increment:c}
+.chain li:before{content:"";position:absolute;left:0;top:-2px;width:2px;height:28px;background:var(--blue)}
+.chain li:after{content:counter(c);position:absolute;left:12px;top:-8px;font:700 15px Jura,sans-serif;color:var(--blue)}
+.chain b{display:block;font:700 19px/1.25 Jura,sans-serif;margin-bottom:8px}
+.chain span{color:var(--muted);font-size:15px}
+.node .cta{padding:10px 40px 40px}
+
+/* Этапы */
+.stages{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);counter-reset:s;border-top:2px solid var(--ink)}
+.stages li{position:relative;padding:28px 20px 10px 0;counter-increment:s;border-left:1px solid var(--rule);padding-left:20px}
+.stages li:first-child{border-left:0;padding-left:0}
+.stages li:before{content:"Этап " counter(s);display:block;font:700 14px Jura,sans-serif;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.stages li:last-child:before{color:var(--red)}
+.stages b{display:block;font:700 20px/1.25 Jura,sans-serif;margin-bottom:8px}
+.stages span{color:var(--muted);font-size:15px}
+
+/* Квиз — задание */
+.task{display:grid;grid-template-columns:.85fr 1.15fr}
+.task>div:first-child{padding:44px;border-right:1px solid var(--rule)}
+.task>div:first-child p{color:var(--muted);margin-top:18px;font-size:18px}
+.sheets{display:flex;gap:8px;margin-top:32px;font:700 14px Jura,sans-serif}
+.sheets i{font-style:normal;padding:8px 12px;border:1.5px solid var(--rule);color:var(--muted);transition:all .25s}
+.sheets i.done{border-color:var(--blue);background:var(--blue);color:#fff}
+.sheets i.now{border-color:var(--ink);color:var(--ink)}
+#qBody{padding:44px}
+.q-label{font:700 14px Jura,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.q-title{font:700 30px/1.2 Jura,sans-serif;margin:10px 0 22px}
+.q-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.q-opt{display:flex;align-items:center;gap:14px;padding:16px 18px;text-align:left;border:1.5px solid var(--ink);background:var(--sheet);cursor:pointer;font-size:16px;line-height:1.35;transition:background .2s,color .2s}
+.q-opt:before{content:"";flex:none;width:18px;height:18px;border:2px solid currentColor}
+.q-opt:hover,.q-opt:focus-visible{background:var(--blue);color:#fff;border-color:var(--blue);outline:0}
+.q-back{margin-top:18px;background:none;border:0;color:var(--muted);cursor:pointer;padding:6px 0;font:600 15px Jura,sans-serif;text-decoration:underline;text-underline-offset:4px}
+.q-term{color:var(--muted);margin-bottom:12px}
+.q-plan{margin:0 0 18px;padding-left:22px;display:grid;gap:8px;font-size:15px}
+.q-plan li::marker{color:var(--red);font-weight:700}
+.q-form{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end}
+.q-form label{display:grid;gap:6px;font:600 13px Jura,sans-serif;color:var(--muted)}
+.q-form input{border:1.5px solid var(--ink);padding:14px;background:#fff;border-radius:0}
+.need{color:var(--red);border-bottom:2px dashed var(--red)}
+
+/* Кейсы */
+.cases{display:grid;grid-template-columns:repeat(3,1fr)}
+.case{padding:32px;border-right:1px solid var(--rule)}
+.case:last-child{border-right:0}
+.case small{display:block;font:700 13px Jura,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.case h3{font:700 21px/1.3 Jura,sans-serif}
+.case dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:20px 0 0;font-size:15px;padding-top:16px;border-top:1px dashed var(--rule)}
+.case dt{color:var(--muted)}
+.case dd{margin:0;font-weight:600}
+.demo{color:var(--muted);font-size:15px}
+
+/* Цены */
+.prices{display:grid;grid-template-columns:1fr 1fr}
+.prices>div{padding:40px;display:grid;gap:12px;align-content:start}
+.prices>div+div{border-left:1px solid var(--rule)}
+.prices small{font:700 14px Jura,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.prices b{font:700 clamp(48px,6vw,84px)/1 Jura,sans-serif;letter-spacing:-.02em}
+.prices .hot b{color:var(--red)}
+.prices p{color:var(--muted)}
+.dimline{display:flex;align-items:center;gap:10px;font:600 13px Jura,sans-serif;color:var(--blue)}
+.dimline i{flex:1;height:2px;background:var(--blue);position:relative}
+.dimline i:before,.dimline i:after{content:"";position:absolute;top:-7px;width:2px;height:16px;background:var(--blue)}
+.dimline i:before{left:0}.dimline i:after{right:0}
+
+/* Обо мне */
+.about{display:grid;grid-template-columns:1fr 1.1fr}
+.about-photo{margin:0;position:relative;border-right:1px solid var(--rule);min-height:640px}
+.about-photo img{position:absolute;inset:16px;width:calc(100% - 32px);height:calc(100% - 32px);object-fit:cover;object-position:48% 40%}
+.about-photo figcaption{position:absolute;left:32px;bottom:32px;background:var(--sheet);border:2px solid var(--ink);padding:10px 16px;font:700 15px Jura,sans-serif}
+.about-copy{padding:48px}
+.about-copy .lead2{font-size:21px;line-height:1.5;margin-top:18px}
+.about-copy p{color:var(--muted);margin-top:16px;font-size:17px}
+.note{display:grid;grid-template-columns:96px 1fr;gap:20px;margin:30px 0;padding:18px;border:1.5px solid var(--red);background:#fff}
+.note img{width:96px;height:128px;object-fit:cover;object-position:55% 80%}
+.note blockquote{margin:0;font:700 19px/1.4 Jura,sans-serif}
+.note cite{display:block;font:600 13px Commissioner,sans-serif;font-style:normal;color:var(--red);margin-top:8px}
+
+/* Отзывы */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr)}
+.review{padding:32px;border-right:1px dashed var(--rule);min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+.review:last-child{border-right:0}
+.review b{font:700 21px Jura,sans-serif}
+.review p{color:var(--muted);font-size:15px;margin-top:8px}
+.review span{font:700 13px Jura,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.platforms{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.platforms a{padding:10px 18px;border:1.5px solid var(--ink);text-decoration:none;font:700 15px Jura,sans-serif;background:var(--sheet)}
+.platforms a:hover{background:var(--ink);color:#fff}
+
+/* FAQ */
+.faq{max-width:920px}
+.faq details{border-top:1px solid var(--rule);padding:22px 0}
+.faq details:last-child{border-bottom:1px solid var(--rule)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;font:700 21px/1.3 Jura,sans-serif}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;width:30px;height:30px;border:2px solid var(--ink);position:relative}
+.faq summary i:before,.faq summary i:after{content:"";position:absolute;left:6px;right:6px;top:12px;height:2px;background:var(--ink)}
+.faq summary i:after{transform:rotate(90deg);transition:transform .2s}
+.faq details[open] summary i{border-color:var(--red)}
+.faq details[open] summary i:before{background:var(--red)}
+.faq details[open] summary i:after{transform:none;background:var(--red)}
+.faq p{color:var(--muted);margin-top:12px;max-width:70ch}
+
+/* Связь */
+.contact .sheet{display:grid;grid-template-columns:1fr 1.15fr}
+.contact-copy{padding:48px;border-right:1px solid var(--rule)}
+.contact-copy p{color:var(--muted);font-size:18px;margin-top:18px}
+.msgs{display:grid;gap:10px;margin-top:30px}
+.msg{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border:2px solid var(--ink);text-decoration:none;font:700 20px Jura,sans-serif;background:#fff;transition:background .2s,color .2s}
+.msg svg{width:20px;height:20px}
+.msg:hover{background:var(--ink);color:#fff}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:48px;align-content:start}
+.form label{display:grid;gap:6px;font:600 14px Jura,sans-serif;color:var(--muted);letter-spacing:.02em}
+.form input,.form select{width:100%;border:1.5px solid var(--ink);border-radius:0;padding:14px;background:#fff;outline:0}
+.form input:focus,.form select:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(33,64,168,.15)}
+.form .wide{grid-column:1/-1}
+.consent{display:flex!important;gap:12px!important;align-items:flex-start;font:500 14px Commissioner,sans-serif!important}
+.consent input{width:22px;height:22px;flex:none;margin:1px 0 0;accent-color:var(--blue)}
+.form .btn{width:100%}
+.form-ok{grid-column:1/-1;font-size:17px;font-weight:600;line-height:1.5}
+
+.foot{padding:34px 0 48px;color:var(--muted);font:600 14px Jura,sans-serif}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;border-top:2px solid var(--ink);padding-top:22px}
+.float-msg{display:none}
+
+/* Движение: линии плана прорисовываются при загрузке */
+.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+.js .reveal.on{opacity:1;transform:none}
+.draw .wall,.draw .iwall,.draw .dim{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1.6s cubic-bezier(.65,0,.35,1) forwards}
+.draw .iwall{animation-delay:.5s}
+.draw .dim{animation-delay:1s}
+.draw .room text,.draw .dimt{opacity:0;animation:fade .6s ease-out 1.4s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fade{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}.draw *{animation:none!important;stroke-dashoffset:0!important;opacity:1!important}}
+
+@media (max-width:1100px){
+  .nav{gap:14px;font-size:14px}
+  .city-list{grid-template-columns:repeat(2,1fr)}
+  .city-list li:nth-child(4n){border-right:1px solid var(--rule)}
+  .city-list li:nth-child(2n){border-right:0}
+  .city-list .main{grid-column:span 2;border-right:0}
+  .city-list li:nth-last-child(-n+4){border-bottom:1px solid var(--rule)}
+  .city-list li:nth-last-child(-n+2){border-bottom:0}
+  .stages{grid-template-columns:repeat(3,1fr)}
+  .stages li:nth-child(4){border-left:0;padding-left:0}
+  .stamp{grid-template-columns:1fr 1fr}
+  .stamp>div:nth-child(2){border-right:0}
+  .stamp>div:nth-child(-n+2){border-bottom:1px solid var(--ink)}
+}
+@media (max-width:960px){
+  .nav{display:none}
+  .menu-btn{display:block}
+  .nav.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:16px;padding:22px 32px 28px;background:var(--film);border-bottom:2px solid var(--ink);font-size:18px}
+  .hero-sheet,.node,.task,.about,.contact .sheet{grid-template-columns:1fr}
+  .hero-copy,.node-pic,.task>div:first-child,.about-photo,.contact-copy{border-right:0;border-bottom:1px solid var(--rule)}
+  .sec-head{grid-template-columns:auto 1fr}
+  .sec-head p{grid-column:1/-1}
+  .chain{grid-template-columns:1fr 1fr;row-gap:30px}
+  .chain:before{display:none}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .wrap{width:calc(100% - 28px)}
+  .top .wrap{height:62px}
+  .top .btn-small{display:none}
+  .brand b{font-size:18px}
+  .brand span{font-size:12px}
+  .hero{padding-top:20px}
+  .hero-copy{padding:32px 22px 26px}
+  .lead{font-size:17px}
+  .actions{display:grid}
+  .plan-box{padding:18px 8px 10px}
+  .callout{right:4%;bottom:6%;width:96px}
+  .callout-tag{display:none}
+  .stamp{grid-template-columns:1fr}
+  .stamp>div{border-right:0;border-bottom:1px solid var(--ink)}
+  .stamp>div:last-child{border-bottom:0}
+  .cities-head{flex-direction:column;padding:16px 18px}
+  .city-list{grid-template-columns:1fr 1fr}
+  .city-list li{padding:14px 14px 16px;font-size:17px}
+  .city-list .main{font-size:30px;padding-right:110px}
+  .seal{width:86px;height:86px;margin-top:-43px;right:14px;font-size:11px}
+  .section{padding:72px 0}
+  .sec-head{gap:14px 16px;margin-bottom:30px}
+  .sec-head .mark{width:46px;height:46px;font-size:18px}
+  .expl thead{display:none}
+  .expl a{grid-template-columns:40px 1fr 44px;gap:6px 14px;padding:18px 14px}
+  .expl p{grid-column:2}
+  .expl .go{grid-row:1/3;grid-column:3;width:42px;height:42px}
+  .expl h3{font-size:20px}
+  .spec,.spec tbody,.spec tr,.spec th,.spec td{display:block;width:auto!important;border-right:0}
+  .spec thead{display:none}
+  .spec tr{border-bottom:2px solid var(--ink)}
+  .spec tbody th{padding:16px 18px 8px;border-bottom:0}
+  .spec td{padding:10px 18px}
+  .spec td:before{display:block;font:600 12px Jura,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .spec td:nth-of-type(1):before{content:"Сами"}
+  .spec td:nth-of-type(2):before{content:"Агентство"}
+  .spec td.me:before{content:"Со мной";color:var(--blue)}
+  .node-pic{padding:28px}
+  .node-pic .ring{width:190px;height:190px}
+  .chain{grid-template-columns:1fr;padding:28px 22px 10px}
+  .node .cta{padding:10px 22px 28px}
+  .stages{grid-template-columns:1fr}
+  .stages li,.stages li:nth-child(4){border-left:0;padding:22px 0;border-bottom:1px solid var(--rule)}
+  .task>div:first-child,#qBody{padding:26px 18px}
+  .q-opts,.q-form{grid-template-columns:1fr}
+  .q-title{font-size:24px}
+  .cases,.reviews,.prices{grid-template-columns:1fr}
+  .case,.review{border-right:0;border-bottom:1px solid var(--rule)}
+  .prices>div+div{border-left:0;border-top:1px solid var(--rule)}
+  .prices>div{padding:28px 22px}
+  .about-photo{min-height:min(115vw,480px)}
+  .about-copy,.contact-copy,.form{padding:28px 20px}
+  .note{grid-template-columns:72px 1fr}
+  .note img{width:72px;height:96px}
+  .note blockquote{font-size:16px}
+  .form{grid-template-columns:1fr}
+  .faq summary{font-size:18px}
+  .float-msg{display:flex;align-items:center;gap:8px;position:fixed;right:14px;bottom:14px;z-index:40;background:var(--blue);color:#fff;font:700 15px Jura,sans-serif;padding:14px 20px;text-decoration:none;box-shadow:0 10px 24px rgba(19,32,58,.3);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .25s,transform .25s,visibility .25s}
+  .float-msg.show{opacity:1;visibility:visible;transform:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>Ирина Васильева</b><span>частный риэлтор · Новосибирск и&nbsp;вся&nbsp;Россия</span></a>
+    <nav class="nav" id="nav" aria-label="Разделы">
+      <a href="#services">Услуги</a>
+      <a href="#remote">Из&nbsp;другого города</a>
+      <a href="#steps">Как&nbsp;проходит сделка</a>
+      <a href="#prices">Цены</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="btn btn-main btn-small" href="#contact">Написать Ирине</a>
+    <button class="menu-btn" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="sheet hero-sheet">
+      <div class="hero-copy">
+        <h1>Куплю, продам или&nbsp;обменяю вашу квартиру <em>без&nbsp;риска</em></h1>
+        <p class="lead">В&nbsp;Новосибирске и&nbsp;ещё&nbsp;7 городах России. Каждую сделку веду лично вместе с&nbsp;сильным юристом по&nbsp;недвижимости&nbsp;— от&nbsp;первой встречи до&nbsp;ключей.</p>
+        <div class="actions">
+          <a class="btn btn-main" href="#contact">Записаться на&nbsp;консультацию <svg class="icon"><use href="#arr"/></svg></a>
+          <a class="btn btn-line" href="#quiz">План сделки за&nbsp;1 минуту</a>
+        </div>
+        <p class="stamp-note">Нажмите на&nbsp;комнату плана&nbsp;— откроется нужная услуга.</p>
+      </div>
+      <div class="plan-box">
+        <svg class="plan draw" id="plan" viewBox="0 0 680 500" role="img" aria-labelledby="planTitle">
+          <title id="planTitle">План квартиры: комнаты — услуги Ирины Васильевой</title>
+          <!-- размеры -->
+          <g class="dim"><path d="M40 22H520M40 14V30M520 14V30"/><path d="M18 50V430M10 50H26M10 430H26"/><path d="M40 470H520M40 462V478M520 462V478"/></g>
+          <text class="dimt" x="280" y="16" text-anchor="middle">350+ сделок</text>
+          <text class="dimt" x="12" y="240" text-anchor="middle" transform="rotate(-90 12 240)">5+ лет в недвижимости</text>
+          <text class="dimt" x="44" y="494">8 городов сделок</text>
+          <!-- комнаты-ссылки -->
+          <a class="room" href="#quiz" data-goal="buy" aria-label="Купить квартиру"><rect x="44" y="54" width="252" height="202"/><text class="no" x="62" y="84">01</text><text class="t" x="62" y="108">Купить</text></a>
+          <a class="room" href="#quiz" data-goal="sell" aria-label="Продать квартиру"><rect x="304" y="54" width="212" height="202"/><text class="no" x="322" y="84">02</text><text class="t" x="322" y="108">Продать</text></a>
+          <a class="room" href="#quiz" data-goal="swap" aria-label="Обменять квартиру"><rect x="44" y="264" width="152" height="162"/><text class="no" x="60" y="294">03</text><text class="t" x="60" y="318">Обменять</text></a>
+          <a class="room" href="#quiz" data-goal="mortgage" aria-label="Ипотека и маткапитал"><rect x="204" y="264" width="172" height="162"/><text class="no" x="220" y="294">04</text><text class="t" x="220" y="318">Ипотека</text></a>
+          <a class="room" href="#quiz" data-goal="check" aria-label="Проверить квартиру"><rect x="384" y="264" width="132" height="162"/><text class="no" x="398" y="294">05</text><text class="t" x="398" y="318">Проверка</text></a>
+          <a class="room" href="#remote" aria-label="Сделка в другом городе"><rect x="526" y="120" width="112" height="170"/><text class="no" x="540" y="150">06</text><text class="t" x="540" y="174">Другой</text><text class="t" x="540" y="196">город</text></a>
+          <!-- стены -->
+          <path class="wall" style="--len:1800" d="M40 50H520V430H40Z"/>
+          <path class="iwall" style="--len:1200" d="M300 50V150M300 190V260M40 260H120M160 260H460M500 260H520M200 260V340M200 380V430M380 260V430"/>
+          <path class="bal" d="M520 116H640V294H520"/>
+          <!-- окна -->
+          <path class="win" d="M110 50H230M360 50H470M40 120V200M120 430H170"/>
+          <path class="winl" d="M110 47H230M110 53H230M360 47H470M360 53H470M37 120V200M43 120V200M120 427H170M120 433H170"/>
+          <!-- двери -->
+          <path class="door" d="M300 150A40 40 0 0 1 260 190M120 260A40 40 0 0 0 160 220M460 260A40 40 0 0 1 500 300M200 340A40 40 0 0 1 240 380M520 160A30 30 0 0 1 490 190"/>
+        </svg>
+        <div class="callout"><img src="../../img/irina-object.jpg" alt="Ирина Васильева на показе квартиры" width="980" height="980"></div>
+        <div class="callout-tag" aria-hidden="true">А</div>
+      </div>
+    </div>
+    <div class="sheet stamp" style="border-top:0">
+      <div><small>Разработал</small><b>Васильева Ирина, частный риэлтор</b></div>
+      <div><small>Проверил</small><b>Юрист по&nbsp;недвижимости</b></div>
+      <div><small>Первая консультация</small><b>30 минут · бесплатно</b></div>
+      <div class="cta"><a class="btn btn-main" href="#contact">Записаться <svg class="icon"><use href="#arr"/></svg></a></div>
+    </div>
+
+    <div class="sheet cities reveal">
+      <div class="cities-head"><h2>Ведомость городов, где&nbsp;уже&nbsp;прошли сделки</h2><span>8 городов · сделки без&nbsp;перелётов</span></div>
+      <ol class="city-list">
+        <li class="main"><small>Мой&nbsp;город</small>Новосибирск<span class="seal">Работаю здесь</span></li>
+        <li class="main"><small>Северо-Запад</small>Санкт-Петербург<span class="seal">Сделки проведены</span></li>
+        <li><small>Урал</small>Екатеринбург</li>
+        <li><small>Сибирь</small>Кемерово</li>
+        <li><small>Сибирь</small>Красноярск</li>
+        <li><small>Урал</small>Тюмень</li>
+        <li><small>Сибирь</small>Барнаул</li>
+        <li><small>Запад</small>Калининград</li>
+        <li style="color:var(--blue-2);font-size:18px;font-weight:600"><small>Ваш&nbsp;город</small>Обсудим на&nbsp;консультации</li>
+        <li aria-hidden="true"></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="mark" aria-hidden="true">1</span><h2>Экспликация услуг</h2><p>Каждая комната плана&nbsp;— задача, с&nbsp;которой помогаю. Не&nbsp;нашли свою&nbsp;— напишите, разберём на&nbsp;консультации.</p></div>
+    <div class="sheet reveal">
+      <table class="expl">
+        <thead><tr><th>№ · Услуга · Что&nbsp;делаю</th></tr></thead>
+        <tbody>
+          <tr><td><a href="#quiz" data-goal="buy"><span class="n">01</span><h3>Купить квартиру</h3><p>Подбор, проверка юрчистоты, торг, ипотека, сделка и&nbsp;приёмка.</p><span class="go"><svg><use href="#arr"/></svg></span></a></td></tr>
+          <tr><td><a href="#quiz" data-goal="sell"><span class="n">02</span><h3>Продать квартиру</h3><p>Оценка, подготовка, объявления, показы, безопасный расчёт.</p><span class="go"><svg><use href="#arr"/></svg></span></a></td></tr>
+          <tr><td><a href="#quiz" data-goal="swap"><span class="n">03</span><h3>Обменять или&nbsp;улучшить</h3><p>Продажа и&nbsp;покупка в&nbsp;одну цепочку, чтобы&nbsp;не&nbsp;остаться без&nbsp;жилья.</p><span class="go"><svg><use href="#arr"/></svg></span></a></td></tr>
+          <tr><td><a href="#quiz" data-goal="mortgage"><span class="n">04</span><h3>Ипотека и&nbsp;маткапитал</h3><p>Подача в&nbsp;несколько банков, сертификаты, субсидии, доли детей.</p><span class="go"><svg><use href="#arr"/></svg></span></a></td></tr>
+          <tr><td><a href="#quiz" data-goal="check"><span class="n">05</span><h3>Проверить квартиру</h3><p>Нашли вариант сами? Проверю документы и&nbsp;продавца до&nbsp;задатка.</p><span class="go"><svg><use href="#arr"/></svg></span></a></td></tr>
+          <tr><td><a href="#remote"><span class="n">06</span><h3>Сделка в&nbsp;другом городе</h3><p>Купить или&nbsp;продать, не&nbsp;приезжая: 8 городов от&nbsp;Калининграда до&nbsp;Красноярска.</p><span class="go"><svg><use href="#arr"/></svg></span></a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="mark" aria-hidden="true">2</span><h2>Сами, через&nbsp;агентство или&nbsp;со&nbsp;мной</h2><p>Честное сравнение: где&nbsp;именно люди теряют деньги и&nbsp;время.</p></div>
+    <div class="sheet reveal">
+      <table class="spec">
+        <thead><tr><th scope="col">Что&nbsp;важно</th><th scope="col">Сами</th><th scope="col">Агентство</th><th scope="col" class="me">Со&nbsp;мной</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Кто ведёт сделку</th><td>Вы&nbsp;сами: с&nbsp;наличными или&nbsp;с&nbsp;платной услугой банка, который очень поверхностно и&nbsp;без&nbsp;ответственности проверяет документы</td><td>Может привлечь к&nbsp;вашей сделке стажёра для&nbsp;наработки практики</td><td class="me">Я&nbsp;лично и&nbsp;юрист по&nbsp;недвижимости&nbsp;— от&nbsp;консультации до&nbsp;ключей</td></tr>
+          <tr><th scope="row">Проверка квартиры и&nbsp;продавца</th><td>Придётся кому-то поверить на&nbsp;слово</td><td>Может работать на&nbsp;стороне продавца и&nbsp;скрыть важные, сложные условия сделки</td><td class="me">Юрист и&nbsp;я&nbsp;проверяем историю собственников, наследников, доли детей, долги, дееспособность</td></tr>
+          <tr><th scope="row">Торг</th><td>Можете спровоцировать конфликт с&nbsp;другой стороной сделки</td><td>Проведёт переговоры намного лучше, но&nbsp;вы&nbsp;не&nbsp;знаете точно, чью сторону оно поддерживает больше</td><td class="me">Торгуюсь по&nbsp;фактам&nbsp;— на&nbsp;вашей стороне</td></tr>
+          <tr><th scope="row">Сделка в&nbsp;другом городе</th><td>Перелёты и&nbsp;риск на&nbsp;месте</td><td>Только где&nbsp;есть офис</td><td class="me">8 городов от&nbsp;Калининграда до&nbsp;Красноярска&nbsp;— без&nbsp;поездок</td></tr>
+          <tr><th scope="row">Связь</th><td>Будете всех торопить сами</td><td>По&nbsp;регламенту</td><td class="me">Мессенджер, напрямую мне</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="remote" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="mark" aria-hidden="true">А</span><h2>Узел А:&nbsp;сделка в&nbsp;другом городе без&nbsp;перелётов</h2><p>Переезжаете в&nbsp;Новосибирск или&nbsp;из&nbsp;него, купили квартиру детям в&nbsp;другом регионе, продаёте наследство&nbsp;— всё это&nbsp;можно сделать дистанционно и&nbsp;безопасно.</p></div>
+    <div class="sheet node reveal">
+      <div class="node-pic"><div class="ring"><img src="../../img/irina-object.jpg" alt="Ирина Васильева на показе квартиры" width="980" height="980" loading="lazy"></div><b>Узел А&nbsp;· М 1:1</b></div>
+      <div>
+        <ol class="chain">
+          <li><b>Показ по&nbsp;видео</b><span>Хожу по&nbsp;квартире вместо вас: подъезд, соседи, стояки, окна&nbsp;— в&nbsp;прямом эфире.</span></li>
+          <li><b>Проверка документов онлайн</b><span>Свежая выписка ЕГРН, история собственников, обременения&nbsp;— присылаю отчёт.</span></li>
+          <li><b>Подписание без&nbsp;приезда</b><span>Электронная подпись или&nbsp;доверенность&nbsp;— под&nbsp;вашу ситуацию.</span></li>
+          <li><b>Регистрация и&nbsp;расчёт</b><span>Деньги на&nbsp;защищённом счёте банка, продавец получает их&nbsp;после&nbsp;перехода права.</span></li>
+        </ol>
+        <div class="cta"><a class="btn btn-main" href="#quiz" data-goal="remote">Рассчитать удалённую сделку <svg class="icon"><use href="#arr"/></svg></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="steps" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="mark" aria-hidden="true">3</span><h2>Шесть этапов от&nbsp;звонка до&nbsp;ключей</h2><p>Вы&nbsp;всегда знаете, что&nbsp;уже&nbsp;сделано и&nbsp;что&nbsp;будет дальше.</p></div>
+    <ol class="stages reveal">
+      <li><b>Консультация</b><span>30 минут по&nbsp;телефону или&nbsp;видео. Разбираю ситуацию, называю риски и&nbsp;сроки. Бесплатно.</span></li>
+      <li><b>План и&nbsp;договор</b><span>Фиксируем задачу, бюджет и&nbsp;стоимость работы. Без&nbsp;доплат потом.</span></li>
+      <li><b>Подбор или&nbsp;продажа</b><span>Ищу варианты или&nbsp;готовлю квартиру: оценка, фото, объявления, показы.</span></li>
+      <li><b>Проверка</b><span>Документы, история квартиры, продавец. Если&nbsp;есть риск&nbsp;— говорю прямо.</span></li>
+      <li><b>Торг и&nbsp;задаток</b><span>Договариваюсь о&nbsp;цене и&nbsp;условиях, готовлю соглашение о&nbsp;задатке.</span></li>
+      <li><b>Сделка и&nbsp;ключи</b><span>Банк, регистрация, безопасный расчёт, акт. Остаюсь на&nbsp;связи и&nbsp;после.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="quiz" style="padding-top:0">
+  <div class="wrap">
+    <div class="sheet task reveal">
+      <div>
+        <h2>Задание на&nbsp;сделку за&nbsp;1 минуту</h2>
+        <p>Ответьте на&nbsp;4 вопроса&nbsp;— пришлю пошаговый план и&nbsp;примерную стоимость. Без&nbsp;обязательств.</p>
+        <div class="sheets" aria-hidden="true"><i data-qstep="0">Лист 1</i><i data-qstep="1">Лист 2</i><i data-qstep="2">Лист 3</i><i data-qstep="3">Лист 4</i></div>
+      </div>
+      <div id="qBody" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="cases" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="mark" aria-hidden="true">4</span><h2>Задача, срок, результат</h2><p class="demo">Три сделки ниже&nbsp;— для&nbsp;примера. Заменим на&nbsp;реальные истории Ирины.</p></div>
+    <div class="sheet cases reveal">
+      <article class="case"><small>Удалённая покупка</small><h3>Семья купила двушку в&nbsp;Новосибирске, не&nbsp;приезжая</h3><dl><dt>Задача</dt><dd>Переезд по&nbsp;работе, квартира рядом со&nbsp;школой</dd><dt>Срок</dt><dd><span class="need">__ дней</span></dd><dt>Итог</dt><dd>Видеопоказы, электронная регистрация</dd></dl></article>
+      <article class="case"><small>Обмен</small><h3>Однокомнатная → трёхкомнатная в&nbsp;одну цепочку с&nbsp;ипотекой</h3><dl><dt>Задача</dt><dd>Продать свою и&nbsp;купить новую, не&nbsp;живя на&nbsp;съёмной</dd><dt>Срок</dt><dd><span class="need">__ недель</span></dd><dt>Итог</dt><dd>Обе сделки одной цепочкой</dd></dl></article>
+      <article class="case"><small>Продажа наследства</small><h3>Квартира в&nbsp;Новосибирске для&nbsp;наследников из&nbsp;другого города</h3><dl><dt>Задача</dt><dd>Наследники живут далеко, приезжать некогда</dd><dt>Срок</dt><dd><span class="need">__ дней</span></dd><dt>Итог</dt><dd>Продано по&nbsp;доверенности, деньги через&nbsp;защищённый счёт</dd></dl></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="prices" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="mark" aria-hidden="true">5</span><h2>Смета понятна заранее</h2><p>Итог зависит от&nbsp;сложности сделки. Точную сумму фиксируем в&nbsp;договоре до&nbsp;начала работы&nbsp;— без&nbsp;доплат потом.</p></div>
+    <div class="sheet prices reveal">
+      <div><small>Первая консультация</small><b>0&nbsp;₽</b><div class="dimline"><i></i>30 минут</div><p>Разберу ситуацию, назову риски, сроки и&nbsp;стоимость.</p></div>
+      <div class="hot"><small>Сопровождение сделки</small><b>от&nbsp;2%</b><div class="dimline"><i></i>от&nbsp;стоимости недвижимости</div><p>Лично я&nbsp;и&nbsp;юрист&nbsp;— от&nbsp;первой встречи до&nbsp;ключей.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="sheet about reveal">
+      <figure class="about-photo"><img src="../../img/irina-portrait.jpg" alt="Ирина Васильева" width="1280" height="1280" loading="lazy"><figcaption>Васильева И.&nbsp;· разработал</figcaption></figure>
+      <div class="about-copy">
+        <h2>Ирина Васильева</h2>
+        <p class="lead2">Больше пяти лет помогаю людям покупать, продавать и&nbsp;обменивать квартиры. Работаю в&nbsp;Новосибирске, а&nbsp;сделки веду по&nbsp;всей России.</p>
+        <p>За&nbsp;это&nbsp;время провела более 350 сделок. Моя задача&nbsp;— чтобы&nbsp;вы&nbsp;получили не&nbsp;«варианты», а&nbsp;квартиру, за&nbsp;которую спокойно. Работаю по&nbsp;договору, стоимость фиксирую заранее, на&nbsp;связи в&nbsp;мессенджерах напрямую&nbsp;— без&nbsp;колл-центра.</p>
+        <div class="note"><img src="../../img/irina-hall.jpg" alt="" width="960" height="1280" loading="lazy"><blockquote>«Каждую сделку я&nbsp;провожу лично и&nbsp;с&nbsp;мощным юристом по&nbsp;недвижимости. Мы&nbsp;— сплочённая команда профессионалов».<cite>Ирина Васильева</cite></blockquote></div>
+        <a class="btn btn-main" href="#contact">Обсудить задачу <svg class="icon"><use href="#arr"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="mark" aria-hidden="true">6</span><h2>Что&nbsp;говорят клиенты</h2><p>Только настоящие отзывы&nbsp;— со&nbsp;ссылкой на&nbsp;площадку, где&nbsp;их&nbsp;можно проверить.</p></div>
+    <div class="sheet reviews reveal">
+      <div class="review"><div><b>Отзыв с&nbsp;Циан или&nbsp;Авито</b><p>Дословно, с&nbsp;именем клиента и&nbsp;датой, ссылка на&nbsp;оригинал</p></div><span>нужно от&nbsp;Ирины</span></div>
+      <div class="review"><div><b>Скриншот из&nbsp;мессенджера</b><p>С&nbsp;разрешения клиента, имя можно скрыть</p></div><span>нужно от&nbsp;Ирины</span></div>
+      <div class="review"><div><b>Видеоотзыв на&nbsp;ключах</b><p>30 секунд на&nbsp;телефон&nbsp;— сильнее любого текста</p></div><span>нужно от&nbsp;Ирины</span></div>
+    </div>
+    <div class="platforms"><a href="#reviews">Циан</a><a href="#reviews">Авито</a><a href="#reviews">Яндекс</a><a href="#reviews">2ГИС</a></div>
+  </div>
+</section>
+
+<section class="section" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="mark" aria-hidden="true">7</span><h2>Отвечаю заранее</h2></div>
+    <div class="faq">
+      <details open><summary>Не&nbsp;потеряю&nbsp;ли я&nbsp;деньги на&nbsp;сделке?<i></i></summary><p>Нет.&nbsp;Деньги не&nbsp;передаются из&nbsp;рук в&nbsp;руки: они&nbsp;лежат на&nbsp;защищённом счёте банка, и&nbsp;продавец получает их&nbsp;только после&nbsp;регистрации права на&nbsp;вас. А&nbsp;до&nbsp;задатка мы&nbsp;с&nbsp;юристом проверяем квартиру и&nbsp;продавца.</p></details>
+      <details><summary>Чем&nbsp;частный риэлтор лучше агентства?<i></i></summary><p>Вы&nbsp;знаете, кто ведёт вашу сделку, и&nbsp;этот&nbsp;человек не&nbsp;меняется: я&nbsp;лично, а&nbsp;юридическую часть&nbsp;— юрист по&nbsp;недвижимости. Я&nbsp;сама отвечаю за&nbsp;результат и&nbsp;за&nbsp;свою репутацию&nbsp;— за&nbsp;пять с&nbsp;лишним лет более 350 сделок.</p></details>
+      <details><summary>Как&nbsp;купить квартиру в&nbsp;другом городе и&nbsp;не&nbsp;приезжать?<i></i></summary><p>Показ по&nbsp;видео, проверка документов онлайн, подписание электронной подписью или&nbsp;по&nbsp;доверенности, электронная регистрация и&nbsp;расчёт через&nbsp;защищённый счёт банка. Какой вариант подойдёт вам&nbsp;— скажу на&nbsp;консультации.</p></details>
+      <details><summary>Сколько стоят ваши услуги и&nbsp;когда&nbsp;платить?<i></i></summary><p>От&nbsp;2% от&nbsp;стоимости недвижимости. Точную сумму фиксируем в&nbsp;договоре до&nbsp;начала работы. Первая консультация бесплатна.</p></details>
+      <details><summary>Работаете с&nbsp;ипотекой, маткапиталом, сертификатами?<i></i></summary><p>Да.&nbsp;Подаю заявку в&nbsp;несколько банков, помогаю с&nbsp;одобрением объекта, долями детей и&nbsp;документами по&nbsp;сертификату.</p></details>
+      <details><summary>Что,&nbsp;если&nbsp;квартиру потом попытаются оспорить?<i></i></summary><p>Поэтому проверка&nbsp;— самый долгий этап. Смотрю историю собственников, наследников, доли детей, дееспособность продавца. Если&nbsp;риск есть&nbsp;— говорю об&nbsp;этом до&nbsp;задатка.</p></details>
+      <details><summary>Можно просто проверить квартиру, которую я&nbsp;нашёл сам?<i></i></summary><p>Да,&nbsp;это&nbsp;отдельная услуга. Пришлите адрес и&nbsp;документы, которые есть,&nbsp;— скажу, что&nbsp;ещё&nbsp;запросить у&nbsp;продавца.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="section contact" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="sheet">
+      <div class="contact-copy reveal">
+        <h2>Расскажите о&nbsp;своей задаче</h2>
+        <p>За&nbsp;30 минут бесплатно скажу, какие есть риски, сколько займёт сделка и&nbsp;сколько будет стоить. Ни&nbsp;к&nbsp;чему не&nbsp;обязывает.</p>
+        <div class="msgs">
+          <a class="msg" href="#contact">Telegram <svg><use href="#arr"/></svg></a>
+          <a class="msg" href="#contact">WhatsApp <svg><use href="#arr"/></svg></a>
+          <a class="msg" href="#contact">MAX <svg><use href="#arr"/></svg></a>
+        </div>
+      </div>
+      <form class="form reveal" data-demo>
+        <label>Как&nbsp;вас зовут<input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
+        <label>Телефон<input type="tel" name="phone" placeholder="+7 ___ ___-__-__" autocomplete="tel"></label>
+        <label>Что&nbsp;нужно<select name="task"><option>Купить</option><option>Продать</option><option>Обменять</option><option>Сделка в&nbsp;другом городе</option><option>Проверить квартиру</option></select></label>
+        <label>Когда&nbsp;удобно позвонить<select name="time"><option>В&nbsp;любое время</option><option>Утром</option><option>Днём</option><option>Вечером</option></select></label>
+        <label class="consent wide"><input type="checkbox" name="consent" required><span>Даю <a href="#contact">согласие на&nbsp;обработку персональных данных</a> и&nbsp;знаком(а) с <a href="#contact">политикой</a></span></label>
+        <button class="btn btn-main wide" type="submit">Записаться на&nbsp;консультацию <svg class="icon"><use href="#arr"/></svg></button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap"><span>Васильева Ирина · частный риэлтор, самозанятая · Новосибирск и&nbsp;вся&nbsp;Россия</span><span>Вариант дизайна «Чертёж». Формы ничего не&nbsp;отправляют.</span></div>
+</footer>
+
+<a href="#contact" class="float-msg">Написать Ирине <svg class="icon"><use href="#arr"/></svg></a>
+
+<script src="../../js/typo.js"></script>
+<script src="../common.js"></script>
+</body>
+</html>
