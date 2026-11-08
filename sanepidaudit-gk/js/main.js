@@ -89,9 +89,41 @@
     D.filter(function (d) { return d.page; }).forEach(function (d) { rows.push({ c: d.color, title: d.title, company: d.company, addr: d.address, phone: d.phone, href: d.page }); });
     ct.innerHTML = rows.map(function (r) {
       return '<div class="ccard" style="--c:' + r.c + '"><b>' + t(r.title) + "</b>" + t(r.company) + "<br>" + t(r.addr) + "<br>" +
-        (r.phone ? tel(r.phone) : need("телефон для заявок")) + "</div>";
+        (r.phone ? tel(r.phone) : need("телефон для заявок")) + '<span class="person">' + need("ответственный: имя и прямой телефон") + "</span></div>";
     }).join("");
   }
+
+  /* Версия 3: «Как работаем» */
+  var hw = $("#how");
+  if (hw && window.HOW) hw.innerHTML = window.HOW.map(function (s, i) {
+    return '<li class="reveal"><span class="n">' + (i + 1) + "</span><b>" + t(s.t) + "</b><span class=\"d\">" + t(s.d) + "</span>" +
+      (s.need ? '<span class="need inline" style="margin-top:10px">' + t(s.need) + "</span>" : "") + "</li>";
+  }).join("");
+
+  /* «Для кого»: ссылки ведут в направления (med0 / med1 — сайты двух медцентров) */
+  function target(key) {
+    if (key.indexOf("med") === 0) { var o = med.orgs[+key.slice(3)]; return { href: orgUrl(o), ext: true, c: med.color, sub: o.name }; }
+    var d = byId(key); return { href: d.page, ext: false, c: d.color, sub: d.title };
+  }
+  var wh = $("#who");
+  if (wh && window.WHO) wh.innerHTML = window.WHO.map(function (w) {
+    return '<div class="who reveal"><h3>' + t(w.t) + "</h3><ul>" + w.items.map(function (it) {
+      var x = target(it[1]);
+      return '<li style="--c:' + x.c + '"><a href="' + x.href + '"' + (x.ext ? ' target="_blank" rel="noopener"' : "") + ">" + t(it[0]) + "<small>" + t(x.sub) + (x.ext ? " ↗" : " →") + "</small></a></li>";
+    }).join("") + "</ul></div>";
+  }).join("");
+
+  /* Отзывы с источником */
+  var rv = $("#reviews");
+  if (rv && window.REVIEWS) rv.innerHTML = window.REVIEWS.map(function (r) {
+    return '<figure class="review reveal"><blockquote>«' + t(r.q) + '»</blockquote><figcaption>' + t(r.who) + ' · <a href="' + r.url + '" target="_blank" rel="noopener">' + t(r.src) + " ↗</a></figcaption></figure>";
+  }).join("") + '<p class="src" style="grid-column:1/-1;margin:0">Цитаты дословно. На готовом сайте подтянем свежие отзывы и рейтинг с карт.</p>';
+
+  /* Частые вопросы */
+  var fq = $("#faq");
+  if (fq && window.FAQ) fq.innerHTML = window.FAQ.map(function (f) {
+    return '<details class="faq-item"><summary>' + t(f.q) + "</summary>" + (f.a ? "<p>" + t(f.a) + "</p>" : '<p><span class="need inline">' + t(f.need) + "</span></p>") + "</details>";
+  }).join("");
 
   /* Форма */
   function setupForm(form, preset) {
@@ -138,6 +170,7 @@
       "<dt>Телефон</dt><dd>" + (d.phone ? tel(d.phone) : need("телефон для заявок")) + "</dd>" +
       "<dt>Режим работы</dt><dd>" + (d.hours ? t(d.hours) : need("часы работы")) + "</dd>" +
       (d.license ? "<dt>Лицензия</dt><dd>" + t(d.license) + "</dd>" : "") +
+      "<dt>Ответственный</dt><dd>" + need("имя, должность и прямой телефон") + "</dd>" +
       "</dl>" + '<a class="btn btn-c" href="#zayavka" style="width:100%;margin-top:18px">Оставить заявку</a>';
 
     $("#d-groups").innerHTML = d.groups.map(function (gr) {

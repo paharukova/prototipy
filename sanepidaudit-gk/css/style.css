@@ -339,3 +339,76 @@ footer .fine { grid-column: 1 / -1; border-top: 1px solid rgba(255,255,255,.12);
 }
 .steps { flex: none; }
 .dcompany span { display: block; font-weight: 500; color: var(--muted); font-size: 15px; }
+
+/* ===== Версия 3 ===== */
+.proto-bar a { margin-left: 8px; }
+.mono { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; letter-spacing: -.01em; }
+
+/* Развилка «для себя» на первом экране */
+.self-strip { display: flex; align-items: center; gap: 16px; margin: -12px 0 28px; padding: 14px 18px; border-radius: 12px; background: #fff; border: 1px solid var(--line); text-decoration: none; max-width: 36em; transition: border-color .2s; }
+.self-strip:hover { border-color: #1F6FD1; }
+.self-strip b { display: block; font-size: 16px; }
+.self-strip span { font-size: 14px; color: var(--muted); }
+.self-strip b, .self-strip .arrow { color: var(--navy); }
+.self-strip .arrow { margin-left: auto; font-size: 20px; flex: none; }
+
+/* Как работаем */
+.home-process { grid-template-columns: repeat(5, 1fr); }
+.home-process li { display: flex; flex-direction: column; font-weight: 500; }
+.home-process li .n { background: var(--navy); }
+.home-process li:last-child .n { background: var(--amber); }
+.home-process b { font-size: 17px; margin-bottom: 6px; }
+.home-process .d { font-size: 15px; color: var(--muted); }
+
+/* Для кого */
+.who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.who { background: var(--bg); border-radius: var(--radius); padding: 22px; }
+.who h3 { margin: 0 0 12px; font-size: 19px; line-height: 1.3; }
+.who ul { list-style: none; margin: 0; padding: 0; }
+.who li { border-top: 1px solid var(--line); }
+.who li a { display: block; padding: 10px 0 10px 14px; text-decoration: none; font-weight: 600; font-size: 15px; position: relative; }
+.who li a::before { content: ""; position: absolute; left: 0; top: 16px; width: 6px; height: 14px; border-radius: 2px; background: var(--c); }
+.who li small { display: block; font-weight: 500; color: var(--muted); font-size: 13px; }
+.who li a:hover small { color: var(--c); }
+
+/* Отзывы */
+.reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+.review { margin: 0; background: #fff; border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+.review blockquote { margin: 0 0 14px; font-size: 17px; font-weight: 600; line-height: 1.45; }
+.review figcaption { margin-top: auto; font-size: 14px; color: var(--muted); }
+.review figcaption a { color: var(--amber-text); font-weight: 700; }
+
+/* Частые вопросы */
+.faq-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+.faq-item { border-top: 1px solid var(--line); padding: 14px 0; }
+.faq-item summary { font-weight: 700; cursor: pointer; list-style: none; position: relative; padding-right: 28px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: "+"; position: absolute; right: 0; top: -2px; font-size: 22px; color: var(--amber-text); }
+.faq-item[open] summary::after { content: "−"; }
+.faq-item p { margin: 8px 0 0; color: var(--muted); }
+
+/* Компании группы: знак рядом с заголовком */
+.group-head { align-items: center; }
+.group-sign { width: 120px; height: auto; flex: none; }
+
+/* Контакты: ответственный */
+.ccard .person { display: block; margin-top: 8px; }
+
+@media (max-width: 980px) {
+  .home-process { grid-template-columns: 1fr 1fr; }
+  .who-grid { grid-template-columns: 1fr 1fr; }
+  .reviews { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .self-strip { margin: -8px 0 24px; padding: 12px 14px; }
+  .home-process { grid-template-columns: 1fr; }
+  .home-process li { display: grid; grid-template-columns: 34px 1fr; column-gap: 12px; align-items: start; }
+  .home-process li .n { grid-row: span 3; }
+  .home-process li > :not(.n) { grid-column: 2; justify-self: start; }
+  .who-grid { grid-template-columns: 1fr; }
+  .faq-list { grid-template-columns: 1fr; }
+  .group-sign { display: none; }
+  .review blockquote { font-size: 16px; }
+}
+.trust > *, .who-grid > *, .reviews > * { min-width: 0; }
+.clients div { overflow-wrap: anywhere; hyphens: auto; }
