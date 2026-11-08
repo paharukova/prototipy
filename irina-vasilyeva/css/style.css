@@ -432,3 +432,55 @@ input:focus,select:focus{border-color:var(--coffee)}
   .service-grid{grid-template-columns:1fr}
   .proof-item span{font-size:11px}
 }
+
+/* ===== Голубой акцент и выразительная линия городов (перенесено из пробы 08.11.2026) ===== */
+:root{
+  --blue:#c9d9e0;       /* пыльно-голубой — вторая кнопка, карточки */
+  --blue-soft:#e3ecf0;  /* светлый голубой фон */
+  --blue-mid:#8eaab7;   /* линия маршрута */
+  --blue-ink:#2e4752;   /* тёмно-синий текст на голубом */
+}
+
+/* ---------- Пыльно-голубой акцент ---------- */
+/* Вторая кнопка */
+.secondary{background:var(--blue);border-color:var(--blue);color:var(--blue-ink)}
+.secondary:hover{background:#b9ced7;border-color:#b9ced7}
+/* Маршрут городов: крупнее, Новосибирск и Петербург выделены, голубые точки в коричневом круге */
+.route{display:block;padding:28px 0 32px}
+.route-label{display:block;font-size:12px;text-align:center;margin-bottom:18px}
+.route-label:last-child{display:none}
+.route-line li{font-size:16px;font-weight:600;color:var(--ink);padding-bottom:24px}
+.route-line li.home{font-size:17px;font-weight:700;color:var(--brown)}
+.route-line li:after{width:13px;height:13px;bottom:-1px;background:var(--blue);border:2px solid var(--brown)}
+.route-line li.home:after{width:15px;height:15px;bottom:-2px;border:0}
+.route-line:before{bottom:5px;height:1px;background:var(--blue-mid)}
+/* Фото в жёлтом костюме — зеркально, чтобы Ирина смотрела вправо, к тексту */
+.remote-photo img{transform:scaleX(-1)}
+/* Карточка «Новостройки» */
+.service-wide{background:var(--blue-soft)}
+.service-wide:hover{background:#d8e5eb}
+.service-wide p{color:#40545d}
+.service-wide .more,.zero{color:var(--blue-ink)}
+/* Блок «Сделка в другом городе» */
+.remote-card{background:var(--blue);color:var(--blue-ink)}
+.remote-card .eyebrow{color:#4f6d7a}
+.remote-card p{color:#3a525c}
+.remote-card .btn.light{background:var(--brown);color:var(--cream)}
+.remote-card .btn.light:hover{background:var(--brown-deep)}
+.remote-photo{box-shadow:0 0 0 6px rgba(255,255,255,.45)}
+.pills-label{color:#4f6d7a}
+.pill{border-color:rgba(46,71,82,.28)}
+.pill-home{background:var(--brown);color:var(--cream);border-color:var(--brown)}
+
+/* ---------- Планшет ---------- */
+@media (max-width:1100px){
+  .route-line li{font-size:14px}
+  .route-line li.home{font-size:15px}
+}
+
+/* ---------- Телефон ---------- */
+@media (max-width:760px){
+  .route-line li,.route-line li.home{font-size:14px;padding:6px 13px}
+  .route-line li{font-weight:600}
+  .route-line li.home{background:var(--brown);color:var(--cream);border-color:var(--brown)}
+}

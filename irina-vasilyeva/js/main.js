@@ -1,5 +1,7 @@
 (function () {
   var T = window.typo || function (s) { return s; };
+  /* Где лежат политика и согласие: страница во вложенной папке пишет <html data-docs="../"> */
+  var DOCS = document.documentElement.getAttribute('data-docs') || '';
 
   /* Меню на телефоне */
   var nav = document.getElementById('nav'), menuBtn = document.querySelector('.menu-btn');
@@ -111,7 +113,7 @@
       '<form class="q-form" data-demo><label>Имя<input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name"></label>' +
       '<label>Телефон или Telegram<input type="text" name="contact" placeholder="+7 или @ник"></label>' +
       '<button class="btn light" type="submit">Прислать план ↗</button>' +
-      '<label class="consent"><input type="checkbox" name="consent" required><span>' + T('Даю') + ' <a href="soglasie.html" target="_blank">' + T('согласие на обработку персональных данных') + '</a> ' + T('и принимаю') + ' <a href="politika.html" target="_blank">' + T('политику обработки персональных данных') + '</a></span></label></form>' +
+      '<label class="consent"><input type="checkbox" name="consent" required><span>' + T('Даю') + ' <a href="' + DOCS + 'soglasie.html" target="_blank">' + T('согласие на обработку персональных данных') + '</a> ' + T('и принимаю') + ' <a href="' + DOCS + 'politika.html" target="_blank">' + T('политику обработки персональных данных') + '</a></span></label></form>' +
       '<button type="button" class="q-back" data-restart>↺ Пройти заново</button></div>';
     body.innerHTML = h;
   }
