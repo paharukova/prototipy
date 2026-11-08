@@ -481,8 +481,22 @@ input:focus,select:focus{border-color:var(--coffee)}
   .route-path,.route-line li:after,.route-card{transition:none;animation:none}
 }
 
+/* ---------- «Шесть шагов» оживают при прокрутке ---------- */
+/* Класс .js ставит скрипт: без скрипта шаги выглядят как раньше */
+.timeline-fill{position:absolute;top:19px;height:3px;border-radius:3px;background:var(--olive);width:0;pointer-events:none;transition:width .15s linear}
+.timeline.js .milestone i{border-color:var(--stone);color:var(--muted);transition:background .4s,border-color .4s,color .4s,transform .4s}
+.timeline.js .milestone:last-child i{background:var(--soft)}
+.timeline.js .milestone div{opacity:.55;transition:opacity .5s}
+.timeline.js .milestone.lit i{background:var(--olive);border-color:var(--olive);color:var(--cream);transform:scale(1.08)}
+.timeline.js .milestone:last-child.lit i{background:var(--brown);border-color:var(--brown)}
+.timeline.js .milestone.lit div{opacity:1}
+@media (prefers-reduced-motion:reduce){
+  .timeline.js .milestone i,.timeline.js .milestone div,.timeline-fill{transition:none}
+}
+
 /* ---------- Планшет ---------- */
 @media (max-width:1100px){
+  .timeline-fill{display:none}
   .route-line li{font-size:14px}
   .route-line li.home{font-size:15px}
 }
@@ -500,4 +514,7 @@ input:focus,select:focus{border-color:var(--coffee)}
   .route-hint{margin:0;font-size:13px}
   .route-card{flex-direction:column;align-items:stretch;gap:12px;padding:16px}
   .route-card .btn{width:100%}
+  /* Шаги столбиком: вертикальная линия к следующему шагу становится оливковой */
+  .timeline.js .milestone:not(:last-child):before{transition:background .4s,width .4s}
+  .timeline.js .milestone.lit:not(:last-child):before{background:var(--olive);width:2px;left:19.5px}
 }

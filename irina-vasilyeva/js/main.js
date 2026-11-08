@@ -76,6 +76,39 @@
     } else route.classList.add('drawn');
   }
 
+  /* «Шесть шагов» оживают при прокрутке: линия заполняется, шаги загораются по очереди */
+  var tl = document.querySelector('.timeline');
+  if (tl) {
+    var steps = [].slice.call(tl.querySelectorAll('.milestone'));
+    tl.classList.add('js');
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      steps.forEach(function (m) { m.classList.add('lit'); }); /* без анимации — все шаги сразу пройдены */
+    } else {
+      var fill = document.createElement('span');
+      /* вставляем в начало списка, чтобы «Сделка и ключи» оставалась последним шагом для стилей */
+      fill.className = 'timeline-fill'; fill.setAttribute('aria-hidden', 'true'); tl.insertBefore(fill, tl.firstChild);
+      var wide = matchMedia('(min-width: 1101px)'), ticking = false;
+      var update = function () {
+        ticking = false;
+        var vh = window.innerHeight;
+        if (wide.matches) {
+          /* шаги в одну строку: прогресс зависит от того, насколько блок поднялся по экрану */
+          var top = tl.getBoundingClientRect().top;
+          var p = Math.min(1, Math.max(0, (vh * 0.85 - top) / (vh * 0.45)));
+          var x0 = steps[0].offsetLeft + 20, x1 = steps[steps.length - 1].offsetLeft + 20;
+          fill.style.left = x0 + 'px'; fill.style.width = (p * (x1 - x0)) + 'px';
+          steps.forEach(function (m, i) { m.classList.toggle('lit', p > 0 && p >= i / (steps.length - 1) - 0.01); });
+        } else {
+          /* шаги столбиком или в две строки: шаг загорается, когда доходит до середины экрана */
+          steps.forEach(function (m) { m.classList.toggle('lit', m.querySelector('i').getBoundingClientRect().top < vh * 0.62); });
+        }
+      };
+      window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    }
+  }
+
   /* Демо-формы: ничего не отправляют, показывают ответ */
   document.addEventListener('submit', function (e) {
     var f = e.target;
