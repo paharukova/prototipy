@@ -33,6 +33,49 @@
   }, { threshold: 0.12 }) : null;
   document.querySelectorAll('.reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('on'); });
 
+  /* Интерактивная линия городов: путь от Новосибирска до выбранного города и подсказка */
+  var route = document.querySelector('.route'), line = route && route.querySelector('.route-line');
+  if (line) {
+    var cities = [].slice.call(line.querySelectorAll('li')), base = line.querySelector('li.base') || cities[0];
+    var info = route.querySelector('.route-info'), path = document.createElement('span');
+    path.className = 'route-path'; path.setAttribute('aria-hidden', 'true'); line.appendChild(path);
+    var center = function (li) { var r = li.getBoundingClientRect(); return r.left + r.width / 2 - line.getBoundingClientRect().left; };
+    var placePath = function (li) {
+      var a = center(base), b = center(li);
+      path.style.left = Math.min(a, b) + 'px'; path.style.width = Math.abs(a - b) + 'px';
+      path.classList.toggle('on', li !== base);
+    };
+    var select = function (li) {
+      if (li.classList.contains('active')) return;
+      cities.forEach(function (c) { c.classList.toggle('active', c === li); });
+      placePath(li);
+      var where = li.querySelector('.city').getAttribute('data-in');
+      info.innerHTML = li === base
+        ? '<div class="route-card"><p><b>' + T('Новосибирск — мой город.') + '</b> ' + T('Показы, встречи и сделка — лично, на месте.') + '</p><a class="btn primary" href="#contact">' + T('Обсудить сделку') + ' <span class="arrow">↗</span></a></div>'
+        : '<div class="route-card"><p><b>' + T('Сделка ' + where) + '</b> ' + T('— без вашего приезда: показ по видео, проверка документов онлайн, электронная подпись или доверенность, электронная регистрация.') + '</p><a class="btn primary" href="#quiz" data-goal="city">' + T('Рассчитать сделку') + ' <span class="arrow">↗</span></a></div>';
+    };
+    var canHover = window.matchMedia && matchMedia('(hover: hover)').matches;
+    cities.forEach(function (li) {
+      var b = li.querySelector('.city');
+      b.addEventListener('click', function () { select(li); });
+      b.addEventListener('focus', function () { select(li); });
+      if (canHover) b.addEventListener('mouseenter', function () { select(li); });
+    });
+    window.addEventListener('resize', function () { var a = line.querySelector('li.active'); if (a) placePath(a); });
+
+    /* Линия прорисовывается от Новосибирска, точки появляются по очереди */
+    var bi = cities.indexOf(base);
+    line.style.setProperty('--origin', (center(base) / line.getBoundingClientRect().width * 100) + '%');
+    cities.forEach(function (li, i) { li.style.setProperty('--d', (0.15 + Math.abs(i - bi) * 0.12) + 's'); });
+    route.classList.add('route-anim');
+    if ('IntersectionObserver' in window) {
+      var ro = new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) { route.classList.add('drawn'); ro.disconnect(); }
+      }, { threshold: 0.4 });
+      ro.observe(route);
+    } else route.classList.add('drawn');
+  }
+
   /* Демо-формы: ничего не отправляют, показывают ответ */
   document.addEventListener('submit', function (e) {
     var f = e.target;
@@ -120,21 +163,27 @@
 
   body.addEventListener('click', function (e) {
     var opt = e.target.closest('.q-opt'), back = e.target.closest('.q-back');
-    if (opt) { A[Q[step].key] = opt.getAttribute('data-v'); step++; render(true); }
+    if (opt) {
+      A[Q[step].key] = opt.getAttribute('data-v'); step++;
+      while (step < Q.length && A[Q[step].key]) step++; /* пропускаем вопросы, на которые уже ответили заранее */
+      render(true);
+    }
     else if (back) { if (back.hasAttribute('data-restart')) { A = {}; step = 0; } else step--; render(true); }
   });
 
-  /* Карточки услуг заранее отвечают на первый вопрос квиза */
-  document.querySelectorAll('[data-goal]').forEach(function (el) {
-    el.addEventListener('click', function () {
-      var g = el.getAttribute('data-goal');
-      A = {}; step = 1;
-      if (g === 'remote') { A.goal = 'buy'; A.where = 'other'; step = 2; }
-      else if (g === 'mortgage') { A.goal = 'buy'; }
-      else if (g === 'newbuild') { A.goal = 'newbuild'; }
-      else A.goal = g;
-      render();
-    });
+  /* Карточки услуг и линия городов заранее отвечают на вопросы квиза.
+     Слушаем весь документ: кнопка в подсказке города появляется позже */
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-goal]');
+    if (!el) return;
+    var g = el.getAttribute('data-goal');
+    A = {}; step = 1;
+    if (g === 'remote') { A.goal = 'buy'; A.where = 'other'; step = 2; }
+    else if (g === 'city') { A.where = 'other'; step = 0; }
+    else if (g === 'mortgage') { A.goal = 'buy'; }
+    else if (g === 'newbuild') { A.goal = 'newbuild'; }
+    else A.goal = g;
+    render();
   });
 
   render();
