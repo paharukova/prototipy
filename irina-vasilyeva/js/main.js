@@ -36,13 +36,14 @@
     var f = e.target;
     if (!f.hasAttribute('data-demo')) return;
     e.preventDefault();
-    f.innerHTML = '<div class="form-ok">' + T('Спасибо! В готовом сайте заявка придёт Ирине в Telegram, и она свяжется с вами. Сейчас это демонстрация — ничего не отправлено.') + '</div>';
+    f.innerHTML = '<div class="form-ok">' + T('Спасибо! В готовом сайте заявка сразу придёт Ирине, и она свяжется с вами. Сейчас это демонстрация — ничего не отправлено.') + '</div>';
   });
 
   /* Квиз «План сделки за 1 минуту» */
   var Q = [
     { key: 'goal', title: 'Что нужно сделать?', opts: [
       ['buy', 'Купить квартиру'],
+      ['newbuild', 'Купить в новостройке'],
       ['sell', 'Продать квартиру'],
       ['swap', 'Продать и купить — обмен'],
       ['check', 'Проверить квартиру, которую нашёл сам']
@@ -88,11 +89,13 @@
     if (A.goal === 'sell' || A.goal === 'swap') p.push('Оценка по реальным сделкам рядом, подготовка квартиры, фото и объявления');
     if (A.goal === 'buy' || A.goal === 'swap') p.push('Подбор вариантов под бюджет и отсев «проблемных» квартир до показа');
     if (A.goal === 'check') p.push('Запрашиваю документы у продавца и проверяю историю квартиры');
+    if (A.goal === 'newbuild') p.push('Анализ рынка и новостроек под ваш бюджет, оценка надёжности застройщика');
     if (A.where === 'nsk-far' || A.where === 'other') p.push('Показы по видео в прямом эфире — вы видите квартиру моими глазами');
     if (A.pay === 'mortgage') p.push('Подача в несколько банков, одобрение квартиры банком');
-    if (A.pay === 'cert') p.push('Документы по сертификату или маткапиталу, доли детей');
+    if (A.pay === 'cert') p.push('Документы по сертификату, маткапиталу или субсидии, доли детей');
     if (A.pay === 'own' || A.goal === 'swap') p.push('Обе сделки в одну цепочку, чтобы не остаться без жилья');
-    p.push('Проверка юридической чистоты и продавца до задатка');
+    if (A.goal === 'newbuild') p.push('Снижаю цену обязательных сопутствующих услуг: страховок, комиссий, «коробок» банка');
+    else p.push('Проверка юридической чистоты и продавца до задатка');
     if (A.where === 'nsk-far' || A.where === 'other') p.push('Подписание без приезда и электронная регистрация, расчёт через защищённый счёт');
     else p.push('Сделка в банке или у нотариуса, безопасный расчёт, ключи и акт');
     return p;
@@ -102,10 +105,13 @@
     var term = { month: 'Можно успеть за месяц, если начать на этой неделе.', q: 'Нормальный срок: хватит времени на выбор и торг.', later: 'Отлично — начнём с консультации, без спешки.' }[A.when];
     var h = '<div class="q-result"><div class="q-label">Ваш план</div><h3>' + T('Вот как пройдёт ваша сделка') + '</h3><p>' + T(term) + '</p><ol class="q-plan">';
     plan().forEach(function (s, i) { h += '<li><b>' + (i + 1) + '</b><span>' + T(s) + '</span></li>'; });
-    h += '</ol><p>' + T('Примерную стоимость моей работы для вашего случая пришлю вместе с планом.') + ' <em class="need-tip">цены — нужно от вас</em></p>' +
+    var price = A.goal === 'newbuild' ? 'Для вас это бесплатно — 0 ₽.' :
+      'Классический вариант — от 2% стоимости объекта, точную сумму для вашего случая пришлю вместе с планом.' + (A.goal === 'sell' || A.goal === 'swap' || A.goal === 'buy' ? ' На вторичном рынке — оплата только после сделки.' : '');
+    h += '</ol><p>' + T(price) + '</p>' +
       '<form class="q-form" data-demo><label>Имя<input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name"></label>' +
       '<label>Телефон или Telegram<input type="text" name="contact" placeholder="+7 или @ник"></label>' +
-      '<button class="btn light" type="submit">Прислать план ↗</button></form>' +
+      '<button class="btn light" type="submit">Прислать план ↗</button>' +
+      '<label class="consent"><input type="checkbox" name="consent" required><span>' + T('Даю') + ' <a href="soglasie.html" target="_blank">' + T('согласие на обработку персональных данных') + '</a> ' + T('и принимаю') + ' <a href="politika.html" target="_blank">' + T('политику обработки персональных данных') + '</a></span></label></form>' +
       '<button type="button" class="q-back" data-restart>↺ Пройти заново</button></div>';
     body.innerHTML = h;
   }
@@ -123,6 +129,7 @@
       A = {}; step = 1;
       if (g === 'remote') { A.goal = 'buy'; A.where = 'other'; step = 2; }
       else if (g === 'mortgage') { A.goal = 'buy'; }
+      else if (g === 'newbuild') { A.goal = 'newbuild'; }
       else A.goal = g;
       render();
     });

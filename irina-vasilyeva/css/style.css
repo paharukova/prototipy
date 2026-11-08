@@ -18,10 +18,11 @@
   --r:20px;
   --btn-r:8px;
   --max:1200px;
+  --sans:Manrope,Arial,sans-serif; /* основной шрифт; в версии novyj-shrift — Golos Text */
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:96px}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Manrope,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button,input,select,textarea{font:inherit}
@@ -126,6 +127,15 @@ h3{font-size:20px;line-height:1.3;margin:0 0 10px}
 .service-dark:hover{background:var(--brown-deep);border-color:transparent}
 .service-dark p{color:#e0d6c8}
 .service-dark .num,.service-dark .more{color:#d6ae79}
+/* Новостройки — широкая карточка с сильным оффером */
+.service-wide{grid-column:1/-1;min-height:0;flex-direction:row;align-items:center;gap:32px;background:var(--olive-soft)}
+.service-wide:hover{background:#e2e5d6;border-color:transparent}
+.service-wide>div:first-of-type{flex:1}
+.service-wide p{max-width:680px;color:#4f5440}
+.wide-side{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:8px;text-align:right}
+.wide-side .more{gap:12px}
+.zero{font:600 46px/1 'Playfair Display',Georgia,serif;color:var(--olive)}
+.zero small{display:block;font:600 12px/1.3 var(--sans);letter-spacing:.06em;text-transform:uppercase;margin-top:6px}
 
 /* Сравнение */
 .compare-wrap{overflow:hidden;border:1px solid var(--line);border-radius:var(--r);background:var(--paper)}
@@ -178,6 +188,7 @@ h3{font-size:20px;line-height:1.3;margin:0 0 10px}
 .q-title{font-size:22px;font-weight:700;margin:6px 0 18px}
 .q-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .q-opt{padding:16px 18px;text-align:left;border:1px solid rgba(255,255,255,.32);color:var(--cream);background:transparent;border-radius:12px;cursor:pointer;font-size:15px;line-height:1.4;transition:background .2s,color .2s}
+.q-opt:last-child:nth-child(odd){grid-column:1/-1}
 .q-opt:hover,.q-opt:focus-visible{background:var(--cream);color:var(--brown);outline:0}
 .q-back{margin-top:18px;background:none;border:0;color:#e0cba9;cursor:pointer;padding:6px 0;font-size:14px}
 .q-back:hover{color:var(--cream)}
@@ -205,13 +216,29 @@ h3{font-size:20px;line-height:1.3;margin:0 0 10px}
 .price-row{display:flex;justify-content:space-between;gap:20px;padding:19px 0;border-bottom:1px solid var(--line);font-size:15px}
 .price-row span:last-child{white-space:nowrap;color:var(--brown);font-weight:700}
 .price-row.free span:last-child{color:var(--olive)}
+.price-note{margin:22px 0 0;font-size:15px;color:var(--muted);max-width:720px}
+.price-note b{color:var(--ink)}
+
+/* С кем не работаю */
+.notfor{margin-top:56px;display:grid;grid-template-columns:1fr 1fr;gap:28px 56px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:36px 40px}
+.notfor h3{font-size:30px;line-height:1.2;margin:10px 0 12px}
+.notfor p{color:var(--muted);margin:0}
+.notfor ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.notfor li{display:grid;grid-template-columns:26px 1fr;gap:8px;font-size:16px;font-weight:600;line-height:1.45}
+.notfor li:before{content:'✕';color:var(--gold)}
+
+/* Наш арсенал */
+.arsenal{margin:0 0 26px}
+.arsenal-label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--olive);font-weight:700;margin-bottom:12px}
+.arsenal-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.arsenal-list li{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 13px;font-size:13px;line-height:1.4;color:#4a443c}
 
 /* Обо мне */
 .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}
 .about-photo{position:relative;margin:0;height:620px;border-radius:var(--r);overflow:hidden}
 .about-photo img{width:100%;height:100%;object-fit:cover;object-position:48% 50%}
 .about-photo figcaption{position:absolute;right:16px;bottom:16px;background:rgba(255,253,248,.95);border-radius:14px;padding:12px 20px;font:600 17px/1.3 'Playfair Display',Georgia,serif}
-.about-photo figcaption span{display:block;font:12px Manrope,Arial,sans-serif;color:var(--muted)}
+.about-photo figcaption span{display:block;font:12px var(--sans);color:var(--muted)}
 .about-copy .lead{font-size:17px}
 .about-copy p{color:#4a443c}
 .beliefs{display:grid;gap:12px;margin:26px 0}
@@ -262,6 +289,12 @@ input:focus,select:focus{border-color:var(--coffee)}
 .chip input{width:auto;accent-color:#d6ae79;margin:0}
 .chip:has(input:checked){background:var(--cream);color:var(--brown)}
 .form small{font-size:12px;color:#cdbfad}
+/* Галочка согласия на обработку данных — не стоит заранее, без неё форма не отправится */
+.consent{display:flex!important;align-items:flex-start;gap:10px!important;font-size:12px!important;font-weight:500!important;line-height:1.45;color:#e7dccb;cursor:pointer}
+.consent input{width:18px;height:18px;flex:none;margin:1px 0 0;padding:0;accent-color:#d6ae79}
+.consent a{text-decoration:underline;text-underline-offset:2px}
+.consent a:hover{color:var(--cream)}
+.q-form .consent{grid-column:1/-1}
 .form-ok{grid-column:1/-1;padding:20px;border-radius:14px;background:var(--cream);color:var(--brown);font-weight:600;line-height:1.5}
 
 /* Подвал */
@@ -351,6 +384,13 @@ input:focus,select:focus{border-color:var(--coffee)}
   .service h3{font-size:16px}
   .service p{font-size:14px}
   .more{font-size:12px}
+  .service-wide{grid-column:1/-1;flex-direction:column;align-items:stretch;gap:12px}
+  .wide-side{flex-direction:row;align-items:center;justify-content:space-between;text-align:left}
+  .zero{font-size:32px}
+  .zero small{display:inline;margin:0 0 0 8px}
+  .notfor{grid-template-columns:1fr;padding:24px 20px;margin-top:40px;gap:20px}
+  .notfor h3{font-size:24px}
+  .notfor li{font-size:15px}
   .compare-wrap{overflow:visible;border:0;background:transparent;border-radius:0}
   .compare,.compare tbody{display:block}
   .compare thead{display:none}
