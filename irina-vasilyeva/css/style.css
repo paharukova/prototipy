@@ -141,9 +141,13 @@ h3{font-size:20px;line-height:1.3;margin:0 0 10px}
 .compare-wrap{overflow:hidden;border:1px solid var(--line);border-radius:var(--r);background:var(--paper)}
 .compare{width:100%;border-collapse:collapse;text-align:left}
 .compare th,.compare td{padding:18px 22px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.5;vertical-align:top}
-.compare th{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.compare th:last-child,.compare td:last-child{background:var(--olive-soft);color:#343a26}
-.compare th:last-child{color:var(--olive)}
+/* Заголовки колонок — крупно, с пояснением; «Со мной» — сплошной оливковый */
+.compare th{font:600 24px/1.15 'Playfair Display',Georgia,serif;color:var(--ink);padding:24px 22px 20px;vertical-align:bottom;border-bottom:2px solid var(--line)}
+.compare th:first-child{font:700 12px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.th-sub{display:block;margin-top:6px;font:500 12px/1.4 var(--sans);letter-spacing:.04em;color:var(--muted)}
+.compare td:last-child{background:var(--olive-soft);color:#343a26}
+.compare th:last-child{background:var(--olive);color:var(--cream);border-bottom-color:var(--olive)}
+.compare th:last-child .th-sub{color:#e6e9d9}
 .compare tr:last-child td{border-bottom:0}
 .compare td:first-child{font-weight:700;width:20%}
 .compare td:nth-child(2),.compare td:nth-child(3){color:#5d574e;width:27%}
@@ -212,10 +216,26 @@ h3{font-size:20px;line-height:1.3;margin:0 0 10px}
 .case dd{margin:0;font-weight:600}
 
 /* Цены */
-.price-list{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
-.price-row{display:flex;justify-content:space-between;gap:20px;padding:19px 0;border-bottom:1px solid var(--line);font-size:15px}
-.price-row span:last-child{white-space:nowrap;color:var(--brown);font-weight:700}
-.price-row.free span:last-child{color:var(--olive)}
+/* Цены: одна большая ставка + две карточки */
+.price-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;align-items:stretch}
+.price-main{background:var(--brown);color:var(--cream);border-radius:var(--r);padding:40px 44px;display:flex;flex-direction:column;gap:20px}
+.price-tag{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--olive)}
+.price-main .price-tag{color:#d6be9c}
+.price-big{font:600 clamp(64px,7vw,100px)/.95 'Playfair Display',Georgia,serif;letter-spacing:-.02em}
+.price-big small{display:block;margin-top:12px;font:500 17px/1.3 var(--sans);letter-spacing:0;color:#e0d6c8}
+.price-points{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.price-points li{display:grid;grid-template-columns:24px 1fr;gap:6px;font-size:15px;line-height:1.5;color:#efe6d8}
+.price-points li:before{content:'✳';color:#d6ae79}
+.price-main .btn{align-self:flex-start;margin-top:auto}
+.price-side{display:grid;gap:16px}
+.price-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:28px 30px}
+.price-card h3{font:600 24px/1.2 'Playfair Display',Georgia,serif;margin:10px 0 10px}
+.price-card p{color:var(--muted);font-size:15px;margin:0}
+.price-new{background:var(--olive-soft);border-color:transparent}
+.price-new p{color:#4f5440;margin-bottom:10px}
+.price-checks{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.price-checks li{display:grid;grid-template-columns:22px 1fr;gap:4px;font-size:15px;line-height:1.45;color:#343a26}
+.price-checks li:before{content:'✓';color:var(--olive);font-weight:700}
 .price-note{margin:22px 0 0;font-size:15px;color:var(--muted);max-width:720px}
 .price-note b{color:var(--ink)}
 
@@ -397,11 +417,11 @@ input:focus,select:focus{border-color:var(--coffee)}
   .compare tr{display:grid;grid-template-columns:1fr 1fr;background:var(--paper);border-radius:14px;overflow:hidden;margin-bottom:10px}
   .compare td{display:block;border:0;padding:12px 14px;font-size:13px;width:auto!important}
   .compare td:first-child{grid-column:1/-1;background:var(--sand);font-size:14px}
-  .compare td:nth-child(2):before,.compare td:nth-child(3):before,.compare td:last-child:before{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .compare td:nth-child(2):before,.compare td:nth-child(3):before,.compare td:last-child:before{display:block;width:fit-content;font-size:12px;font-weight:700;letter-spacing:.04em;padding:3px 11px;border-radius:999px;background:var(--sand);color:var(--ink);margin-bottom:8px}
   .compare td:nth-child(2):before{content:'Сами'}
   .compare td:nth-child(3):before{content:'Агентство'}
   .compare td:last-child{grid-column:1/-1}
-  .compare td:last-child:before{content:'Со мной';color:var(--olive)}
+  .compare td:last-child:before{content:'Со мной';background:var(--olive);color:var(--cream)}
   .remote-card{padding:28px 22px}
   .remote-photo{width:112px;height:112px;margin-bottom:20px}
   .steps{grid-template-columns:1fr;gap:22px}
@@ -413,8 +433,12 @@ input:focus,select:focus{border-color:var(--coffee)}
   .q-opts{grid-template-columns:1fr}
   .q-form{grid-template-columns:1fr}
   .case-grid,.review-grid{grid-template-columns:1fr}
-  .price-list{grid-template-columns:1fr}
-  .price-row{font-size:14px}
+  .price-grid{grid-template-columns:1fr;gap:12px}
+  .price-main{padding:28px 22px}
+  .price-big{font-size:64px}
+  .price-main .btn{align-self:stretch}
+  .price-card{padding:22px}
+  .price-card h3{font-size:21px}
   .about-photo{height:min(120vw,520px)}
   .quote-row{grid-template-columns:84px 1fr;gap:14px;padding:14px}
   .quote-photo{width:84px;height:112px}
@@ -517,4 +541,35 @@ input:focus,select:focus{border-color:var(--coffee)}
   /* Шаги столбиком: вертикальная линия к следующему шагу становится оливковой */
   .timeline.js .milestone:not(:last-child):before{transition:background .4s,width .4s}
   .timeline.js .milestone.lit:not(:last-child):before{background:var(--olive);width:2px;left:19.5px}
+}
+
+/* ===== Компактный первый экран (09.11.2026): цифры, маршруты и коричневая полоса видны сразу ===== */
+.topnote{padding:5px 16px}
+.strip{padding:12px 0}
+.route-info:empty{display:none}
+@media (min-width:761px){
+  .navrow{height:62px}
+  .brand b{font-size:21px}
+  html{scroll-padding-top:80px}
+}
+@media (min-width:961px){
+  .hero{padding:22px 0 0}
+  .hero-grid{gap:48px;align-items:stretch}
+  .hero-copy{display:flex;flex-direction:column;justify-content:center}
+  .hero h1{font-size:clamp(38px,3.3vw,48px);margin:10px 0 14px}
+  .hero-copy .lead{margin-bottom:22px;font-size:16px}
+  .hero-copy .actions .btn{min-height:50px}
+  .proof{margin-top:18px;padding-top:12px}
+  /* фото по высоте равно тексту рядом — так снизу помещаются маршруты и полоса */
+  .hero-photo{height:auto;min-height:420px}
+  .hero-photo img{position:absolute;inset:0}
+  .route{margin-top:12px;padding:10px 0 12px;position:relative}
+  .route-label{margin-bottom:8px}
+  /* подсказка о городе всплывает поверх, а не отодвигает всё вниз */
+  .route-info{position:absolute;left:0;right:0;top:calc(100% - 4px);z-index:6;min-height:0;margin:0;pointer-events:none}
+  .route-card{pointer-events:auto;box-shadow:0 18px 44px rgba(38,35,31,.2)}
+}
+@media (max-width:760px){
+  .navrow{height:60px}
+  html{scroll-padding-top:72px}
 }

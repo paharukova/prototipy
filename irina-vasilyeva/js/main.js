@@ -62,6 +62,12 @@
       if (canHover) b.addEventListener('mouseenter', function () { select(li); });
     });
     window.addEventListener('resize', function () { var a = line.querySelector('li.active'); if (a) placePath(a); });
+    /* На компьютере подсказка всплывает поверх полосы ниже — прячем её, когда мышка уходит с линии городов */
+    if (canHover) route.addEventListener('mouseleave', function () {
+      if (!matchMedia('(min-width: 961px)').matches) return;
+      cities.forEach(function (c) { c.classList.remove('active'); });
+      path.classList.remove('on'); info.innerHTML = '';
+    });
 
     /* Линия прорисовывается от Новосибирска, точки появляются по очереди */
     var bi = cities.indexOf(base);
