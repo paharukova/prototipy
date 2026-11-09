@@ -543,7 +543,7 @@ input:focus,select:focus{border-color:var(--coffee)}
   .timeline.js .milestone.lit:not(:last-child):before{background:var(--olive);width:2px;left:19.5px}
 }
 
-/* ===== Компактный первый экран (09.11.2026): цифры, маршруты и коричневая полоса видны сразу ===== */
+/* ===== Компактный первый экран (09.11.2026): Ирина, цифры и маршруты видны сразу, полоса — ниже ===== */
 .topnote{padding:5px 16px}
 .strip{padding:12px 0}
 .route-info:empty{display:none}
@@ -553,18 +553,24 @@ input:focus,select:focus{border-color:var(--coffee)}
   html{scroll-padding-top:80px}
 }
 @media (min-width:961px){
-  .hero{padding:22px 0 0}
-  .hero-grid{gap:48px;align-items:stretch}
+  /* Первый экран ровно по высоте окна (минус полоска и шапка ~92px):
+     сверху текст и фото, внизу маршруты, коричневая полоса — сразу за краем экрана.
+     Размеры подстраиваются под высоту окна, чтобы всё влезало и на ноутбуке с увеличением. */
+  .hero{min-height:calc(100vh - 92px);min-height:calc(100svh - 92px);display:flex;flex-direction:column;padding:clamp(10px,2.2vh,28px) 0 0}
+  .hero>.wrap{flex:1;display:flex;flex-direction:column}
+  .hero-grid{flex:1;gap:clamp(32px,3.5vw,56px);align-items:stretch}
   .hero-copy{display:flex;flex-direction:column;justify-content:center}
-  .hero h1{font-size:clamp(38px,3.3vw,48px);margin:10px 0 14px}
-  .hero-copy .lead{margin-bottom:22px;font-size:16px}
-  .hero-copy .actions .btn{min-height:50px}
-  .proof{margin-top:18px;padding-top:12px}
-  /* фото по высоте равно тексту рядом — так снизу помещаются маршруты и полоса */
-  .hero-photo{height:auto;min-height:420px}
-  .hero-photo img{position:absolute;inset:0}
-  .route{margin-top:12px;padding:10px 0 12px;position:relative}
-  .route-label{margin-bottom:8px}
+  .hero h1{font-size:clamp(32px,min(3.4vw,6.4vh),56px);margin:clamp(6px,1.2vh,14px) 0 clamp(10px,1.8vh,18px)}
+  .hero-copy .lead{margin-bottom:clamp(12px,2.6vh,26px);font-size:clamp(15px,2.2vh,17px);line-height:1.55}
+  .hero-copy .actions .btn{min-height:clamp(44px,6.4vh,56px)}
+  .proof{margin-top:clamp(10px,2.4vh,26px);padding-top:clamp(8px,1.6vh,16px)}
+  .proof-item b{font-size:clamp(22px,3.4vh,30px);margin-bottom:2px}
+  /* фото заполняет высоту рядом с текстом; кадр по голове — лицо видно всегда */
+  .hero-photo{height:auto;min-height:0}
+  .hero-photo img{position:absolute;inset:0;object-position:50% 40%}
+  .route{margin-top:clamp(6px,1.4vh,16px);padding:clamp(6px,1.2vh,12px) 0 clamp(8px,1.6vh,16px);position:relative}
+  .route-label{margin-bottom:clamp(2px,.8vh,8px)}
+  .route-line li{padding-bottom:clamp(14px,2.6vh,24px)}
   /* подсказка о городе всплывает поверх, а не отодвигает всё вниз */
   .route-info{position:absolute;left:0;right:0;top:calc(100% - 4px);z-index:6;min-height:0;margin:0;pointer-events:none}
   .route-card{pointer-events:auto;box-shadow:0 18px 44px rgba(38,35,31,.2)}
