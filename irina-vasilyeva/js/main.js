@@ -115,6 +115,91 @@
     }
   }
 
+  /* «Маршрут к ключам»: пунктирная дорожка змейкой по полям от первого экрана до формы связи.
+     При прокрутке она прорисовывается, по ней идёт ключик, в конце загорается домик.
+     Дорожка строится по настоящим блокам страницы, поэтому не съезжает на любом экране. */
+  var mainEl = document.querySelector('main'), contactEl = document.getElementById('contact'), wrapEl = document.querySelector('.wrap');
+  if (mainEl && contactEl && wrapEl && window.SVGPathElement) {
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'key-route'); svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('focusable', 'false');
+    svg.innerHTML = '<path class="kr-ghost"/><path class="kr-line"/>' +
+      '<g class="kr-house"><path d="M-22 2 L0 -18 L22 2"/><path d="M-16 -3 V20 H16 V-3"/><path d="M-5 20 V9 H5 V20"/><rect class="win" x="8" y="0" width="5" height="5" rx="1"/></g>' +
+      '<g class="kr-key"><circle r="4.5"/><path d="M4.5 0 H16 M12 0 V4 M15 0 V3"/></g>';
+    mainEl.appendChild(svg);
+    var ghostP = svg.querySelector('.kr-ghost'), lineP = svg.querySelector('.kr-line');
+    var houseG = svg.querySelector('.kr-house'), keyG = svg.querySelector('.kr-key');
+    var krTotal = 0, krTable = [], krReady = false, krTick = false;
+    var krReduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var krBuild = function () {
+      var W = mainEl.clientWidth, H = mainEl.scrollHeight;
+      svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      /* середина левого и правого поля страницы */
+      var gut = Math.max(8, (W - wrapEl.getBoundingClientRect().width) / 4), xs = [gut, W - gut];
+      var blocks = [].slice.call(mainEl.children).filter(function (el) { return el !== svg && el.offsetHeight > 0; });
+      /* начинаем под коричневой полосой, чтобы дорожка её не перечёркивала */
+      var start = blocks[1] ? blocks[1].offsetTop + blocks[1].offsetHeight : blocks[0].offsetHeight;
+      /* поворот укладывается в пустой отступ между блоками: берём меньший из отступов вокруг стыка */
+      var gapAt = function (el, i) {
+        var prev = blocks[i - 1], a = parseFloat(getComputedStyle(el).paddingTop) || 0;
+        var b = prev ? parseFloat(getComputedStyle(prev).paddingBottom) || 0 : a;
+        return Math.max(16, Math.min(56, Math.min(a, b) * 0.55));
+      };
+      var side = 0, d = 'M' + xs[0] + ' ' + start, c = 40;
+      blocks.forEach(function (el, i) {
+        var b = el.offsetTop;
+        if (el === contactEl) return;
+        c = gapAt(el, i);
+        if (b - c <= start + 10) return; /* первый поворот — не раньше, чем дорожка началась */
+        var x0 = xs[side], x1 = xs[1 - side];
+        d += ' L' + x0 + ' ' + (b - c) + ' C' + x0 + ' ' + (b + c * 0.1) + ' ' + x1 + ' ' + (b - c * 0.1) + ' ' + x1 + ' ' + (b + c);
+        side = 1 - side;
+      });
+      /* финал: домик по центру в верхнем отступе блока связи */
+      var cTop = contactEl.offsetTop, cPad = parseFloat(getComputedStyle(contactEl).paddingTop) || 72;
+      var hs = W > 760 ? 1.5 : 1.15; /* размер домика: на компьютере крупнее */
+      var hx = W / 2, hy = cTop + Math.min(56, cPad * 0.5), xc = xs[side];
+      /* к домику подходим сбоку, по горизонтали — в пустом отступе над формой, не задевая её */
+      var dir = xc > hx ? 1 : -1, ey = hy + 8 * hs, ex = hx + dir * 24 * hs;
+      d += ' L' + xc + ' ' + (cTop - gapAt(contactEl, blocks.indexOf(contactEl))) + ' C' + xc + ' ' + ey + ' ' + xc + ' ' + ey + ' ' + (xc - dir * Math.min(60, Math.abs(xc - ex) / 2)) + ' ' + ey + ' L' + ex + ' ' + ey;
+      ghostP.setAttribute('d', d); lineP.setAttribute('d', d);
+      houseG.setAttribute('transform', 'translate(' + hx + ' ' + hy + ') scale(' + hs + ')');
+      krTotal = lineP.getTotalLength();
+      lineP.style.strokeDasharray = krTotal;
+      krTable = [];
+      for (var i = 0; i <= 400; i++) { var L = krTotal * i / 400; krTable.push([L, lineP.getPointAtLength(L).y]); }
+      krReady = true; krUpdate();
+    };
+    /* какая часть дорожки пройдена, если мы дочитали до высоты y */
+    var lenAtY = function (y) {
+      if (y <= krTable[0][1]) return 0;
+      for (var i = 1; i < krTable.length; i++) {
+        if (krTable[i][1] >= y) { var a = krTable[i - 1], b = krTable[i]; return a[0] + (y - a[1]) / ((b[1] - a[1]) || 1) * (b[0] - a[0]); }
+      }
+      return krTotal;
+    };
+    var krUpdate = function () {
+      krTick = false;
+      if (!krReady) return;
+      var y = -mainEl.getBoundingClientRect().top + window.innerHeight * 0.72;
+      var L = krReduce ? krTotal : Math.min(krTotal, lenAtY(y));
+      lineP.style.strokeDashoffset = krTotal - L;
+      var p = lineP.getPointAtLength(L), done = L >= krTotal - 2;
+      keyG.setAttribute('transform', 'translate(' + p.x + ' ' + p.y + ') rotate(90)');
+      keyG.style.opacity = (L <= 0 || done) ? 0 : 1;
+      houseG.classList.toggle('lit', done);
+    };
+    window.addEventListener('scroll', function () { if (!krTick) { krTick = true; requestAnimationFrame(krUpdate); } }, { passive: true });
+    /* пересобираем дорожку, если меняется размер окна или догружаются картинки */
+    var krTimer;
+    var krRebuild = function () { clearTimeout(krTimer); krTimer = setTimeout(krBuild, 150); };
+    window.addEventListener('resize', krRebuild);
+    window.addEventListener('load', krBuild);
+    if ('ResizeObserver' in window) new ResizeObserver(krRebuild).observe(mainEl);
+    krBuild();
+  }
+
   /* Демо-формы: ничего не отправляют, показывают ответ */
   document.addEventListener('submit', function (e) {
     var f = e.target;

@@ -579,3 +579,28 @@ input:focus,select:focus{border-color:var(--coffee)}
   .navrow{height:60px}
   html{scroll-padding-top:72px}
 }
+
+/* ===== «Маршрут к ключам» (09.11.2026): дорожка через весь сайт, ключик и домик в конце ===== */
+main{position:relative}
+.key-route{position:absolute;left:0;top:0;pointer-events:none;z-index:2;overflow:visible}
+.kr-ghost{fill:none;stroke:var(--stone);stroke-width:1.5;stroke-dasharray:2 7;stroke-linecap:round;opacity:.75}
+.kr-line{fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round}
+.kr-key{color:var(--gold);transition:opacity .3s}
+.kr-key circle,.kr-key path{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.kr-key circle{fill:var(--bg)}
+.kr-house path{fill:none;stroke:rgba(255,250,241,.35);stroke-width:2;stroke-linejoin:round;stroke-linecap:round;transition:stroke .6s,fill .6s}
+.kr-house .win{fill:transparent;stroke:rgba(255,250,241,.35);stroke-width:1.5;transition:fill .6s,stroke .6s}
+.kr-house.lit path{stroke:#d6ae79}
+.kr-house.lit path:nth-child(2){fill:rgba(214,174,121,.16)}
+.kr-house.lit .win{fill:#f3d9a8;stroke:#f3d9a8}
+@media (prefers-reduced-motion:reduce){
+  .kr-key,.kr-house path,.kr-house .win{transition:none}
+}
+
+/* ===== Коричневая полоса — посередине между линией городов и блоком «С чем помогаю» (09.11.2026) ===== */
+.strip{margin-top:clamp(40px,7vh,72px)}
+#services{padding-top:clamp(40px,7vh,72px)}
+@media (max-width:760px){
+  .strip{margin-top:10px} /* у линии городов на телефоне уже есть свой нижний отступ ~32px */
+  #services{padding-top:36px}
+}
