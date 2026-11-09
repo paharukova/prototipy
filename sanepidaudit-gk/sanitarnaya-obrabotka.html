@@ -9,21 +9,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=3.1">
+<link rel="stylesheet" href="css/style.css?v=4">
 </head>
 <body data-dir="dez">
 
-<div class="proto-bar"><b>Прототип, версия 3</b> — страница направления внутри сайта группы. Плашки «Нужно от&nbsp;вас»&nbsp;— данные, которых пока нет.</div>
+<div class="proto-bar"><b>Прототип, версия 4</b> — страница направления для&nbsp;рекламы: заявка с&nbsp;первого экрана. Плашки «Нужно от&nbsp;вас»&nbsp;— данные, которых пока нет.</div>
 
 <header class="top">
   <div class="wrap">
     <a class="logo" href="index.html"><img src="img/logo-gorizontalnyj.svg" alt="ГК «Санэпидаудит-Кузбасс»"></a>
     <nav>
-      <a href="index.html#napravleniya">Направления</a>
+      <a href="index.html#napravleniya">Все направления</a>
+      <a href="#uslugi">Услуги</a>
+      <a href="#kak">Как работаем</a>
       <a href="index.html#zakupki">Участникам закупок</a>
-      <a href="index.html#yurlica">Компании</a>
-      <a href="index.html#kontakty">Контакты</a>
     </nav>
+    <a class="top-phone" data-phone href="#"><span></span><small>пн–пт 9:00–18:00</small></a>
     <a class="btn btn-amber btn-sm" href="#zayavka">Оставить заявку</a>
   </div>
 </header>
@@ -41,7 +42,7 @@
       <ul class="tags" id="d-tags"></ul>
       <div class="dfacts" id="d-facts"></div>
       <div class="hero-actions">
-        <a class="btn btn-c" href="#zayavka">Оставить заявку</a>
+        <a class="btn btn-c" href="#zayavka">Рассчитать стоимость</a>
         <a class="btn btn-ghost" href="#uslugi">Услуги</a>
       </div>
     </div>
@@ -57,7 +58,24 @@
   </div>
 </section>
 
-<section>
+<section class="cta-band cta-band-c">
+  <div class="wrap">
+    <div class="cta-text">
+      <h2 class="sec" data-d-cta></h2>
+      <p>Оставьте телефон&nbsp;— перезвоним, уточним задачу и&nbsp;назовём стоимость и&nbsp;сроки. Или напишите в&nbsp;мессенджер:</p>
+      <div class="msgr msgr-light" data-msgr></div>
+    </div>
+    <form class="quick-form cta-form">
+      <input type="text" name="name" placeholder="Имя" autocomplete="name" aria-label="Имя">
+      <input type="tel" name="phone" placeholder="+7 ___ ___-__-__" autocomplete="tel" aria-label="Телефон" required>
+      <button class="btn btn-amber" type="submit">Перезвоните мне</button>
+      <p class="qf-policy">Нажимая кнопку, вы соглашаетесь с&nbsp;<a href="#">политикой обработки данных</a></p>
+      <div class="done"></div>
+    </form>
+  </div>
+</section>
+
+<section id="kak">
   <div class="wrap">
     <h2 class="sec" style="margin-bottom:24px">Как&nbsp;мы работаем</h2>
     <ol class="process" id="d-process"></ol>
@@ -87,18 +105,33 @@
     <div class="form-box">
       <div>
         <h2 class="sec">Заявка в&nbsp;эту компанию</h2>
-        <p class="lead" style="font-size:17px;margin-top:14px">Направление уже&nbsp;выбрано&nbsp;— заявку получит сама компания, без&nbsp;пересылок.</p>
+        <p class="lead" style="font-size:17px;margin-top:14px">Направление уже&nbsp;выбрано&nbsp;— заявку получит сама компания, без&nbsp;пересылок. Достаточно имени и&nbsp;телефона.</p>
+        <ul class="form-points">
+          <li>Перезвоним за&nbsp;<b data-answer></b> в&nbsp;рабочее время</li>
+          <li>Можно приложить предписание или&nbsp;техзадание</li>
+        </ul>
+        <div class="msgr" data-msgr style="margin-top:18px"></div>
       </div>
       <form id="lead-form">
         <div class="row2">
-          <label>Имя<input type="text" placeholder="Как к вам обращаться"></label>
-          <label>Телефон<input type="tel" placeholder="+7 ___ ___-__-__"></label>
+          <label>Имя<input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name"></label>
+          <label>Телефон<input type="tel" name="phone" placeholder="+7 ___ ___-__-__" autocomplete="tel" required></label>
         </div>
-        <label>Организация<input type="text" placeholder="Название компании или ИП"></label>
-        <label>Направление<select></select></label>
+        <fieldset class="way">
+          <legend>Как удобнее связаться</legend>
+          <label><input type="radio" name="way" value="call" checked><span>Звонок</span></label>
+          <label><input type="radio" name="way" value="whatsapp"><span>WhatsApp</span></label>
+          <label><input type="radio" name="way" value="telegram"><span>Telegram</span></label>
+          <label><input type="radio" name="way" value="max"><span>MAX</span></label>
+        </fieldset>
+        <label>Направление<select name="direction"></select></label>
         <p class="route"></p>
-        <label>Задача<textarea placeholder="Опишите объект и что нужно сделать"></textarea></label>
-        <label>Файл<input type="file"></label>
+        <label>Задача <span class="opt">необязательно</span><textarea name="task" placeholder="Опишите объект и что нужно сделать"></textarea></label>
+        <details class="more-fields">
+          <summary>Добавить организацию и&nbsp;файл</summary>
+          <label>Организация<input type="text" name="org" placeholder="Название компании или ИП"></label>
+          <label>Файл<input type="file" name="file"></label>
+        </details>
         <label class="check"><input type="checkbox" checked> Согласен на&nbsp;обработку персональных данных по&nbsp;<a href="#">политике</a></label>
         <button class="btn btn-amber" type="submit">Отправить заявку</button>
         <div class="done"></div>
@@ -120,11 +153,13 @@
     <div>
       <img src="img/logo-gorizontalnyj-dlya-temnogo-fona.svg" alt="ГК «Санэпидаудит-Кузбасс»">
       <p>Сайт группы компаний работает от&nbsp;имени ООО МФЦ «Санэпидаудит-Кузбасс», ИНН 4205349209, ОГРН 1164205085967.</p>
+      <p><a data-phone href="#"></a></p>
     </div>
     <div>
       <h4>Направления</h4>
       <ul>
-        <li><a href="index.html#dir-med">Медицина</a></li>
+        <li><a href="amr-med/index.html">Медицина: АМР-Мед</a></li>
+        <li><a href="avangard-med/index.html">Медицина: Авангард-Мед</a></li>
         <li><a href="laboratoriya.html">Лаборатория</a></li>
         <li><a href="proektirovanie-ekspertizy.html">Проектирование и&nbsp;экспертизы</a></li>
         <li><a href="konsalting-audit.html">Консалтинг и&nbsp;аудит</a></li>
@@ -145,7 +180,7 @@
 </footer>
 
 <script src="js/typo.js"></script>
-<script src="js/data.js?v=3.1"></script>
-<script src="js/main.js?v=3.1"></script>
+<script src="js/data.js?v=4"></script>
+<script src="js/main.js?v=4"></script>
 </body>
 </html>
