@@ -974,3 +974,70 @@ p { margin: 0; }
   .founders--row { grid-template-columns: 1fr; }
   .founder--h .founder__photo { width: 96px; min-height: 120px; }
 }
+
+/* ---------- Благодарственные письма: лента документов ---------- */
+.docstrip-wrap { margin-top: 28px; }
+.docstrip__head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+.docstrip__head b { font: 700 17px/23px var(--font-heading); }
+.docstrip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.doc-item {
+  display: flex; flex-direction: column; gap: 12px; padding: 12px 12px 14px; text-align: left; cursor: zoom-in;
+  background: var(--color-white); border: 1px solid var(--color-line); border-radius: var(--radius-card);
+  transition: border-color .2s, transform .2s; font: inherit; color: inherit;
+}
+.doc-item:hover { border-color: var(--color-navy); transform: translateY(-2px); }
+.doc-item__img { display: block; height: 210px; border-radius: 6px; overflow: hidden; background: var(--color-paper); border: 1px solid var(--color-line); }
+.doc-item__img img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.doc-item__cap { display: grid; gap: 3px; padding: 0 2px; }
+.doc-item__cap b { font: 700 14px/19px var(--font-heading); }
+.doc-item__cap span { font-size: 12px; line-height: 18px; color: var(--color-muted); }
+
+/* ---------- Реквизиты в «Участникам закупок»: видно, что можно нажать ---------- */
+.req { margin-top: 20px; }
+.req__btn {
+  list-style: none; cursor: pointer; display: grid; grid-template-columns: 44px 1fr auto; align-items: center; gap: 16px;
+  padding: 16px 18px; border-radius: var(--radius-card); border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.06);
+  transition: background .2s, border-color .2s;
+}
+.req__btn::-webkit-details-marker { display: none; }
+.req__btn:hover { background: rgba(255,255,255,.12); border-color: var(--color-amber-light); }
+.req__icon { width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; background: rgba(233,164,91,.16); color: var(--color-amber-light); }
+.req__icon svg { width: 22px; height: 22px; }
+.req__txt { display: grid; gap: 2px; }
+.req__txt b { font: 700 17px/23px var(--font-heading); color: #fff; }
+.req__txt small { font-size: 13px; line-height: 19px; color: rgba(255,255,255,.66); }
+.req__more {
+  display: inline-flex; align-items: center; gap: 10px; height: 40px; padding: 0 16px; border-radius: var(--radius-button);
+  background: var(--color-action); color: #fff; font: 600 14px/20px var(--font-body); white-space: nowrap;
+}
+.req__more i { width: 9px; height: 9px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform .2s; }
+.req__btn:hover .req__more { background: var(--color-action-hover); }
+.req__hide { display: none; }
+.req[open] .req__show { display: none; }
+.req[open] .req__hide { display: inline; }
+.req[open] .req__more i { transform: rotate(-135deg) translateY(-2px); }
+.req[open] .req__btn { border-color: var(--color-amber-light); }
+.req__body { margin-top: 12px; color: var(--color-navy); }
+
+/* ---------- Тёмный подвал ---------- */
+.footer { background: var(--color-navy); border-top: 0; color: rgba(255,255,255,.72); }
+.footer .nav a, .footer .header__phone { color: #fff; }
+.footer .nav a:hover, .footer .header__phone:hover { color: var(--color-amber-light); }
+.footer__bottom { color: rgba(255,255,255,.55); border-top: 1px solid rgba(255,255,255,.12); padding-top: 18px; }
+.footer__bottom a { color: rgba(255,255,255,.7); }
+.footer .clinic-mark b { color: #fff; }
+.footer .clinic-mark span { color: rgba(255,255,255,.6); }
+.footer a[href$="index.html"]:not(.logo):not(.clinic-mark) { color: rgba(255,255,255,.85); }
+
+@media (max-width: 1100px) {
+  .docstrip { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  .docstrip { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -15px; padding: 0 15px 6px; }
+  .doc-item { flex: 0 0 68%; scroll-snap-align: start; }
+  .doc-item__img { height: 230px; }
+  .docstrip__head { flex-direction: column; gap: 2px; }
+  .req__btn { grid-template-columns: 1fr; gap: 12px; padding: 16px; }
+  .req__icon { display: none; }
+  .req__more { justify-content: center; }
+}

@@ -112,93 +112,33 @@
     $(".stairs__steps").addEventListener("mouseleave", function () { panel.innerHTML = def; panel.style.setProperty("--c", defC); });
   }
 
-  /* Благодарственные письма дугой (как в idei/pisma-duga.html), со сканами настоящих писем */
-  var arc = $("[data-letters]");
-  if (arc) {
-    var base = arc.getAttribute("data-letters") || "";
+  /* Благодарственные письма: лента документов, по нажатию — крупный просмотр */
+  var strip = $("[data-letters]");
+  if (strip) {
+    var base = strip.getAttribute("data-letters") || "";
     var LETTERS = [
-      { src: "img/foto/14-blagodarnost-1.jpg", cap: "<b>ООО «Центр оценки и экспертиз»</b><br>Коллективу ООО «АМР-Мед» — с Днём медицинского работника" },
-      { src: "img/foto/15-blagodarnost-2.jpg", cap: "<b>Департамент по охране объектов животного мира Кузбасса</b><br>Благодарность коллективу ООО «АМР-Мед»" },
-      { src: "img/foto/16-blagodarnost-3.jpg", cap: "<b>МКУ «ЦОСО г. Кемерово»</b><br>Коллективу ООО «АМР-Мед» за проведение медицинских осмотров" },
-      { src: "img/foto/17-blagodarnost-4.jpg", cap: "<b>«Корпорация АСИ»</b><br>Заместителю главного врача медико-диагностического центра «АМР-Мед»" }
+      { src: "img/foto/14-blagodarnost-1.jpg", from: "ООО «Центр оценки и экспертиз»", what: "Коллективу «АМР-Мед» — с Днём медицинского работника" },
+      { src: "img/foto/15-blagodarnost-2.jpg", from: "Департамент по охране объектов животного мира Кузбасса", what: "Благодарность коллективу «АМР-Мед»" },
+      { src: "img/foto/16-blagodarnost-3.jpg", from: "МКУ «ЦОСО г. Кемерово»", what: "Коллективу «АМР-Мед» за проведение медосмотров" },
+      { src: "img/foto/17-blagodarnost-4.jpg", from: "«Корпорация АСИ»", what: "Заместителю главного врача «АМР-Мед»" }
     ];
-    var N = 12, STEP = 360 / N, stage = $(".arc__stage", arc), cards = [];
-    for (var i = 0; i < N; i++) {
-      var L = LETTERS[i % LETTERS.length], b = document.createElement("button");
-      b.className = "arc__card"; b.type = "button"; b.dataset.i = i % LETTERS.length;
-      b.setAttribute("aria-label", "Благодарственное письмо " + (i % LETTERS.length + 1) + " из " + LETTERS.length);
-      b.innerHTML = '<img src="' + base + L.src + '" alt="" loading="lazy" draggable="false">';
-      stage.appendChild(b); cards.push(b);
-    }
-    var w, R;
-    function layout() {
-      var vw = stage.clientWidth;
-      w = Math.max(130, Math.min(230, vw * 0.34)); R = w * 2.4;
-      stage.style.setProperty("--w", w + "px");
-      stage.style.perspective = (R * 1.35) + "px";
-      stage.style.height = (w * 1.414 * 1.55) + "px";
-    }
-    layout(); addEventListener("resize", layout);
-
-    var rot = 0;
-    function render() {
-      for (var i = 0; i < N; i++) {
-        var c = cards[i], t = (((i * STEP + rot) % 360) + 540) % 360 - 180, a = Math.abs(t);
-        if (a > 64) { c.style.visibility = "hidden"; c.tabIndex = -1; continue; }
-        c.style.visibility = "visible"; c.tabIndex = a < 30 ? 0 : -1;
-        c.style.opacity = a < 44 ? 1 : Math.max(0, 1 - (a - 44) / 20);
-        c.style.transform = "translateZ(" + R + "px) rotateY(" + (-t) + "deg) translateZ(" + (-R) + "px)";
-        c.style.zIndex = 100 - Math.round(a);
-      }
-    }
+    LETTERS.forEach(function (L, i) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "doc-item";
+      b.setAttribute("aria-label", "Открыть письмо: " + L.from);
+      b.innerHTML = '<span class="doc-item__img"><img src="' + base + L.src + '" alt="" loading="lazy"></span>' +
+        '<span class="doc-item__cap"><b>' + L.from + '</b><span>' + L.what + '</span></span>';
+      b.addEventListener("click", function () { openLb(i); });
+      strip.appendChild(b);
+    });
     var lb = document.createElement("div");
     lb.className = "lb"; lb.hidden = true; lb.setAttribute("role", "dialog"); lb.setAttribute("aria-modal", "true"); lb.setAttribute("aria-label", "Благодарственное письмо");
     lb.innerHTML = '<div class="lb__in"><button class="lb__btn lb__x" aria-label="Закрыть">✕</button><button class="lb__btn lb__prev" aria-label="Предыдущее письмо">‹</button><img class="lb__img" alt=""><button class="lb__btn lb__next" aria-label="Следующее письмо">›</button><p class="lb__cap"></p></div>';
     document.body.appendChild(lb);
-
-    var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var vel = 0, hover = false, dragging = false, idleUntil = 0, moved = 0, lastX = 0, lastT = 0, last = performance.now();
-    function tick(now) {
-      var dt = Math.min(50, now - last) / 1000; last = now;
-      if (!dragging) {
-        if (Math.abs(vel) > 0.5) { rot += vel * dt; vel *= Math.pow(0.05, dt); }
-        else if (!hover && !reduce && now > idleUntil && lb.hidden) rot -= 6 * dt;
-      }
-      render(); requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-
-    stage.addEventListener("mouseenter", function () { hover = true; });
-    stage.addEventListener("mouseleave", function () { hover = false; });
-    stage.addEventListener("pointerdown", function (e) {
-      dragging = true; moved = 0; vel = 0; lastX = e.clientX; lastT = e.timeStamp;
-      stage.setPointerCapture(e.pointerId); stage.classList.add("drag");
-    });
-    stage.addEventListener("pointermove", function (e) {
-      if (!dragging) return;
-      var dx = e.clientX - lastX; lastX = e.clientX; moved += Math.abs(dx);
-      var k = STEP / (w * 1.15); rot += dx * k;
-      var d = Math.max(0.008, (e.timeStamp - lastT) / 1000); lastT = e.timeStamp;
-      vel = Math.max(-220, Math.min(220, dx * k / d));
-    });
-    function endDrag() { if (!dragging) return; dragging = false; idleUntil = performance.now() + 2500; stage.classList.remove("drag"); }
-    stage.addEventListener("pointerup", endDrag);
-    stage.addEventListener("pointercancel", endDrag);
-    stage.addEventListener("click", function (e) {
-      if (moved > 6) return;
-      var el = e.target.closest(".arc__card");
-      if (!el) { var p = document.elementFromPoint(e.clientX, e.clientY); el = p && p.closest(".arc__card"); }
-      if (el) openLb(+el.dataset.i);
-    });
-    stage.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowLeft") { rot += STEP; idleUntil = performance.now() + 4000; }
-      if (e.key === "ArrowRight") { rot -= STEP; idleUntil = performance.now() + 4000; }
-    });
-
     var cur = 0, opener = null, M = LETTERS.length;
     function showLb() {
       $(".lb__img", lb).src = base + LETTERS[cur].src;
-      $(".lb__cap", lb).innerHTML = LETTERS[cur].cap + "<br><span style=\"opacity:.7\">Письмо " + (cur + 1) + " из " + M + "</span>";
+      $(".lb__cap", lb).innerHTML = "<b>" + LETTERS[cur].from + "</b><br>" + LETTERS[cur].what + "<br><span style=\"opacity:.7\">Письмо " + (cur + 1) + " из " + M + "</span>";
     }
     function openLb(i) { cur = i; opener = document.activeElement; showLb(); lb.hidden = false; $(".lb__x", lb).focus(); }
     function closeLb() { lb.hidden = true; if (opener && opener.focus) opener.focus(); }
