@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ГК «Санэпидаудит-Кузбасс» — санитарные решения для бизнеса</title>
+<meta name="description" content="Медосмотры, лабораторные исследования, проекты СЗЗ и экспертизы, санитарный аудит, дезинфекция и вывоз медицинских отходов. Шесть направлений, семь компаний группы, Кемерово.">
+<link rel="icon" href="img/ikonka-sajta.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Иконки: собственные контурные, линия 1.75 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-ur" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-r" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6V3Zm8 0v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="header">
+  <div class="container">
+    <div class="header__inner">
+      <a class="logo" href="index.html" aria-label="ГК «Санэпидаудит-Кузбасс», на главную"><img src="img/logo-gorizontalnyj.svg" alt="ГК «Санэпидаудит-Кузбасс»" width="238" height="38"></a>
+      <nav class="nav" aria-label="Главное меню">
+        <a href="#napravleniya">Направления</a>
+        <a href="#o-gruppe">О группе</a>
+        <a href="#obekty">Объекты</a>
+        <a href="#kontakty">Контакты</a>
+      </nav>
+      <a class="header__phone" href="tel:+73842758310">+7 (3842) 75-83-10</a>
+      <a class="btn" href="#zayavka"><span class="btn__label">Оставить заявку</span><span class="btn__dot"><svg><use href="#i-ur"/></svg></span></a>
+      <button class="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-menu" aria-label="Меню">
+    <a href="#napravleniya">Направления</a>
+    <a href="#o-gruppe">О группе</a>
+    <a href="#obekty">Объекты</a>
+    <a href="#kontakty">Контакты</a>
+    <a href="tel:+73842758310">+7 (3842) 75-83-10</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- 1. Первый экран -->
+  <section class="hero2">
+    <div class="container">
+      <div class="hero2__card">
+        <div class="hero2__text">
+          <span class="kicker">Группа компаний · Кемерово</span>
+          <h1>Медосмотры, лаборатория, экспертизы и&nbsp;санобработка для&nbsp;бизнеса</h1>
+          <p class="lead">Медосмотры сотрудников и&nbsp;водителей, замеры, проекты санитарно-защитных зон, подготовка к&nbsp;проверкам, дезинфекция и&nbsp;вывоз медотходов. Оставьте заявку — рассчитаем стоимость и&nbsp;передадим задачу нужному специалисту.</p>
+          <div class="hero__actions">
+            <a class="btn" href="#zayavka"><span class="btn__label">Оставить заявку</span><span class="btn__dot"><svg><use href="#i-ur"/></svg></span></a>
+            <a class="btn btn--light" href="tel:+73842758310"><span class="btn__label">Позвонить</span><span class="btn__dot"><svg><use href="#i-ur"/></svg></span></a>
+          </div>
+          <ul class="hero2__facts">
+            <li><b>6 направлений</b></li>
+            <li><b>7 компаний группы</b></li>
+            <li><b>Работаем по России</b></li>
+          </ul>
+        </div>
+        <div class="strips" aria-label="Направления группы">
+          <a class="strip c-med" href="medicina.html">
+            <img src="img/napravleniya-foto/1-medicina.jpg" alt="">
+            <span class="strip__label"><i>01</i> <span class="full">Медицина</span><span class="short">Медицина</span></span>
+            <span class="strip__open"><i>01</i><b>Медицина</b><span>Медосмотры сотрудников и водителей, справки, санкнижки, урология и гинекология</span><u>Подробнее →</u></span>
+            <span class="strip__bar"></span>
+          </a>
+          <a class="strip c-lab" href="laboratoriya.html">
+            <img src="img/napravleniya-foto/2-laboratoriya.jpg" alt="">
+            <span class="strip__label"><i>02</i> <span class="full">Лаборатория</span><span class="short">Лаборатория</span></span>
+            <span class="strip__open"><i>02</i><b>Лаборатория</b><span>Замеры и исследования для производственного контроля</span><u>Подробнее →</u></span>
+            <span class="strip__bar"></span>
+          </a>
+          <a class="strip c-proekt" href="proektirovanie-ekspertizy.html">
+            <img src="img/napravleniya-foto/3-proektirovanie.jpg" alt="">
+            <span class="strip__label"><i>03</i> <span class="full">Проектирование и экспертизы</span><span class="short">Проекты</span></span>
+            <span class="strip__open"><i>03</i><b>Проектирование и экспертизы</b><span>Проекты СЗЗ и ЗСО, санэпидэкспертизы, оценка риска</span><u>Подробнее →</u></span>
+            <span class="strip__bar"></span>
+          </a>
+          <a class="strip c-konsalt" href="konsalting-audit.html">
+            <img src="img/napravleniya-foto/4-audit.jpg" alt="">
+            <span class="strip__label"><i>04</i> <span class="full">Консалтинг и аудит</span><span class="short">Аудит</span></span>
+            <span class="strip__open"><i>04</i><b>Консалтинг и аудит</b><span>Санитарный аудит и подготовка к проверкам</span><u>Подробнее →</u></span>
+            <span class="strip__bar"></span>
+          </a>
+          <a class="strip c-dez" href="sanitarnaya-obrabotka.html">
+            <img src="img/napravleniya-foto/5-obrabotka.jpg" alt="">
+            <span class="strip__label"><i>05</i> <span class="full">Санитарная обработка</span><span class="short">Обработка</span></span>
+            <span class="strip__open"><i>05</i><b>Санитарная обработка</b><span>Дезинфекция, дезинсекция, дератизация</span><u>Подробнее →</u></span>
+            <span class="strip__bar"></span>
+          </a>
+          <a class="strip c-util" href="utilizaciya.html">
+            <img src="img/napravleniya-foto/6-utilizaciya.jpg" alt="">
+            <span class="strip__label"><i>06</i> <span class="full">Утилизация</span><span class="short">Утилизация</span></span>
+            <span class="strip__open"><i>06</i><b>Утилизация</b><span>Вывоз и обезвреживание медицинских отходов</span><u>Подробнее →</u></span>
+            <span class="strip__bar"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Лента доверия -->
+  <section class="trust" id="obekty">
+    <div class="container">
+      <div class="trust__row">
+        <span class="trust__label">Нам доверяют</span>
+        <span>Лаборатория «Гемотест»</span>
+        <span>«Кузбассхлеб»</span>
+        <span>«Корпорация АСИ»</span>
+        <span>УФС «Россельхознадзор»</span>
+        <span>«Горноспасатель»</span>
+        <span>«Карьерные машины»</span>
+        <span>«Кузбасстопливосбыт»</span>
+        <span>«КРУ Кузбассспецвзрыв»</span>
+        <span>«Логсиб»</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Шесть направлений: карточки -->
+  <section class="section" id="napravleniya">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Компетенции группы</span>
+        <h2>Шесть направлений — один понятный вход</h2>
+        <p class="lead">Каждое направление — отдельная компания группы со своими специалистами и документами.</p>
+      </div>
+      <div class="dcards">
+        <a class="dcard c-med" href="medicina.html">
+          <div class="dcard__img"><img src="img/napravleniya-foto/1-medicina.jpg" alt="" loading="lazy"></div>
+          <div class="dcard__body">
+            <div class="dcard__top"><span class="dir-card__num">01</span><h3>Медицина</h3></div>
+            <div class="dcard__org">АМР-Мед · Авангард-Мед</div>
+            <ul class="dir-card__tasks"><li>Предрейсовые и предсменные осмотры</li><li>Медосмотры при трудоустройстве</li><li>Справки и санкнижки</li><li>Урология и гинекология</li></ul>
+            <span class="link-more">Подробнее <svg><use href="#i-ur"/></svg></span>
+          </div>
+        </a>
+        <a class="dcard c-lab" href="laboratoriya.html">
+          <div class="dcard__img"><img src="img/napravleniya-foto/2-laboratoriya.jpg" alt="" loading="lazy"></div>
+          <div class="dcard__body">
+            <div class="dcard__top"><span class="dir-card__num">02</span><h3>Лаборатория</h3></div>
+            <div class="dcard__org">ИЛЦ «Санэпидаудит-Кузбасс»</div>
+            <ul class="dir-card__tasks"><li>Воздух, вода, почва</li><li>Шум, вибрация, освещённость</li><li>Производственный контроль</li></ul>
+            <span class="link-more">Подробнее <svg><use href="#i-ur"/></svg></span>
+          </div>
+        </a>
+        <a class="dcard c-proekt" href="proektirovanie-ekspertizy.html">
+          <div class="dcard__img"><img src="img/napravleniya-foto/3-proektirovanie.jpg" alt="" loading="lazy"></div>
+          <div class="dcard__body">
+            <div class="dcard__top"><span class="dir-card__num">03</span><h3>Проектирование и экспертизы</h3></div>
+            <div class="dcard__org">ЦЭИ-Кузбасс</div>
+            <ul class="dir-card__tasks"><li>Проекты СЗЗ и ЗСО</li><li>Санитарно-эпидемиологические экспертизы</li><li>Оценка риска здоровью</li></ul>
+            <span class="link-more">Подробнее <svg><use href="#i-ur"/></svg></span>
+          </div>
+        </a>
+        <a class="dcard c-konsalt" href="konsalting-audit.html">
+          <div class="dcard__img"><img src="img/napravleniya-foto/4-audit.jpg" alt="" loading="lazy"></div>
+          <div class="dcard__body">
+            <div class="dcard__top"><span class="dir-card__num">04</span><h3>Консалтинг и аудит</h3></div>
+            <div class="dcard__org">МФЦ «Санэпидаудит-Кузбасс»</div>
+            <ul class="dir-card__tasks"><li>Санитарный аудит предприятия</li><li>Подготовка к проверке Роспотребнадзора</li><li>Ответы на предписания</li><li>Документы для лицензий</li></ul>
+            <span class="link-more">Подробнее <svg><use href="#i-ur"/></svg></span>
+          </div>
+        </a>
+        <a class="dcard c-dez" href="sanitarnaya-obrabotka.html">
+          <div class="dcard__img"><img src="img/napravleniya-foto/5-obrabotka.jpg" alt="" loading="lazy"></div>
+          <div class="dcard__body">
+            <div class="dcard__top"><span class="dir-card__num">05</span><h3>Санитарная обработка</h3></div>
+            <div class="dcard__org">ДЦ «Санэпидаудит-Кузбасс»</div>
+            <ul class="dir-card__tasks"><li>Дезинфекция</li><li>Дезинсекция</li><li>Дератизация</li><li>Разово или по договору</li></ul>
+            <span class="link-more">Подробнее <svg><use href="#i-ur"/></svg></span>
+          </div>
+        </a>
+        <a class="dcard c-util" href="utilizaciya.html">
+          <div class="dcard__img"><img src="img/napravleniya-foto/6-utilizaciya.jpg" alt="" loading="lazy"></div>
+          <div class="dcard__body">
+            <div class="dcard__top"><span class="dir-card__num">06</span><h3>Утилизация</h3></div>
+            <div class="dcard__org">Накал-СЭА</div>
+            <ul class="dir-card__tasks"><li>Вывоз медицинских отходов</li><li>Обезвреживание</li><li>Собственный транспорт</li></ul>
+            <span class="link-more">Подробнее <svg><use href="#i-ur"/></svg></span>
+          </div>
+        </a>
+      </div>
+      <aside class="help-card" aria-labelledby="help-title">
+          <span class="steps-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <div class="help-card__text">
+            <h3 class="h3" id="help-title">Не знаете, какое направление нужно?</h3>
+            <p class="muted" style="font-size:14px;line-height:21px">Оставьте номер — поможем выбрать направление и&nbsp;передадим заявку специалисту.</p>
+          </div>
+          <form data-lead novalidate>
+            <input type="hidden" name="napravlenie" value="Не знаю, подскажите">
+            <div class="field">
+              <label for="h-phone">Телефон</label>
+              <input id="h-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+              <span class="field__err">Введите номер полностью</span>
+            </div>
+            <button class="btn" type="submit"><span class="btn__label">Перезвоните</span><span class="btn__dot"><svg><use href="#i-ur"/></svg></span></button>
+            <p class="consent">Нажимая кнопку, вы соглашаетесь с&nbsp;<a href="#" data-soon="Политика обработки данных — следующий этап">политикой обработки персональных данных</a>.</p>
+            <div class="form-ok" role="status"><b>Заявка принята</b><p>Перезвоним в&nbsp;рабочее время.</p></div>
+          </form>
+        </aside>
+    </div>
+  </section>
+
+  <!-- 4. С какой задачей обращаетесь -->
+  <section class="section">
+    <div class="container">
+      <div class="card card--pad">
+        <div class="section-head" style="margin-bottom:8px">
+          <span class="kicker">Быстрый маршрут</span>
+          <h2>С какой задачей обращаетесь?</h2>
+        </div>
+        <div class="routes">
+          <a class="route" href="amr-med/index.html"><span class="route__num">01</span><span class="route__q">Водителям нужен предрейсовый осмотр</span><svg><use href="#i-r"/></svg></a>
+          <a class="route" href="medicina.html#avangard"><span class="route__num">02</span><span class="route__q">Сотрудникам нужен медосмотр или санкнижка</span><svg><use href="#i-r"/></svg></a>
+          <a class="route" href="laboratoriya.html"><span class="route__num">03</span><span class="route__q">Нужны замеры для производственного контроля</span><svg><use href="#i-r"/></svg></a>
+          <a class="route" href="proektirovanie-ekspertizy.html"><span class="route__num">04</span><span class="route__q">Нужен проект СЗЗ или санитарная экспертиза</span><svg><use href="#i-r"/></svg></a>
+          <a class="route" href="konsalting-audit.html"><span class="route__num">05</span><span class="route__q">Скоро проверка Роспотребнадзора</span><svg><use href="#i-r"/></svg></a>
+          <a class="route" href="sanitarnaya-obrabotka.html"><span class="route__num">06</span><span class="route__q">Нужна обработка от насекомых и грызунов</span><svg><use href="#i-r"/></svg></a>
+          <a class="route" href="utilizaciya.html"><span class="route__num">07</span><span class="route__q">Нужно вывозить медицинские отходы</span><svg><use href="#i-r"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- О группе -->
+  <section class="section" id="o-gruppe">
+    <div class="container">
+      <div class="card stairs">
+        <div class="stairs__info">
+          <span class="kicker">О группе</span>
+          <h2>Полный цикл санитарных решений</h2>
+          <p class="lead">Семь компаний группы работают по&nbsp;шести направлениям: от&nbsp;медосмотров до&nbsp;вывоза медицинских отходов. Выберите нужную услугу или опишите задачу — мы передадим её профильной команде.</p>
+          <div class="about2__facts">
+            <div><b>6</b><span>направлений</span></div>
+            <div><b>7</b><span>компаний группы</span></div>
+            <div><b>Россия</b><span>география работ</span></div>
+          </div>
+          <div class="stairs__panel" id="stairs-panel" aria-live="polite">
+            <span class="dir-card__num">Знак группы</span>
+            <b>Шесть ступеней — шесть направлений</b>
+            <p>Самая высокая ступень — медицина. Наведите на&nbsp;ступень, чтобы увидеть направление.</p>
+          </div>
+        </div>
+        <div class="stairs__steps" aria-label="Лесенка направлений">
+            <a class="step c-util" href="utilizaciya.html" data-num="06" data-title="Утилизация" data-org="Накал-СЭА" data-tasks="Вывоз медицинских отходов · Обезвреживание · Собственный транспорт"><span>06</span><em>Утилизация</em></a>
+            <a class="step c-dez" href="sanitarnaya-obrabotka.html" data-num="05" data-title="Санитарная обработка" data-org="ДЦ «Санэпидаудит-Кузбасс»" data-tasks="Дезинфекция · Дезинсекция · Дератизация · Разово или по договору"><span>05</span><em>Обработка</em></a>
+            <a class="step c-konsalt" href="konsalting-audit.html" data-num="04" data-title="Консалтинг и аудит" data-org="МФЦ «Санэпидаудит-Кузбасс»" data-tasks="Санитарный аудит предприятия · Подготовка к проверке Роспотребнадзора · Ответы на предписания · Документы для лицензий"><span>04</span><em>Аудит</em></a>
+            <a class="step c-proekt" href="proektirovanie-ekspertizy.html" data-num="03" data-title="Проектирование и экспертизы" data-org="ЦЭИ-Кузбасс" data-tasks="Проекты СЗЗ и ЗСО · Санитарно-эпидемиологические экспертизы · Оценка риска здоровью"><span>03</span><em>Проекты</em></a>
+            <a class="step c-lab" href="laboratoriya.html" data-num="02" data-title="Лаборатория" data-org="ИЛЦ «Санэпидаудит-Кузбасс»" data-tasks="Воздух, вода, почва · Шум, вибрация, освещённость · Производственный контроль"><span>02</span><em>Лаборатория</em></a>
+            <a class="step step--top c-med" href="medicina.html" data-num="01" data-title="Медицина" data-org="АМР-Мед · Авангард-Мед" data-tasks="Предрейсовые и предсменные осмотры · Медосмотры при трудоустройстве · Справки и санкнижки · Урология и гинекология"><span>01</span><em>Медицина</em></a>
+        </div>
+      </div>
+      <div class="founders-row">
+        <span class="kicker" style="display:block;margin-bottom:14px">Основатели группы</span>
+        <div class="founders founders--row">
+          <div class="card founder founder--h">
+            <div class="founder__photo"><span class="steps-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><small>Фото</small></div>
+            <div class="founder__body"><b>Пахаруков Михаил Васильевич</b><span>Основатель группы · должность <span class="todo">[уточнить у клиента]</span></span></div>
+          </div>
+          <div class="card founder founder--h">
+            <div class="founder__photo"><span class="steps-mark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></span><small>Фото</small></div>
+            <div class="founder__body"><b>Старицын Александр Владимирович</b><span>Основатель группы · должность <span class="todo">[уточнить у клиента]</span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Как работаем -->
+  <section class="section">
+    <div class="container">
+      <div class="how">
+        <div class="section-head" style="margin-bottom:0">
+          <span class="kicker">Как работаем</span>
+          <h2>От заявки до результата</h2>
+          <p class="lead">Каждую услугу выполняет профильная компания группы и&nbsp;сама заключает с&nbsp;вами договор.</p>
+        </div>
+        <ol class="how__steps">
+          <li><span class="how__num">01</span><b>Заявка</b><p>Через форму на сайте или по телефону. Можно приложить предписание или техзадание.</p></li>
+          <li><span class="how__num">02</span><b>Передаём в нужную компанию</b><p>Сотрудник группы разберёт задачу и передаст тем, кто выполнит работу.</p></li>
+          <li><span class="how__num">03</span><b>Расчёт и договор</b><p>Стоимость считает и договор заключает компания, которая делает работу.</p></li>
+          <li><span class="how__num">04</span><b>Работа в центре или с выездом</b><p>Врачи выезжают на предприятие, лаборатория — на объекты по Сибири, отходы вывозим своим транспортом.</p></li>
+          <li><span class="how__num">05</span><b>Закрывающие документы</b><p>Заключения, протоколы, акты — по каждой услуге свои.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Контрастная короткая форма -->
+  <section class="section">
+    <div class="container">
+      <div class="dark cta-dark">
+        <div>
+          <span class="kicker">Короткая заявка</span>
+          <h2 style="margin:12px 0 10px">Не знаете, с чего начать?</h2>
+          <p class="lead">Опишите задачу или приложите предписание — передадим заявку в&nbsp;компанию группы, которая её решит.</p>
+        </div>
+        <form data-lead novalidate>
+          <input type="hidden" name="napravlenie" value="Не знаю, подскажите">
+          <div class="field">
+            <label for="d-name" style="color:rgba(255,255,255,.8)">Имя</label>
+            <input id="d-name" name="name" autocomplete="name" required>
+            <span class="field__err">Напишите имя</span>
+          </div>
+          <div class="field">
+            <label for="d-phone" style="color:rgba(255,255,255,.8)">Телефон</label>
+            <input id="d-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+            <span class="field__err">Введите номер полностью</span>
+          </div>
+          <button class="btn" type="submit" style="margin-top:24px"><span class="btn__label">Перезвоните</span><span class="btn__dot"><svg><use href="#i-ur"/></svg></span></button>
+          <p class="consent">Нажимая кнопку, вы соглашаетесь с&nbsp;<a href="#" data-soon="Политика обработки данных — следующий этап">политикой обработки персональных данных</a>.</p>
+          <div class="form-ok" role="status"><b>Заявка принята</b><p>Перезвоним в&nbsp;рабочее время и&nbsp;подскажем направление.</p></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Нам доверяют -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Нам доверяют</span>
+        <h2>Отзывы и благодарности</h2>
+      </div>
+      <div class="reviews">
+        <figure class="card review" style="margin:0">
+          <blockquote>«Отличные специалисты! Сотрудничаем ни&nbsp;один год по&nbsp;разным направлениям. Рекомендую.»</blockquote>
+          <figcaption class="review__meta"><span>Отзыв о группе компаний</span><a href="https://2gis.ru/kemerovo/firm/70000001006978200/tab/reviews" target="_blank" rel="noopener">2ГИС ↗</a></figcaption>
+        </figure>
+        <figure class="card review" style="margin:0">
+          <blockquote>«Закрывают все вопросы по&nbsp;санитарно-эпидемиологическому законодательству „под&nbsp;ключ“, очень удобно!»</blockquote>
+          <figcaption class="review__meta"><span>Отзыв о группе компаний</span><a href="https://2gis.ru/kemerovo/firm/70000001006978200/tab/reviews" target="_blank" rel="noopener">2ГИС ↗</a></figcaption>
+        </figure>
+        <figure class="card review" style="margin:0">
+          <blockquote>«Подписали договор на&nbsp;медицинские осмотры, все четко, быстро и&nbsp;профессионально.»</blockquote>
+          <figcaption class="review__meta"><span>Отзыв об «АМР-Мед»</span><a href="https://2gis.ru/kemerovo/firm/70000001042937533/tab/reviews" target="_blank" rel="noopener">2ГИС ↗</a></figcaption>
+        </figure>
+      </div>
+      <div class="arc" data-letters>
+        <div class="arc__stage" aria-label="Благодарственные письма, листайте влево и вправо"></div>
+        <div class="arc__under"><b style="font:700 17px/23px var(--font-heading)">Благодарственные письма</b><span class="arc__hint">Потяните влево или вправо · нажмите на письмо, чтобы рассмотреть</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Для кого -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Для кого</span>
+        <h2>Для кого работаем</h2>
+      </div>
+      <div class="who">
+        <div class="card who__card">
+          <h3>Клиники и медицинские центры</h3>
+          <ul>
+            <li><a class="c-konsalt" href="konsalting-audit.html"><i></i>Документы для медицинской лицензии</a></li>
+            <li><a class="c-util" href="utilizaciya.html"><i></i>Вывоз и обезвреживание медотходов</a></li>
+            <li><a class="c-dez" href="sanitarnaya-obrabotka.html"><i></i>Дезинфекция, дезинсекция, дератизация</a></li>
+            <li><a class="c-lab" href="laboratoriya.html"><i></i>Производственный контроль и замеры</a></li>
+          </ul>
+        </div>
+        <div class="card who__card">
+          <h3>Транспортные компании и автопарки</h3>
+          <ul>
+            <li><a class="c-med" href="amr-med/index.html"><i></i>Предрейсовые и послерейсовые осмотры</a></li>
+            <li><a class="c-med" href="amr-med/index.html"><i></i>Дистанционные осмотры у вас на предприятии</a></li>
+            <li><a class="c-med" href="medicina.html#avangard"><i></i>Медосмотры водителей и справки</a></li>
+          </ul>
+        </div>
+        <div class="card who__card">
+          <h3>Производство и строительство</h3>
+          <ul>
+            <li><a class="c-med" href="medicina.html#avangard"><i></i>Медосмотры сотрудников, в том числе с выездом</a></li>
+            <li><a class="c-lab" href="laboratoriya.html"><i></i>Замеры для производственного контроля</a></li>
+            <li><a class="c-proekt" href="proektirovanie-ekspertizy.html"><i></i>Проект санитарно-защитной зоны</a></li>
+            <li><a class="c-dez" href="sanitarnaya-obrabotka.html"><i></i>Обработка помещений и территории</a></li>
+          </ul>
+        </div>
+        <div class="card who__card">
+          <h3>Общепит, торговля, школы и детсады</h3>
+          <ul>
+            <li><a class="c-med" href="medicina.html#avangard"><i></i>Санитарные книжки сотрудникам</a></li>
+            <li><a class="c-konsalt" href="konsalting-audit.html"><i></i>Подготовка к проверке Роспотребнадзора</a></li>
+            <li><a class="c-dez" href="sanitarnaya-obrabotka.html"><i></i>Обработка от насекомых и грызунов</a></li>
+            <li><a class="c-lab" href="laboratoriya.html"><i></i>Смывы и лабораторный контроль</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Вопросы -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Вопросы</span>
+        <h2>Частые вопросы</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Не знаю, какое направление нужно. Куда писать?</summary><p>Опишите задачу в форме или приложите предписание — передадим заявку в компанию группы, которая её решит.</p></details>
+        <details><summary>Можно заказать несколько услуг сразу?</summary><p>Да. Каждую услугу выполняет своя компания группы, поэтому договоров будет несколько — по одному на направление.</p></details>
+        <details><summary>Выезжаете к заказчику?</summary><p>Да. Врачи «Авангард-Мед» проводят медосмотры на предприятии, лаборатория выезжает на объекты по Сибирскому федеральному округу, отходы вывозим своим транспортом в вашей таре.</p></details>
+        <details><summary>Работаете с организациями из других регионов?</summary><p>Да, работаем по всей России. Лаборатория выезжает на объекты в регионах Сибирского федерального округа.</p></details>
+        <details><summary>Как наши сотрудники пройдут медосмотр? Будет очередь?</summary><p><span class="todo">[уточнить у клиента]</span> как записываете организации и сколько человек принимаете в день.</p></details>
+        <details><summary>Когда результаты появятся в электронной медкнижке?</summary><p><span class="todo">[уточнить у клиента]</span> через сколько дней выгружаете результаты и кому звонить, если их нет.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Большая форма и контакты направлений -->
+  <section class="section" id="zayavka">
+    <div class="container order">
+      <div class="card order__form">
+        <span class="kicker">Оставить заявку</span>
+        <h2 class="h2">Разберём задачу вместе</h2>
+        <p class="muted" style="margin-bottom:22px">Заявка попадёт в профильную компанию группы.</p>
+        <form class="form" data-lead novalidate>
+          <div class="form__row">
+            <div class="field">
+              <label for="o-name">Имя</label>
+              <input id="o-name" name="name" autocomplete="name" required>
+              <span class="field__err">Напишите имя</span>
+            </div>
+            <div class="field">
+              <label for="o-phone">Телефон</label>
+              <input id="o-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required>
+              <span class="field__err">Введите номер полностью</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="order-dir">Направление</label>
+            <select id="order-dir" name="napravlenie" required>
+              <option value="">Выберите направление</option>
+              <option>Медицина — АМР-Мед</option>
+              <option>Медицина — Авангард-Мед</option>
+              <option>Лаборатория</option>
+              <option>Проектирование и экспертизы</option>
+              <option>Консалтинг и аудит</option>
+              <option>Санитарная обработка</option>
+              <option>Утилизация</option>
+              <option>Не знаю, подскажите</option>
+            </select>
+            <span class="field__err">Выберите направление или «Не знаю»</span>
+          </div>
+          <div class="field">
+            <label for="o-text">Задача <span class="muted">(необязательно)</span></label>
+            <textarea id="o-text" name="zadacha" placeholder="Например: нужен проект СЗЗ для цеха или медосмотр для 20 сотрудников"></textarea>
+          </div>
+          <button class="btn" type="submit" style="justify-self:start"><span class="btn__label">Отправить заявку</span><span class="btn__dot"><svg><use href="#i-ur"/></svg></span></button>
+          <p class="consent">Нажимая кнопку, вы соглашаетесь с&nbsp;<a href="#" data-soon="Политика обработки данных — следующий этап">политикой обработки персональных данных</a>.</p>
+          <div class="form-ok" role="status"><b>Заявка принята</b><p>Передали её в&nbsp;компанию группы по&nbsp;выбранному направлению. Перезвоним в&nbsp;рабочее время.</p></div>
+        </form>
+      </div>
+      <div class="card" id="kontakty">
+        <div style="padding:28px 28px 4px"><span class="kicker">Контакты направлений</span></div>
+        <div class="contacts-list">
+          <div class="contact-row c-med"><i></i><div><b>Медицина · АМР-Мед</b><p>Кемерово, ул. Мичурина, 15 · <a href="tel:+73842903015">+7 (3842) 90-30-15</a></p></div></div>
+          <div class="contact-row c-med"><i></i><div><b>Медицина · Авангард-Мед</b><p>Кемерово, пр. Кузнецкий, 103А · <a href="tel:+73842900068">+7 (3842) 90-00-68</a></p></div></div>
+          <div class="contact-row c-lab"><i></i><div><b>Лаборатория · ИЛЦ</b><p>Кемерово, ул. Полярная, 2 · телефон <span class="todo">[уточнить у клиента]</span></p></div></div>
+          <div class="contact-row c-proekt"><i></i><div><b>Проектирование · ЦЭИ-Кузбасс</b><p>Кемерово, ул. 1-я Стахановская, 39а · <a href="tel:+73842758310">+7 (3842) 75-83-10</a> · пн–пт 9:00–18:00</p></div></div>
+          <div class="contact-row c-konsalt"><i></i><div><b>Консалтинг и аудит · МФЦ</b><p>Кемерово, ул. 1-я Стахановская, 39а, офис 202 · <a href="tel:+73842758310">+7 (3842) 75-83-10</a></p></div></div>
+          <div class="contact-row c-dez"><i></i><div><b>Санитарная обработка · ДЦ</b><p>Кемерово, ул. Полярная, 2 · телефон <span class="todo">[уточнить у клиента]</span></p></div></div>
+          <div class="contact-row c-util"><i></i><div><b>Утилизация · Накал-СЭА</b><p>Кемерово, ул. 1-я Стахановская, 34, офис 210 · телефон <span class="todo">[уточнить у клиента]</span></p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Участникам закупок -->
+  <section class="section" id="zakupki">
+    <div class="container">
+      <div class="dark">
+        <div class="section-head" style="margin-bottom:0">
+          <span class="kicker">Участникам закупок</span>
+          <h2>Лицензии, допуски и опыт контрактов</h2>
+          <p class="lead">Документы для тендерной заявки и проверки контрагента. Реквизиты семи компаний — в таблице ниже.</p>
+        </div>
+        <div class="docs">
+          <div class="doc">
+            <span class="kicker">Лицензия · медицина</span>
+            <b>ООО «АМР-Мед»</b>
+            <span class="mono">Л041-01161-42/00357403</span>
+            <p>от 27.10.2020, Министерство здравоохранения Кузбасса</p>
+            <a href="https://roszdravnadzor.gov.ru/services/licenses" target="_blank" rel="noopener">Проверить в реестре <svg><use href="#i-ur"/></svg></a>
+          </div>
+          <div class="doc">
+            <span class="kicker">Лицензия · медицина</span>
+            <b>ООО МПЦ «Авангард-Мед»</b>
+            <span class="mono">Л041-01161-42/00324463</span>
+            <p>Министерство здравоохранения Кузбасса, дата <span class="todo">[уточнить у клиента]</span></p>
+            <a href="https://roszdravnadzor.gov.ru/services/licenses" target="_blank" rel="noopener">Проверить в реестре <svg><use href="#i-ur"/></svg></a>
+          </div>
+          <div class="doc">
+            <span class="kicker">Аккредитация · лаборатория</span>
+            <b>ООО ИЛЦ «Санэпидаудит-Кузбасс»</b>
+            <span class="todo">№ [уточнить у клиента]</span>
+            <p>Аттестат аккредитации испытательной лаборатории и область аккредитации.</p>
+            <a href="https://pub.fsa.gov.ru/ral" target="_blank" rel="noopener">Реестр Росаккредитации <svg><use href="#i-ur"/></svg></a>
+          </div>
+          <div class="doc">
+            <span class="kicker">Допуски · проектирование</span>
+            <b>ООО «ЦЭИ-Кузбасс»</b>
+            <span class="todo">[уточнить у клиента]</span>
+            <p>Какие допуски СРО и аттестаты группы «ЦЭИ» показываем для «ЦЭИ-Кузбасс».</p>
+          </div>
+          <div class="doc">
+            <span class="kicker">Реестр · утилизация</span>
+            <b>ООО «Накал-СЭА»</b>
+            <span class="todo">[уточнить у клиента]</span>
+            <p>Запись в реестре региональных утилизаторов и санитарно-эпидемиологическое заключение.</p>
+          </div>
+          <div class="doc">
+            <span class="kicker">Опыт контрактов</span>
+            <b>Комплексы предрейсовых осмотров</b>
+            <p>ОАО «РЖД», Новосибирская и Омская области — апрель 2024. Нефтегазовая компания, ХМАО — Югра — июнь 2024.</p>
+            <p>Благодарности от Минтруда Кузбасса и отделения Социального фонда.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. Компании группы -->
+  <section class="section" id="kompanii">
+    <div class="container">
+      <div class="section-head">
+        <span class="kicker">Компании группы</span>
+        <h2>Семь юридических лиц</h2>
+        <p class="lead">Каждая компания заключает договор по своему направлению.</p>
+      </div>
+      <div class="card table-wrap">
+        <table class="companies">
+          <thead><tr><th>Компания</th><th>Направление</th><th>ИНН</th><th>ОГРН</th><th>Адрес</th></tr></thead>
+          <tbody>
+            <tr><td>ООО «АМР-Мед»</td><td data-label="Направл."><span class="dir-dot c-med"><i></i>Медицина</span></td><td data-label="ИНН" class="mono">4205386271</td><td data-label="ОГРН" class="mono">1194205024530</td><td data-label="Адрес">Кемерово, ул. 1-я Стахановская, 39А, оф. 219</td></tr>
+            <tr><td>ООО МПЦ «Авангард-Мед»</td><td data-label="Направл."><span class="dir-dot c-med"><i></i>Медицина</span></td><td data-label="ИНН" class="mono">4205318095</td><td data-label="ОГРН" class="mono">1154205017010</td><td data-label="Адрес">Кемерово, пр. Кузнецкий, 103а, оф. 201</td></tr>
+            <tr><td>ООО ИЛЦ «Санэпидаудит-Кузбасс»</td><td data-label="Направл."><span class="dir-dot c-lab"><i></i>Лаборатория</span></td><td data-label="ИНН" class="mono">4205273302</td><td data-label="ОГРН" class="mono">1134205020696</td><td data-label="Адрес">Кемерово, ул. Полярная, 2</td></tr>
+            <tr><td>ООО «ЦЭИ-Кузбасс»</td><td data-label="Направл."><span class="dir-dot c-proekt"><i></i>Проектирование и экспертизы</span></td><td data-label="ИНН" class="mono">4205351871</td><td data-label="ОГРН" class="mono">1174205005974</td><td data-label="Адрес">Кемерово, ул. 1-я Стахановская, 39а, оф. 214</td></tr>
+            <tr><td>ООО МФЦ «Санэпидаудит-Кузбасс»</td><td data-label="Направл."><span class="dir-dot c-konsalt"><i></i>Консалтинг и аудит</span></td><td data-label="ИНН" class="mono">4205349209</td><td data-label="ОГРН" class="mono">1164205085967</td><td data-label="Адрес">Кемерово, ул. 1-я Стахановская, 39а, оф. 202</td></tr>
+            <tr><td>ООО ДЦ «Санэпидаудит-Кузбасс»</td><td data-label="Направл."><span class="dir-dot c-dez"><i></i>Санитарная обработка</span></td><td data-label="ИНН" class="mono">4205273486</td><td data-label="ОГРН" class="mono">1134205021433</td><td data-label="Адрес">Кемерово, ул. Полярная, 2</td></tr>
+            <tr><td>ООО «Накал-СЭА»</td><td data-label="Направл."><span class="dir-dot c-util"><i></i>Утилизация</span></td><td data-label="ИНН" class="mono">4205306075</td><td data-label="ОГРН" class="mono">1154205005206</td><td data-label="Адрес">Кемерово, ул. 1-я Стахановская, 34, оф. 210</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <a class="logo" href="index.html"><img src="img/logo-gorizontalnyj.svg" alt="ГК «Санэпидаудит-Кузбасс»" width="238" height="38"></a>
+      <nav class="nav" aria-label="Меню в подвале">
+        <a href="#napravleniya">Направления</a>
+        <a href="#o-gruppe">О группе</a>
+        <a href="#obekty">Объекты</a>
+        <a href="#kontakty">Контакты</a>
+      </nav>
+      <a class="header__phone" href="tel:+73842758310">+7 (3842) 75-83-10</a>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 ГК «Санэпидаудит-Кузбасс», Кемерово. Договор заключает компания группы, которая выполняет работу.</span>
+      <a href="#" data-soon="Политика обработки данных — следующий этап">Политика обработки персональных данных</a>
+    </div>
+  </div>
+</footer>
+
+<nav class="action-bar" aria-label="Быстрая связь">
+  <a href="tel:+73842758310"><svg><use href="#i-phone"/></svg>Позвонить</a>
+  <a href="#" data-soon="Мессенджер для заявок пока уточняем у клиента"><svg><use href="#i-chat"/></svg>Написать</a>
+  <a class="main" href="#zayavka">Заявка</a>
+</nav>
+
+<script src="js/main.js"></script>
+</body>
+</html>
