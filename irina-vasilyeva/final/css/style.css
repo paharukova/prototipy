@@ -104,7 +104,7 @@ h3 { font-size: 18px; line-height: 1.3; margin: 0 0 10px; }
 .proof-item { padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, .22); }
 .proof-item:first-child { border-top: 0; padding-top: 0; }
 .proof-item b { display: block; font: 400 clamp(26px, 2.6vw, 38px)/1 var(--serif); color: #fff; margin-bottom: 6px; }
-.proof-item span { display: block; font: 700 9.5px/1.45 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .72); }
+.proof-item span { display: block; font: 600 13px/1.4 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: rgba(255, 255, 255, .85); }
 
 /* ---------- Линия городов (внизу первого экрана) ---------- */
 .route { position: relative; margin-top: clamp(16px, 2.6vh, 28px); padding: 14px 0 clamp(10px, 2vh, 20px); border-top: 1px solid var(--line); }
@@ -383,7 +383,8 @@ input:focus, select:focus { border-color: var(--wine); background-color: #fff; }
   .hero-copy .btn { min-height: clamp(42px, 6.2vh, 50px); }
   .hero-photo { min-height: 0; }
   .hero-vertical { font-size: clamp(30px, min(3.4vw, 6.4vh), 50px); }
-  .proof-item b { font-size: clamp(22px, min(2.6vw, 4.6vh), 38px); }
+  .proof-item b { font-size: clamp(30px, min(3.6vw, 6.6vh), 54px); }
+  .proof-item span { font-size: clamp(11.5px, min(1vw, 2vh), 14px); }
   .route-line li { padding-bottom: clamp(16px, 2.6vh, 26px); }
   /* подсказка о городе всплывает поверх полосы, а не отодвигает её */
   .route-info { position: absolute; left: 0; right: 0; top: calc(100% - 4px); z-index: 6; pointer-events: none; }
@@ -445,8 +446,8 @@ input:focus, select:focus { border-color: var(--wine); background-color: #fff; }
   .hero-vertical { font-size: clamp(26px, 8vw, 34px); }
   .proof { gap: 8px; }
   .proof-item { padding-top: 8px; }
-  .proof-item b { font-size: 22px; margin-bottom: 4px; }
-  .proof-item span { font-size: 8.5px; letter-spacing: .08em; }
+  .proof-item b { font-size: 36px; margin-bottom: 6px; }
+  .proof-item span { font-size: 11.5px; letter-spacing: .03em; }
 
   /* города на телефоне — плашки */
   .route { margin-top: 22px; padding-bottom: 18px; }
