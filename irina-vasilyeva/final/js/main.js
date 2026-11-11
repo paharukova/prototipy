@@ -120,7 +120,10 @@
     var f = e.target;
     if (!f.hasAttribute('data-demo')) return;
     e.preventDefault();
-    f.innerHTML = '<div class="form-ok">' + T('Спасибо! В готовом сайте заявка сразу придёт Ирине, и она свяжется с вами. Сейчас это демонстрация — ничего не отправлено.') + '</div>';
+    /* «Перезвоню в выбранное время» — только там, где время выбирают; срок уточняем у Ирины */
+    var callText = f.querySelector('[name="time"]') ? 'Спасибо! Перезвоню в выбранное вами время, в течение ' : 'Спасибо! Перезвоню или напишу в течение ';
+    f.innerHTML = '<div class="form-ok">' + T(callText) + '<span class="need">' + T('__ часов') + '</span>.' +
+      '<small class="form-ok-demo">' + T('Это прототип: заявка никуда не отправлена.') + '</small></div>';
   });
 
   /* Квиз «План сделки за 1 минуту» */
@@ -174,7 +177,7 @@
     if (A.goal === 'buy' || A.goal === 'swap') p.push('Подбор вариантов под бюджет и отсев «проблемных» квартир до показа');
     if (A.goal === 'check') p.push('Запрашиваю документы у продавца и проверяю историю квартиры');
     if (A.goal === 'newbuild') p.push('Анализ рынка и новостроек под ваш бюджет, оценка надёжности застройщика');
-    if (A.where === 'nsk-far' || A.where === 'other') p.push('Показы по видео в прямом эфире — вы видите квартиру моими глазами');
+    if (A.where === 'nsk-far' || A.where === 'other') p.push('Показы по видео в прямом эфире — без вашего приезда');
     if (A.pay === 'mortgage') p.push('Подача в несколько банков, одобрение квартиры банком');
     if (A.pay === 'cert') p.push('Документы по сертификату, маткапиталу или субсидии, доли детей');
     if (A.pay === 'own' || A.goal === 'swap') p.push('Обе сделки в одну цепочку, чтобы не остаться без жилья');
@@ -186,14 +189,14 @@
   }
 
   function result() {
-    var term = { month: 'Можно успеть за месяц, если начать на этой неделе.', q: 'Нормальный срок: хватит времени на выбор и торг.', later: 'Отлично — начнём с консультации, без спешки.' }[A.when];
+    var term = { month: 'Месяц — реально, если с документами всё чисто. Проверю это на консультации.', q: 'Нормальный срок: хватит времени на выбор и торг.', later: 'Отлично — начнём с консультации, без спешки.' }[A.when];
     var h = '<div class="q-result"><div class="q-label">Ваш план</div><h3>' + T('Вот как пройдёт ваша сделка') + '</h3><p>' + T(term) + '</p><ol class="q-plan">';
     plan().forEach(function (s, i) { h += '<li><b>' + (i + 1) + '</b><span>' + T(s) + '</span></li>'; });
     var price = A.goal === 'newbuild' ? 'Для вас это бесплатно — 0 ₽.' :
-      'Классический вариант — от 2% стоимости объекта, точную сумму для вашего случая пришлю вместе с планом.' + (A.goal === 'sell' || A.goal === 'swap' || A.goal === 'buy' ? ' На вторичном рынке — оплата только после сделки.' : '');
+      'Точную сумму назову после 30-минутного разговора: она зависит от цены квартиры и сложности сделки. Разговор бесплатный.' + (A.goal === 'sell' || A.goal === 'swap' || A.goal === 'buy' ? ' На вторичном рынке — оплата только после сделки.' : '');
     h += '</ol><p>' + T(price) + '</p>' +
-      '<form class="q-form" data-demo><label>Имя<input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name"></label>' +
-      '<label>Телефон или Telegram<input type="text" name="contact" placeholder="+7 или @ник"></label>' +
+      '<form class="q-form" data-demo><label>Имя, если хотите<input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name"></label>' +
+      '<label>Телефон или Telegram *<input type="text" name="contact" placeholder="+7 или @ник" required minlength="5"></label>' +
       '<button class="btn light" type="submit">Прислать план ↗</button>' +
       '<label class="consent"><input type="checkbox" name="consent" required><span>' + T('Даю') + ' <a href="' + DOCS + 'soglasie.html" target="_blank">' + T('согласие на обработку персональных данных') + '</a> ' + T('и принимаю') + ' <a href="' + DOCS + 'politika.html" target="_blank">' + T('политику обработки персональных данных') + '</a></span></label></form>' +
       '<button type="button" class="q-back" data-restart>↺ Пройти заново</button></div>';

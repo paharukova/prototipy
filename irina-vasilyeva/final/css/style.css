@@ -697,3 +697,11 @@ h2 { font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; }
 @media (max-width: 760px) { .about-vertical { font-size: 30px; } .about-panel { padding: 16px; gap: 12px; } }
 /* Пометка про отзывы времён работы в агентстве */
 .section-head.center p.review-past { margin-top: 8px; font-size: 14px; font-style: italic; color: var(--wine); }
+
+/* Пометки «Нужно от вас» после разбора 10.11: заметнее, по центру где нужно */
+.demo-note { border: 1px solid #e2b8c2; line-height: 1.5; }
+.demo-note b { font-weight: 700; }
+.demo-note.note-center { margin: 22px auto 0; text-align: center; }
+.form-promise { margin: 0; font-size: 13.5px; color: var(--muted); }
+.form-ok-demo { display: block; margin-top: 10px; font: 400 12px/1.4 var(--sans); color: var(--muted); }
+.quiz-intro .demo-note, .quiz-intro p.demo-note { color: var(--wine); background: var(--rose); opacity: 1; }
