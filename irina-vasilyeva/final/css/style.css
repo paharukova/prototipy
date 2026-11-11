@@ -631,7 +631,7 @@ h2 { font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; }
 
 /* ===== Правки Татьяны 11.11.2026, часть 3 ===== */
 /* Более светлая «дорогая» текстура — глубокий винный тон */
-:root { --texture-small: url(../img/texture-rich.jpg) 0 0 / 200px 245px repeat; --tex-btn: url(../img/texture-rich.jpg) 0 0 / 160px 196px repeat; }
+:root { --texture-small: url(../img/texture-rich-bez-blikov.jpg) 0 0 / 200px 245px repeat; --tex-btn: url(../img/texture-rich-bez-blikov.jpg) 0 0 / 160px 196px repeat; }
 .strip { background: var(--texture-small), var(--wine); }
 .price-main { background: linear-gradient(rgba(40, 3, 10, .12), rgba(40, 3, 10, .12)), var(--texture-small), var(--wine); }
 
