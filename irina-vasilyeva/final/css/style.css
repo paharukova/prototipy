@@ -541,3 +541,40 @@ input:focus, select:focus { border-color: var(--wine); background-color: #fff; }
 .photo-caption b { text-transform: uppercase; letter-spacing: .06em; font-size: 15px; }
 @media (min-width: 961px) { .hero h1 { font-size: clamp(26px, min(2.9vw, 5.4vh), 46px); } }
 @media (max-width: 760px) { .hero h1 { font-size: clamp(26px, 7.6vw, 32px); } }
+
+/* ===== Правки Татьяны 11.11.2026 ===== */
+/* Кнопки первого экрана — рядом, одинаковой ширины; длинный текст переносится внутри кнопки */
+@media (min-width: 761px) {
+  .hero-copy .actions { display: grid; grid-template-columns: 1.2fr 1fr; gap: 10px; max-width: 520px; }
+  .hero-copy .actions .btn { padding: 10px 16px; letter-spacing: .1em; }
+}
+/* Мелкая текстура без швов: img/texture-tile.jpg — та же кожа, уменьшенная и повторённая зеркально */
+:root { --texture-small: url(../img/texture-tile.jpg) 0 0 / 520px 637px repeat; }
+.strip { background: linear-gradient(rgba(40, 3, 10, .42), rgba(40, 3, 10, .42)), var(--texture-small), var(--wine-deep); }
+/* Плашка с цифрами — текстура вместо ровного бордо */
+.hero-panel { background: linear-gradient(rgba(40, 3, 10, .5), rgba(40, 3, 10, .5)), var(--texture-small), var(--wine-deep); }
+.hero-panel .proof-item b, .hero-panel .proof-item span { text-shadow: 0 2px 12px rgba(20, 0, 5, .55); }
+
+/* ===== Весь сайт шрифтом Jost (решение Татьяны 11.11.2026) =====
+   Шрифт с засечками (Playfair Display) больше не используется.
+   Крупные заголовки — заглавными, как «Куплю…» на первом экране;
+   заголовки карточек, вопросы и цитата — обычными буквами, чтобы легко читались. */
+:root { --serif: Jost, Manrope, Arial, sans-serif; }
+h2, .brand b, .footer b, .strip strong, .notfor h3, .price-card h3 { text-transform: uppercase; letter-spacing: .01em; }
+h2 { font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; }
+.remote-card h2, .contact h2, .quiz-intro h2 { font-size: clamp(26px, 2.7vw, 36px); }
+.brand b { font-size: 18px; letter-spacing: .06em; }
+.footer b { font-size: 20px; letter-spacing: .06em; }
+.strip strong { font-size: 18px; letter-spacing: .06em; }
+.notfor h3 { font-size: 24px; }
+.price-card h3 { font-size: 21px; line-height: 1.2; }
+.compare th { font-size: 19px; }
+.service h3, .case h3, .q-title, .q-result h3, .review p, .notfor li, .faq-list summary { letter-spacing: 0; }
+.faq-list summary { font-size: 19px; }
+.quote p { font-size: 18px !important; }
+@media (max-width: 760px) {
+  h2 { font-size: clamp(24px, 7vw, 30px); }
+  .brand b { font-size: 16px; }
+  .strip strong { font-size: 16px; }
+  .faq-list summary { font-size: 17px; }
+}
