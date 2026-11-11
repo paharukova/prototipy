@@ -531,3 +531,13 @@ input:focus, select:focus { border-color: var(--wine); background-color: #fff; }
   .route-anim .route-line::before { transform: none; }
   .route-anim .route-line li::after { opacity: 1; transform: none; }
 }
+
+/* ===== Первый экран шрифтом Jost (выбор Татьяны 11.11.2026) =====
+   Заголовок «Куплю…» заглавными и чуть сжат по ширине (на 14%),
+   тем же шрифтом цифры на бордовой плашке и имя на фото. */
+.hero h1, .proof-item b, .photo-caption b { font-family: Jost, Manrope, Arial, sans-serif; font-weight: 400; }
+.hero h1 { text-transform: uppercase; letter-spacing: 0; line-height: 1.12; transform: scaleX(.86); transform-origin: 0 0; width: calc(100% / .86); }
+.proof-item b { letter-spacing: .01em; }
+.photo-caption b { text-transform: uppercase; letter-spacing: .06em; font-size: 15px; }
+@media (min-width: 961px) { .hero h1 { font-size: clamp(26px, min(2.9vw, 5.4vh), 46px); } }
+@media (max-width: 760px) { .hero h1 { font-size: clamp(26px, 7.6vw, 32px); } }
