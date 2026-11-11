@@ -37,7 +37,7 @@
   var route = document.querySelector('.route'), line = route && route.querySelector('.route-line');
   if (line) {
     var cities = [].slice.call(line.querySelectorAll('li')), base = line.querySelector('li.base') || cities[0];
-    var info = route.querySelector('.route-info'), path = document.createElement('span');
+    var path = document.createElement('span');
     path.className = 'route-path'; path.setAttribute('aria-hidden', 'true'); line.appendChild(path);
     var center = function (li) { var r = li.getBoundingClientRect(); return r.left + r.width / 2 - line.getBoundingClientRect().left; };
     var placePath = function (li) {
@@ -48,11 +48,7 @@
     var select = function (li) {
       if (li.classList.contains('active')) return;
       cities.forEach(function (c) { c.classList.toggle('active', c === li); });
-      placePath(li);
-      var where = li.querySelector('.city').getAttribute('data-in');
-      info.innerHTML = li === base
-        ? '<div class="route-card"><p><b>' + T('Новосибирск — мой город.') + '</b> ' + T('Показы, встречи и сделка — лично, на месте.') + '</p><a class="btn primary" href="#contact">' + T('Обсудить сделку') + ' <span class="arrow">↗</span></a></div>'
-        : '<div class="route-card"><p><b>' + T('Сделка ' + where) + '</b> ' + T('— без вашего приезда: показ по видео, проверка документов онлайн, электронная подпись или доверенность, электронная регистрация.') + '</p><a class="btn primary" href="#quiz" data-goal="city">' + T('Рассчитать сделку') + ' <span class="arrow">↗</span></a></div>';
+      placePath(li); /* всплывающую карточку «Рассчитать сделку» убрали по просьбе Татьяны 11.11 */
     };
     var canHover = window.matchMedia && matchMedia('(hover: hover)').matches;
     cities.forEach(function (li) {
@@ -66,7 +62,7 @@
     if (canHover) route.addEventListener('mouseleave', function () {
       if (!matchMedia('(min-width: 961px)').matches) return;
       cities.forEach(function (c) { c.classList.remove('active'); });
-      path.classList.remove('on'); info.innerHTML = '';
+      path.classList.remove('on');
     });
 
     /* Линия прорисовывается от Новосибирска, точки появляются по очереди */
@@ -101,7 +97,9 @@
           /* шаги в одну строку: прогресс зависит от того, насколько блок поднялся по экрану */
           var top = tl.getBoundingClientRect().top;
           var p = Math.min(1, Math.max(0, (vh * 0.85 - top) / (vh * 0.45)));
-          var x0 = steps[0].offsetLeft + 20, x1 = steps[steps.length - 1].offsetLeft + 20;
+          /* кружки стоят по центру шага — линия идёт от центра первого до центра последнего */
+          var mid = function (m) { return m.offsetLeft + m.offsetWidth / 2; };
+          var x0 = mid(steps[0]), x1 = mid(steps[steps.length - 1]);
           fill.style.left = x0 + 'px'; fill.style.width = (p * (x1 - x0)) + 'px';
           steps.forEach(function (m, i) { m.classList.toggle('lit', p > 0 && p >= i / (steps.length - 1) - 0.01); });
         } else {

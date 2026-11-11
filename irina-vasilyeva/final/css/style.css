@@ -705,3 +705,53 @@ h2 { font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; }
 .form-promise { margin: 0; font-size: 13.5px; color: var(--muted); }
 .form-ok-demo { display: block; margin-top: 10px; font: 400 12px/1.4 var(--sans); color: var(--muted); }
 .quiz-intro .demo-note, .quiz-intro p.demo-note { color: var(--wine); background: var(--rose); opacity: 1; }
+
+/* ===== Правки Татьяны 11.11 (вечер) ===== */
+
+/* Первый экран: заголовок ровно в три строки на компьютере */
+.h1-line { display: inline; }
+@media (min-width: 961px) {
+  .hero h1 .h1-line { display: block; white-space: nowrap; }
+}
+
+/* Таблица сравнения: текст по центру строки, меньше переносов */
+.compare td { vertical-align: middle; }
+.compare td:first-child { width: 22%; }
+.compare td:nth-child(2), .compare td:nth-child(3) { width: 24%; }
+.compare td:last-child, .compare th:last-child { width: 30%; }
+
+/* Шесть шагов: кружок по центру над текстом, пройденные шаги — текстурой */
+@media (min-width: 761px) {
+  .milestone { padding: 0 10px; text-align: center; }
+  .milestone i { margin: 0 auto 22px; }
+  .timeline::before { left: calc(28px + (100% - 56px) / 12); right: calc(28px + (100% - 56px) / 12); }
+}
+.timeline-fill { background: var(--tex-btn), var(--wine); }
+.timeline.js .milestone.lit i { background: var(--tex-btn), var(--wine); }
+@media (max-width: 760px) {
+  .timeline.js .milestone.lit:not(:last-child)::before { background: var(--tex-btn), var(--wine); }
+}
+
+/* «С кем я не работаю»: вступление в две строки */
+@media (min-width: 1101px) {
+  .notfor { grid-template-columns: .95fr 1.05fr; }
+  .notfor p { max-width: 480px; }
+}
+
+/* «Обо мне»: фото меньше и не «залипает» при прокрутке, подпись имени — мелко */
+.about-grid { grid-template-columns: minmax(0, 360px) 1fr; align-items: start; }
+.about-photo { position: relative; top: 0; }
+.about-panel { aspect-ratio: auto; grid-template-rows: 430px; }
+.about-vertical { font: 500 15px/1 Jost, Manrope, sans-serif; letter-spacing: .28em; text-transform: uppercase; color: rgba(255, 255, 255, .85); text-align: center; }
+.about-panel .about-panel-img img { filter: none; object-position: 50% 15%; }
+.about-title { font: 700 12px/1.4 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--wine); margin: 0 0 14px; }
+@media (max-width: 960px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-panel { max-width: 360px; grid-template-rows: 400px; }
+}
+@media (max-width: 760px) { .about-panel { grid-template-rows: 340px; } .about-vertical { font-size: 12px; } }
+
+/* Цитата — меньше и спокойнее, без фото */
+.quote-row.quote-small { display: block; padding: 0; background: none; margin: 20px 0 24px; }
+.quote-small .quote { border-left-width: 2px; padding: 2px 0 2px 14px; max-width: 520px; }
+.quote-small .quote p { font-size: 15.5px !important; line-height: 1.5; }
