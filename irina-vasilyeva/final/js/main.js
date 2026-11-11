@@ -1,5 +1,6 @@
 (function () {
   var T = window.typo || function (s) { return s; };
+  /* Где лежат политика и согласие: страница во вложенной папке пишет <html data-docs="../"> */
   var DOCS = document.documentElement.getAttribute('data-docs') || '';
 
   /* Меню на телефоне */
@@ -14,7 +15,7 @@
     });
   }
 
-  /* Плавающая кнопка «Написать Ирине» — после первого экрана и не над формой связи */
+  /* Плавающая кнопка «Написать Ирине» — только после первого экрана и не над формой связи */
   var floatBtn = document.querySelector('.float-msg'), hero = document.querySelector('.hero'), contact = document.getElementById('contact');
   if (floatBtn && hero) {
     var onScroll = function () {
@@ -32,7 +33,7 @@
   }, { threshold: 0.12 }) : null;
   document.querySelectorAll('.reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('on'); });
 
-  /* Линия городов: путь от Новосибирска до выбранного города и подсказка под линией */
+  /* Интерактивная линия городов: путь от Новосибирска до выбранного города и подсказка */
   var route = document.querySelector('.route'), line = route && route.querySelector('.route-line');
   if (line) {
     var cities = [].slice.call(line.querySelectorAll('li')), base = line.querySelector('li.base') || cities[0];
@@ -50,8 +51,8 @@
       placePath(li);
       var where = li.querySelector('.city').getAttribute('data-in');
       info.innerHTML = li === base
-        ? '<div class="route-card"><p><b>' + T('Новосибирск — мой город.') + '</b> ' + T('Показы, встречи и сделка — лично, на месте.') + '</p><a class="btn" href="#contact">' + T('Обсудить сделку') + '</a></div>'
-        : '<div class="route-card"><p><b>' + T('Сделка ' + where) + '</b> ' + T('— без вашего приезда: показ по видео, проверка документов онлайн, электронная подпись или доверенность, электронная регистрация.') + '</p><a class="btn" href="#quiz" data-goal="city">' + T('Рассчитать сделку') + '</a></div>';
+        ? '<div class="route-card"><p><b>' + T('Новосибирск — мой город.') + '</b> ' + T('Показы, встречи и сделка — лично, на месте.') + '</p><a class="btn primary" href="#contact">' + T('Обсудить сделку') + ' <span class="arrow">↗</span></a></div>'
+        : '<div class="route-card"><p><b>' + T('Сделка ' + where) + '</b> ' + T('— без вашего приезда: показ по видео, проверка документов онлайн, электронная подпись или доверенность, электронная регистрация.') + '</p><a class="btn primary" href="#quiz" data-goal="city">' + T('Рассчитать сделку') + ' <span class="arrow">↗</span></a></div>';
     };
     var canHover = window.matchMedia && matchMedia('(hover: hover)').matches;
     cities.forEach(function (li) {
@@ -60,10 +61,58 @@
       b.addEventListener('focus', function () { select(li); });
       if (canHover) b.addEventListener('mouseenter', function () { select(li); });
     });
-    /* когда мышка уходит с линии, возвращаемся к Новосибирску */
-    if (canHover) line.addEventListener('mouseleave', function () { select(base); });
     window.addEventListener('resize', function () { var a = line.querySelector('li.active'); if (a) placePath(a); });
-    select(base);
+    /* На компьютере подсказка всплывает поверх полосы ниже — прячем её, когда мышка уходит с линии городов */
+    if (canHover) route.addEventListener('mouseleave', function () {
+      if (!matchMedia('(min-width: 961px)').matches) return;
+      cities.forEach(function (c) { c.classList.remove('active'); });
+      path.classList.remove('on'); info.innerHTML = '';
+    });
+
+    /* Линия прорисовывается от Новосибирска, точки появляются по очереди */
+    var bi = cities.indexOf(base);
+    line.style.setProperty('--origin', (center(base) / line.getBoundingClientRect().width * 100) + '%');
+    cities.forEach(function (li, i) { li.style.setProperty('--d', (0.15 + Math.abs(i - bi) * 0.12) + 's'); });
+    route.classList.add('route-anim');
+    if ('IntersectionObserver' in window) {
+      var ro = new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) { route.classList.add('drawn'); ro.disconnect(); }
+      }, { threshold: 0.4 });
+      ro.observe(route);
+    } else route.classList.add('drawn');
+  }
+
+  /* «Шесть шагов» оживают при прокрутке: линия заполняется, шаги загораются по очереди */
+  var tl = document.querySelector('.timeline');
+  if (tl) {
+    var steps = [].slice.call(tl.querySelectorAll('.milestone'));
+    tl.classList.add('js');
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      steps.forEach(function (m) { m.classList.add('lit'); }); /* без анимации — все шаги сразу пройдены */
+    } else {
+      var fill = document.createElement('span');
+      /* вставляем в начало списка, чтобы «Сделка и ключи» оставалась последним шагом для стилей */
+      fill.className = 'timeline-fill'; fill.setAttribute('aria-hidden', 'true'); tl.insertBefore(fill, tl.firstChild);
+      var wide = matchMedia('(min-width: 1101px)'), ticking = false;
+      var update = function () {
+        ticking = false;
+        var vh = window.innerHeight;
+        if (wide.matches) {
+          /* шаги в одну строку: прогресс зависит от того, насколько блок поднялся по экрану */
+          var top = tl.getBoundingClientRect().top;
+          var p = Math.min(1, Math.max(0, (vh * 0.85 - top) / (vh * 0.45)));
+          var x0 = steps[0].offsetLeft + 20, x1 = steps[steps.length - 1].offsetLeft + 20;
+          fill.style.left = x0 + 'px'; fill.style.width = (p * (x1 - x0)) + 'px';
+          steps.forEach(function (m, i) { m.classList.toggle('lit', p > 0 && p >= i / (steps.length - 1) - 0.01); });
+        } else {
+          /* шаги столбиком или в две строки: шаг загорается, когда доходит до середины экрана */
+          steps.forEach(function (m) { m.classList.toggle('lit', m.querySelector('i').getBoundingClientRect().top < vh * 0.62); });
+        }
+      };
+      window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+      window.addEventListener('resize', update);
+      update();
+    }
   }
 
   /* Демо-формы: ничего не отправляют, показывают ответ */
@@ -145,7 +194,7 @@
     h += '</ol><p>' + T(price) + '</p>' +
       '<form class="q-form" data-demo><label>Имя<input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name"></label>' +
       '<label>Телефон или Telegram<input type="text" name="contact" placeholder="+7 или @ник"></label>' +
-      '<button class="btn" type="submit">Прислать план</button>' +
+      '<button class="btn light" type="submit">Прислать план ↗</button>' +
       '<label class="consent"><input type="checkbox" name="consent" required><span>' + T('Даю') + ' <a href="' + DOCS + 'soglasie.html" target="_blank">' + T('согласие на обработку персональных данных') + '</a> ' + T('и принимаю') + ' <a href="' + DOCS + 'politika.html" target="_blank">' + T('политику обработки персональных данных') + '</a></span></label></form>' +
       '<button type="button" class="q-back" data-restart>↺ Пройти заново</button></div>';
     body.innerHTML = h;
@@ -161,7 +210,8 @@
     else if (back) { if (back.hasAttribute('data-restart')) { A = {}; step = 0; } else step--; render(true); }
   });
 
-  /* Карточки услуг и линия городов заранее отвечают на вопросы квиза */
+  /* Карточки услуг и линия городов заранее отвечают на вопросы квиза.
+     Слушаем весь документ: кнопка в подсказке города появляется позже */
   document.addEventListener('click', function (e) {
     var el = e.target.closest('[data-goal]');
     if (!el) return;
