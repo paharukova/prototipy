@@ -578,3 +578,8 @@ h2 { font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; }
   .strip strong { font-size: 16px; }
   .faq-list summary { font-size: 17px; }
 }
+
+/* Текстура мельче и матовее (правка Татьяны 11.11.2026): рисунок вдвое меньше, блики приглушены */
+:root { --texture-small: url(../img/texture-matte.jpg) 0 0 / 200px 245px repeat; }
+.strip { background: linear-gradient(rgba(40, 3, 10, .25), rgba(40, 3, 10, .25)), var(--texture-small), var(--wine-deep); }
+.hero-panel { background: linear-gradient(rgba(40, 3, 10, .3), rgba(40, 3, 10, .3)), var(--texture-small), var(--wine-deep); }
