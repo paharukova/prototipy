@@ -825,3 +825,19 @@ h2 { font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; }
 .about-panel .about-panel-img { aspect-ratio: auto; min-height: 420px; }
 .about-quote { align-self: start; margin: 22px 0 0; }
 @media (max-width: 960px) { .about-panel .about-panel-img { aspect-ratio: 2 / 3; min-height: 0; } }
+
+/* ===== 12.11, вечер: один блок «Из другого города» ===== */
+#remote .section-head.center h2 { max-width: 900px; margin-left: auto; margin-right: auto; }
+.remote-grid { align-items: stretch; }
+.remote-grid > div:last-child { padding: 0; display: flex; flex-direction: column; }
+.remote-grid .steps { flex: 1; }
+.remote-card .remote-lead { font-size: 16px; line-height: 1.6; color: #fff; margin-bottom: 24px; }
+.remote-quiz { display: inline-block; margin: 14px 0 0 2px; font-size: 13.5px; color: rgba(255, 255, 255, .85); text-decoration: underline; text-underline-offset: 3px; }
+.remote-quiz:hover { color: #fff; }
+.remote-card .btn { display: flex; width: fit-content; }
+
+/* Две отдельные галочки в формах: согласие и политика */
+.consents { display: grid; gap: 8px; }
+.form .consents { grid-column: 1 / -1; }
+.q-form .consents { grid-column: 1 / -1; }
+.remote-grid .steps { grid-auto-rows: 1fr; }
