@@ -755,3 +755,73 @@ h2 { font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; }
 .quote-row.quote-small { display: block; padding: 0; background: none; margin: 20px 0 24px; }
 .quote-small .quote { border-left-width: 2px; padding: 2px 0 2px 14px; max-width: 520px; }
 .quote-small .quote p { font-size: 15.5px !important; line-height: 1.5; }
+
+/* ===== Правки Татьяны 12.11 ===== */
+
+/* Первый экран: колонки снова как раньше — длинная строка заголовка их не раздвигает */
+.hero-grid { grid-template-columns: minmax(0, 41fr) minmax(0, 33fr) minmax(0, 24fr); }
+.hero-copy { min-width: 0; }
+
+/* Текст на ребристой подложке — плотнее (Manrope есть только до 700, поэтому добавляем тонкую обводку букв) */
+.primary, .q-form .btn, .form .btn.light, .secondary:hover, .secondary:focus-visible,
+.strip .wrap, .route-line .city:hover, .route-line li.active .city, .timeline.js .milestone.lit i {
+  -webkit-text-stroke: .35px currentColor; text-shadow: 0 1px 3px rgba(30, 0, 6, .45);
+}
+.primary:hover, .primary:focus-visible, .q-form .btn:hover, .form .btn.light:hover { text-shadow: none; }
+.hero-panel .proof-item span { font-weight: 700; -webkit-text-stroke: .25px currentColor; }
+
+/* Блок «от 2%»: мелкий текст плотнее */
+.price-main .price-tag, .price-big small { font-weight: 700; color: #fff; -webkit-text-stroke: .3px currentColor; text-shadow: 0 1px 4px rgba(30, 0, 6, .55); }
+.price-points li { font-weight: 600; color: #fff; text-shadow: 0 1px 4px rgba(30, 0, 6, .55); }
+
+/* Подзаголовки «по предложениям»: каждое предложение — своя строка (на компьютере) */
+.section-head.center p.lines2 { max-width: 960px; }
+@media (min-width: 1101px) { .lines2 > span { display: block; white-space: nowrap; } }
+
+/* Отзывы: пометка про агентство — в одну строку */
+@media (min-width: 1101px) { .section-head.center p.review-past.one-line { max-width: none; white-space: nowrap; } }
+
+/* Квиз: «Без обязательств…» заметнее */
+.quiz-small { font-weight: 700; font-size: 14px; color: #fff !important; }
+
+/* ===== «Обо мне» ===== */
+/* Фото крупнее и на всю высоту текста; имя сбоку крупно; цитата Ирины под фото на бордовом */
+.about-grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: stretch; }
+.about-panel {
+  display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr; grid-template-areas: "name photo" ". quote";
+  column-gap: clamp(14px, 1.6vw, 22px); row-gap: 0; aspect-ratio: auto; max-width: none; height: 100%; box-sizing: border-box;
+}
+.about-vertical { grid-area: name; align-self: center; font: 400 clamp(26px, 2.9vw, 40px)/1 Jost, Manrope, sans-serif; letter-spacing: .02em; text-transform: uppercase; color: #fff; }
+.about-panel .about-panel-img { grid-area: photo; aspect-ratio: 2 / 3; }
+.about-panel .about-panel-img img { object-position: 50% 12%; }
+.about-quote { grid-area: quote; align-self: end; margin: 26px 0 4px; padding-left: 16px; border-left: 2px solid rgba(255, 255, 255, .55); }
+.about-quote p { margin: 0; color: #fff; font: 400 clamp(17px, 1.5vw, 21px)/1.45 Jost, Manrope, sans-serif; }
+
+/* Плашки с принципами: одинаковой высоты, маркер — кружок, как точки на линии городов в концепции */
+.beliefs { gap: 6px; background: none; }
+.belief { align-items: center; min-height: 56px; box-sizing: border-box; padding: 12px 20px; background: var(--wine); font-size: 15px; }
+.belief i { flex: none; width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid rgba(255, 255, 255, .8); box-sizing: border-box; }
+
+@media (max-width: 960px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-panel { max-width: 520px; height: auto; }
+}
+@media (max-width: 760px) {
+  .about-vertical { font-size: 22px; }
+  .about-panel { padding: 16px; }
+  .about-quote p { font-size: 16px; }
+}
+
+/* ===== Подвал: отделён от сайта — бордовая плашка, как блоки с цифрами ===== */
+.footer { background: var(--wine-deep, #4a0c18); color: rgba(255, 255, 255, .78); border-top: 0; margin-top: clamp(64px, 7vw, 100px); }
+.footer b { color: #fff; }
+.footer-nav a { color: #fff; }
+.footer-nav a:hover { color: rgba(255, 255, 255, .7); }
+.footer small a, .footer a { color: #fff; }
+/* Первый экран: поменьше боковые отступы в белой колонке, чтобы заголовок в 3 строки был крупнее */
+@media (min-width: 961px) { .hero-copy { padding-left: clamp(24px, 2.4vw, 38px); padding-right: clamp(18px, 1.8vw, 28px); } }
+/* «Обо мне»: фото тянется на всю высоту текста, цитата сразу под фото */
+.about-panel { grid-template-rows: 1fr auto; }
+.about-panel .about-panel-img { aspect-ratio: auto; min-height: 420px; }
+.about-quote { align-self: start; margin: 22px 0 0; }
+@media (max-width: 960px) { .about-panel .about-panel-img { aspect-ratio: 2 / 3; min-height: 0; } }

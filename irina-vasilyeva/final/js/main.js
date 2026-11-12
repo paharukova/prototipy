@@ -27,6 +27,22 @@
     onScroll();
   }
 
+  /* Заголовок первого экрана — ровно в три строки: если строка не влезает в колонку, чуть уменьшаем буквы */
+  var h1 = document.querySelector('.hero h1');
+  if (h1 && h1.querySelector('.h1-line')) {
+    var fitH1 = function () {
+      h1.style.fontSize = '';
+      var lines = [].slice.call(h1.querySelectorAll('.h1-line'));
+      if (getComputedStyle(lines[0]).whiteSpace !== 'nowrap') return; /* на телефоне строки переносятся сами */
+      var fs = parseFloat(getComputedStyle(h1).fontSize);
+      var over = function () { return lines.some(function (l) { return l.scrollWidth > l.clientWidth + 1; }); };
+      while (over() && fs > 18) { fs -= 0.5; h1.style.fontSize = fs + 'px'; }
+    };
+    fitH1();
+    window.addEventListener('resize', fitH1);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitH1);
+  }
+
   /* Появление блоков при прокрутке */
   var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
@@ -195,7 +211,7 @@
     h += '</ol><p>' + T(price) + '</p>' +
       '<form class="q-form" data-demo><label>Имя, если хотите<input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name"></label>' +
       '<label>Телефон или Telegram *<input type="text" name="contact" placeholder="+7 или @ник" required minlength="5"></label>' +
-      '<button class="btn light" type="submit">Прислать план ↗</button>' +
+      '<button class="btn light" type="submit">Прислать этот план ↗</button>' +
       '<label class="consent"><input type="checkbox" name="consent" required><span>' + T('Даю') + ' <a href="' + DOCS + 'soglasie.html" target="_blank">' + T('согласие на обработку персональных данных') + '</a> ' + T('и принимаю') + ' <a href="' + DOCS + 'politika.html" target="_blank">' + T('политику обработки персональных данных') + '</a></span></label></form>' +
       '<button type="button" class="q-back" data-restart>↺ Пройти заново</button></div>';
     body.innerHTML = h;
