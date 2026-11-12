@@ -857,3 +857,5 @@ html { scroll-padding-top: 108px; }
 @media (max-width: 760px) { .price-points li { font-size: 15px; } .price-big small { font-size: 12px; } }
 .h2-line { display: block; }
 .price-points li { font-size: 16px; }
+/* Подпись под ценами — в одну строку на компьютере */
+@media (min-width: 1101px) { .price-note { max-width: none; white-space: nowrap; } }
