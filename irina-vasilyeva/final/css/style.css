@@ -874,3 +874,11 @@ html { scroll-padding-top: 108px; }
 .belief { background: var(--bg); color: var(--ink); border-left: 2px solid var(--wine); font-size: 15.5px; font-weight: 500; min-height: 54px; }
 .belief i { border-color: var(--wine); }
 .belief { gap: 0; }
+
+/* «Квартира в другом городе?»: вариант Б — фото Ирины в филармонии сверху, плавно уходит в бордовый.
+   img/irina-hall-card.jpg вырезан так, что Ирина ровно по центру кадра */
+.remote-card-photo { padding: 0; display: flex; flex-direction: column; }
+.remote-top { position: relative; flex: none; height: clamp(240px, 24vw, 320px); background: url(../img/irina-hall-card.jpg) 50% 30% / cover no-repeat; }
+.remote-top::after { content: ""; position: absolute; inset: -1px; background: linear-gradient(to bottom, rgba(107, 18, 34, 0) 40%, rgba(107, 18, 34, .7) 75%, rgb(107, 18, 34) 97%); }
+.remote-body { position: relative; padding: 6px clamp(28px, 3vw, 40px) clamp(28px, 3vw, 40px); }
+@media (max-width: 760px) { .remote-top { height: 220px; } .remote-body { padding: 4px 22px 28px; } }
