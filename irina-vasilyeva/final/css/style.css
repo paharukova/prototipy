@@ -873,3 +873,4 @@ html { scroll-padding-top: 108px; }
 .beliefs { gap: 8px; }
 .belief { background: var(--bg); color: var(--ink); border-left: 2px solid var(--wine); font-size: 15.5px; font-weight: 500; min-height: 54px; }
 .belief i { border-color: var(--wine); }
+.belief { gap: 0; }
