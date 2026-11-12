@@ -1050,3 +1050,9 @@ p { margin: 0; }
 .order__img { height: 190px; overflow: hidden; }
 @media (max-width: 640px) { .who__img { height: 170px; margin: -24px -22px 2px; } .order__img { height: 160px; } }
 .order__img img { object-position: center 20%; }
+
+/* Карточка «Медицина»: два центра отдельными блоками */
+.dcard__center { display: grid; gap: 2px; padding-top: 10px; border-top: 1px solid var(--color-line); }
+.dcard__top + .dcard__center { border-top: 0; padding-top: 2px; }
+.dcard__center b { font: 600 13px/18px var(--font-body); color: var(--color-navy); }
+.dcard__center .dir-card__tasks { margin-top: 2px; }
