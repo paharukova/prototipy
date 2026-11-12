@@ -841,3 +841,19 @@ h2 { font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; }
 .form .consents { grid-column: 1 / -1; }
 .q-form .consents { grid-column: 1 / -1; }
 .remote-grid .steps { grid-auto-rows: 1fr; }
+
+/* ===== 12.11, поздно вечером ===== */
+/* Верхняя полоса «Первая консультация…» внутри шапки — закреплена вместе с меню */
+html { scroll-padding-top: 108px; }
+@media (max-width: 760px) { html { scroll-padding-top: 100px; } }
+
+/* «Обо мне»: имя сбоку начинается вровень с верхом фото */
+.about-vertical { align-self: start; }
+
+/* Блок «от 2%»: текст крупнее — только здесь */
+.price-main .price-tag { font-size: 12px; }
+.price-big small { font-size: 13px; margin-top: 14px; }
+.price-points li { font-size: 16.5px; line-height: 1.5; }
+@media (max-width: 760px) { .price-points li { font-size: 15px; } .price-big small { font-size: 12px; } }
+.h2-line { display: block; }
+.price-points li { font-size: 16px; }
