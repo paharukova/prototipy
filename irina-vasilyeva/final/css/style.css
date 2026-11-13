@@ -1028,3 +1028,18 @@ html { scroll-padding-top: 98px; }
 /* «С кем я не работаю» теперь в блоке «Обо мне» */
 #about .notfor { margin-top: clamp(20px, 2.4vw, 32px); }
 
+/* 13.11 (y): «Вопросы» — слева карточка «Не нашли свой вопрос?» с фото (вариант Г из proba-final.html) */
+@media (min-width: 961px) {
+  #faq .wrap { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: var(--gap); align-items: start; }
+  #faq .section-head { grid-column: 1 / -1; }
+  #faq .faq-list { max-width: none; margin: 0; }
+  .faq-aside { position: sticky; top: 96px; }
+}
+.faq-aside { background: var(--texture-small), var(--wine); color: #fff; padding: 34px 30px; text-align: center; }
+.faq-aside .fa-photo { width: 168px; height: 168px; margin: 0 auto 22px; border-radius: 50%; overflow: hidden; box-shadow: 0 0 0 6px rgba(255, 255, 255, .14); }
+.faq-aside .fa-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.faq-aside b { display: block; font: 400 26px/1.15 var(--serif); text-transform: uppercase; letter-spacing: .01em; }
+.faq-aside p { margin: 12px 0 22px; font-size: 15px; line-height: 1.6; color: rgba(255, 255, 255, .88); }
+.faq-aside .btn { display: flex; justify-content: center; width: 100%; }
+@media (max-width: 960px) { .faq-aside { margin-bottom: var(--gap); } }
+
