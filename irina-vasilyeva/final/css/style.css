@@ -989,3 +989,13 @@ html { scroll-padding-top: 98px; }
 /* 13.11: нижняя карточка «Юрпроверка» компактнее — блок цен ниже */
 .price-side .price-card:not(.price-new) { padding-top: 22px; padding-bottom: 22px; }
 .price-side .price-card:not(.price-new) h3 { margin: 6px 0 8px; }
+
+/* 13.11 (r): верхняя плашка с текстурой; «Важно» открывается вверх, не закрывает текст карточки */
+.topnote { background: var(--texture-small), var(--wine); color: #fff; }
+/* «Важно»: текст раскрывается внутри карточки, сверху, и сдвигает остальное вниз — ничего не закрывает */
+.imp { position: static; }
+.imp summary { position: absolute; top: 24px; right: 24px; z-index: 5; }
+.imp-pop { position: static; width: auto; margin: 36px 0 18px; box-shadow: none; background: var(--bg); border-left: 2px solid var(--wine); }
+@media (max-width: 760px) { .imp summary { top: 20px; right: 18px; } .imp-pop { margin-top: 34px; } }
+.topnote .tn { white-space: nowrap; }
+@media (max-width: 760px) { .topnote .tn-far, .topnote .dot { display: none; } .topnote .tn { display: block; } }
