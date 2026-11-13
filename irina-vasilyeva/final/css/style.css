@@ -972,7 +972,7 @@ html { scroll-padding-top: 98px; }
 .hero-panel .proof-item span { font: 500 clamp(10px, .75vw, 11.5px)/1.5 Manrope, sans-serif; letter-spacing: .08em; -webkit-text-stroke: 0; text-shadow: none; max-width: 11.5em; color: rgba(255, 255, 255, .82); }
 
 /* 13.11: карточки справа от цен одинаковой высоты; в «Новостройках» — кнопка «Важно» с раскрывающимся условием */
-.price-side { grid-auto-rows: 1fr; }
+.price-side { grid-auto-rows: auto; align-content: start; } /* 13.11: карточки по своему тексту, без растягивания */
 .price-new { position: relative; }
 .imp { position: absolute; top: 24px; right: 24px; z-index: 5; }
 .imp summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px 6px 9px; border: 1px solid var(--wine); color: var(--wine); background: var(--paper); font: 700 10.5px/1 Manrope, sans-serif; letter-spacing: .14em; text-transform: uppercase; transition: background-color .2s, color .2s; user-select: none; }
@@ -985,3 +985,7 @@ html { scroll-padding-top: 98px; }
 @keyframes imp-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .imp-pop { animation: none; } }
 @media (max-width: 760px) { .imp { top: 20px; right: 18px; } }
+
+/* 13.11: нижняя карточка «Юрпроверка» компактнее — блок цен ниже */
+.price-side .price-card:not(.price-new) { padding-top: 22px; padding-bottom: 22px; }
+.price-side .price-card:not(.price-new) h3 { margin: 6px 0 8px; }
