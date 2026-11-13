@@ -759,7 +759,7 @@ h2 { font-size: clamp(28px, 3.2vw, 42px); line-height: 1.12; }
 /* ===== Правки Татьяны 12.11 ===== */
 
 /* Первый экран: колонки снова как раньше — длинная строка заголовка их не раздвигает */
-.hero-grid { grid-template-columns: minmax(0, 41fr) minmax(0, 33fr) minmax(0, 24fr); }
+@media (min-width: 961px) { .hero-grid { grid-template-columns: minmax(0, 41fr) minmax(0, 33fr) minmax(0, 24fr); } } /* 13.11: только на компьютере — на телефоне было 3 колонки, третья пустая */
 .hero-copy { min-width: 0; }
 
 /* Текст на ребристой подложке — плотнее (Manrope есть только до 700, поэтому добавляем тонкую обводку букв) */
