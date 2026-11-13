@@ -970,3 +970,18 @@ html { scroll-padding-top: 98px; }
   .hero-panel .proof-item b { font-size: clamp(22px, min(1.9vw, 3.6vh), 30px); }
 }
 .hero-panel .proof-item span { font: 500 clamp(10px, .75vw, 11.5px)/1.5 Manrope, sans-serif; letter-spacing: .08em; -webkit-text-stroke: 0; text-shadow: none; max-width: 11.5em; color: rgba(255, 255, 255, .82); }
+
+/* 13.11: карточки справа от цен одинаковой высоты; в «Новостройках» — кнопка «Важно» с раскрывающимся условием */
+.price-side { grid-auto-rows: 1fr; }
+.price-new { position: relative; }
+.imp { position: absolute; top: 24px; right: 24px; z-index: 5; }
+.imp summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px 6px 9px; border: 1px solid var(--wine); color: var(--wine); background: var(--paper); font: 700 10.5px/1 Manrope, sans-serif; letter-spacing: .14em; text-transform: uppercase; transition: background-color .2s, color .2s; user-select: none; }
+.imp summary::-webkit-details-marker { display: none; }
+.imp summary::before { content: "!"; display: inline-grid; place-items: center; width: 15px; height: 15px; border-radius: 50%; background: var(--wine); color: #fff; font-size: 10px; letter-spacing: 0; }
+.imp summary:hover, .imp[open] summary { background: var(--wine); color: #fff; }
+.imp summary:hover::before, .imp[open] summary::before { background: #fff; color: var(--wine); }
+.imp summary:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
+.imp-pop { position: absolute; right: 0; top: calc(100% + 8px); width: min(300px, calc(100vw - 64px)); padding: 14px 16px; background: #fff; border-left: 2px solid var(--wine); box-shadow: 0 14px 34px rgba(40, 10, 15, .18); font-size: 14px; line-height: 1.5; color: var(--ink); animation: imp-in .18s ease; }
+@keyframes imp-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .imp-pop { animation: none; } }
+@media (max-width: 760px) { .imp { top: 20px; right: 18px; } }

@@ -209,3 +209,15 @@
 
   render();
 })();
+
+/* Кнопка «Важно» в ценах: закрывается по клику вне её и по Esc */
+(function () {
+  var imps = document.querySelectorAll('details.imp');
+  if (!imps.length) return;
+  document.addEventListener('click', function (e) {
+    imps.forEach(function (d) { if (d.open && !d.contains(e.target)) d.open = false; });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') imps.forEach(function (d) { if (d.open) { d.open = false; d.querySelector('summary').focus(); } });
+  });
+})();
