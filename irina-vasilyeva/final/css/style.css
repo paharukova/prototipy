@@ -959,3 +959,5 @@ html { scroll-padding-top: 98px; }
   .hero-panel .proof-item b { font-size: 23px; }
   .hero-panel .proof-item span { font-size: 9.5px; }
 }
+/* 13.11 (поздно): надпись над заголовком убрана; кнопки ещё ниже */
+@media (min-width: 961px) { .hero-copy .lead { margin-bottom: clamp(40px, 10vh, 110px); } }
