@@ -916,7 +916,9 @@ html { scroll-padding-top: 108px; }
 
 /* 13.11: кнопки MAX и Telegram в блоке связи — при наведении текстура */
 .contact .actions .btn.light { transition: background-color .2s, color .2s; }
-.contact .actions .btn.light:hover, .contact .actions .btn.light:focus-visible { background: var(--tex-btn), var(--wine); color: #fff; border-color: rgba(255, 255, 255, .6); -webkit-text-stroke: .35px currentColor; text-shadow: 0 1px 3px rgba(30, 0, 6, .45); }
+/* 13.11 (вечер): вместо текстуры — вариант А из proba-knopki.html: прозрачная кнопка с белой рамкой */
+.contact .actions .btn.light { border: 1px solid #fff; transition: background-color .2s, color .2s, border-color .2s; }
+.contact .actions .btn.light:hover, .contact .actions .btn.light:focus-visible { background: transparent; color: #fff; border-color: #fff; }
 
 /* 13.11: пометки «уточняем у Ирины» внутри текста (переносятся, в отличие от .need) */
 .ask { background: var(--rose); color: var(--wine); padding: 0 3px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
