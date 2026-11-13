@@ -993,9 +993,19 @@ html { scroll-padding-top: 98px; }
 /* 13.11 (r): верхняя плашка с текстурой; «Важно» открывается вверх, не закрывает текст карточки */
 .topnote { background: var(--texture-small), var(--wine); color: #fff; }
 /* «Важно»: текст раскрывается внутри карточки, сверху, и сдвигает остальное вниз — ничего не закрывает */
-.imp { position: static; }
-.imp summary { position: absolute; top: 24px; right: 24px; z-index: 5; }
-.imp-pop { position: static; width: auto; margin: 36px 0 18px; box-shadow: none; background: var(--bg); border-left: 2px solid var(--wine); }
-@media (max-width: 760px) { .imp summary { top: 20px; right: 18px; } .imp-pop { margin-top: 34px; } }
+
 .topnote .tn { white-space: nowrap; }
 @media (max-width: 760px) { .topnote .tn-far, .topnote .dot { display: none; } .topnote .tn { display: block; } }
+
+/* 13.11 (u) */
+/* «Важно»: всплывающее окно уходит вверх от кнопки, текст карточки не закрывает */
+.imp-pop { top: auto; bottom: calc(100% + 8px); width: min(420px, calc(100vw - 48px)); box-shadow: 0 -8px 30px rgba(40, 10, 15, .2); animation-name: imp-up; }
+@keyframes imp-up { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+/* Цитата под фото — мельче */
+.about-quote p { font-size: clamp(16px, 1.25vw, 19px); }
+@media (max-width: 760px) { .about-quote p { font-size: 15px; } }
+/* Шаги «Из другого города»: строки рвутся по смысловым кускам */
+@media (min-width: 961px) { .step p .ln { white-space: nowrap; } .step p .sn { display: block; } }
+/* Отзывы: благодарность Ирины выделена */
+.section-head.center p.review-thanks { margin-top: 14px; font: 500 clamp(18px, 1.5vw, 21px)/1.4 Jost, Manrope, sans-serif; color: var(--wine); }
+.section-head.center p.review-past { color: var(--muted); }
