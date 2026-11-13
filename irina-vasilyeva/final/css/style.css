@@ -907,3 +907,21 @@ html { scroll-padding-top: 108px; }
 /* Условие бесплатной помощи с новостройкой (13.11) */
 .price-cond { margin: 14px 0 0 !important; padding: 10px 14px; background: var(--bg); border-left: 2px solid var(--wine); font-size: 13.5px !important; line-height: 1.5; color: var(--ink) !important; }
 .price-cond b { color: var(--wine); }
+
+/* 13.11: города на первом экране — просто плитки, без наведения; Новосибирск и Санкт-Петербург — текстурой */
+.route-line .city { cursor: default; }
+.route-line li:not(.home) .city:hover { background: var(--paper); color: var(--ink); -webkit-text-stroke: 0; text-shadow: none; }
+.route-line li.home .city, .route-line li.home .city:hover { background: var(--tex-btn), var(--wine); color: #fff; -webkit-text-stroke: .35px currentColor; text-shadow: 0 1px 3px rgba(30, 0, 6, .45); }
+@media (max-width: 760px) { .route-line li.home .city, .route-line li.home.active .city { background: var(--tex-btn), var(--wine); } }
+
+/* 13.11: кнопки MAX и Telegram в блоке связи — при наведении текстура */
+.contact .actions .btn.light { transition: background-color .2s, color .2s; }
+.contact .actions .btn.light:hover, .contact .actions .btn.light:focus-visible { background: var(--tex-btn), var(--wine); color: #fff; border-color: rgba(255, 255, 255, .6); -webkit-text-stroke: .35px currentColor; text-shadow: 0 1px 3px rgba(30, 0, 6, .45); }
+
+/* 13.11: пометки «уточняем у Ирины» внутри текста (переносятся, в отличие от .need) */
+.ask { background: var(--rose); color: var(--wine); padding: 0 3px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.ask-block { background: var(--rose); outline: 1px solid #e2b8c2; }
+.ask-block summary, .ask-block p { color: var(--wine); }
+.case .demo-note { max-width: none; }
+/* Условие для новостроек: без «Важно», просто строка с полоской */
+.price-cond b { display: none; }

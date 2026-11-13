@@ -49,50 +49,7 @@
   }, { threshold: 0.12 }) : null;
   document.querySelectorAll('.reveal').forEach(function (el) { io ? io.observe(el) : el.classList.add('on'); });
 
-  /* Интерактивная линия городов: путь от Новосибирска до выбранного города и подсказка */
-  var route = document.querySelector('.route'), line = route && route.querySelector('.route-line');
-  if (line) {
-    var cities = [].slice.call(line.querySelectorAll('li')), base = line.querySelector('li.base') || cities[0];
-    var path = document.createElement('span');
-    path.className = 'route-path'; path.setAttribute('aria-hidden', 'true'); line.appendChild(path);
-    var center = function (li) { var r = li.getBoundingClientRect(); return r.left + r.width / 2 - line.getBoundingClientRect().left; };
-    var placePath = function (li) {
-      var a = center(base), b = center(li);
-      path.style.left = Math.min(a, b) + 'px'; path.style.width = Math.abs(a - b) + 'px';
-      path.classList.toggle('on', li !== base);
-    };
-    var select = function (li) {
-      if (li.classList.contains('active')) return;
-      cities.forEach(function (c) { c.classList.toggle('active', c === li); });
-      placePath(li); /* всплывающую карточку «Рассчитать сделку» убрали по просьбе Татьяны 11.11 */
-    };
-    var canHover = window.matchMedia && matchMedia('(hover: hover)').matches;
-    cities.forEach(function (li) {
-      var b = li.querySelector('.city');
-      b.addEventListener('click', function () { select(li); });
-      b.addEventListener('focus', function () { select(li); });
-      if (canHover) b.addEventListener('mouseenter', function () { select(li); });
-    });
-    window.addEventListener('resize', function () { var a = line.querySelector('li.active'); if (a) placePath(a); });
-    /* На компьютере подсказка всплывает поверх полосы ниже — прячем её, когда мышка уходит с линии городов */
-    if (canHover) route.addEventListener('mouseleave', function () {
-      if (!matchMedia('(min-width: 961px)').matches) return;
-      cities.forEach(function (c) { c.classList.remove('active'); });
-      path.classList.remove('on');
-    });
-
-    /* Линия прорисовывается от Новосибирска, точки появляются по очереди */
-    var bi = cities.indexOf(base);
-    line.style.setProperty('--origin', (center(base) / line.getBoundingClientRect().width * 100) + '%');
-    cities.forEach(function (li, i) { li.style.setProperty('--d', (0.15 + Math.abs(i - bi) * 0.12) + 's'); });
-    route.classList.add('route-anim');
-    if ('IntersectionObserver' in window) {
-      var ro = new IntersectionObserver(function (es) {
-        if (es[0].isIntersecting) { route.classList.add('drawn'); ro.disconnect(); }
-      }, { threshold: 0.4 });
-      ro.observe(route);
-    } else route.classList.add('drawn');
-  }
+  /* Линия городов — без интерактивности (решение Татьяны 13.11): просто плитки */
 
   /* «Шесть шагов» оживают при прокрутке: линия заполняется, шаги загораются по очереди */
   var tl = document.querySelector('.timeline');
