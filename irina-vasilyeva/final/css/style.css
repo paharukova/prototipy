@@ -927,3 +927,7 @@ html { scroll-padding-top: 108px; }
 .case .demo-note { max-width: none; }
 /* Условие для новостроек: без «Важно», просто строка с полоской */
 .price-cond b { display: none; }
+
+/* 13.11: подписи под цифрами на первом экране мельче */
+@media (min-width: 961px) { .hero-panel .proof-item span { font-size: clamp(10.5px, min(.8vw, 1.6vh), 12px); letter-spacing: .07em; line-height: 1.45; } }
+@media (max-width: 960px) { .hero-panel .proof-item span { font-size: 10.5px; letter-spacing: .04em; line-height: 1.45; } }
