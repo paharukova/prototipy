@@ -1043,3 +1043,8 @@ html { scroll-padding-top: 98px; }
 .faq-aside .btn { display: flex; justify-content: center; width: 100%; }
 @media (max-width: 960px) { .faq-aside { margin-bottom: var(--gap); } }
 
+/* 14.11: формы заявок — скрытое поле от спам-ботов и сообщение об ошибке */
+.hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-err { grid-column: 1 / -1; margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: var(--wine); }
+.form-err a { color: inherit; font-weight: 700; }
+

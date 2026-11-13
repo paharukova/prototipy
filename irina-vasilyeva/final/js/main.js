@@ -86,15 +86,53 @@
     }
   }
 
-  /* Демо-формы: ничего не отправляют, показывают ответ */
+  /* Формы заявок.
+     На прототипе (GitHub Pages, свой компьютер) — демо: ничего не отправляют, показывают ответ.
+     На настоящем хостинге — отправляют заявку в send.php, а он пересылает её Ирине в Telegram и на почту. */
+  var LIVE = location.protocol.indexOf('http') === 0 && !/(^|\.)github\.io$|^localhost$|^127\.0\.0\.1$/.test(location.hostname);
+  var PHONE = '+7 983 319-28-37';
+
+  function quizSummary() {
+    if (typeof Q === 'undefined' || !A) return '';
+    return Q.map(function (q) {
+      var o = q.opts.filter(function (x) { return x[0] === A[q.key]; })[0];
+      return o ? q.title + ' — ' + o[1] : '';
+    }).filter(Boolean).join('\n');
+  }
+
   document.addEventListener('submit', function (e) {
     var f = e.target;
     if (!f.hasAttribute('data-demo')) return;
     e.preventDefault();
     /* «Перезвоню в выбранное время» — только там, где время выбирают; Ирина отвечает в течение часа (13.11) */
     var callText = f.querySelector('[name="time"]') ? 'Спасибо! Отвечу в течение часа, перезвоню в выбранное вами время.' : 'Спасибо! Перезвоню или напишу в течение часа.';
-    f.innerHTML = '<div class="form-ok">' + T(callText) +
-      '<small class="form-ok-demo">' + T('Это прототип: заявка никуда не отправлена.') + '</small></div>';
+
+    if (!LIVE) {
+      f.innerHTML = '<div class="form-ok">' + T(callText) +
+        '<small class="form-ok-demo">' + T('Это прототип: заявка никуда не отправлена.') + '</small></div>';
+      return;
+    }
+
+    var btn = f.querySelector('[type="submit"]'), err = f.querySelector('.form-err');
+    if (btn) { btn.disabled = true; btn.setAttribute('aria-busy', 'true'); }
+    if (err) err.remove();
+    var fd = new FormData(f);
+    fd.append('form', f.classList.contains('q-form') ? 'Квиз «План сделки»' : 'Форма внизу страницы');
+    if (f.classList.contains('q-form')) fd.append('quiz', quizSummary());
+
+    fetch('send.php', { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.json().then(function (d) { return r.ok && d && d.ok; }); })
+      .then(function (ok) {
+        if (!ok) throw new Error('send');
+        f.innerHTML = '<div class="form-ok" role="status">' + T(callText) + '</div>';
+      })
+      .catch(function () {
+        if (btn) { btn.disabled = false; btn.removeAttribute('aria-busy'); }
+        var m = document.createElement('p');
+        m.className = 'form-err'; m.setAttribute('role', 'alert');
+        m.innerHTML = T('Не получилось отправить заявку. Позвоните мне: ') + '<a href="tel:+79833192837">' + PHONE + '</a>' + T(' или напишите в Telegram.');
+        f.appendChild(m);
+      });
   });
 
   /* Квиз «План сделки за 1 минуту» */
@@ -171,7 +209,7 @@
       check: 'Юрпроверка и сопровождение сделки — 65 000 ₽.'
     }[A.goal] || 'Точную сумму назову на бесплатной консультации: она зависит от цены квартир и сложности сделки. На вторичном рынке — оплата только после сделки.';
     h += '</ol><p>' + T(price) + '</p>' +
-      '<form class="q-form" data-demo><label>Имя, если хотите<input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name"></label>' +
+      '<form class="q-form" data-demo><label class="hp" aria-hidden="true">Не заполняйте<input type="text" name="website" tabindex="-1" autocomplete="off"></label><label>Имя, если хотите<input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name"></label>' +
       '<label>Телефон или Telegram *<input type="text" name="contact" placeholder="+7 или @ник" required minlength="5"></label>' +
       '<button class="btn light" type="submit">Прислать этот план ↗</button>' +
       '<div class="consents">' +

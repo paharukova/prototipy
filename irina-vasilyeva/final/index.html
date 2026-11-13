@@ -7,9 +7,24 @@
 <meta name="theme-color" content="#efeeec">
 <title>Ирина Васильева — частный риэлтор в Новосибирске</title>
 <meta name="description" content="Покупка, продажа и обмен квартир: Новосибирск, Санкт-Петербург, Екатеринбург, Кемерово, Красноярск, Тюмень, Барнаул, Калининград. Опыт 6+ лет, 350+ сделок. Покупка в новостройке — для вас бесплатно.">
-<link rel="stylesheet" href="fonts/manrope.css?v=20261113z">
-<link rel="stylesheet" href="fonts/jost.css?v=20261113z">
-<link rel="stylesheet" href="css/style.css?v=20261113z">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<!-- Превью ссылки в Telegram, MAX, ВКонтакте. При переезде на свой домен — заменить адрес в og:url и og:image -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Ирина Васильева — частный риэлтор">
+<meta property="og:title" content="Ирина Васильева — частный риэлтор в Новосибирске">
+<meta property="og:description" content="Помогу оформить сделку без переплат и неприятных сюрпризов. Каждую сделку проверяет юрист. Первая консультация бесплатно.">
+<meta property="og:url" content="https://paharukova.github.io/prototipy/irina-vasilyeva/final/">
+<meta property="og:image" content="https://paharukova.github.io/prototipy/irina-vasilyeva/final/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ирина Васильева, частный риэлтор">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="fonts/manrope.css?v=20261114a">
+<link rel="stylesheet" href="fonts/jost.css?v=20261114a">
+<link rel="stylesheet" href="css/style.css?v=20261114a">
 </head>
 <body>
 
@@ -376,15 +391,16 @@
       <p class="contact-phone">Телефон: <a href="tel:+79833192837"><b>+7 983 319-28-37</b></a><br>Почта: <a href="mailto:vasilieva_iren@mail.ru">vasilieva_iren@mail.ru</a></p>
     </div>
     <form class="form" data-demo>
+      <label class="hp" aria-hidden="true">Не заполняйте<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
       <label>Как&nbsp;вас зовут, если&nbsp;хотите<input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
       <label>Телефон *<input type="tel" name="phone" placeholder="+7 ___ ___-__-__" autocomplete="tel" required pattern="[\d\s()+\-]{10,}" title="Номер телефона, например +7 983 123-45-67"></label>
       <label>Что&nbsp;нужно<select name="task"><option>Купить</option><option>Купить в&nbsp;новостройке</option><option>Продать</option><option>Обменять</option><option>Сделка в&nbsp;другом городе</option><option>Проверить квартиру</option></select></label>
       <label>Когда&nbsp;удобно позвонить<select name="time"><option>В&nbsp;любое время</option><option>Утром</option><option>Днём</option><option>Вечером</option></select></label>
       <fieldset class="chips wide">
         <legend>Как&nbsp;удобнее:</legend>
-        <label class="chip"><input type="radio" name="channel" checked> Позвонить</label>
-        <label class="chip"><input type="radio" name="channel"> MAX</label>
-        <label class="chip"><input type="radio" name="channel"> Telegram</label>
+        <label class="chip"><input type="radio" name="channel" value="Позвонить" checked> Позвонить</label>
+        <label class="chip"><input type="radio" name="channel" value="MAX"> MAX</label>
+        <label class="chip"><input type="radio" name="channel" value="Telegram"> Telegram</label>
       </fieldset>
       <div class="consents wide">
         <label class="consent"><input type="checkbox" name="consent" required><span>Даю <a href="soglasie.html" target="_blank">согласие на&nbsp;обработку персональных данных</a></span></label>
@@ -411,7 +427,7 @@
 
 <div class="float-msg"><a class="float-call" href="tel:+79833192837">Позвонить</a><a class="float-write" href="#contact">Написать</a></div>
 
-<script src="js/typo.js?v=20261113z"></script>
-<script src="js/main.js?v=20261113z"></script>
+<script src="js/typo.js?v=20261114a"></script>
+<script src="js/main.js?v=20261114a"></script>
 </body>
 </html>
