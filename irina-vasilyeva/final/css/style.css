@@ -934,3 +934,5 @@ html { scroll-padding-top: 108px; }
 /* 13.11: цифры на бордовой плашке не перебивают заголовок — заметно мельче */
 @media (min-width: 961px) { .hero-panel .proof-item b { font-size: clamp(22px, min(2vw, 3.8vh), 32px); margin-bottom: 4px; } }
 @media (max-width: 960px) { .hero-panel .proof-item b { font-size: 26px; margin-bottom: 4px; } }
+/* 13.11: без ряда городов плашки первого экрана опущены — воздух под меню и снизу */
+@media (min-width: 961px) { .hero { padding-top: clamp(18px, 4vh, 40px); padding-bottom: clamp(12px, 2.6vh, 26px); } }
