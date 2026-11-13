@@ -931,3 +931,6 @@ html { scroll-padding-top: 108px; }
 /* 13.11: подписи под цифрами на первом экране мельче */
 @media (min-width: 961px) { .hero-panel .proof-item span { font-size: clamp(10.5px, min(.8vw, 1.6vh), 12px); letter-spacing: .07em; line-height: 1.45; } }
 @media (max-width: 960px) { .hero-panel .proof-item span { font-size: 10.5px; letter-spacing: .04em; line-height: 1.45; } }
+/* 13.11: цифры на бордовой плашке не перебивают заголовок — заметно мельче */
+@media (min-width: 961px) { .hero-panel .proof-item b { font-size: clamp(22px, min(2vw, 3.8vh), 32px); margin-bottom: 4px; } }
+@media (max-width: 960px) { .hero-panel .proof-item b { font-size: 26px; margin-bottom: 4px; } }
