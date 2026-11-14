@@ -1057,6 +1057,10 @@ html { scroll-padding-top: 98px; }
 
 /* 14.11: первый экран, вариант Е из proba-hero.html — кнопка «Получить план сделки» гладкая бордовая, панель с цифрами с текстурой */
 .hero .btn.primary { background: var(--wine); border-color: var(--wine); color: #fff; }
-.hero .btn.primary:hover, .hero .btn.primary:focus-visible { background: var(--wine-deep); border-color: var(--wine-deep); }
+.hero .btn.primary:hover, .hero .btn.primary:focus-visible { background: #fff; color: var(--wine); border-color: var(--wine); }
+.hero .btn.secondary:hover, .hero .btn.secondary:focus-visible, .hero .btn.secondary:active { background: var(--wine); color: #fff; border-color: var(--wine); }
+/* разделители между цифрами на текстуре — заметнее */
+.hero-panel .proof-item { border-top: 2px solid rgba(255, 255, 255, .5); }
+.hero-panel .proof-item:first-child { border-top: 0; }
 .hero-panel { background: var(--texture-small), var(--wine); }
 
