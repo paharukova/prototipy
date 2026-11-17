@@ -1096,26 +1096,39 @@ html { scroll-padding-top: 98px; }
 .about-copy p b { font-weight: 700; color: var(--ink); }
 @media (max-width: 760px) { .about-copy p { font-size: 15px; } }
 
-/* Кейсы: карточки листаются вбок (на телефоне — пальцем, на компьютере — стрелками) */
-.case-track { position: relative; display: flex; gap: var(--gap); overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
-.case-track::-webkit-scrollbar { display: none; }
-.case-track:focus-visible { outline-offset: 4px; }
-.case-track > .case { flex: 0 0 100%; scroll-snap-align: start; min-width: 0; }
-.case-track .case h3 + dl { margin-top: 22px; }
-.case-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 18px; }
-.case-arrow { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid var(--wine); background: transparent; color: var(--wine); font: 400 20px/1 var(--sans); cursor: pointer; transition: background-color .2s, color .2s, opacity .2s; }
-.case-arrow:hover:not(:disabled) { background: var(--wine); color: #fff; }
-.case-arrow:disabled { opacity: .3; cursor: default; }
-.case-dots { display: flex; gap: 10px; }
-.case-dot { width: 10px; height: 10px; padding: 0; border: 1.5px solid var(--wine); border-radius: 50%; background: transparent; cursor: pointer; transition: background-color .2s; }
-.case-dot[aria-selected="true"] { background: var(--wine); }
+/* ===== 17.11: кейсы — три превью, «Подробнее» открывает кейс поверх страницы (вместо листания вбок) ===== */
+.cp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }
+.cp { background: var(--paper); padding: 28px; display: flex; flex-direction: column; }
+.cp h3 { font: 400 21px/1.25 var(--serif); margin: 0 0 14px; }
+.cp-teaser { font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0 0 18px; }
+.cp-result { margin: auto 0 0; padding: 14px 0 0; border-top: 1px solid var(--line); font: 500 17px/1.3 var(--serif); color: var(--wine); }
+.cp-more { align-self: flex-start; margin-top: 18px; padding: 12px 20px; border: 1px solid var(--wine); background: transparent; color: var(--wine); cursor: pointer; font: 700 11px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; transition: background-color .2s, color .2s; }
+.cp-more:hover, .cp-more:focus-visible { background: var(--wine); color: #fff; }
+.cp-dialog { width: min(860px, calc(100% - 32px)); max-height: calc(100% - 48px); padding: 0; border: 0; border-top: 3px solid var(--wine); background: var(--paper); color: var(--ink); box-shadow: 0 30px 80px rgba(40, 10, 15, .35); overflow: auto; overscroll-behavior: contain; }
+.cp-dialog::backdrop { background: rgba(31, 10, 14, .55); }
+.cp-dialog[open] { animation: cpd-in .22s ease; }
+@keyframes cpd-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.cpd-close { position: sticky; top: 0; float: right; width: 52px; height: 52px; border: 0; background: var(--paper); color: var(--wine); font: 300 34px/1 var(--sans); cursor: pointer; z-index: 2; }
+.cpd-close:hover { background: var(--wine); color: #fff; }
+.cpd-body { padding: 34px clamp(22px, 4vw, 48px) 8px; }
+.cpd-body h3 { font: 400 clamp(22px, 2.4vw, 28px)/1.25 var(--serif); margin: 0 0 22px; padding-right: 30px; }
+.cpd-body dl { display: grid; grid-template-columns: 150px 1fr; gap: 14px 22px; margin: 0; padding-top: 20px; border-top: 1px solid var(--line); font-size: 15.5px; line-height: 1.6; }
+.cpd-body dt { font-weight: 700; }
+.cpd-body dd { margin: 0; }
+.cpd-foot { padding: 22px clamp(22px, 4vw, 48px) 32px; }
+body.cpd-lock { overflow: hidden; }
+@media (max-width: 1100px) { .cp-grid { grid-template-columns: 1fr; } }
 @media (max-width: 760px) {
-  /* соседняя карточка выглядывает справа — видно, что можно листать */
-  .case-track { scroll-padding-left: 0; }
-  .case-track > .case { flex-basis: 88%; }
-  .case-arrow { width: 42px; height: 42px; }
+  .cp { padding: 24px 22px; }
+  .cp h3 { font-size: 19px; }
+  .cp-more { align-self: stretch; text-align: center; padding: 15px 20px; }
+  .cp-dialog { width: 100%; max-width: 100%; max-height: 92%; margin: auto 0 0; }
+  .cpd-body { padding: 26px 22px 4px; }
+  .cpd-body dl { grid-template-columns: 1fr; gap: 4px; }
+  .cpd-body dd { margin-bottom: 12px; }
+  .cpd-foot .btn { width: 100%; }
 }
-@media (prefers-reduced-motion: reduce) { .case-track { scroll-behavior: auto; } }
+@media (prefers-reduced-motion: reduce) { .cp-dialog[open] { animation: none; } }
 
 /* ===== 17.11 (2): цифры — к низу первого экрана, на уровне низа плашки «Ирина Васильева» на фото ===== */
 .hero-proof { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -1141,3 +1154,6 @@ html { scroll-padding-top: 98px; }
   .hp-item:first-child { padding-left: 0; }
   .hp-item span { font-size: 9px; letter-spacing: .02em; hyphens: auto; overflow-wrap: anywhere; }
 }
+
+/* 17.11: кнопки MAX и Telegram в блоке связи — одинаковой ширины */
+@media (min-width: 761px) { .contact .actions { display: grid; grid-template-columns: 1fr 1fr; max-width: 400px; } }
