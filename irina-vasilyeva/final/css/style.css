@@ -1157,3 +1157,16 @@ body.cpd-lock { overflow: hidden; }
 
 /* 17.11: кнопки MAX и Telegram в блоке связи — одинаковой ширины */
 @media (min-width: 761px) { .contact .actions { display: grid; grid-template-columns: 1fr 1fr; max-width: 400px; } }
+
+/* ===== 17.11 (3): правки Татьяны ===== */
+/* Первый экран: кнопки — ровно посередине белого поля между текстом и цифрами */
+@media (min-width: 961px) {
+  .hero-copy .lead { margin-bottom: 0; }
+  .hero-copy .actions { margin: auto 0; padding: clamp(18px, 3vh, 32px) 0; }
+  .hero-proof { margin-top: 0; }
+}
+/* «Из другого города»: Ирина выше в кадре (img/irina-hall-card-3.jpg), градиент короче — закрывает только ноги */
+.remote-top { background-image: url(../img/irina-hall-card-3.jpg); background-position: 50% 20%; }
+.remote-top::after { background: linear-gradient(to bottom, rgba(107, 18, 34, 0) 66%, rgba(107, 18, 34, .65) 86%, rgb(107, 18, 34) 100%); }
+/* Подвал — тот же бордо, что у блоков сайта (был темнее) */
+.footer { background: var(--wine); }
