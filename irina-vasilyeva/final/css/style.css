@@ -1116,3 +1116,28 @@ html { scroll-padding-top: 98px; }
   .case-arrow { width: 42px; height: 42px; }
 }
 @media (prefers-reduced-motion: reduce) { .case-track { scroll-behavior: auto; } }
+
+/* ===== 17.11 (2): цифры — к низу первого экрана, на уровне низа плашки «Ирина Васильева» на фото ===== */
+.hero-proof { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.hp-item { padding: 0 16px; }
+@media (min-width: 961px) {
+  /* плашка с именем стоит в 16px от низа фото — цифры заканчиваются там же */
+  .hero-copy { justify-content: flex-start; padding-bottom: 16px; }
+  /* свободное место делится поровну: над заголовком и между кнопками и цифрами — заголовок, текст и кнопки опускаются */
+  .hero h1 { margin-top: auto; }
+  .hero-proof { margin-top: auto; }
+  .hero-copy .actions { margin-bottom: clamp(24px, 5vh, 56px); }
+}
+@media (max-width: 760px) {
+  .hero-proof { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; }
+  .hp-item { padding: 0 10px; }
+  .hp-item:nth-child(3) { padding-left: 10px; border-left: 1px solid var(--line); }
+  .hp-item:first-child { padding-left: 0; }
+}
+/* телефон: три подписи помещаются в свои колонки */
+@media (max-width: 760px) {
+  .hp-item { padding: 0 8px; }
+  .hp-item:nth-child(3) { padding-left: 8px; }
+  .hp-item:first-child { padding-left: 0; }
+  .hp-item span { font-size: 9px; letter-spacing: .02em; hyphens: auto; overflow-wrap: anywhere; }
+}
