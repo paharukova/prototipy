@@ -259,3 +259,41 @@
     if (e.key === 'Escape') imps.forEach(function (d) { if (d.open) { d.open = false; d.querySelector('summary').focus(); } });
   });
 })();
+
+/* 17.11: кейсы листаются вбок — стрелки и точки под карточками */
+(function () {
+  var track = document.getElementById('caseTrack');
+  if (!track) return;
+  var cards = [].slice.call(track.children), dotsBox = document.querySelector('.case-dots');
+  var arrows = [].slice.call(document.querySelectorAll('.case-arrow'));
+  var dots = cards.map(function (c, i) {
+    var d = document.createElement('button');
+    d.type = 'button'; d.className = 'case-dot'; d.setAttribute('role', 'tab');
+    d.setAttribute('aria-label', 'История ' + (i + 1) + ' из ' + cards.length);
+    d.addEventListener('click', function () { go(i); });
+    dotsBox.appendChild(d);
+    return d;
+  });
+  function current() {
+    var best = 0, bestDist = Infinity;
+    cards.forEach(function (c, i) {
+      var dist = Math.abs(c.offsetLeft - track.scrollLeft);
+      if (dist < bestDist) { bestDist = dist; best = i; }
+    });
+    return best;
+  }
+  function go(i) {
+    i = Math.max(0, Math.min(cards.length - 1, i));
+    track.scrollTo({ left: cards[i].offsetLeft });
+  }
+  function update() {
+    var i = current();
+    dots.forEach(function (d, k) { d.setAttribute('aria-selected', k === i ? 'true' : 'false'); });
+    arrows[0].disabled = i === 0;
+    arrows[1].disabled = i === cards.length - 1;
+  }
+  arrows.forEach(function (a) { a.addEventListener('click', function () { go(current() + Number(a.dataset.dir)); }); });
+  track.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();

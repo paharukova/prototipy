@@ -1064,3 +1064,55 @@ html { scroll-padding-top: 98px; }
 .hero-panel .proof-item:first-child { border-top: 0; }
 .hero-panel { background: var(--texture-small), var(--wine); }
 
+
+/* ===== 17.11: правки Татьяны ===== */
+
+/* Заголовок первого экрана — тем же шрифтом, что «Выберите свою задачу»: Jost без сжатия по ширине (раньше был сжат на 14%) */
+.hero h1 { transform: none; width: auto; letter-spacing: .01em; line-height: 1.12; }
+@media (min-width: 961px) { .hero h1 { font-size: clamp(26px, min(2.9vw, 5.6vh), 42px); } }
+
+/* Бордовая панель справа от фото остаётся — только текстура, цифр в ней больше нет */
+.hero-panel { padding: 0; }
+
+/* Цифры — в белой колонке под кнопками */
+.hero-proof { --hpn: clamp(24px, min(2.1vw, 4vh), 32px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: clamp(22px, 4.5vh, 48px); padding-top: clamp(16px, 2.4vh, 22px); border-top: 1px solid var(--line); }
+.hp-item { padding: 0 12px; border-left: 1px solid var(--line); min-width: 0; }
+.hp-item:first-child { padding-left: 0; border-left: 0; }
+.hp-item b { display: block; font: 400 var(--hpn)/1 Jost, Manrope, sans-serif; color: var(--wine); margin-bottom: 6px; }
+.hp-item span { display: block; font: 500 clamp(10px, .78vw, 11.5px)/1.45 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.hp-text span { margin-top: calc(var(--hpn) + 6px); color: var(--ink); }
+@media (min-width: 961px) { .hero-copy .lead { margin-bottom: clamp(22px, 5vh, 60px); } }
+@media (max-width: 960px) { .hero-proof { --hpn: 28px; } }
+@media (max-width: 760px) {
+  .hero-proof { grid-template-columns: 1fr 1fr; gap: 16px 0; margin-top: 22px; }
+  .hp-item:nth-child(3) { padding-left: 0; border-left: 0; }
+  .hp-item span { font-size: 10.5px; }
+  /* телефон: фото шире, панель с текстурой — узкой полосой справа */
+  .hero-grid { grid-template-columns: 3fr 1fr; }
+}
+
+/* «Обо мне»: весь текст одного размера и цвета, главное — жирным */
+.about-copy p { font-size: 16px; line-height: 1.65; color: #4a4345; }
+.about-copy p b { font-weight: 700; color: var(--ink); }
+@media (max-width: 760px) { .about-copy p { font-size: 15px; } }
+
+/* Кейсы: карточки листаются вбок (на телефоне — пальцем, на компьютере — стрелками) */
+.case-track { position: relative; display: flex; gap: var(--gap); overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; }
+.case-track::-webkit-scrollbar { display: none; }
+.case-track:focus-visible { outline-offset: 4px; }
+.case-track > .case { flex: 0 0 100%; scroll-snap-align: start; min-width: 0; }
+.case-track .case h3 + dl { margin-top: 22px; }
+.case-nav { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 18px; }
+.case-arrow { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid var(--wine); background: transparent; color: var(--wine); font: 400 20px/1 var(--sans); cursor: pointer; transition: background-color .2s, color .2s, opacity .2s; }
+.case-arrow:hover:not(:disabled) { background: var(--wine); color: #fff; }
+.case-arrow:disabled { opacity: .3; cursor: default; }
+.case-dots { display: flex; gap: 10px; }
+.case-dot { width: 10px; height: 10px; padding: 0; border: 1.5px solid var(--wine); border-radius: 50%; background: transparent; cursor: pointer; transition: background-color .2s; }
+.case-dot[aria-selected="true"] { background: var(--wine); }
+@media (max-width: 760px) {
+  /* соседняя карточка выглядывает справа — видно, что можно листать */
+  .case-track { scroll-padding-left: 0; }
+  .case-track > .case { flex-basis: 88%; }
+  .case-arrow { width: 42px; height: 42px; }
+}
+@media (prefers-reduced-motion: reduce) { .case-track { scroll-behavior: auto; } }
