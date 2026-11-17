@@ -1170,3 +1170,13 @@ body.cpd-lock { overflow: hidden; }
 .remote-top::after { background: linear-gradient(to bottom, rgba(107, 18, 34, 0) 66%, rgba(107, 18, 34, .65) 86%, rgb(107, 18, 34) 100%); }
 /* Подвал — тот же бордо, что у блоков сайта (был темнее) */
 .footer { background: var(--wine); }
+
+/* ===== 17.11 (4): заголовок первого экрана — в 4 строки, точь-в-точь как заголовки разделов («Выберите свою задачу») ===== */
+.hero h1 { font-size: clamp(26px, 2.9vw, 40px); letter-spacing: normal; line-height: 1.12; }
+@media (min-width: 961px) { .hero h1 { font-size: clamp(26px, 2.9vw, 40px); margin: 0 0 clamp(12px, 2.2vh, 20px); } }
+@media (max-width: 760px) { .hero h1 { font-size: clamp(22px, 6.4vw, 28px); } }
+/* текст под заголовком — как подзаголовки разделов */
+.hero-copy .lead { font-size: 15.5px; line-height: 1.6; color: var(--muted); }
+/* белая колонка шире (фото чуть уже), чтобы «Помогу оформить сделку» помещалась тем же размером, что заголовки разделов */
+@media (min-width: 961px) { .hero-grid { grid-template-columns: minmax(0, 50fr) minmax(0, 31fr) minmax(0, 17fr); } }
+@media (min-width: 961px) { .hero-grid { grid-template-columns: minmax(0, 52fr) minmax(0, 30fr) minmax(0, 16fr); } }
