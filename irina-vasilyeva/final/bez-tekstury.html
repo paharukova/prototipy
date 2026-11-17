@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#efeeec">
+<title>Вариант без текстуры — Ирина Васильева — агент по недвижимости в Новосибирске</title>
+<meta name="description" content="Покупка, продажа и обмен квартир: Новосибирск, Санкт-Петербург, Екатеринбург, Кемерово, Красноярск, Тюмень, Барнаул, Калининград. Опыт 6+ лет, 350+ сделок. Покупка в новостройке — для вас бесплатно.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<!-- Превью ссылки в Telegram, MAX, ВКонтакте. При переезде на свой домен — заменить адрес в og:url и og:image. Меняешь картинку — меняй и ?v= в её адресе, иначе Telegram покажет старую -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Ирина Васильева — агент по недвижимости">
+<meta property="og:title" content="Ирина Васильева — агент по недвижимости в Новосибирске">
+<meta property="og:description" content="Помогу оформить сделку с недвижимостью, оценю риски, честная цена услуг. Каждую сделку проверяет юрист. Первая консультация бесплатно.">
+<meta property="og:url" content="https://paharukova.github.io/prototipy/irina-vasilyeva/final/">
+<meta property="og:image" content="https://paharukova.github.io/prototipy/irina-vasilyeva/final/img/og.jpg?v=20261115">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Ирина Васильева, агент по недвижимости">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="fonts/manrope.css?v=20261117k">
+<link rel="stylesheet" href="fonts/jost.css?v=20261117k">
+<link rel="stylesheet" href="css/style.css?v=20261117k">
+<style>
+/* ===== Вариант 17.11: без текстуры — везде ровный бордо сайта (#6b1222) ===== */
+:root { --texture: none; --texture-small: none; --tex-btn: none; }
+.topnote, .hero-panel, .strip, .price-main, .faq-aside, .timeline-fill, .float-call,
+.timeline.js .milestone.lit i { background: var(--wine) !important; }
+@media (max-width: 760px) { .timeline.js .milestone.lit:not(:last-child)::before { background: var(--wine) !important; } }
+/* главные кнопки — ровный бордо; при наведении как сейчас */
+.primary, .q-form .btn, .form .btn.light { background: var(--wine); }
+.secondary:hover, .secondary:focus-visible, .secondary:active { background: var(--wine); }
+/* тень и обводка букв были нужны только для читаемости на текстуре */
+.primary, .q-form .btn, .form .btn.light, .secondary:hover, .secondary:focus-visible, .strip .wrap,
+.timeline.js .milestone.lit i, .float-call, .price-main .price-tag, .price-big small, .price-points li, .price-row-name {
+  -webkit-text-stroke: 0; text-shadow: none;
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="topnote"><span class="tn">Первая консультация&nbsp;— бесплатно</span><span class="dot">·</span><span class="tn">Новостройки&nbsp;— бесплатно</span><span class="tn-far"><span class="dot">·</span><span class="tn">Работаю по&nbsp;всей России</span></span></div>
+  <div class="wrap navrow">
+    <a class="brand" href="#top"><b>Ирина Васильева</b><span>агент по недвижимости · Новосибирск</span></a>
+    <nav class="nav" id="nav">
+      <a href="#services">Услуги</a>
+      <a href="#about">Обо&nbsp;мне</a>
+      <a href="#remote">Из&nbsp;другого города</a>
+      <a href="#steps">Как&nbsp;проходит сделка</a>
+      <a href="#prices">Цены</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="head-contact">
+      <b><a href="tel:+79833192837">+7 983 319-28-37</a></b>
+      <span><a href="https://t.me/+79833192837" target="_blank" rel="noopener">Telegram</a> · <a href="https://max.ru/u/f9LHodD0cOIYY5HGjQfIUmIrVfmA4KmpUjE1ySV34hloZ-6oQl_MI03pjNY" target="_blank" rel="noopener">MAX</a></span>
+    </div>
+    <button class="menu-btn" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav"><i></i><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- 1. Первый экран -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1 class="serif"><span class="h1-line">Помогу оформить</span> <span class="h1-line">сделку с&nbsp;недвижимостью,</span> <span class="h1-line">оценю риски,</span> <span class="h1-line">честная цена услуг</span></h1>
+        <p class="lead">Каждую сделку проверяет юрист. Первая консультация бесплатно, на&nbsp;вторичке платите только после&nbsp;сделки.</p>
+        <div class="actions">
+          <a class="btn primary" href="#quiz">Получить план сделки <span class="arrow">↗</span></a>
+          <a class="btn secondary" href="#contact">Бесплатная консультация</a>
+        </div>
+        <!-- 17.11: цифры перенесены из бордовой панели справа сюда, под кнопки; «1:1» убрано -->
+        <div class="hero-proof">
+          <div class="hp-item"><b>6+</b><span>лет в&nbsp;недвижимости</span></div>
+          <div class="hp-item"><b>350+</b><span>проведённых сделок</span></div>
+          <div class="hp-item"><b>8</b><span>городов, где&nbsp;прошли мои&nbsp;сделки</span></div>        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="img/irina-hero.jpg" alt="Ирина Васильева, агент по недвижимости" width="720" height="1280">
+        <figcaption class="photo-caption"><b>Ирина Васильева</b>Лично веду вашу сделку</figcaption>
+      </figure>
+      <div class="hero-panel" aria-hidden="true"></div><!-- 17.11: панель с текстурой остаётся справа от фото, уже без цифр -->
+    </div>
+
+    <!-- Города с первого экрана убраны 13.11 (вариант А из proba-goroda.html) -->
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <strong>Спокойная сделка&nbsp;— понятный план</strong>
+    <span>Личное сопровождение</span>
+    <span>Юридическая проверка</span>
+    <span>Связь в&nbsp;удобном мессенджере</span>
+  </div>
+</div>
+
+<!-- 2. Услуги -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">С&nbsp;чем&nbsp;помогаю</span>
+      <h2 class="serif">Выберите свою задачу</h2>
+      <p class="muted lines2"><span>По&nbsp;каждой&nbsp;— что&nbsp;именно я&nbsp;делаю. Цены&nbsp;— в&nbsp;разделе <a href="#prices">«Стоимость»</a>.</span> <span>Веду и&nbsp;сложные сделки: торги, расселение, выкуп объектов. Не&nbsp;нашли свою&nbsp;— напишите, разберём на&nbsp;консультации.</span></p>
+    </div>
+    <div class="service-grid">
+      <a class="service reveal" href="#quiz" data-goal="buy"><div><h3><span class="num">1</span>Купить квартиру</h3><p>Подбор, проверка юрчистоты, торг, ипотека, сделка и&nbsp;приёмка.</p></div><span class="more">Подобрать план <span>↗</span></span></a>
+      <a class="service reveal" href="#quiz" data-goal="sell"><div><h3><span class="num">2</span>Продать квартиру</h3><p>Оценка, подготовка, объявления, показы, безопасный расчёт.</p></div><span class="more">Подобрать план <span>↗</span></span></a>
+      <a class="service reveal" href="#quiz" data-goal="swap"><div><h3><span class="num">3</span>Обменять или&nbsp;улучшить</h3><p>Продажа и&nbsp;покупка в&nbsp;одну цепочку, чтобы&nbsp;не&nbsp;остаться без&nbsp;жилья.</p></div><span class="more">Подобрать план <span>↗</span></span></a>
+      <a class="service service-dark reveal" href="#remote"><div><h3><span class="num">4</span>Сделка в&nbsp;другом городе</h3><p>Купить или&nbsp;продать, не&nbsp;приезжая: Новосибирск, Санкт-Петербург, Екатеринбург, Калининград и&nbsp;другие города.</p></div><span class="more">Как&nbsp;это&nbsp;устроено <span>↗</span></span></a>
+      <a class="service reveal" href="#quiz" data-goal="mortgage"><div><h3><span class="num">5</span>Ипотека, маткапитал, сертификаты</h3><p>Военная ипотека, маткапитал, субсидии, государственные сертификаты, доли детей.</p></div><span class="more">Подобрать план <span>↗</span></span></a>
+      <a class="service reveal" href="#quiz" data-goal="check"><div><h3><span class="num">6</span>Проверить квартиру</h3><p>Нашли вариант сами? Проверим документы и&nbsp;продавца до&nbsp;задатка и&nbsp;проведём сделку&nbsp;— 65&nbsp;000&nbsp;₽.</p></div><span class="more">Подобрать план <span>↗</span></span></a>
+      <a class="service service-wide reveal" href="#quiz" data-goal="newbuild"><div><h3><span class="num">7</span>Купить в&nbsp;новостройке&nbsp;— для&nbsp;вас бесплатно</h3><p>Сравню новостройки по&nbsp;цене за&nbsp;метр, срокам сдачи и&nbsp;району, подберу банк и&nbsp;ипотеку&nbsp;— даже без&nbsp;первого взноса (только для&nbsp;новостроек). Помогу не&nbsp;переплатить за&nbsp;страховку и&nbsp;допуслуги банка. Свяжитесь со&nbsp;мной до&nbsp;визита в&nbsp;отделы продаж застройщиков.</p></div><div class="wide-side"><span class="more">Подобрать план <span>↗</span></span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 2а. Обо мне (перенесён выше 12.11) -->
+<section class="section soft" id="about">
+  <div class="wrap about-grid">
+    <figure class="about-photo about-panel reveal">
+      <p class="about-vertical" aria-hidden="true">Ирина Васильева</p>
+      <div class="about-panel-img"><img src="img/irina-studio.jpg" alt="Ирина Васильева" width="720" height="1080" loading="lazy"></div>
+      <blockquote class="about-quote"><p>«Каждую сделку веду сама, от&nbsp;первого звонка до&nbsp;ключей. Честно говорю обо&nbsp;всех достоинствах и&nbsp;недочётах выбранного вами объекта».</p></blockquote>
+    </figure>
+    <div class="about-copy reveal">
+      <h2 class="eyebrow about-title">Обо&nbsp;мне</h2>
+      <p>Больше шести лет помогаю людям покупать, продавать и&nbsp;обменивать квартиры. В&nbsp;Новосибирске работаю лично, а&nbsp;в&nbsp;других городах веду сделки без&nbsp;вашего приезда. Такие сделки были проведены в&nbsp;городах: Санкт-Петербург, Екатеринбург, Кемерово, Красноярск, Тюмень, Барнаул, Калининград.</p>
+      <p>За&nbsp;это время <b>провела больше 350&nbsp;сделок</b>: квартиры, новостройки, земельные участки, аренда, ипотека. Документы по&nbsp;каждой сделке проверяет опытный юрист по&nbsp;недвижимости.</p>
+      <p>Если&nbsp;продавец прошёл банкротство или&nbsp;близок к&nbsp;нему, привлекаю арбитражного управляющего. Он&nbsp;оценит риски, и&nbsp;дальше&nbsp;мы либо защитим вас условиями сделки, либо я&nbsp;честно скажу, что&nbsp;от&nbsp;покупки лучше отказаться.</p>
+      <div class="arsenal">
+        <div class="arsenal-label">С&nbsp;кем работаю постоянно</div>
+        <ul class="arsenal-list"><li>юрист по&nbsp;недвижимости</li><li>ипотечный брокер</li><li>кадастровый инженер</li><li>страховщик</li><li>арбитражный управляющий</li></ul>
+      </div>
+      <div class="beliefs">
+        <div class="belief"><span>Работаю по&nbsp;договору, стоимость фиксирую заранее</span></div>
+        <div class="belief"><span>Проверяю каждую квартиру так,&nbsp;как&nbsp;проверяла&nbsp;бы для&nbsp;себя</span></div>
+      </div>
+      <a class="btn primary" href="#contact">Обсудить задачу <span class="arrow">↗</span></a>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="notfor reveal">
+      <div>
+        <span class="eyebrow">Честно заранее</span>
+        <h3 class="serif">С&nbsp;кем я&nbsp;не&nbsp;работаю</h3>
+        <p>Берусь за&nbsp;все виды сделок, если есть чёткий запрос и&nbsp;реальная цель. Не&nbsp;возьмусь, если&nbsp;задача звучит&nbsp;так:</p>
+      </div>
+      <ul>
+        <li><span>«Найдите что-нибудь особенное»&nbsp;— то, чего нет на&nbsp;площадках</span></li>
+        <li><span>«Хочу куда-нибудь вложиться, чтобы&nbsp;быстро заработать»</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Сравнение -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Зачем риэлтор</span>
+      <h2 class="serif">Сами, через&nbsp;агентство или&nbsp;со&nbsp;мной</h2>
+      <p>Кто ведёт сделку, кто&nbsp;проверяет квартиру и&nbsp;когда&nbsp;платить.</p>
+    </div>
+    <div class="compare-wrap reveal">
+      <table class="compare">
+        <thead><tr><th>Что&nbsp;важно</th><th>Сами<span class="th-sub">без&nbsp;специалиста</span></th><th>Агентство<span class="th-sub">крупная компания</span></th><th>Со&nbsp;мной<span class="th-sub">юрист и&nbsp;команда</span></th></tr></thead>
+        <tbody>
+          <tr><td>Кто ведёт сделку</td><td>Вы&nbsp;сами</td><td>Агент по&nbsp;назначению</td><td><span class="yes">Я&nbsp;лично, от&nbsp;звонка до&nbsp;ключей</span></td></tr>
+          <tr><td>Кто проверяет квартиру</td><td>Вы, по&nbsp;открытым данным</td><td>По&nbsp;правилам агентства</td><td><span class="yes">Юрист, до&nbsp;задатка</span></td></tr>
+          <tr><td>Кто торгуется</td><td>Вы&nbsp;с&nbsp;продавцом</td><td>Агент агентства</td><td><span class="yes">Я, на&nbsp;вашей стороне</span></td></tr>
+          <tr><td>Когда платить</td><td>Риэлтору&nbsp;— ничего</td><td>По&nbsp;договору агентства</td><td><span class="yes">Вторичка&nbsp;— после сделки, новостройка&nbsp;— бесплатно</span></td></tr>
+          <tr><td>Сделка в&nbsp;другом городе</td><td>Нужно ехать самим</td><td>Где&nbsp;есть офис</td><td><span class="yes">Без&nbsp;вашего приезда</span></td></tr>
+          <tr><td>Связь</td><td>&nbsp;—</td><td>Через менеджера</td><td><span class="yes">Напрямую со&nbsp;мной</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Сделка в другом городе -->
+<section class="section soft" id="remote">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Из&nbsp;другого города</span>
+      <h2 class="serif"><span class="h2-line">Квартира в&nbsp;другом городе?</span> <span class="h2-line">Приезжать не&nbsp;нужно</span></h2>
+    </div>
+  </div>
+  <div class="wrap remote-grid">
+    <div class="remote-card remote-card-photo reveal">
+      <div class="remote-top" role="img" aria-label="Ирина Васильева в Санкт-Петербургской филармонии"></div>
+      <div class="remote-body">
+      <p class="remote-lead">Переезжаете в&nbsp;Новосибирск или&nbsp;из&nbsp;него, покупаете квартиру детям в&nbsp;другом регионе, продаёте наследство? Всё сделаю дистанционно и&nbsp;безопасно.</p>
+      <a class="btn light" href="#contact">Обсудить сделку <span class="arrow">↗</span></a>
+      <a class="remote-quiz" href="#quiz" data-goal="remote">или&nbsp;получить план за&nbsp;1&nbsp;минуту&nbsp;→</a>
+      <div class="pills-label">Где&nbsp;уже&nbsp;были сделки:</div>
+      <div class="pills"><span class="pill pill-home">Новосибирск</span><span class="pill pill-home">Санкт-Петербург</span><span class="pill">Екатеринбург</span><span class="pill">Кемерово</span><span class="pill">Красноярск</span><span class="pill">Тюмень</span><span class="pill">Барнаул</span><span class="pill">Калининград</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="steps">
+        <div class="step reveal"><div><h3><span class="step-num">1</span>Организую показ квартиры</h3><p>В&nbsp;Новосибирске прихожу на&nbsp;показ сама. В&nbsp;других городах квартиру показывает по&nbsp;видео в&nbsp;прямом эфире продавец или&nbsp;его агент. Покупатель может поехать посмотреть сам. А&nbsp;если&nbsp;нужно, приеду сама и&nbsp;проведу показ онлайн с&nbsp;места&nbsp;— выезд оплачивается отдельно.</p></div></div>
+        <div class="step reveal"><div><h3><span class="step-num">2</span>Проверю документы онлайн</h3><p>Закажу свежую выписку ЕГРН, посмотрю&nbsp;историю собственников и&nbsp;обременения&nbsp;— пришлю вам отчёт.</p></div></div>
+        <div class="step reveal"><div><h3><span class="step-num">3</span>Организую подписание без&nbsp;приезда</h3><p>Через онлайн-кабинет банка с электронной подписью или по&nbsp;доверенности. Вы&nbsp;в&nbsp;офисе банка в&nbsp;своём городе или&nbsp;дома&nbsp;— даже в&nbsp;отпуске.</p></div></div>
+        <div class="step reveal"><div><h3><span class="step-num">4</span>Проведу регистрацию и&nbsp;безопасный расчёт</h3><p>Регистрация электронная. Деньги лежат на&nbsp;защищённом счёте банка, продавец получает их&nbsp;только после&nbsp;перехода права на&nbsp;вас.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. Шесть шагов -->
+<section class="section" id="steps">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Как&nbsp;мы&nbsp;работаем</span>
+      <h2 class="serif">Шесть шагов от&nbsp;звонка до&nbsp;ключей</h2>
+    </div>
+    <ol class="timeline">
+      <li class="milestone reveal"><i>1</i><div><b>Консультация</b>По&nbsp;телефону или&nbsp;видео. Разбираю ситуацию, называю риски и&nbsp;сроки. Первая&nbsp;— бесплатно.</div></li>
+      <li class="milestone reveal"><i>2</i><div><b>План и&nbsp;договор</b>Фиксируем задачу, бюджет, стоимость моей работы и&nbsp;что&nbsp;в&nbsp;неё входит. Без&nbsp;доплат потом.</div></li>
+      <li class="milestone reveal"><i>3</i><div><b>Подбор или&nbsp;продажа</b>Ищу варианты или&nbsp;готовлю вашу квартиру к&nbsp;продаже: оценка, фото, объявления, показы.</div></li>
+      <li class="milestone reveal"><i>4</i><div><b>Проверка</b>Документы, история квартиры, продавец. Если&nbsp;есть риск&nbsp;— говорю прямо и&nbsp;предлагаю, как&nbsp;его&nbsp;закрыть.</div></li>
+      <li class="milestone reveal"><i>5</i><div><b>Торг и&nbsp;задаток</b>Договариваюсь о&nbsp;цене и&nbsp;условиях, готовлю соглашение о&nbsp;задатке.</div></li>
+      <li class="milestone reveal"><i>6</i><div><b>Сделка и&nbsp;ключи</b>Банк, регистрация, безопасный расчёт, акт приёма-передачи. Остаюсь на&nbsp;связи и&nbsp;после.</div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6. Квиз -->
+<section class="section soft" id="quiz">
+  <div class="wrap">
+    <div class="quiz-panel reveal">
+      <div class="quiz-intro">
+        <span class="eyebrow">Интерактивный план</span>
+        <h2 class="serif">План сделки за&nbsp;1&nbsp;минуту</h2>
+        <p>Ответьте на&nbsp;4 вопроса&nbsp;— покажу пошаговый план вашей сделки и&nbsp;сколько она будет стоить.</p>
+        <p class="quiz-small">Без&nbsp;обязательств. Первая консультация бесплатна.</p>
+      </div>
+      <div class="quiz-side">
+        <div class="progress"><span id="qBar"></span></div>
+        <div id="qBody" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Кейсы — три превью, «Подробнее» открывает кейс поверх страницы (выбор Татьяны 17.11) -->
+<section class="section" id="cases">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Примеры сделок</span>
+      <h2 class="serif">Истории из&nbsp;практики</h2>
+    </div>
+    <div class="cp-grid">
+      <article class="cp reveal">
+        <span class="tag">Покупка из&nbsp;другого региона</span>
+        <h3>Семья из&nbsp;Благовещенска купила квартиру в&nbsp;Новосибирске, не&nbsp;приезжая</h3>
+        <p class="cp-teaser">Мама из&nbsp;Благовещенска нашла дочери квартиру на&nbsp;Авито. Я&nbsp;съездила на&nbsp;место: дом в&nbsp;промзоне, вдоль бетонных заборов. Отговорила и&nbsp;подобрала студию в&nbsp;районе с&nbsp;хорошим транспортом.</p>
+        <p class="cp-result">Купили дистанционно</p>
+        <button class="cp-more" type="button" aria-haspopup="dialog">Подробнее <span aria-hidden="true">→</span></button>
+        <div class="cp-full" hidden>
+          <dl>
+          <dt>Задача</dt><dd>Клиентка из&nbsp;Благовещенска хотела купить дочери-студентке квартиру в&nbsp;Новосибирске. Она&nbsp;самостоятельно нашла на&nbsp;Авито красивый вариант по&nbsp;подходящей цене, недалеко от&nbsp;института дочери. Чтобы оформить сделку, клиентка обратилась ко&nbsp;мне, так&nbsp;как летать из&nbsp;Благовещенска долго и&nbsp;дорого.</dd>
+          <dt>Что увидела&nbsp;я</dt><dd>Съездила на&nbsp;место и&nbsp;сняла для&nbsp;семьи видео: дом стоит в&nbsp;промзоне, нормальных пешеходных дорог нет, только тропинки вдоль бетонных заборов. Без&nbsp;машины девушке там было&nbsp;бы неудобно и&nbsp;небезопасно. Убедила семью этот вариант не&nbsp;брать, хотя&nbsp;он казался им очень привлекательным и&nbsp;клиентка уже была готова покупать.</dd>
+          <dt>Что сделали</dt><dd>Подобрала студию в&nbsp;районе с&nbsp;хорошим транспортом, провела онлайн-осмотр, и&nbsp;в&nbsp;результате её&nbsp;купили по&nbsp;межрегиональной сделке. Квартиру семья увидела вживую, уже когда дочь приехала учиться, и&nbsp;убедилась, что&nbsp;от&nbsp;первого варианта отказались не&nbsp;зря.</dd>
+          <dt>Итог</dt><dd>Все довольны. Через три года эту студию продали и&nbsp;купили квартиру побольше, так&nbsp;как дочь решила остаться в&nbsp;городе.</dd>
+        </dl>
+        </div>
+      </article>
+      <article class="cp reveal">
+        <span class="tag">Новостройка · IT-ипотека</span>
+        <h3>Банк заблокировал сделку&nbsp;— отстояли клиента и&nbsp;сэкономили его деньги</h3>
+        <p class="cp-teaser">Менеджер банка записала «подумаю» как&nbsp;согласие на&nbsp;платные услуги и&nbsp;заблокировала сделку. Добились разблокировки через руководство банка.</p>
+        <p class="cp-result">Сэкономили почти 50&nbsp;000&nbsp;₽</p>
+        <button class="cp-more" type="button" aria-haspopup="dialog">Подробнее <span aria-hidden="true">→</span></button>
+        <div class="cp-full" hidden>
+          <dl>
+          <dt>Задача</dt><dd>Молодая пара покупала трёхкомнатную квартиру в&nbsp;новостройке по&nbsp;IT-ипотеке. До&nbsp;сделки оставалось две недели.</dd>
+          <dt>Что случилось</dt><dd>Менеджер банка предложила клиенту платную оценку и&nbsp;другие ненужные дополнительные услуги. Клиент, не&nbsp;зная, что&nbsp;эти&nbsp;услуги не&nbsp;обязательны для&nbsp;сделки, ответил «подумаю», а&nbsp;менеджер записала это как&nbsp;согласие и&nbsp;заблокировала сделку до&nbsp;оплаты.</dd>
+          <dt>Что сделали</dt><dd>Обратились к&nbsp;руководству банка. После длительных переговоров лишние услуги убрали и&nbsp;сделку разблокировали.</dd>
+          <dt>Итог</dt><dd>Сделка прошла, клиент сэкономил почти 50&nbsp;000&nbsp;₽.</dd>
+        </dl>
+        </div>
+      </article>
+      <article class="cp reveal">
+        <span class="tag">Санкт-Петербург · покупка</span>
+        <h3>Отговорила от&nbsp;квартиры с&nbsp;«тёмной» историей и&nbsp;не&nbsp;дала оплатить чужой долг</h3>
+        <p class="cp-teaser">У&nbsp;квартиры оказалось несколько собственников вместо одного. Отговорила, нашла другую с&nbsp;чистыми документами, а&nbsp;на&nbsp;сделке нашли чужой долг за&nbsp;электричество.</p>
+        <p class="cp-result">Долг 5&nbsp;000&nbsp;₽ оплатил продавец</p>
+        <button class="cp-more" type="button" aria-haspopup="dialog">Подробнее <span aria-hidden="true">→</span></button>
+        <div class="cp-full" hidden>
+          <dl>
+          <dt>Задача</dt><dd>Мужчина из&nbsp;Санкт-Петербурга покупал квартиру после раздела наследства. Вариант нашёл сам. Агент продавца уверяла его, что&nbsp;второй риэлтор не&nbsp;нужен, но&nbsp;он&nbsp;не&nbsp;согласился и&nbsp;привлёк меня для&nbsp;сделки.</dd>
+          <dt>Что увидела&nbsp;я</dt><dd>По&nbsp;выписке ЕГРН у&nbsp;квартиры оказалось несколько собственников, хотя агент говорила об&nbsp;одном. Документы и&nbsp;справку о&nbsp;прописанных в&nbsp;квартире не&nbsp;предоставили. Такая квартира&nbsp;— «мина замедленного действия»: в&nbsp;любой момент может объявиться наследник.</dd>
+          <dt>Что сделали</dt><dd>Отговорила клиента от&nbsp;покупки понравившейся ему квартиры, подобрала другую, с&nbsp;чистыми документами, и&nbsp;прилетела в&nbsp;Санкт-Петербург на&nbsp;сделку. Перед подписанием документов проверили счётчики и&nbsp;нашли долг за&nbsp;электричество 5&nbsp;000&nbsp;₽&nbsp;— продавец оплатил его при&nbsp;нас.</dd>
+          <dt>Итог</dt><dd>Сделка состоялась. Клиент доволен, живёт в&nbsp;новой квартире и&nbsp;рекомендует меня знакомым в&nbsp;Санкт-Петербурге.</dd>
+        </dl>
+        </div>
+      </article>
+    </div>
+  </div>
+  <dialog class="cp-dialog" id="caseDialog" aria-labelledby="cpdTitle">
+    <button class="cpd-close" type="button" aria-label="Закрыть">×</button>
+    <div class="cpd-body"></div>
+    <div class="cpd-foot"><a class="btn primary" href="#contact">Обсудить мою ситуацию</a></div>
+  </dialog>
+</section>
+
+<!-- 8. Цены -->
+<section class="section soft" id="prices">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Стоимость</span>
+      <h2 class="serif">Цены открыто&nbsp;— без&nbsp;доплат после&nbsp;договора</h2>
+      <p class="muted lines2"><span>Полное сопровождение, отдельная юридическая проверка и&nbsp;бесплатная помощь с&nbsp;новостройкой.</span> <span>Точную сумму фиксируем в&nbsp;договоре до&nbsp;начала работы.</span></p>
+    </div>
+    <div class="price-grid reveal">
+      <div class="price-main">
+        <span class="price-tag">Полный спектр услуг</span>
+        <div class="price-rows">
+          <div class="price-row"><span class="price-row-name">Покупка или&nbsp;продажа на&nbsp;вторичном рынке</span><div class="price-big">от&nbsp;2%<small>от&nbsp;стоимости объекта</small></div></div>
+        </div>
+        <ul class="price-points">
+          <li>Включено: подбор, показы, торг, проверка, сделка</li>
+          <li>На&nbsp;вторичном рынке&nbsp;— оплата только после&nbsp;проведённой сделки</li>
+          <li>Сделка в&nbsp;другом городе&nbsp;— на&nbsp;тех&nbsp;же условиях, мой&nbsp;выезд на&nbsp;показ или&nbsp;сделку оплачивается отдельно</li>
+        </ul>
+        <a class="btn light" href="#contact">Первая консультация бесплатно <span class="arrow">↗</span></a>
+      </div>
+      <div class="price-side">
+        <div class="price-card price-new">
+          <details class="imp">
+            <summary aria-label="Важное условие">Важно</summary>
+            <div class="imp-pop">Если&nbsp;вы хотите от&nbsp;начала до&nbsp;конца получить подробную, детальную консультацию, полноценную мою помощь и&nbsp;не&nbsp;заплатить за&nbsp;это ничего, сначала обратитесь ко&nbsp;мне, и&nbsp;мы уже вместе будем подбирать вам застройщика и&nbsp;новостройку.</div>
+          </details>
+          <span class="price-tag">Новостройки</span>
+          <h3>Для&nbsp;вас бесплатно</h3>
+          <p>Вы&nbsp;не&nbsp;платите ни&nbsp;рубля, а&nbsp;я&nbsp;веду всё:</p>
+          <ul class="price-checks">
+            <li>подбор и&nbsp;сравнение новостроек по&nbsp;цене, срокам сдачи и&nbsp;району</li>
+            <li>выбор банка и&nbsp;ипотечной программы, в&nbsp;том числе без&nbsp;первого взноса</li>
+            <li>оформление сделки, страховка без&nbsp;переплаты и&nbsp;без&nbsp;лишних платных услуг банка</li>
+          </ul>
+        </div>
+        <div class="price-card">
+          <span class="price-tag">Отдельная услуга</span>
+          <h3>Юрпроверка и&nbsp;сопровождение&nbsp;— 65&nbsp;000&nbsp;₽</h3>
+          <p>Квартиру вы&nbsp;нашли сами и&nbsp;с&nbsp;продавцом договорились. Проверим документы и&nbsp;продавца, проведём сделку и&nbsp;расчёт. Без&nbsp;подбора и&nbsp;показов.</p>
+        </div>
+      </div>
+    </div>
+    <p class="price-note">Торги, расселение и&nbsp;другие сложные сделки считаю отдельно&nbsp;— назову сумму на&nbsp;первой консультации.</p>
+
+  </div>
+</section>
+
+<!-- 10. Отзывы -->
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Отзывы</span>
+      <h2 class="serif">Что&nbsp;пишут клиенты</h2>
+      <blockquote class="review-thanks"><p>«Моя абсолютно взаимная любовь к&nbsp;моим клиентам»</p><cite>Ирина Васильева</cite></blockquote>
+    </div>
+    <div class="review-grid">
+      <article class="review reveal"><span class="stars" aria-label="Оценка 5 из 5">★★★★★</span><p>От&nbsp;души хотим поблагодарить Васильеву Ирину Юрьевну за&nbsp;помощь в&nbsp;покупке квартиры! Сделка прошла качественно, быстро и&nbsp;профессионально. Ирина консультировала нас во&nbsp;всех возникающих вопросах, оперативно помогала. Все сложные вопросы, после обращения к&nbsp;Ирине стали простыми и&nbsp;легко решились! Она очень вежливый, настойчивый, грамотный специалист и&nbsp;просто хороший человек! Мы рекомендуем обращаться к&nbsp;Вам однозначно! Спасибо еще раз, успехов и&nbsp;процветания Вам!</p><small class="review-src">Отзыв на&nbsp;Flamp</small></article>
+      <article class="review reveal"><span class="stars" aria-label="Оценка 5 из 5">★★★★★</span><p>Хочу поблагодарить риелтора Васильеву Ирину Юрьевну и&nbsp;юриста за&nbsp;качественную и&nbsp;профессиональную работу! Специалисты грамотные, всегда были на&nbsp;связи, всё подробно объяснили, настоящие профессионалы. Сделку провели по&nbsp;договору мены, всё прошло отлично! Спасибо))</p><small class="review-src">Отзыв на&nbsp;Flamp</small></article>
+      <article class="review reveal"><span class="stars" aria-label="Оценка 5 из 5">★★★★★</span><p>Благодарим риэлтора Васильеву Ирину за&nbsp;высокий уровень профессионализма, компетенции и&nbsp;человеческое участие, рекомендуем обращаться к&nbsp;этому специалисту, она была третьим риэлтором к&nbsp;которому мы обратились, и&nbsp;только она смогла за&nbsp;короткий срок найти интересующий нас вариант, учитывая все наши потребности.</p><small class="review-src">Отзыв на&nbsp;Flamp</small></article>
+      <article class="review reveal"><span class="stars" aria-label="Оценка 5 из 5">★★★★★</span><p>Самый профессиональный Риэлтор в&nbsp;городе Новосибирске!!!! Васильева Ирина Юрьевна! Постоянная клиентская поддержка, высокий уровень профессионализма! Рекомендую к&nbsp;сотрудничеству, как человека и&nbsp;профессионала) Очень благодарны и&nbsp;рады что сработали именно с&nbsp;вами!</p><small class="review-src">Отзыв на&nbsp;Flamp</small></article>
+    </div>
+  </div>
+</section>
+
+
+<!-- 11. Вопросы -->
+<section class="section soft" id="faq">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Частые вопросы</span>
+      <h2 class="serif">Отвечаю заранее</h2>
+    </div>
+    <aside class="faq-aside">
+      <div class="fa-photo"><img src="img/irina-object-faq.jpg" alt="Ирина Васильева" width="760" height="760" loading="lazy"></div>
+      <b>Не&nbsp;нашли свой вопрос?</b>
+      <p>Напишите&nbsp;— отвечу в&nbsp;течение часа.</p>
+      <a class="btn light" href="#contact">Задать вопрос <span class="arrow">↗</span></a>
+    </aside>
+    <div class="faq-list">
+      <details open><summary>Не&nbsp;потеряю&nbsp;ли я&nbsp;деньги на&nbsp;сделке?</summary><p>Нет.&nbsp;Деньги не&nbsp;передаются из&nbsp;рук в&nbsp;руки: они&nbsp;лежат на&nbsp;защищённом счёте банка, и&nbsp;продавец получает их&nbsp;только после&nbsp;регистрации права на&nbsp;вас. А&nbsp;до&nbsp;задатка мы&nbsp;с&nbsp;юристом проверяем квартиру и&nbsp;продавца.</p></details>
+      <details><summary>Почему со&nbsp;мной, а&nbsp;не&nbsp;с&nbsp;агентством?</summary><p>Вы&nbsp;знаете, кто ведёт вашу сделку, и&nbsp;этот&nbsp;человек не&nbsp;меняется: я&nbsp;веду её&nbsp;лично, а&nbsp;документы проверяет юрист. Я&nbsp;сама отвечаю за&nbsp;результат и&nbsp;за&nbsp;свою репутацию&nbsp;— за&nbsp;шесть с&nbsp;лишним лет провела более 350&nbsp;сделок.</p></details>
+      <details><summary>Кто занимается документами?</summary><p>Юридическую часть ведёт юрист: проверяет квартиру и&nbsp;продавца до&nbsp;задатка, готовит договоры. Если&nbsp;нужен узкий специалист&nbsp;— кадастровый инженер, ипотечный брокер, страховщик, арбитражный управляющий,&nbsp;— подключаем проверенных людей из&nbsp;моей команды.</p></details>
+      <details><summary>Как&nbsp;купить квартиру в&nbsp;другом городе и&nbsp;не&nbsp;приезжать?</summary><p>Показ по&nbsp;видео, проверка документов онлайн, подписание через&nbsp;онлайн-кабинет банка с&nbsp;электронной подписью или&nbsp;по&nbsp;доверенности, электронная регистрация и&nbsp;расчёт через&nbsp;защищённый счёт банка. Вы&nbsp;можете быть в&nbsp;офисе банка в&nbsp;своём регионе или&nbsp;дома&nbsp;— даже в&nbsp;отпуске. Какой вариант подойдёт вам&nbsp;— скажу на&nbsp;консультации.</p></details>
+      <details><summary>Сколько стоят ваши услуги и&nbsp;когда&nbsp;платить?</summary><p>Покупка или&nbsp;продажа на&nbsp;вторичном рынке&nbsp;— от&nbsp;2% стоимости объекта. Если&nbsp;квартиру вы&nbsp;нашли сами, юрпроверка и&nbsp;сопровождение сделки&nbsp;— 65&nbsp;000&nbsp;₽. Сумму фиксируем в&nbsp;договоре до&nbsp;начала работы. На&nbsp;вторичном рынке вы&nbsp;платите только&nbsp;после проведённой сделки. Покупка в&nbsp;новостройке для&nbsp;вас бесплатна, если&nbsp;вы пришли ко&nbsp;мне до&nbsp;визита к&nbsp;застройщику. Первая консультация&nbsp;— тоже бесплатно.</p></details>
+      <details><summary>Что&nbsp;входит в&nbsp;бесплатную помощь с&nbsp;новостройкой?</summary><p>Подбираю и&nbsp;сравниваю новостройки по&nbsp;площади, району, сроку сдачи, цене за&nbsp;метр и&nbsp;сумме ипотеки. Выбираю банк и&nbsp;лучшую ипотечную программу: где-то застройщик субсидирует ставку, где-то банк даёт свои условия, а&nbsp;если&nbsp;нет первого взноса&nbsp;— оставляю только тех застройщиков, кто&nbsp;работает без&nbsp;него. Дальше&nbsp;— кредитное решение, эскроу-счёт, страховка без&nbsp;переплаты и&nbsp;сделка, в&nbsp;том числе дистанционная.</p></details>
+      <details><summary>Почему не&nbsp;пойти сразу в&nbsp;отдел продаж застройщика?</summary><p>Менеджер отдела продаж работает на&nbsp;застройщика: ему&nbsp;нужно закрыть свой план, а&nbsp;часто&nbsp;— сначала продать квартиры, которые плохо продаются. Я&nbsp;была на&nbsp;объектах разных застройщиков и&nbsp;сравниваю их&nbsp;между собой, поэтому покажу лучший вариант для&nbsp;вас, а&nbsp;не&nbsp;для&nbsp;отдела продаж.</p></details>
+      <details><summary>Продавец прошёл банкротство&nbsp;— можно покупать?</summary><p>Иногда можно, но&nbsp;такую сделку могут оспорить. Я&nbsp;сотрудничаю с&nbsp;арбитражными управляющими: они&nbsp;оценят квартиру и&nbsp;риски, если&nbsp;продавец прошёл банкротство или&nbsp;близок к&nbsp;нему. Дальше&nbsp;— либо защищаем вас условиями сделки, либо честно советую отказаться.</p></details>
+      <details><summary>Работаете с&nbsp;ипотекой, маткапиталом, сертификатами?</summary><p>Да: маткапитал, военная ипотека, субсидии, государственные сертификаты. Помогаю с&nbsp;одобрением объекта, долями детей и&nbsp;документами. Веду и&nbsp;более сложные сделки&nbsp;— торги, расселение, выкуп объектов.</p></details>
+      <details><summary>Что,&nbsp;если&nbsp;квартиру потом попытаются оспорить?</summary><p>Поэтому проверка&nbsp;— самый долгий этап. Смотрю историю собственников, наследников, доли детей, дееспособность продавца. Если&nbsp;риск есть&nbsp;— говорю об&nbsp;этом до&nbsp;задатка.</p></details>
+      <details><summary>Можно просто проверить квартиру, которую я&nbsp;нашёл сам?</summary><p>Да,&nbsp;это&nbsp;отдельная услуга: юрпроверка и&nbsp;сопровождение сделки&nbsp;— 65&nbsp;000&nbsp;₽, без&nbsp;подбора и&nbsp;показов. Пришлите адрес и&nbsp;документы, которые есть,&nbsp;— скажу, что&nbsp;ещё&nbsp;запросить у&nbsp;продавца.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 12. Связь -->
+<section class="section contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow">Первый шаг</span>
+      <h2 class="serif">Расскажите о&nbsp;своей задаче&nbsp;— первая консультация бесплатно</h2>
+      <p class="lead">Скажу, какие есть риски, сколько займёт сделка и&nbsp;сколько будет стоить. Ни&nbsp;к&nbsp;чему не&nbsp;обязывает.</p>
+      <div class="actions">
+        <a class="btn light" href="https://max.ru/u/f9LHodD0cOIYY5HGjQfIUmIrVfmA4KmpUjE1ySV34hloZ-6oQl_MI03pjNY" target="_blank" rel="noopener">MAX <span class="arrow">↗</span></a>
+        <a class="btn light" href="https://t.me/+79833192837" target="_blank" rel="noopener">Telegram <span class="arrow">↗</span></a>
+      </div>
+      <p class="contact-phone">Телефон: <a href="tel:+79833192837"><b>+7 983 319-28-37</b></a><br>Почта: <a href="mailto:vasilieva_iren@mail.ru">vasilieva_iren@mail.ru</a></p>
+    </div>
+    <form class="form" data-demo>
+      <label class="hp" aria-hidden="true">Не заполняйте<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      <label>Как&nbsp;вас зовут, если&nbsp;хотите<input type="text" name="name" placeholder="Имя" autocomplete="name"></label>
+      <label>Телефон *<input type="tel" name="phone" placeholder="+7 ___ ___-__-__" autocomplete="tel" required pattern="[\d\s()+\-]{10,}" title="Номер телефона, например +7 983 123-45-67"></label>
+      <label>Что&nbsp;нужно<select name="task"><option>Купить</option><option>Купить в&nbsp;новостройке</option><option>Продать</option><option>Обменять</option><option>Сделка в&nbsp;другом городе</option><option>Проверить квартиру</option></select></label>
+      <label>Когда&nbsp;удобно позвонить<select name="time"><option>В&nbsp;любое время</option><option>Утром</option><option>Днём</option><option>Вечером</option></select></label>
+      <fieldset class="chips wide">
+        <legend>Как&nbsp;удобнее:</legend>
+        <label class="chip"><input type="radio" name="channel" value="Позвонить" checked> Позвонить</label>
+        <label class="chip"><input type="radio" name="channel" value="MAX"> MAX</label>
+        <label class="chip"><input type="radio" name="channel" value="Telegram"> Telegram</label>
+      </fieldset>
+      <div class="consents wide">
+        <label class="consent"><input type="checkbox" name="consent" required><span>Даю <a href="soglasie.html" target="_blank">согласие на&nbsp;обработку персональных данных</a></span></label>
+        <label class="consent"><input type="checkbox" name="policy" required><span>Ознакомлен(а) с&nbsp;<a href="politika.html" target="_blank">политикой обработки персональных данных</a></span></label>
+      </div>
+      <button class="btn light wide" type="submit">Записаться на&nbsp;консультацию <span class="arrow">↗</span></button>
+      <p class="form-promise wide">Отвечу в&nbsp;течение часа, перезвоню в&nbsp;выбранное вами время.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <b class="serif">Ирина Васильева</b>
+      <div>Агент по недвижимости · Новосибирск&nbsp;— лично,<br>другие города&nbsp;— без&nbsp;вашего приезда</div>
+    </div>
+    <nav class="footer-nav"><a href="#services">Услуги</a><a href="#remote">Из&nbsp;другого города</a><a href="#prices">Цены</a><a href="#faq">Вопросы</a><a href="#contact">Связаться</a></nav>
+    <small>Васильева Ирина Юрьевна, самозанятая<br><a href="mailto:vasilieva_iren@mail.ru">vasilieva_iren@mail.ru</a> · <a href="tel:+79833192837">+7 983 319-28-37</a><br><a href="politika.html">Политика обработки персональных данных</a><br><a href="soglasie.html">Согласие на&nbsp;обработку данных</a><br>Прототип сайта: кейсы и&nbsp;часть данных для&nbsp;примера, формы ничего не&nbsp;отправляют. Разработка&nbsp;— Татьяна</small>
+  </div>
+</footer>
+
+<div class="float-msg"><a class="float-call" href="tel:+79833192837">Позвонить</a><a class="float-write" href="#contact">Написать</a></div>
+
+<script src="js/typo.js?v=20261117k"></script>
+<script src="js/main.js?v=20261117k"></script>
+</body>
+</html>
