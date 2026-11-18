@@ -25,6 +25,21 @@
 <link rel="stylesheet" href="fonts/manrope.css?v=20261117k">
 <link rel="stylesheet" href="fonts/jost.css?v=20261117k">
 <link rel="stylesheet" href="css/style.css?v=20261117k">
+<style>
+/* ===== 18.11: выбран вариант без текстуры — везде ровный бордо сайта (#6b1222) ===== */
+:root { --texture: none; --texture-small: none; --tex-btn: none; }
+.topnote, .hero-panel, .strip, .price-main, .faq-aside, .timeline-fill, .float-call,
+.timeline.js .milestone.lit i { background: var(--wine) !important; }
+@media (max-width: 760px) { .timeline.js .milestone.lit:not(:last-child)::before { background: var(--wine) !important; } }
+/* главные кнопки — ровный бордо; при наведении как сейчас */
+.primary, .q-form .btn, .form .btn.light { background: var(--wine); }
+.secondary:hover, .secondary:focus-visible, .secondary:active { background: var(--wine); }
+/* тень и обводка букв были нужны только для читаемости на текстуре */
+.primary, .q-form .btn, .form .btn.light, .secondary:hover, .secondary:focus-visible, .strip .wrap,
+.timeline.js .milestone.lit i, .float-call, .price-main .price-tag, .price-big small, .price-points li, .price-row-name {
+  -webkit-text-stroke: 0; text-shadow: none;
+}
+</style>
 </head>
 <body>
 
@@ -438,7 +453,7 @@
       <div>Агент по недвижимости · Новосибирск&nbsp;— лично,<br>другие города&nbsp;— без&nbsp;вашего приезда</div>
     </div>
     <nav class="footer-nav"><a href="#services">Услуги</a><a href="#remote">Из&nbsp;другого города</a><a href="#prices">Цены</a><a href="#faq">Вопросы</a><a href="#contact">Связаться</a></nav>
-    <small>Васильева Ирина Юрьевна, самозанятая<br><a href="mailto:vasilieva_iren@mail.ru">vasilieva_iren@mail.ru</a> · <a href="tel:+79833192837">+7 983 319-28-37</a><br><a href="politika.html">Политика обработки персональных данных</a><br><a href="soglasie.html">Согласие на&nbsp;обработку данных</a><br>Прототип сайта: кейсы и&nbsp;часть данных для&nbsp;примера, формы ничего не&nbsp;отправляют. Разработка&nbsp;— Татьяна</small>
+    <small>Васильева Ирина Юрьевна, самозанятая<br><a href="mailto:vasilieva_iren@mail.ru">vasilieva_iren@mail.ru</a> · <a href="tel:+79833192837">+7 983 319-28-37</a><br><a href="politika.html">Политика обработки персональных данных</a><br><a href="soglasie.html">Согласие на&nbsp;обработку данных</a><br><a href="cookie.html">Политика cookie</a> · <a href="#" data-cookie-settings>Настройки cookie</a><br>Прототип сайта: кейсы и&nbsp;часть данных для&nbsp;примера, формы ничего не&nbsp;отправляют. Разработка&nbsp;— Татьяна</small>
   </div>
 </footer>
 
@@ -446,5 +461,6 @@
 
 <script src="js/typo.js?v=20261117k"></script>
 <script src="js/main.js?v=20261117k"></script>
+<script src="js/cookies.js?v=20261118"></script>
 </body>
 </html>
