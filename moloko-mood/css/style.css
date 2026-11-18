@@ -81,6 +81,9 @@ nav.main a:hover, nav.main a.on { border-bottom-color: var(--cocoa); }
 .ph.cocoa { background: linear-gradient(160deg, #A27A62, #74503B); }
 .ph.cocoa span { color: var(--choco); }
 .ph.sand { background: linear-gradient(160deg, #EADDCB, #D9C6AE); }
+.ph.graphite { background: linear-gradient(160deg, #6E6D6C, #3F3E3F); }
+.ph.graphite span:not(.size-tag) { color: var(--choco); }
+.ph.grey { background: linear-gradient(160deg, #CFCDC8, #A9A6A0); }
 
 /* Первый экран */
 .hero { padding: 64px 0 88px; }

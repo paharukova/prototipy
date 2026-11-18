@@ -3,7 +3,7 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var secName = function (id) { var s = SECTIONS.find(function (x) { return x.id === id; }); return s ? s.name : ""; };
   var ST = { in: ["in", "В шоуруме"], few: ["few", "Осталось мало"] };
-  var COLORS = { "Бежевый": "#CDB59A", "Молочный": "#F1EADF", "Шоколадный": "#5A3B2B" };
+  var COLORS = { "Бежевый": "#CDB59A", "Шоколадный": "#5A3B2B", "Графит": "#4A4A4C", "Серый": "#A7A5A1" };
   var WA = "79059161851";
   var TG = "https://t.me/+Z2Is1JQq2DJkNmUy";
   var wa = function (text) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(text); };
@@ -28,7 +28,7 @@
     foot.className = "site";
     foot.innerHTML = T(
       '<div class="wrap"><div>' + logo +
-      '<p style="margin-top:18px;max-width:320px">Одежда собственного пошива и шоурум в Кемерово. Женская и мужская одежда.</p></div>' +
+      '<p style="margin-top:18px;max-width:320px">Одежда собственного пошива и шоурум в Кемерово. Женская, мужская и унисекс. Доставка по России.</p></div>' +
       "<div><h5>Каталог</h5>" + SECTIONS.map(function (s) { return '<a href="catalog.html?s=' + s.id + '">' + s.name + "</a>"; }).join("") + '<a href="index.html#fit">Как сядет one size</a></div>' +
       '<div><h5>Покупателям</h5><a href="index.html#days">Дни клиента</a><a href="index.html#faq">Доставка и оплата</a><a href="index.html#reviews">Отзывы</a><a href="index.html#visit">Как добраться</a></div>' +
       '<div><h5>Контакты</h5><a href="tel:+79059161851">+7 905 916‑18‑51</a><a href="tel:+79059050475">+7 905 905‑04‑75</a><a href="' + wa("Здравствуйте!") + '" target="_blank" rel="noopener">WhatsApp</a><a href="' + TG + '" target="_blank" rel="noopener">Telegram-канал</a></div>' +
