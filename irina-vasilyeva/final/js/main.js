@@ -211,7 +211,7 @@
     h += '</ol><p>' + T(price) + '</p>' +
       '<form class="q-form" data-demo><label class="hp" aria-hidden="true">Не заполняйте<input type="text" name="website" tabindex="-1" autocomplete="off"></label><label>Имя, если хотите<input type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name"></label>' +
       '<label>Телефон или Telegram *<input type="text" name="contact" placeholder="+7 или @ник" required minlength="5"></label>' +
-      '<button class="btn light" type="submit">Прислать этот план ↗</button>' +
+      '<button class="btn light" type="submit">Прислать этот план ↗︎</button>' +
       '<div class="consents">' +
       '<label class="consent"><input type="checkbox" name="consent" required><span>' + T('Даю') + ' <a href="' + DOCS + 'soglasie.html" target="_blank">' + T('согласие на обработку персональных данных') + '</a></span></label>' +
       '<label class="consent"><input type="checkbox" name="policy" required><span>' + T('Ознакомлен(а) с') + ' <a href="' + DOCS + 'politika.html" target="_blank">' + T('политикой обработки персональных данных') + '</a></span></label>' +
