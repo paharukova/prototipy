@@ -48,9 +48,10 @@
   /* Карточка вещи в сетке */
   function card(it) {
     var st = ST[it.status];
+    var who = WHO[it.who] ? " · " + WHO[it.who].toLowerCase() : "";
     return '<a class="card reveal" href="item.html?id=' + it.id + '">' +
       '<div class="ph ' + it.tone + '"><span class="size-tag">ONE SIZE</span><span>фото модели</span></div>' +
-      '<div class="body"><div class="sec">' + T(secName(it.section)) + "</div><h4>" + T(it.name) + '</h4><div class="short">' + T(it.short) + "</div>" +
+      '<div class="body"><div class="sec">' + T(secName(it.section)) + who + "</div><h4>" + T(it.name) + '</h4><div class="short">' + T(it.short) + "</div>" +
       '<div class="bottom"><span class="price-ask">Цена уточняется</span><span class="st ' + st[0] + '">' + st[1] + "</span></div></div></a>";
   }
 
@@ -61,7 +62,7 @@
       '<div class="t"><h3>' + T(s.name) + "</h3><p>" + T(s.fact) + '</p><span class="go">Смотреть →</span></div></a>';
   }).join("");
   var pop = $("#popular");
-  if (pop) pop.innerHTML = ["suit-zip", "suit-2", "tee", "down"].map(function (id) {
+  if (pop) pop.innerHTML = ["suit-zip", "men-suit", "suit-2", "down"].map(function (id) {
     return card(ITEMS.find(function (x) { return x.id === id; }));
   }).join("");
   var revs = $("#reviews-list");
@@ -79,9 +80,12 @@
   var grid = $("#catalog-grid");
   if (grid) {
     var params = new URLSearchParams(location.search);
-    var state = { s: params.get("s") || "all", q: "", color: [], st: [] };
+    var state = { s: params.get("s") || "all", q: "", color: [], st: [], who: params.get("for") ? [params.get("for")] : [] };
     var tabs = $("#tabs");
     tabs.innerHTML = '<button data-s="all">Все</button>' + SECTIONS.map(function (s) { return '<button data-s="' + s.id + '">' + T(s.name) + "</button>"; }).join("");
+    $("#f-who").innerHTML = Object.keys(WHO).map(function (k) {
+      return '<label><input type="checkbox" value="' + k + '"' + (state.who.indexOf(k) >= 0 ? " checked" : "") + "> " + WHO[k] + "</label>";
+    }).join("");
     $("#f-color").innerHTML = Object.keys(COLORS).map(function (c) {
       return '<label><input type="checkbox" value="' + c + '"> <span class="chip" style="background:' + COLORS[c] + '"></span> ' + c + "</label>";
     }).join("");
@@ -91,7 +95,8 @@
         return (state.s === "all" || i.section === state.s) &&
           (!state.q || (i.name + " " + i.short + " " + i.color).toLowerCase().indexOf(state.q) >= 0) &&
           (!state.color.length || state.color.indexOf(i.color) >= 0) &&
-          (!state.st.length || state.st.indexOf(i.status) >= 0);
+          (!state.st.length || state.st.indexOf(i.status) >= 0) &&
+          (!state.who.length || state.who.indexOf(i.who) >= 0 || (i.who === "unisex" && (state.who.indexOf("men") >= 0 || state.who.indexOf("women") >= 0)));
       });
       $("#count").textContent = "Показано вещей: " + list.length + " · в прототипе — выборка, на сайте будет весь ассортимент";
       grid.innerHTML = list.length ? list.map(card).join("") : '<div class="empty">Ничего не нашлось. Сбросьте фильтры или <a href="' + wa("Здравствуйте! Помогите подобрать вещь.") + '" target="_blank" rel="noopener">напишите нам</a> — подберём.</div>';
@@ -102,6 +107,7 @@
     $("#q").addEventListener("input", function (e) { state.q = e.target.value.trim().toLowerCase(); draw(); });
     $("#f-color").addEventListener("change", function () { state.color = checked("#f-color"); draw(); });
     $("#f-st").addEventListener("change", function () { state.st = checked("#f-st"); draw(); });
+    $("#f-who").addEventListener("change", function () { state.who = checked("#f-who"); draw(); });
     draw();
   }
 
@@ -119,8 +125,8 @@
       "<h1>" + T(it.name) + '</h1><p class="muted">' + T(it.short) + "</p>" +
       '<div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><span class="price-ask" style="font-size:16px;padding:7px 16px">Цена уточняется</span><span class="st ' + st[0] + '">' + st[1] + '</span></div>' +
       '<div class="opts"><div><h5>Цвет</h5><div class="row"><span><i class="chip" style="background:' + COLORS[it.color] + ';vertical-align:-2px;margin-right:6px"></i>' + it.color + '</span></div></div>' +
-      '<div><h5>Размер</h5><div class="row"><span>ONE SIZE</span></div></div></div>' +
-      '<div class="need"><i class="ti ti-ruler-measure"></i><span><b>Нужно от вас:</b> на какой рост и обхваты рассчитана модель, рост девушки на фото. Это главный вопрос в отзывах про one size.</span></div>' +
+      '<div><h5>Размер</h5><div class="row"><span>ONE SIZE</span></div></div>' + (WHO[it.who] ? '<div><h5>Для кого</h5><div class="row"><span>' + WHO[it.who] + "</span></div></div>" : "") + "</div>" +
+      '<div class="need"><i class="ti ti-ruler-measure"></i><span><b>Нужно от вас:</b> на какой рост и обхваты рассчитана модель, рост модели на фото. Это главный вопрос в отзывах про one size.</span></div>' +
       '<div class="item-actions"><a class="btn btn-wa" href="' + wa("Здравствуйте! Хочу заказать: " + it.name + " (" + it.color.toLowerCase() + "). Подскажите цену и как сядет на мой рост.") + '" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp"></i>Заказать в WhatsApp</a>' +
       '<button class="btn btn-line" id="try-btn" type="button"><i class="ti ti-hanger"></i>Отложить на примерку</button></div>' +
       '<div class="try" id="try"><b>Отложим вещь в шоуруме</b><form><div class="fields"><input required placeholder="Ваше имя"><input required type="tel" placeholder="Телефон"><select><option>Сегодня</option><option>Завтра</option><option>В выходные</option></select><input placeholder="Ваш рост, см"></div><button class="btn btn-main" type="submit">Отложить</button></form>' +

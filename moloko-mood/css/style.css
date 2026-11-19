@@ -120,6 +120,12 @@ nav.main a:hover, nav.main a.on { border-bottom-color: var(--cocoa); }
 .cat p { color: var(--muted); font-size: 15px; margin-bottom: 14px; }
 .cat .go { font: 500 15px var(--display); color: var(--cocoa); }
 
+/* Для неё / для него */
+.who-chips { display: flex; gap: 10px; flex-wrap: wrap; margin: -20px 0 28px; }
+.who-chips a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: 400 16px var(--display); padding: 10px 20px; border-radius: 999px; border: 1.5px dashed var(--latte); background: var(--paper); transition: .2s; }
+.who-chips a:hover { border-style: solid; border-color: var(--choco); }
+.who-chips i { font-size: 19px; color: var(--cocoa); }
+
 /* Карточки товаров */
 .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
 .grid > * { min-width: 0; }
