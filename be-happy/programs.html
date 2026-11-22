@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Направления — БиХэппи, Кемерово</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html"><span class="logo-mark">🎓</span><span>БиХэппи<small>центр развития Алины Кузнецовой</small></span></a>
+    <nav class="nav">
+      <a class="on" href="programs.html">Направления</a>
+      <a href="index.html#prices">Цены</a>
+      <a href="camp.html">Лагерь</a>
+      <a href="index.html#team">Педагоги</a>
+      <a href="index.html#reviews-sec">Отзывы</a>
+      <a href="index.html#contacts">Контакты</a>
+    </nav>
+    <a class="top-phone" href="tel:+79235265929">+7 (923) 526-59-29</a>
+    <a class="btn btn-sun btn-sm" href="kviz/">Подобрать программу</a>
+    <button class="burger" aria-label="Меню">☰</button>
+  </div>
+</header>
+
+<section class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">Направления</div>
+    <h1 style="font-size:clamp(30px,4vw,48px)">Все&nbsp;программы БиХэппи</h1>
+    <p class="lead" style="margin-top:14px">Выберите возраст и&nbsp;направление. Не&nbsp;уверены&nbsp;— <a href="kviz/">пройдите квиз</a>, подберём за&nbsp;минуту.</p>
+  </div>
+</section>
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="filters">
+      <div class="fgroup"><span>Направление</span><div class="fchips" id="fKind"></div></div>
+      <div class="fgroup"><span>Возраст</span><div class="fchips" id="fAge"></div></div>
+      <div class="fgroup search"><span>Поиск</span><input id="q" placeholder="Например, ЕГЭ или китайский"></div>
+    </div>
+    <p style="margin-bottom:18px;color:var(--muted)">Найдено: <b id="count">0</b></p>
+    <div class="cards" id="catalog"></div>
+    <div class="empty" id="empty">Ничего не&nbsp;нашлось. Попробуйте другой возраст или <a href="#signup">спросите администратора</a>.</div>
+    <p class="demo-note" style="margin-top:22px">* Цены&nbsp;— из&nbsp;карточки БиХэппи в&nbsp;2ГИС на&nbsp;16.09.2026, не&nbsp;являются офертой. Где&nbsp;цены нет,&nbsp;уточним у&nbsp;центра.</p>
+  </div>
+</section>
+<section class="cta" id="signup">
+  <div class="wrap cta-grid">
+    <div>
+      <div class="eyebrow" style="color:var(--sun)">Запись</div>
+      <h2>Запишитесь на&nbsp;пробное занятие</h2>
+      <p class="lead">Администратор подберёт программу и&nbsp;группу под&nbsp;смену в&nbsp;школе и&nbsp;пришлёт расписание. Или&nbsp;напишите сразу:</p>
+      <div class="hero-btns" style="margin-top:22px">
+        <a class="btn btn-sun btn-sm" href="https://wa.me/79235265929" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn-ghost btn-sm" href="https://t.me/behappycentre" target="_blank" rel="noopener">Telegram</a>
+        <a class="btn btn-ghost btn-sm" href="tel:+79235265929">+7 (923) 526-59-29</a>
+      </div>
+    </div>
+    <form class="form">
+      <label>Имя</label><input required placeholder="Как к вам обращаться">
+      <label>Телефон</label><input required type="tel" placeholder="+7">
+      <div class="row">
+        <div><label>Возраст ученика</label><select><option>3–5 лет</option><option>6–8 лет</option><option>9–14 лет</option><option>15–17 лет</option><option>Взрослый</option></select></div>
+        <div><label>Филиал</label><select><option>Притомский, 35 к2</option><option>2-я Заречная, 20</option><option>Онлайн</option><option>Неважно</option></select></div>
+      </div>
+      <label>Смена в&nbsp;школе</label><select><option>Первая</option><option>Вторая</option><option>Ещё&nbsp;не&nbsp;ходит в&nbsp;школу</option><option>Не&nbsp;знаем пока</option></select>
+      <button class="btn btn-sun" type="submit">Записаться на&nbsp;пробное</button>
+      <small>Нажимая кнопку, вы&nbsp;соглашаетесь с&nbsp;политикой обработки персональных данных.</small>
+      <div class="form-ok"><b>Спасибо!</b>Это&nbsp;прототип: заявка никуда не&nbsp;ушла. На&nbsp;готовом сайте она&nbsp;придёт администратору в&nbsp;Telegram и&nbsp;на&nbsp;почту.</div>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><b style="color:var(--ink)">БиХэппи</b> · центр развития детей и&nbsp;взрослых · Кемерово<br>ИП Кузнецова Алина Петровна<br><a href="https://vk.com/behappy_kemerovo">ВКонтакте</a> · <a href="https://t.me/behappy_centre">Telegram-канал</a> · <a href="https://max.ru/id420591535034_biz">MAX</a></div>
+    <div>Прототип сайта · подготовила Татьяна, разработка сайтов<br>Данные: 2ГИС, behappy42.ru и&nbsp;группа ВКонтакте, 22.11.2026<div class="proto-note">Фото&nbsp;— заглушки, формы ничего не&nbsp;отправляют, баллы в&nbsp;BeHappy Exams&nbsp;— для&nbsp;примера.</div></div>
+  </div>
+</footer>
+
+<script src="js/typo.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

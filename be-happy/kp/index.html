@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>БиХэппи&nbsp;— анализ и&nbsp;предложение по&nbsp;сайту</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Роли цветов постоянные, значения — под клиента: акцент из логотипа или обложки группы */
+:root{
+  --sage:#1D3CC4; --sage-dark:#0B1F7A; --sage-ink:#1D3CC4; --gold:#E0A51A; --mint:#FFD66B;
+  --bg:#FBF9F6; --paper:#fff; --ink:#23241F; --muted:#666A63; --line:#E3DFD3; --tint:#EEF1FD; --warn:#FBF3E2;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.65 Manrope,system-ui,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:1.15;margin:0}
+h1{font-size:46px;margin-bottom:16px}
+h2{font-size:32px;margin:0 0 6px}
+h3{font-size:22px;margin:0 0 6px}
+p{margin:11px 0}
+.sub{color:var(--muted);font-size:14.5px}
+p.sub{max-width:72ch}
+header{background:var(--sage-dark);color:#fff;padding:56px 0 48px}
+header .eyebrow{letter-spacing:3.4px;text-transform:uppercase;font-size:12px;color:var(--mint);margin-bottom:18px}
+header h1{color:#fff;max-width:24ch}
+header p{color:#E4E9E1;max-width:64ch}
+header .sub{color:#AEB9AE;margin-top:20px}
+header a{color:#E4E9E1}
+section{padding:46px 0 6px}
+.sec-num{display:block;width:max-content;font-size:12px;letter-spacing:2.6px;text-transform:uppercase;color:var(--sage);border-bottom:2px solid var(--sage);padding-bottom:5px;margin-bottom:16px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:22px 24px;margin:14px 0}
+.card .n{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--sage);line-height:1;margin-bottom:6px}
+.grid.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:760px){.grid.two{grid-template-columns:1fr} h1{font-size:36px}}
+.adv{list-style:none;padding:0;margin:14px 0}
+.adv li{padding:11px 0 11px 26px;border-bottom:1px solid var(--line);position:relative}
+.adv li:before{content:"";position:absolute;left:4px;top:21px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.adv li:last-child{border:0}
+.why{background:var(--tint);border-left:3px solid var(--sage);border-radius:0 9px 9px 0;padding:11px 16px;margin-top:12px;font-size:15.5px}
+.seg{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:18px 22px;margin:12px 0}
+.tag{display:inline-block;background:var(--tint);color:var(--sage-ink);font-size:12.5px;letter-spacing:.4px;padding:3px 11px;border-radius:999px;margin-bottom:8px}
+.src{color:var(--muted);font-size:14px;margin-top:2px}
+.note{background:var(--warn);border-radius:12px;padding:16px 20px;margin:18px 0;font-size:15.5px}
+.note strong{color:#7A5A22}
+ol.tasks{padding-left:22px}
+ol.tasks li{margin:12px 0}
+.cta{background:var(--sage-dark);color:#fff;border-radius:16px;padding:34px;text-align:center;margin:22px 0}
+.cta h3{color:#fff;font-size:28px}
+.cta a.btn{display:inline-block;background:var(--mint);color:var(--sage-dark);padding:14px 30px;border-radius:999px;text-decoration:none;font-weight:700;margin-top:14px}
+.cta a.btn{margin:14px 6px 0}.cta .url{display:block;margin-top:13px;color:#D6DED4;font-size:15px;word-break:break-all}
+.cta p{color:#DCE3DA;max-width:56ch;margin:0 auto}
+.offer{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:22px 24px;margin:14px 0}
+.offer-main{border:2px solid var(--sage);background:#F7F9FF}
+.badge{display:inline-block;background:var(--sage);color:#fff;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;padding:3px 11px;border-radius:6px;margin-bottom:9px}
+blockquote{margin:14px 0;padding:14px 20px;background:var(--paper);border-left:3px solid var(--gold);border-radius:0 9px 9px 0;font-style:italic;color:#353B36}
+footer{margin-top:56px;padding:30px 0 60px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer p{max-width:70ch}
+footer a{color:var(--sage-dark)}
+@media print{
+  body{background:#fff;font-size:11.5pt}
+  .wrap{max-width:100%;padding:0 14mm}
+  header{padding:16mm 0 11mm;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  section{padding:7mm 0 0}
+  h2{margin-top:2mm}
+  .adv li{padding:7px 0 7px 24px}
+  p{margin:8px 0}
+  .card,.seg,.offer,.cta,.note,.why,blockquote{page-break-inside:avoid;break-inside:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h2,h3,.sec-num{page-break-after:avoid;break-after:avoid}
+  .card,.seg,.offer{padding:16px 20px;margin:10px 0}
+  .why{margin-top:9px;padding:9px 14px}
+  .cta{padding:24px;margin:16px 0}
+  footer{margin-top:28px;padding:18px 0 20px}
+  h1{font-size:28pt}h2{font-size:20pt}h3{font-size:14pt}
+  a{color:inherit;text-decoration:none}
+  @page{margin:0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Анализ и&nbsp;предложение · Татьяна</div>
+    <h1>БиХэппи: разбор сайта, отзывов, конкурентов и&nbsp;предложение по&nbsp;новому сайту</h1>
+    <p>Алина, перед&nbsp;тем&nbsp;как&nbsp;что-то предлагать, я&nbsp;разобрала три ваши карточки в&nbsp;2ГИС с&nbsp;прайсом и&nbsp;всеми отзывами (75 у&nbsp;Притомского, 20 у&nbsp;Заречной, 14 у&nbsp;лагеря), ваш&nbsp;нынешний сайт behappy42.ru и&nbsp;группу ВКонтакте&nbsp;— 784 поста с&nbsp;2019 года и&nbsp;188 комментариев. Отдельно посмотрела, какие школы показываются родителям рядом с&nbsp;вами. Ниже&nbsp;— что&nbsp;я&nbsp;увидела и&nbsp;что&nbsp;предлагаю сделать.</p>
+    <p class="sub">Источники: 2ГИС (Притомский пр-т, 35 к2; 2-я Заречная, 20; Терешковой, 18), сайт behappy42.ru, сообщество <a href="https://vk.ru/behappy_kemerovo">vk.ru/behappy_kemerovo</a>, Яндекс Карты. Данные собраны 22 ноября 2026 года.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <span class="sec-num">01 · Главные выводы</span>
+  <h2>Пять вещей, которые я&nbsp;увидела</h2>
+  <div class="card">
+    <div class="n">1</div>
+    <h3>Конкуренты рекламируются прямо в&nbsp;вашей карточке 2ГИС</h3>
+    <p>Родитель открывает БиХэппи&nbsp;— и&nbsp;ниже видит «Хайлайт» (4,8, 209 оценок) и&nbsp;«Бенедикт» (4,8, 232 оценки) с&nbsp;акциями на&nbsp;учебный год. У&nbsp;вас 5,0 при&nbsp;113 оценках, но&nbsp;на&nbsp;сайте об&nbsp;этом нет&nbsp;ни&nbsp;слова: ни&nbsp;рейтинга, ни&nbsp;ссылки на&nbsp;2ГИС, ни&nbsp;цитат из&nbsp;отзывов.</p>
+  </div>
+  <div class="card">
+    <div class="n">2</div>
+    <h3>На&nbsp;сайте нет&nbsp;цен по&nbsp;программам</h3>
+    <p>Единственная цифра&nbsp;— «занятия от&nbsp;500 рублей». При&nbsp;этом в&nbsp;2ГИС у&nbsp;вас подробный прайс: малыши от&nbsp;565&nbsp;₽, школьники от&nbsp;625–675&nbsp;₽, ОГЭ и&nbsp;ЕГЭ 675–775&nbsp;₽, китайский от&nbsp;675&nbsp;₽. Тот,&nbsp;кто сравнивает школы, видит эти&nbsp;цены в&nbsp;2ГИС, а&nbsp;на&nbsp;сайте&nbsp;— нет.</p>
+  </div>
+  <div class="card">
+    <div class="n">3</div>
+    <h3>15 направлений, а&nbsp;подобрать своё можно только через&nbsp;администратора</h3>
+    <p>Английский с&nbsp;3 лет до&nbsp;ЕГЭ, китайский, французский, шахматы, речь, гитара, лагерь. Кнопка «Подобрать направление» ведёт в&nbsp;обычную форму. Вопрос «А&nbsp;вы&nbsp;обучаете школьников? На&nbsp;видео в&nbsp;основном малыши» приходил вам в&nbsp;личку&nbsp;— вы&nbsp;даже разбирали его&nbsp;в&nbsp;отдельном посте. Сайт на&nbsp;него сам не&nbsp;отвечает.</p>
+  </div>
+  <div class="card">
+    <div class="n">4</div>
+    <h3>Ваш&nbsp;главный козырь&nbsp;— прогресс видно, но&nbsp;его&nbsp;не&nbsp;показывают</h3>
+    <p>Родители в&nbsp;отзывах пишут про&nbsp;ДЗ в&nbsp;чате после&nbsp;урока, карту мотивации с&nbsp;сюрпризами и&nbsp;«5 по&nbsp;английскому в&nbsp;школе». BeHappy Exams каждую четверть с&nbsp;записью и&nbsp;отзывом педагога&nbsp;— сильная вещь, а&nbsp;на&nbsp;сайте это&nbsp;просто текстовый список среди других блоков.</p>
+  </div>
+  <div class="card">
+    <div class="n">5</div>
+    <h3>Про&nbsp;лагерь спрашивают&nbsp;— ответ уходит в&nbsp;личку</h3>
+    <p>Под&nbsp;постами о&nbsp;лагере вопросы «какие даты смен и&nbsp;какая цена?» (три раза) и&nbsp;«это&nbsp;только для&nbsp;деток, кто знает английский?». Ответ&nbsp;— «отправили в&nbsp;личные сообщения». Каждый такой вопрос&nbsp;— заявка, которую сайт мог&nbsp;бы принять сам, без&nbsp;участия администратора.</p>
+  </div>
+</section>
+
+<section>
+  <span class="sec-num">02 · Ваши преимущества</span>
+  <h2>Что&nbsp;у&nbsp;вас уже&nbsp;сильного</h2>
+  <p class="sub">Это&nbsp;не&nbsp;мои придумки&nbsp;— всё взято из&nbsp;ваших постов, сайта и&nbsp;отзывов родителей в&nbsp;2ГИС.</p>
+  <ul class="adv">
+    <li><b>Рейтинг 5,0 на&nbsp;обоих филиалах и&nbsp;у&nbsp;лагеря.</b> 85 оценок у&nbsp;Притомского, 28 у&nbsp;Заречной, 16 у&nbsp;лагеря. Среди отзывов, которые я&nbsp;прочитала, критический один&nbsp;— про&nbsp;жару в&nbsp;кабинетах лагеря летом 2024.</li>
+    <li><b>К&nbsp;вам ходят годами.</b> «Мы&nbsp;с&nbsp;БиХэппи уже&nbsp;4 года», «посещаем центр уже&nbsp;5 лет», «занимаюсь там&nbsp;уже&nbsp;6 год»&nbsp;— это&nbsp;из&nbsp;отзывов. Лучшее доказательство качества для&nbsp;нового родителя.</li>
+    <li><b>Прогресс видно.</b> BeHappy Exams каждую четверть по&nbsp;пяти навыкам, ДЗ в&nbsp;чате, карта мотивации: «когда&nbsp;доходят до&nbsp;определённой клеточки&nbsp;— дают сюрпризы».</li>
+    <li><b>Дети начинают говорить.</b> «Методика коммуникативная, то&nbsp;есть акцент на&nbsp;том, чтобы&nbsp;дети говорили… Со&nbsp;школьным английским справляется на&nbsp;раз-два»&nbsp;— Наталья, 2ГИС.</li>
+    <li><b>Личность основателя.</b> Более 12 лет в&nbsp;образовании, авторские передачи на&nbsp;«Вести.Кузбасс», опыт жизни и&nbsp;работы в&nbsp;Китае. Это&nbsp;то,&nbsp;что&nbsp;сложно повторить сетевой школе.</li>
+    <li><b>Редкие языки и&nbsp;всё в&nbsp;одном месте.</b> Китайский, французский, немецкий, шахматы, речь, гитара. Один из&nbsp;отзывов: дочь учит английский и&nbsp;французский, сын пошёл на&nbsp;китайский.</li>
+    <li><b>Расписание под&nbsp;школу.</b> Вы&nbsp;заранее спрашиваете смену ребёнка и&nbsp;собираете группы под&nbsp;неё. «Расписание подбирают под&nbsp;ваши пожелания»&nbsp;— Мария, 2ГИС.</li>
+    <li><b>Лагерь, в&nbsp;который возвращаются.</b> Тематические смены «Гарри Поттер и&nbsp;Тайны Сибири», «Майнкрафт и&nbsp;Роблокс», бассейн, VR, телесъёмки. «Дети заняты всё время, не&nbsp;сидят в&nbsp;телефонах».</li>
+    <li><b>Понятные цены и&nbsp;рассрочка.</b> Прайс от&nbsp;500&nbsp;₽ за&nbsp;занятие, годовой абонемент с&nbsp;фиксированной ценой, рассрочка 0% от&nbsp;Т-Банка или&nbsp;50/50 от&nbsp;центра.</li>
+    <li><b>Жизнь вокруг учёбы.</b> Кино на&nbsp;английском, пицца-мастер-класс, мафия по&nbsp;Гарри Поттеру, ярмарка в&nbsp;конце года, мерч и&nbsp;BeHappy community.</li>
+  </ul>
+</section>
+
+<section>
+  <span class="sec-num">03 · Сейчас</span>
+  <h2>Что&nbsp;работает и&nbsp;что&nbsp;провисает</h2>
+  <div class="grid two">
+    <div class="card">
+      <h3>Работает</h3>
+      <ul class="adv">
+        <li>Сильные карточки в&nbsp;2ГИС: прайс, 126 фото, 5,0</li>
+        <li>Живая группа ВК, видео с&nbsp;уроков, интервью с&nbsp;учениками</li>
+        <li>На&nbsp;сайте уже&nbsp;есть педагоги с&nbsp;образованием и&nbsp;BeHappy Exams</li>
+        <li>Запись в&nbsp;WhatsApp, Telegram и&nbsp;MAX</li>
+        <li>Акции с&nbsp;дедлайном и&nbsp;рассрочкой</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Провисает</h3>
+      <ul class="adv">
+        <li>Сайт не&nbsp;отвечает на&nbsp;главные вопросы: сколько стоит, подойдёт&nbsp;ли моему ребёнку, есть&nbsp;ли результат</li>
+        <li>Нет&nbsp;цен, расписания, частых вопросов и&nbsp;карты с&nbsp;филиалами</li>
+        <li>Отзывы и&nbsp;рейтинг 5,0 на&nbsp;сайт не&nbsp;попали</li>
+        <li>Подбор направления&nbsp;— только через&nbsp;форму и&nbsp;администратора</li>
+        <li>В&nbsp;подвале «© 2021», на&nbsp;сайте два разных номера WhatsApp</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="sec-num">04 · Конкуренты</span>
+  <h2>Кого видят родители рядом с&nbsp;вами</h2>
+  <p>Я&nbsp;взяла школы, которые 2ГИС показывает рекламой прямо в&nbsp;ваших карточках,&nbsp;— именно их&nbsp;родитель видит в&nbsp;момент выбора. Смотрела оценки, есть&nbsp;ли сайт и&nbsp;чем&nbsp;они&nbsp;цепляют.</p>
+  <div class="card">
+    <span class="tag">реклама в&nbsp;вашей карточке</span>
+    <h3>«Хайлайт», несколько филиалов</h3>
+    <p class="src">2ГИС: 4,8, 209 оценок · сайт поиском не&nbsp;нашла, есть карточки на&nbsp;картах и&nbsp;группа в&nbsp;Одноклассниках</p>
+    <p>Цепляет скидкой: «Ведётся набор в&nbsp;группы 2026–2027, успей получить скидку!»</p>
+    <div class="why">Оценок у&nbsp;них больше, но&nbsp;рейтинг ниже вашего. Сайт с&nbsp;ценами, отзывами и&nbsp;квизом сразу ставит вас на&nbsp;шаг впереди.</div>
+  </div>
+  <div class="card">
+    <span class="tag">реклама в&nbsp;вашей карточке</span>
+    <h3>«Бенедикт», международная школа языков</h3>
+    <p class="src">2ГИС: 4,8, 232 оценки · сайт benedict-kemerovo.ru · несколько филиалов</p>
+    <p>Шесть языков, онлайн и&nbsp;индивидуальные занятия, акция «Первоклассник» и&nbsp;запись на&nbsp;новый учебный год.</p>
+    <div class="why">Больше всего оценок из&nbsp;этих четырёх. Ваш&nbsp;ответ&nbsp;— то,&nbsp;что&nbsp;у&nbsp;сети сложно повторить: основатель, которую знают по&nbsp;телевидению, и&nbsp;прогресс ребёнка, который видно каждую четверть.</div>
+  </div>
+  <div class="card">
+    <span class="tag">реклама в&nbsp;вашей карточке</span>
+    <h3>«Клевер», английский и&nbsp;китайский</h3>
+    <p class="src">2ГИС: 5,0, 23 оценки · Октябрьский пр-т, 28 к3 · на&nbsp;Яндекс Картах английский от&nbsp;450&nbsp;₽ за&nbsp;академический час (карточка давно не&nbsp;обновлялась)</p>
+    <p>Прямой конкурент по&nbsp;китайскому: «Школа английского и&nbsp;китайского. Подготовка к&nbsp;ОГЭ, ЕГЭ, HSK. Онлайн».</p>
+    <div class="why">Тот&nbsp;же набор, но&nbsp;оценок почти в&nbsp;пять раз меньше, чем&nbsp;у&nbsp;вас. Отдельная страница китайского с&nbsp;вашим опытом жизни в&nbsp;Китае и&nbsp;отзывом про&nbsp;иероглифы забирает этот&nbsp;запрос.</div>
+  </div>
+  <div class="card">
+    <span class="tag">реклама в&nbsp;вашей карточке</span>
+    <h3>«Менар», образовательный центр</h3>
+    <p class="src">2ГИС: 4,8, 99 оценок · Ленинградский пр-т, 45а</p>
+    <p>Цепляет оплатой: «Материнский капитал на&nbsp;обучение в&nbsp;нашем центре: просто и&nbsp;быстро!»</p>
+    <div class="why">Если&nbsp;вы&nbsp;принимаете маткапитал&nbsp;— это&nbsp;стоит вынести на&nbsp;сайт рядом с&nbsp;рассрочкой. Если&nbsp;нет&nbsp;— рассрочка 0% закрывает тот&nbsp;же вопрос «дорого сразу».</div>
+  </div>
+  <div class="note"><strong>Кто на&nbsp;самом деле забирает поиск.</strong> Родители в&nbsp;Кемерово выбирают школу в&nbsp;2ГИС и&nbsp;на&nbsp;Яндекс Картах&nbsp;— и&nbsp;там,&nbsp;в&nbsp;вашей&nbsp;же карточке, им показывают конкурентов. С&nbsp;карты человек переходит на&nbsp;сайт, чтобы&nbsp;понять цены и&nbsp;программу. Если&nbsp;на&nbsp;сайте этого нет,&nbsp;он&nbsp;возвращается к&nbsp;списку&nbsp;— и&nbsp;следующей открывает рекламную школу со&nbsp;скидкой.</div>
+</section>
+
+<section>
+  <span class="sec-num">05 · Кто приходит</span>
+  <h2>Кто к&nbsp;вам приходит</h2>
+  <div class="seg"><span class="tag">главный поток</span>
+    <h3>Родители малышей 3–6 лет</h3>
+    <p>Хотят «полюбить язык с&nbsp;детства» и&nbsp;боятся, что&nbsp;ребёнок стеснительный. Вопрос к&nbsp;сайту: «Как&nbsp;проходит занятие и&nbsp;найдут&nbsp;ли подход к&nbsp;моему?»</p></div>
+  <div class="seg"><span class="tag">самый частый вопрос</span>
+    <h3>Родители школьников 1–8 класса</h3>
+    <p>Видят в&nbsp;соцсетях в&nbsp;основном малышей. Вопрос: «А&nbsp;вы&nbsp;обучаете школьников?» и&nbsp;«Поможет&nbsp;ли это&nbsp;со&nbsp;школьной программой?»</p></div>
+  <div class="seg"><span class="tag">высокий чек, срок</span>
+    <h3>Подростки 7–11 класса и&nbsp;их&nbsp;родители</h3>
+    <p>Нужны ОГЭ и&nbsp;ЕГЭ. Вопрос: «Сколько человек в&nbsp;группе, какая программа и&nbsp;сколько стоит?»</p></div>
+  <div class="seg"><span class="tag">сезон, весна</span>
+    <h3>Родители, ищущие лагерь</h3>
+    <p>Многие ещё&nbsp;не&nbsp;учатся у&nbsp;вас. Вопросы дословно из&nbsp;комментариев: «Какие даты смен? И&nbsp;какая цена?», «Это&nbsp;только для&nbsp;деток, кто знает английский?»</p></div>
+  <div class="seg"><span class="tag">канал рекомендаций</span>
+    <h3>Семьи, которые уже&nbsp;с&nbsp;вами</h3>
+    <p>Водят второго ребёнка, пересылают ссылку друзьям. Вопрос: «Куда&nbsp;скинуть подруге, чтобы&nbsp;она&nbsp;сама всё посмотрела?»</p></div>
+  <div class="seg"><span class="tag">свой запрос</span>
+    <h3>Взрослые</h3>
+    <p>Английский для&nbsp;работы, китайский, шахматы, школа речи. Вопрос: «Есть&nbsp;ли индивидуально и&nbsp;под&nbsp;мой&nbsp;график?»</p></div>
+</section>
+
+<section>
+  <span class="sec-num">06 · Логика сайта</span>
+  <h2>Что&nbsp;должен решать сайт</h2>
+  <ol class="tasks">
+    <li><b>Принимать родителя с&nbsp;карт.</b> Первым экраном&nbsp;— рейтинг 5,0, 113 оценок и&nbsp;«от&nbsp;500&nbsp;₽», чтобы&nbsp;человек из&nbsp;2ГИС сразу видел, что&nbsp;пришёл туда, куда&nbsp;надо.</li>
+    <li><b>Отвечать «а&nbsp;моему подойдёт?»</b> Выбор возраста на&nbsp;главной и&nbsp;квиз: ответил на&nbsp;несколько вопросов&nbsp;— видишь программу и&nbsp;цену.</li>
+    <li><b>Показывать цены.</b> Прайс по&nbsp;программам и&nbsp;годовой абонемент с&nbsp;рассрочкой&nbsp;— без&nbsp;звонка администратору.</li>
+    <li><b>Доказывать результат.</b> BeHappy Exams, ДЗ в&nbsp;чате, карта мотивации и&nbsp;отзывы родителей дословно.</li>
+    <li><b>Продавать лагерь весной.</b> Отдельная страница: смены, даты, цена, что&nbsp;включено и&nbsp;«знать английский не&nbsp;нужно».</li>
+    <li><b>Собирать заявку с&nbsp;нужными данными.</b> Возраст, филиал и&nbsp;смена в&nbsp;школе приходят администратору сразу&nbsp;— меньше переписки до&nbsp;первого занятия.</li>
+  </ol>
+</section>
+
+<section>
+  <span class="sec-num">07 · Прототип</span>
+  <h2>Чтобы&nbsp;не&nbsp;объяснять словами</h2>
+  <p>Я&nbsp;собрала прототип нового сайта на&nbsp;ваших данных: главная, каталог всех 15 направлений с&nbsp;фильтрами по&nbsp;возрасту и&nbsp;поиском, страница каждой программы и&nbsp;отдельная страница лагеря. На&nbsp;главной можно выбрать возраст ученика и&nbsp;сразу увидеть подходящие программы с&nbsp;ценами.</p>
+  <p>Отдельно&nbsp;— сайт-квиз для&nbsp;рекламы: родитель отвечает на&nbsp;5–6 вопросов (кого записываем, возраст, цель, филиал, смена в&nbsp;школе) и&nbsp;сразу видит подходящую программу с&nbsp;ценой. Прогресс квиза сделан как&nbsp;ваша карта мотивации с&nbsp;клеточками. Квиз можно ставить в&nbsp;рекламу ВКонтакте и&nbsp;в&nbsp;2ГИС отдельной ссылкой.</p>
+  <p>Дальше проще один раз открыть и&nbsp;посмотреть самой.</p>
+  <div class="cta">
+    <h3>Прототип сайта БиХэппи</h3>
+    <p>Открывается с&nbsp;компьютера и&nbsp;телефона, регистрация не&nbsp;нужна.</p>
+    <a class="btn" href="https://paharukova.github.io/prototipy/be-happy/">Открыть сайт</a>
+    <span class="url">paharukova.github.io/prototipy/be-happy</span>
+    <a class="btn" href="https://paharukova.github.io/prototipy/be-happy/kviz/">Открыть квиз</a>
+    <span class="url">paharukova.github.io/prototipy/be-happy/kviz</span>
+  </div>
+  <p class="sub">Честно: вместо фотографий пока заглушки&nbsp;— поставим ваши снимки. Цены взяты из&nbsp;2ГИС на&nbsp;16 сентября 2026, баллы BeHappy Exams показаны для&nbsp;примера, смены лагеря&nbsp;— летние 2026 года. Кнопки и&nbsp;формы ничего не&nbsp;отправляют&nbsp;— это&nbsp;демонстрация, а&nbsp;не&nbsp;готовый сайт.</p>
+</section>
+
+<section>
+  <span class="sec-num">08 · Чем&nbsp;зацепить</span>
+  <h2>Варианты, из&nbsp;которых можно выбрать</h2>
+  <div class="offer offer-main">
+    <span class="badge">заложено в&nbsp;прототип</span>
+    <h3>А.&nbsp;Подбор программы за&nbsp;минуту + пробное занятие</h3>
+    <p>Квиз на&nbsp;первом экране и&nbsp;отдельной ссылкой для&nbsp;рекламы. В&nbsp;конце&nbsp;— программа и&nbsp;цена, а&nbsp;администратор подбирает группу под&nbsp;смену в&nbsp;школе и&nbsp;зовёт на&nbsp;пробное. Опирается на&nbsp;то,&nbsp;что&nbsp;вы&nbsp;уже&nbsp;делаете: подбор направления и&nbsp;запись на&nbsp;пробное.</p>
+  </div>
+  <div class="offer">
+    <h3>Б. Бесплатный тест уровня BeHappy Exams</h3>
+    <p>Тестирование у&nbsp;вас уже&nbsp;есть. Его&nbsp;можно предложить новому ученику как&nbsp;первый шаг: ребёнок проходит тест, родитель получает отчёт по&nbsp;пяти навыкам и&nbsp;рекомендацию по&nbsp;группе.</p>
+  </div>
+  <div class="offer">
+    <h3>В.&nbsp;Ранняя бронь лагеря с&nbsp;весны</h3>
+    <p>Весной вы&nbsp;уже&nbsp;даёте цену раннего бронирования. На&nbsp;сайте это&nbsp;становится отдельной страницей с&nbsp;таймером до&nbsp;повышения цены и&nbsp;формой брони&nbsp;— без&nbsp;вопросов в&nbsp;комментариях.</p>
+  </div>
+  <div class="offer">
+    <h3>Г. «Приведи друга» для&nbsp;семей, которые с&nbsp;вами годами</h3>
+    <p>У&nbsp;вас много семей, которые ходят по&nbsp;3–6 лет. Подарок от&nbsp;центра за&nbsp;друга, который купил абонемент,&nbsp;— например, мерч BeHappy, который у&nbsp;вас уже&nbsp;есть.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="padding:0">
+    <p>Данные собраны 22 ноября 2026 года: карточки БиХэппи в&nbsp;2ГИС, сайт behappy42.ru, сообщество <a href="https://vk.ru/behappy_kemerovo">vk.ru/behappy_kemerovo</a>, карточки конкурентов в&nbsp;2ГИС и&nbsp;на&nbsp;Яндекс Картах.</p>
+    <p><b>Татьяна</b> — разработка сайтов для&nbsp;малого бизнеса. Прототип: paharukova.github.io/prototipy/be-happy · <a href="KP-БиХэппи.pdf">PDF-версия этого документа</a></p>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
